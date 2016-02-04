@@ -25,7 +25,7 @@
     <ManifestKeyFile>mRemoteV1_TemporaryKey.pfx</ManifestKeyFile>
     <GenerateManifests>true</GenerateManifests>
     <SignManifests>false</SignManifests>
-    <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -102,6 +102,10 @@
     <Reference Include="AxInterop.WFICALib">
       <HintPath>C:\Program Files (x86)\mRemoteNG\AxInterop.WFICALib.dll</HintPath>
     </Reference>
+    <Reference Include="AxMSTSCLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>References\AxMSTSCLib.dll</HintPath>
+    </Reference>
     <Reference Include="DiffieHellman, Version=0.0.0.0, Culture=neutral">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>References\DiffieHellman.dll</HintPath>
@@ -134,6 +138,11 @@
     <Reference Include="MiniTabControl, Version=1.0.3142.32770, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>References\MiniTabControl.dll</HintPath>
+    </Reference>
+    <Reference Include="MSTSCLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>References\MSTSCLib.dll</HintPath>
     </Reference>
     <Reference Include="Org.Mentalis.Security, Version=1.0.13.715, Culture=neutral">
       <SpecificVersion>False</SpecificVersion>
@@ -699,7 +708,9 @@
     <None Include="bin\Debug Portable\mRemoteNG.log" />
     <None Include="bin\Debug Portable\mRemoteNG.vshost.application" />
     <None Include="bin\Debug Portable\mRemoteNG.vshost.exe.config" />
-    <None Include="bin\Debug Portable\mRemoteNG.vshost.exe.manifest" />
+    <None Include="bin\Debug Portable\mRemoteNG.vshost.exe.manifest">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="bin\Debug Portable\portable.config" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
@@ -707,140 +718,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\Debug Portable\ADTree.dll" />
-    <Content Include="bin\Debug Portable\app.publish\mRemoteNG.exe" />
-    <Content Include="bin\Debug Portable\AxInterop.MSTSCLib.dll" />
-    <Content Include="bin\Debug Portable\AxInterop.WFICALib.dll" />
-    <Content Include="bin\Debug Portable\confCons.xml" />
-    <Content Include="bin\Debug Portable\de\mRemoteNG.resources.dll" />
-    <Content Include="bin\Debug Portable\DiffieHellman.dll" />
-    <Content Include="bin\Debug Portable\el\mRemoteNG.resources.dll" />
-    <Content Include="bin\Debug Portable\en-US\mRemoteNG.resources.dll" />
-    <Content Include="bin\Debug Portable\es-AR\mRemoteNG.resources.dll" />
-    <Content Include="bin\Debug Portable\es\mRemoteNG.resources.dll" />
-    <Content Include="bin\Debug Portable\extApps.xml" />
-    <Content Include="bin\Debug Portable\FilteredPropertyGrid.dll" />
-    <Content Include="bin\Debug Portable\fr\mRemoteNG.resources.dll" />
-    <Content Include="bin\Debug Portable\Help\CMDSwitches.htm" />
-    <Content Include="bin\Debug Portable\Help\Config.htm" />
-    <Content Include="bin\Debug Portable\Help\Configuration.htm" />
-    <Content Include="bin\Debug Portable\Help\ConfigurationSQL.htm" />
-    <Content Include="bin\Debug Portable\Help\Connection.htm" />
-    <Content Include="bin\Debug Portable\Help\Connections.htm" />
-    <Content Include="bin\Debug Portable\Help\ErrorsAndInfos.htm" />
-    <Content Include="bin\Debug Portable\Help\ExternalTools.htm" />
-    <Content Include="bin\Debug Portable\Help\ImportFromAD.htm" />
-    <Content Include="bin\Debug Portable\Help\Index.htm" />
-    <Content Include="bin\Debug Portable\Help\Installation.htm" />
-    <Content Include="bin\Debug Portable\Help\Introduction.htm" />
-    <Content Include="bin\Debug Portable\Help\Main.css" />
-    <Content Include="bin\Debug Portable\Help\MainMenu.htm" />
-    <Content Include="bin\Debug Portable\Help\Options.htm" />
-    <Content Include="bin\Debug Portable\Help\PortScan.htm" />
-    <Content Include="bin\Debug Portable\Help\Prerequisites.htm" />
-    <Content Include="bin\Debug Portable\Help\QuickConnect.htm" />
-    <Content Include="bin\Debug Portable\Help\QuickReference.htm" />
-    <Content Include="bin\Debug Portable\Help\SaveAsExport.htm" />
-    <Content Include="bin\Debug Portable\Help\ScreenshotManager.htm" />
-    <Content Include="bin\Debug Portable\Help\Screenshots\Configuration\01.png" />
-    <Content Include="bin\Debug Portable\Help\Screenshots\Configuration\02.png" />
-    <Content Include="bin\Debug Portable\Help\Screenshots\Configuration\03.png" />
-    <Content Include="bin\Debug Portable\Help\Screenshots\Configuration\04.png" />
-    <Content Include="bin\Debug Portable\Help\Screenshots\Configuration\05.png" />
-    <Content Include="bin\Debug Portable\Help\Screenshots\Configuration\06.png" />
-    <Content Include="bin\Debug Portable\Help\Screenshots\Configuration\07.png" />
-    <Content Include="bin\Debug Portable\Help\Screenshots\Configuration\08.png" />
-    <Content Include="bin\Debug Portable\Help\Screenshots\Configuration\09.png" />
-    <Content Include="bin\Debug Portable\Help\Screenshots\Configuration\10.png" />
-    <Content Include="bin\Debug Portable\Help\Screenshots\Configuration\11.png" />
-    <Content Include="bin\Debug Portable\Help\Screenshots\Configuration\12.png" />
-    <Content Include="bin\Debug Portable\Help\Screenshots\Configuration\13.png" />
-    <Content Include="bin\Debug Portable\Help\Screenshots\Configuration\14.png" />
-    <Content Include="bin\Debug Portable\Help\Screenshots\Configuration\15.png" />
-    <Content Include="bin\Debug Portable\Help\Screenshots\Configuration\16.png" />
-    <Content Include="bin\Debug Portable\Help\Screenshots\Configuration\17.png" />
-    <Content Include="bin\Debug Portable\Help\Screenshots\External Tools\01.png" />
-    <Content Include="bin\Debug Portable\Help\Screenshots\External Tools\02.png" />
-    <Content Include="bin\Debug Portable\Help\Screenshots\External Tools\03.png" />
-    <Content Include="bin\Debug Portable\Help\Screenshots\External Tools\04.png" />
-    <Content Include="bin\Debug Portable\Help\Screenshots\External Tools\05.png" />
-    <Content Include="bin\Debug Portable\Help\Screenshots\External Tools\06.png" />
-    <Content Include="bin\Debug Portable\Help\Screenshots\External Tools\07.png" />
-    <Content Include="bin\Debug Portable\Help\Screenshots\External Tools\08.png" />
-    <Content Include="bin\Debug Portable\Help\Screenshots\Main Menu\File.png" />
-    <Content Include="bin\Debug Portable\Help\Screenshots\Main Menu\Info.png" />
-    <Content Include="bin\Debug Portable\Help\Screenshots\Main Menu\QuickConnect.png" />
-    <Content Include="bin\Debug Portable\Help\Screenshots\Main Menu\Tools.png" />
-    <Content Include="bin\Debug Portable\Help\Screenshots\Main Menu\View.png" />
-    <Content Include="bin\Debug Portable\Help\Screenshots\Reference\01.png" />
-    <Content Include="bin\Debug Portable\Help\Sessions.htm" />
-    <Content Include="bin\Debug Portable\Help\SQLScript.txt" />
-    <Content Include="bin\Debug Portable\Help\SSHFileTransfer.htm" />
-    <Content Include="bin\Debug Portable\Help\Update.htm" />
-    <Content Include="bin\Debug Portable\hu\mRemoteNG.resources.dll" />
-    <Content Include="bin\Debug Portable\Icons\Anti Virus.ico" />
-    <Content Include="bin\Debug Portable\Icons\Backup.ico" />
-    <Content Include="bin\Debug Portable\Icons\Build Server.ico" />
-    <Content Include="bin\Debug Portable\Icons\Database.ico" />
-    <Content Include="bin\Debug Portable\Icons\Domain Controller.ico" />
-    <Content Include="bin\Debug Portable\Icons\ESX.ico" />
-    <Content Include="bin\Debug Portable\Icons\Fax.ico" />
-    <Content Include="bin\Debug Portable\Icons\File Server.ico" />
-    <Content Include="bin\Debug Portable\Icons\Finance.ico" />
-    <Content Include="bin\Debug Portable\Icons\Firewall.ico" />
-    <Content Include="bin\Debug Portable\Icons\Linux.ico" />
-    <Content Include="bin\Debug Portable\Icons\Log.ico" />
-    <Content Include="bin\Debug Portable\Icons\Mail Server.ico" />
-    <Content Include="bin\Debug Portable\Icons\mRemote.ico" />
-    <Content Include="bin\Debug Portable\Icons\mRemoteNG.ico" />
-    <Content Include="bin\Debug Portable\Icons\PuTTY.ico" />
-    <Content Include="bin\Debug Portable\Icons\Remote Desktop.ico" />
-    <Content Include="bin\Debug Portable\Icons\Router.ico" />
-    <Content Include="bin\Debug Portable\Icons\SharePoint.ico" />
-    <Content Include="bin\Debug Portable\Icons\SSH.ico" />
-    <Content Include="bin\Debug Portable\Icons\Switch.ico" />
-    <Content Include="bin\Debug Portable\Icons\Tel.ico" />
-    <Content Include="bin\Debug Portable\Icons\Telnet.ico" />
-    <Content Include="bin\Debug Portable\Icons\Terminal Server.ico" />
-    <Content Include="bin\Debug Portable\Icons\Test Server.ico" />
-    <Content Include="bin\Debug Portable\Icons\Virtual Machine.ico" />
-    <Content Include="bin\Debug Portable\Icons\Web Server.ico" />
-    <Content Include="bin\Debug Portable\Icons\WiFi.ico" />
-    <Content Include="bin\Debug Portable\Icons\Windows.ico" />
-    <Content Include="bin\Debug Portable\Icons\Workstation.ico" />
-    <Content Include="bin\Debug Portable\Interop.EOLWTSCOM.dll" />
-    <Content Include="bin\Debug Portable\Interop.MSTSCLib.dll" />
-    <Content Include="bin\Debug Portable\Interop.SHDocVw.dll" />
-    <Content Include="bin\Debug Portable\Interop.WFICALib.dll" />
-    <Content Include="bin\Debug Portable\IPTextBox.dll" />
-    <Content Include="bin\Debug Portable\it\mRemoteNG.resources.dll" />
-    <Content Include="bin\Debug Portable\log4net.dll" />
-    <Content Include="bin\Debug Portable\MagicLibrary.dll" />
-    <Content Include="bin\Debug Portable\MiniGeckoBrowser.dll" />
-    <Content Include="bin\Debug Portable\MiniTabControl.dll" />
-    <Content Include="bin\Debug Portable\mRemoteNG.exe" />
-    <Content Include="bin\Debug Portable\mRemoteNG.pdb" />
-    <Content Include="bin\Debug Portable\mRemoteNG.vshost.exe" />
-    <Content Include="bin\Debug Portable\nb-NO\mRemoteNG.resources.dll" />
-    <Content Include="bin\Debug Portable\nl\mRemoteNG.resources.dll" />
-    <Content Include="bin\Debug Portable\Org.Mentalis.Security.dll" />
-    <Content Include="bin\Debug Portable\pl\mRemoteNG.resources.dll" />
-    <Content Include="bin\Debug Portable\pnlLayout.xml" />
-    <Content Include="bin\Debug Portable\PSTaskDialog.dll" />
-    <Content Include="bin\Debug Portable\pt-BR\mRemoteNG.resources.dll" />
-    <Content Include="bin\Debug Portable\pt\mRemoteNG.resources.dll" />
-    <Content Include="bin\Debug Portable\ru\mRemoteNG.resources.dll" />
-    <Content Include="bin\Debug Portable\SharedLibraryNG.dll" />
-    <Content Include="bin\Debug Portable\SharedLibraryNG.pdb" />
-    <Content Include="bin\Debug Portable\Skybound.Gecko.dll" />
-    <Content Include="bin\Debug Portable\stdole.dll" />
-    <Content Include="bin\Debug Portable\Tamir.SharpSSH.dll" />
-    <Content Include="bin\Debug Portable\uk\mRemoteNG.resources.dll" />
-    <Content Include="bin\Debug Portable\VncSharpNG.dll" />
-    <Content Include="bin\Debug Portable\VncSharpNG.pdb" />
-    <Content Include="bin\Debug Portable\WeifenLuo.WinFormsUI.Docking.dll" />
-    <Content Include="bin\Debug Portable\zh-CN\mRemoteNG.resources.dll" />
-    <Content Include="bin\Debug Portable\zh-TW\mRemoteNG.resources.dll" />
     <Content Include="Help\CMDSwitches.htm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -1006,7 +883,6 @@
     <Content Include="Help\Update.htm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="obj\Debug Portable\AxInterop.MSTSCLib.dll" />
     <Content Include="obj\Debug Portable\de\mRemoteNG.resources.dll" />
     <Content Include="obj\Debug Portable\el\mRemoteNG.resources.dll" />
     <Content Include="obj\Debug Portable\en-US\mRemoteNG.resources.dll" />
@@ -1015,12 +891,10 @@
     <Content Include="obj\Debug Portable\fr\mRemoteNG.resources.dll" />
     <Content Include="obj\Debug Portable\hu\mRemoteNG.resources.dll" />
     <Content Include="obj\Debug Portable\Interop.EOLWTSCOM.dll" />
-    <Content Include="obj\Debug Portable\Interop.MSTSCLib.dll" />
     <Content Include="obj\Debug Portable\Interop.SHDocVw.dll" />
     <Content Include="obj\Debug Portable\it\mRemoteNG.resources.dll" />
     <Content Include="obj\Debug Portable\mRemoteNG.exe" />
     <Content Include="obj\Debug Portable\mRemoteNG.pdb" />
-    <Content Include="obj\Debug Portable\mRemoteV1.vbproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug Portable\nb-NO\mRemoteNG.resources.dll" />
     <Content Include="obj\Debug Portable\nl\mRemoteNG.resources.dll" />
     <Content Include="obj\Debug Portable\pl\mRemoteNG.resources.dll" />
@@ -1031,6 +905,7 @@
     <Content Include="obj\Debug Portable\zh-CN\mRemoteNG.resources.dll" />
     <Content Include="obj\Debug Portable\zh-TW\mRemoteNG.resources.dll" />
     <Content Include="References\ADTree.dll" />
+    <Content Include="References\AxMSTSCLib.dll" />
     <Content Include="References\DiffieHellman.dll" />
     <Content Include="References\FilteredPropertyGrid.dll" />
     <Content Include="References\IPTextBox.dll" />
@@ -1038,6 +913,7 @@
     <Content Include="References\MagicLibrary.dll" />
     <Content Include="References\MiniGeckoBrowser.dll" />
     <Content Include="References\MiniTabControl.dll" />
+    <Content Include="References\MSTSCLib.dll" />
     <Content Include="References\Org.Mentalis.Security.dll" />
     <Content Include="References\PSTaskDialog.dll" />
     <Content Include="References\Skybound.Gecko.dll" />
@@ -1053,7 +929,9 @@
     <None Include="obj\Debug Portable\DesignTimeResolveAssemblyReferences.cache" />
     <None Include="obj\Debug Portable\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Debug Portable\mRemoteNG.application" />
-    <None Include="obj\Debug Portable\mRemoteNG.exe.manifest" />
+    <None Include="obj\Debug Portable\mRemoteNG.exe.manifest">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="obj\Debug Portable\mRemoteV1.vbproj.GenerateResource.Cache" />
     <None Include="obj\Debug Portable\mRemoteV1.vbproj.ResolveComReference.cache" />
     <None Include="obj\Debug Portable\mRemoteV1.vbprojResolveAssemblyReference.cache" />
@@ -1363,24 +1241,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="AxMSTSCLib">
-      <Guid>{8C11EFA1-92C3-11D1-BC1E-00C04FA31489}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>aximp</WrapperTool>
-      <Isolated>False</Isolated>
-    </COMReference>
     <COMReference Include="EOLWTSCOM">
       <Guid>{96C3FA7A-3211-4D93-BFEA-4589DA4ABDE2}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-    </COMReference>
-    <COMReference Include="MSTSCLib">
-      <Guid>{8C11EFA1-92C3-11D1-BC1E-00C04FA31489}</Guid>
       <VersionMajor>1</VersionMajor>
       <VersionMinor>0</VersionMinor>
       <Lcid>0</Lcid>

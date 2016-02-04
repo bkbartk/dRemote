@@ -57,7 +57,6 @@ echo Signing binaries...
 	"%~dp0\mRemoteV1\bin\Release\uk\mRemoteNG.resources.dll" ^
 	"%~dp0\mRemoteV1\bin\Release\zh-CN\mRemoteNG.resources.dll" ^
 	"%~dp0\mRemoteV1\bin\Release\zh-TW\mRemoteNG.resources.dll" ^
-	"%~dp0\mRemoteV1\bin\Release\AxInterop.MSTSCLib.dll" ^
 	"%~dp0\mRemoteV1\bin\Release\AxInterop.WFICALib.dll" ^
 	"%~dp0\mRemoteV1\bin\Release\Interop.EOLWTSCOM.dll" ^
 	"%~dp0\mRemoteV1\bin\Release\Interop.MSTSCLib.dll" ^
@@ -81,7 +80,6 @@ echo Signing binaries...
 	"%~dp0\mRemoteV1\bin\Release Portable\uk\mRemoteNG.resources.dll" ^
 	"%~dp0\mRemoteV1\bin\Release Portable\zh-CN\mRemoteNG.resources.dll" ^
 	"%~dp0\mRemoteV1\bin\Release Portable\zh-TW\mRemoteNG.resources.dll" ^
-	"%~dp0\mRemoteV1\bin\Release Portable\AxInterop.MSTSCLib.dll" ^
 	"%~dp0\mRemoteV1\bin\Release Portable\AxInterop.WFICALib.dll" ^
 	"%~dp0\mRemoteV1\bin\Release Portable\Interop.EOLWTSCOM.dll" ^
 	"%~dp0\mRemoteV1\bin\Release Portable\Interop.MSTSCLib.dll" ^

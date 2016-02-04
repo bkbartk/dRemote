@@ -120,8 +120,8 @@ Public Class frmMain
 
         Tree.Node.TreeView = Windows.treeForm.tvConnections
 
-        If My.Settings.FirstStart And _
-                Not My.Settings.LoadConsFromCustomLocation And _
+        If My.Settings.FirstStart And
+                Not My.Settings.LoadConsFromCustomLocation And
                 Not IO.File.Exists(GetStartupConnectionFileName()) Then
             NewConnections(GetStartupConnectionFileName())
         End If
@@ -299,9 +299,9 @@ Public Class frmMain
                 End If
             Next
 
-            If openConnections > 0 And _
-                    (My.Settings.ConfirmCloseConnection = ConfirmClose.All Or _
-                    (My.Settings.ConfirmCloseConnection = ConfirmClose.Multiple And openConnections > 1) Or _
+            If openConnections > 0 And
+                    (My.Settings.ConfirmCloseConnection = ConfirmClose.All Or
+                    (My.Settings.ConfirmCloseConnection = ConfirmClose.Multiple And openConnections > 1) Or
                      My.Settings.ConfirmCloseConnection = ConfirmClose.Exit) Then
                 Dim result As DialogResult = cTaskDialog.MessageBox(Me, My.Application.Info.ProductName, My.Language.strConfirmExitMainInstruction, "", "", "", My.Language.strCheckboxDoNotShowThisMessageAgain, eTaskDialogButtons.YesNo, eSysIcons.Question, Nothing)
                 If cTaskDialog.VerificationChecked Then
@@ -373,7 +373,7 @@ Public Class frmMain
     Private Sub tsExtAppEntry_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Dim extA As Tools.ExternalTool = sender.Tag
 
-        If Tree.Node.GetNodeType(Tree.Node.SelectedNode) = Tree.Node.Type.Connection Or _
+        If Tree.Node.GetNodeType(Tree.Node.SelectedNode) = Tree.Node.Type.Connection Or
            Tree.Node.GetNodeType(Tree.Node.SelectedNode) = Tree.Node.Type.PuttySession Then
             extA.Start(Tree.Node.SelectedNode.Tag)
         Else
@@ -810,7 +810,7 @@ Public Class frmMain
 
                     toolStripMenuItem.DropDownItems.Add(menuItem)
                     AddNodeToMenu(treeNode.Nodes, menuItem)
-                ElseIf Tree.Node.GetNodeType(treeNode) = Tree.Node.Type.Connection Or _
+                ElseIf Tree.Node.GetNodeType(treeNode) = Tree.Node.Type.Connection Or
                        Tree.Node.GetNodeType(treeNode) = Tree.Node.Type.PuttySession Then
                     menuItem.Image = Windows.treeForm.imgListTree.Images(treeNode.ImageIndex)
                     menuItem.Tag = treeNode.Tag

@@ -1,11 +1,11 @@
 Imports System.Windows.Forms
 Imports System.Threading
-Imports AxMSTSCLib
 Imports EOLWTSCOM
 Imports System.ComponentModel
 Imports mRemoteNG.Messages
 Imports mRemoteNG.App.Runtime
 Imports mRemoteNG.Tools.LocalizedAttributes
+Imports AxMSTSCLib
 Imports MSTSCLib
 
 Namespace Connection
@@ -54,7 +54,7 @@ Namespace Connection
 #End Region
 
 #Region "Private Declarations"
-            Private _rdpClient As MsRdpClient5NotSafeForScripting
+            Private _rdpClient As MSTSCLib.MsRdpClient9NotSafeForScripting
             Private _rdpVersion As Version
             Private _connectionInfo As Info
             Private _loginComplete As Boolean
@@ -62,7 +62,7 @@ Namespace Connection
 
 #Region "Public Methods"
             Public Sub New()
-                Control = New AxMsRdpClient5NotSafeForScripting
+                Control = New AxMsRdpClient9NotSafeForScripting
             End Sub
 
             Public Overrides Function SetProps() As Boolean
@@ -78,7 +78,7 @@ Namespace Connection
                             System.Windows.Forms.Application.DoEvents()
                         Loop
 
-                        _rdpClient = CType(Control, AxMsRdpClient5NotSafeForScripting).GetOcx()
+                        _rdpClient = CType(Control, AxMsRdpClient9NotSafeForScripting).GetOcx()
                     Catch ex As Runtime.InteropServices.COMException
                         MessageCollector.AddExceptionMessage(My.Language.strRdpControlCreationFailed, ex)
                         Control.Dispose()
@@ -107,7 +107,6 @@ Namespace Connection
                     If _rdpVersion >= Versions.RDC61 Then
                         _rdpClient.AdvancedSettings7.EnableCredSspSupport = _connectionInfo.UseCredSsp
                     End If
-
                     Me.SetUseConsoleSession()
                     Me.SetPort()
                     RedirectKeys = _connectionInfo.RedirectKeys
@@ -220,7 +219,7 @@ Namespace Connection
 
                 If Not InterfaceControl.Info.AutomaticResize Then Return
 
-                If Not (InterfaceControl.Info.Resolution = RDPResolutions.FitToWindow Or _
+                If Not (InterfaceControl.Info.Resolution = RDPResolutions.FitToWindow Or
                         InterfaceControl.Info.Resolution = RDPResolutions.Fullscreen) Then Return
 
                 If SmartSize Then Return
@@ -232,8 +231,8 @@ Namespace Connection
                     size = Screen.FromControl(Control).Bounds.Size
                 End If
 
-                Dim msRdpClient8 As IMsRdpClient8 = _rdpClient
-                msRdpClient8.Reconnect(size.Width, size.Height)
+                Dim msRdpClient As IMsRdpClient9 = _rdpClient
+                msRdpClient.Reconnect(size.Width, size.Height)
             End Sub
 
             Private Sub SetRdGateway()
@@ -427,7 +426,16 @@ Namespace Connection
             Private Sub SetLoadBalanceInfo()
                 If String.IsNullOrEmpty(_connectionInfo.LoadBalanceInfo) Then Return
                 Try
-                    _rdpClient.AdvancedSettings2.LoadBalanceInfo = _connectionInfo.LoadBalanceInfo
+
+                    Dim temp As String = _connectionInfo.LoadBalanceInfo
+                    If temp.Length Mod 2 = 1 Then
+                        temp += " "
+                    End If
+                    temp += vbCr & vbLf
+                    Dim b As Byte() = System.Text.Encoding.UTF8.GetBytes(temp)
+                    Dim newLBI As String = System.Text.Encoding.Unicode.GetString(b)
+                    _rdpClient.AdvancedSettings2.LoadBalanceInfo = newLBI
+
                 Catch ex As Exception
                     MessageCollector.AddExceptionMessage("Unable to set load balance info.", ex)
                 End Try
@@ -502,115 +510,115 @@ Namespace Connection
             End Enum
 
             Public Enum RDPColors
-                <LocalizedDescription("strRDP256Colors")> _
+                <LocalizedDescription("strRDP256Colors")>
                 Colors256 = 8
-                <LocalizedDescription("strRDP32768Colors")> _
+                <LocalizedDescription("strRDP32768Colors")>
                 Colors15Bit = 15
-                <LocalizedDescription("strRDP65536Colors")> _
+                <LocalizedDescription("strRDP65536Colors")>
                 Colors16Bit = 16
-                <LocalizedDescription("strRDP16777216Colors")> _
+                <LocalizedDescription("strRDP16777216Colors")>
                 Colors24Bit = 24
-                <LocalizedDescription("strRDP4294967296Colors")> _
+                <LocalizedDescription("strRDP4294967296Colors")>
                 Colors32Bit = 32
             End Enum
 
             Public Enum RDPSounds
-                <LocalizedDescription("strRDPSoundBringToThisComputer")> _
+                <LocalizedDescription("strRDPSoundBringToThisComputer")>
                 BringToThisComputer = 0
-                <LocalizedDescription("strRDPSoundLeaveAtRemoteComputer")> _
+                <LocalizedDescription("strRDPSoundLeaveAtRemoteComputer")>
                 LeaveAtRemoteComputer = 1
-                <LocalizedDescription("strRDPSoundDoNotPlay")> _
+                <LocalizedDescription("strRDPSoundDoNotPlay")>
                 DoNotPlay = 2
             End Enum
 
             Private Enum RDPPerformanceFlags
-                <Description("strRDPDisableWallpaper")> _
+                <Description("strRDPDisableWallpaper")>
                 DisableWallpaper = &H1
-                <Description("strRDPDisableFullWindowdrag")> _
+                <Description("strRDPDisableFullWindowdrag")>
                 DisableFullWindowDrag = &H2
-                <Description("strRDPDisableMenuAnimations")> _
+                <Description("strRDPDisableMenuAnimations")>
                 DisableMenuAnimations = &H4
-                <Description("strRDPDisableThemes")> _
+                <Description("strRDPDisableThemes")>
                 DisableThemes = &H8
-                <Description("strRDPDisableCursorShadow")> _
+                <Description("strRDPDisableCursorShadow")>
                 DisableCursorShadow = &H20
-                <Description("strRDPDisableCursorblinking")> _
+                <Description("strRDPDisableCursorblinking")>
                 DisableCursorBlinking = &H40
-                <Description("strRDPEnableFontSmoothing")> _
+                <Description("strRDPEnableFontSmoothing")>
                 EnableFontSmoothing = &H80
-                <Description("strRDPEnableDesktopComposition")> _
+                <Description("strRDPEnableDesktopComposition")>
                 EnableDesktopComposition = &H100
             End Enum
 
             Public Enum RDPResolutions
-                <LocalizedDescription("strRDPFitToPanel")> _
+                <LocalizedDescription("strRDPFitToPanel")>
                 FitToWindow
-                <LocalizedDescription("strFullscreen")> _
+                <LocalizedDescription("strFullscreen")>
                 Fullscreen
-                <LocalizedDescription("strRDPSmartSize")> _
+                <LocalizedDescription("strRDPSmartSize")>
                 SmartSize
-                <Description("640x480")> _
+                <Description("640x480")>
                 Res640x480
-                <Description("800x600")> _
+                <Description("800x600")>
                 Res800x600
-                <Description("1024x768")> _
+                <Description("1024x768")>
                 Res1024x768
-                <Description("1152x864")> _
+                <Description("1152x864")>
                 Res1152x864
-                <Description("1280x800")> _
+                <Description("1280x800")>
                 Res1280x800
-                <Description("1280x1024")> _
+                <Description("1280x1024")>
                 Res1280x1024
-                <Description("1400x1050")> _
+                <Description("1400x1050")>
                 Res1400x1050
-                <Description("1440x900")> _
+                <Description("1440x900")>
                 Res1440x900
-                <Description("1600x1024")> _
+                <Description("1600x1024")>
                 Res1600x1024
-                <Description("1600x1200")> _
+                <Description("1600x1200")>
                 Res1600x1200
-                <Description("1600x1280")> _
+                <Description("1600x1280")>
                 Res1600x1280
-                <Description("1680x1050")> _
+                <Description("1680x1050")>
                 Res1680x1050
-                <Description("1900x1200")> _
+                <Description("1900x1200")>
                 Res1900x1200
-                <Description("1920x1200")> _
+                <Description("1920x1200")>
                 Res1920x1200
-                <Description("2048x1536")> _
+                <Description("2048x1536")>
                 Res2048x1536
-                <Description("2560x2048")> _
+                <Description("2560x2048")>
                 Res2560x2048
-                <Description("3200x2400")> _
+                <Description("3200x2400")>
                 Res3200x2400
-                <Description("3840x2400")> _
+                <Description("3840x2400")>
                 Res3840x2400
             End Enum
 
             Public Enum AuthenticationLevel
-                <LocalizedDescription("strAlwaysConnectEvenIfAuthFails")> _
+                <LocalizedDescription("strAlwaysConnectEvenIfAuthFails")>
                 NoAuth = 0
-                <LocalizedDescription("strDontConnectWhenAuthFails")> _
+                <LocalizedDescription("strDontConnectWhenAuthFails")>
                 AuthRequired = 1
-                <LocalizedDescription("strWarnIfAuthFails")> _
+                <LocalizedDescription("strWarnIfAuthFails")>
                 WarnOnFailedAuth = 2
             End Enum
 
             Public Enum RDGatewayUsageMethod
-                <LocalizedDescription("strNever")> _
+                <LocalizedDescription("strNever")>
                 Never = 0 ' TSC_PROXY_MODE_NONE_DIRECT
-                <LocalizedDescription("strAlways")> _
+                <LocalizedDescription("strAlways")>
                 Always = 1 ' TSC_PROXY_MODE_DIRECT
-                <LocalizedDescription("strDetect")> _
+                <LocalizedDescription("strDetect")>
                 Detect = 2 ' TSC_PROXY_MODE_DETECT
             End Enum
 
             Public Enum RDGatewayUseConnectionCredentials
-                <LocalizedDescription("strUseDifferentUsernameAndPassword")> _
+                <LocalizedDescription("strUseDifferentUsernameAndPassword")>
                 No = 0
-                <LocalizedDescription("strUseSameUsernameAndPassword")> _
+                <LocalizedDescription("strUseSameUsernameAndPassword")>
                 Yes = 1
-                <LocalizedDescription("strUseSmartCard")> _
+                <LocalizedDescription("strUseSmartCard")>
                 SmartCard = 2
             End Enum
 #End Region
@@ -618,8 +626,8 @@ Namespace Connection
 #Region "Resolution"
             Public Shared Function GetResolutionRectangle(ByVal resolution As RDPResolutions) As Rectangle
                 Dim resolutionParts() As String = Nothing
-                If Not resolution = RDPResolutions.FitToWindow And _
-                   Not resolution = RDPResolutions.Fullscreen And _
+                If Not resolution = RDPResolutions.FitToWindow And
+                   Not resolution = RDPResolutions.Fullscreen And
                    Not resolution = RDPResolutions.SmartSize Then
                     resolutionParts = resolution.ToString.Replace("Res", "").Split("x")
                 End If
@@ -770,16 +778,16 @@ Namespace Connection
 
 #Region "Fatal Errors"
             Public Class FatalErrors
-                Protected Shared _description() As String = { _
-                    0 = My.Language.strRdpErrorUnknown, _
-                    1 = My.Language.strRdpErrorCode1, _
-                    2 = My.Language.strRdpErrorOutOfMemory, _
-                    3 = My.Language.strRdpErrorWindowCreation, _
-                    4 = My.Language.strRdpErrorCode2, _
-                    5 = My.Language.strRdpErrorCode3, _
-                    6 = My.Language.strRdpErrorCode4, _
-                    7 = My.Language.strRdpErrorConnection, _
-                    100 = My.Language.strRdpErrorWinsock _
+                Protected Shared _description() As String = {
+                    0 = My.Language.strRdpErrorUnknown,
+                    1 = My.Language.strRdpErrorCode1,
+                    2 = My.Language.strRdpErrorOutOfMemory,
+                    3 = My.Language.strRdpErrorWindowCreation,
+                    4 = My.Language.strRdpErrorCode2,
+                    5 = My.Language.strRdpErrorCode3,
+                    6 = My.Language.strRdpErrorCode4,
+                    7 = My.Language.strRdpErrorConnection,
+                    100 = My.Language.strRdpErrorWinsock
                 }
 
                 Public Shared Function GetError(ByVal id As String) As String

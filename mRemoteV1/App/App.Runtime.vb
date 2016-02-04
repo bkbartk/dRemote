@@ -1438,6 +1438,7 @@ Namespace App
                     End If
                 End If
 
+                'Dim newProtocol As Protocol.Base
                 Dim newProtocol As Protocol.Base
                 ' Create connection based on protocol type
                 Select Case newConnectionInfo.Protocol
