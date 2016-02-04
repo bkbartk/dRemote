@@ -139,11 +139,11 @@ Public Class frmMain
             Windows.Show(UI.Window.Type.ComponentsCheck)
         End If
 
-#If PORTABLE Then
-        mMenInfoAnnouncements.Visible = False
-        mMenToolsUpdate.Visible = False
-        mMenInfoSep2.Visible = False
-#End If
+        '#If PORTABLE Then
+        '        mMenInfoAnnouncements.Visible = False
+        '        mMenToolsUpdate.Visible = False
+        '        mMenInfoSep2.Visible = False
+        '#End If
 
         Startup.CreateSQLUpdateHandlerAndStartTimer()
 
@@ -153,6 +153,9 @@ Public Class frmMain
         Me.Opacity = 1
 
         KeyboardShortcuts.RequestKeyNotifications(Handle)
+
+        'GoToURL(App.Info.General.URLDonate)
+        GoToURL(App.Info.General.Advertising)
     End Sub
 
     Private Sub ApplyLanguage()
