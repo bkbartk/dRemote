@@ -1,4 +1,4 @@
-﻿Imports mRemoteNG.App.Runtime
+﻿Imports dRemote.App.Runtime
 
 Namespace Controls
     Public Class QuickConnectComboBox

@@ -1,4 +1,4 @@
-﻿Imports mRemoteNG.My
+﻿Imports dRemote.My
 
 Namespace Config.Putty
     Public MustInherit Class Provider

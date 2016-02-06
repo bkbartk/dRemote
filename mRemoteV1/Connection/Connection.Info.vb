@@ -1,8 +1,8 @@
 Imports System.Windows.Forms
 Imports System.ComponentModel
-Imports mRemoteNG.Tools.LocalizedAttributes
-Imports mRemoteNG.App.Runtime
-Imports mRemoteNG.Config
+Imports dRemote.Tools.LocalizedAttributes
+Imports dRemote.App.Runtime
+Imports dRemote.Config
 Imports System.Reflection
 
 Namespace Connection

@@ -1,11 +1,11 @@
 ﻿Imports System.ComponentModel
-Imports mRemoteNG.Forms
-Imports mRemoteNG.Config
+Imports dRemote.Forms
+Imports dRemote.Config
 Imports log4net
-Imports mRemoteNG.Messages
-Imports mRemoteNG.Connection
-Imports mRemoteNG.Tools
-Imports mRemoteNG.Forms.OptionsPages
+Imports dRemote.Messages
+Imports dRemote.Connection
+Imports dRemote.Tools
+Imports dRemote.Forms.OptionsPages
 Imports PSTaskDialog
 Imports WeifenLuo.WinFormsUI.Docking
 Imports System.IO
@@ -177,7 +177,7 @@ Namespace App
             End Set
         End Property
 
-        Private Shared _defaultConnection As mRemoteNG.Connection.Info
+        Private Shared _defaultConnection As dRemote.Connection.Info
         Public Shared Property DefaultConnection() As Connection.Info
             Get
                 Return _defaultConnection
@@ -187,7 +187,7 @@ Namespace App
             End Set
         End Property
 
-        Private Shared _defaultInheritance As mRemoteNG.Connection.Info.Inheritance
+        Private Shared _defaultInheritance As dRemote.Connection.Info.Inheritance
         Public Shared Property DefaultInheritance() As Connection.Info.Inheritance
             Get
                 Return _defaultInheritance
@@ -736,8 +736,8 @@ Namespace App
 #End Region
 
 #Region "Default Connection"
-        Public Shared Function DefaultConnectionFromSettings() As mRemoteNG.Connection.Info
-            DefaultConnection = New mRemoteNG.Connection.Info
+        Public Shared Function DefaultConnectionFromSettings() As dRemote.Connection.Info
+            DefaultConnection = New dRemote.Connection.Info
             DefaultConnection.IsDefault = True
 
             Return DefaultConnection
@@ -799,8 +799,8 @@ Namespace App
 #End Region
 
 #Region "Default Inheritance"
-        Public Shared Function DefaultInheritanceFromSettings() As mRemoteNG.Connection.Info.Inheritance
-            DefaultInheritance = New mRemoteNG.Connection.Info.Inheritance(Nothing)
+        Public Shared Function DefaultInheritanceFromSettings() As dRemote.Connection.Info.Inheritance
+            DefaultInheritance = New dRemote.Connection.Info.Inheritance(Nothing)
             DefaultInheritance.IsDefault = True
 
             Return DefaultInheritance
@@ -1326,7 +1326,7 @@ Namespace App
 #Region "Opening Connection"
         Public Shared Function CreateQuickConnect(ByVal connectionString As String, ByVal protocol As Protocol.Protocols) As Connection.Info
             Try
-                Dim uri As New Uri("dummyscheme" & uri.SchemeDelimiter & connectionString)
+                Dim uri As New Uri("dummyscheme" & Uri.SchemeDelimiter & connectionString)
 
                 If String.IsNullOrEmpty(uri.Host) Then Return Nothing
 
@@ -1362,18 +1362,18 @@ Namespace App
             End Try
         End Sub
 
-        Public Shared Sub OpenConnection(ByVal Force As mRemoteNG.Connection.Info.Force)
+        Public Shared Sub OpenConnection(ByVal Force As dRemote.Connection.Info.Force)
             Try
                 If Windows.treeForm.tvConnections.SelectedNode.Tag Is Nothing Then
                     Exit Sub
                 End If
 
-                If Tree.Node.GetNodeType(Tree.Node.SelectedNode) = Tree.Node.Type.Connection Or _
+                If Tree.Node.GetNodeType(Tree.Node.SelectedNode) = Tree.Node.Type.Connection Or
                    Tree.Node.GetNodeType(Tree.Node.SelectedNode) = Tree.Node.Type.PuttySession Then
                     OpenConnection(Windows.treeForm.tvConnections.SelectedNode.Tag, Force)
                 ElseIf Tree.Node.GetNodeType(Tree.Node.SelectedNode) = Tree.Node.Type.Container Then
                     For Each tNode As TreeNode In Tree.Node.SelectedNode.Nodes
-                        If Tree.Node.GetNodeType(tNode) = Tree.Node.Type.Connection Or _
+                        If Tree.Node.GetNodeType(tNode) = Tree.Node.Type.Connection Or
                            Tree.Node.GetNodeType(Tree.Node.SelectedNode) = Tree.Node.Type.PuttySession Then
                             If tNode.Tag IsNot Nothing Then
                                 OpenConnection(tNode.Tag, Force)
@@ -1386,7 +1386,7 @@ Namespace App
             End Try
         End Sub
 
-        Public Shared Sub OpenConnection(ByVal ConnectionInfo As mRemoteNG.Connection.Info)
+        Public Shared Sub OpenConnection(ByVal ConnectionInfo As dRemote.Connection.Info)
             Try
                 OpenConnection(ConnectionInfo, Connection.Info.Force.None)
             Catch ex As Exception
@@ -1394,7 +1394,7 @@ Namespace App
             End Try
         End Sub
 
-        Public Shared Sub OpenConnection(ByVal ConnectionInfo As mRemoteNG.Connection.Info, ByVal ConnectionForm As System.Windows.Forms.Form)
+        Public Shared Sub OpenConnection(ByVal ConnectionInfo As dRemote.Connection.Info, ByVal ConnectionForm As System.Windows.Forms.Form)
             Try
                 OpenConnectionFinal(ConnectionInfo, Connection.Info.Force.None, ConnectionForm)
             Catch ex As Exception
@@ -1402,7 +1402,7 @@ Namespace App
             End Try
         End Sub
 
-        Public Shared Sub OpenConnection(ByVal ConnectionInfo As mRemoteNG.Connection.Info, ByVal ConnectionForm As System.Windows.Forms.Form, ByVal Force As Connection.Info.Force)
+        Public Shared Sub OpenConnection(ByVal ConnectionInfo As dRemote.Connection.Info, ByVal ConnectionForm As System.Windows.Forms.Form, ByVal Force As Connection.Info.Force)
             Try
                 OpenConnectionFinal(ConnectionInfo, Force, ConnectionForm)
             Catch ex As Exception
@@ -1410,7 +1410,7 @@ Namespace App
             End Try
         End Sub
 
-        Public Shared Sub OpenConnection(ByVal ConnectionInfo As mRemoteNG.Connection.Info, ByVal Force As mRemoteNG.Connection.Info.Force)
+        Public Shared Sub OpenConnection(ByVal ConnectionInfo As dRemote.Connection.Info, ByVal Force As dRemote.Connection.Info.Force)
             Try
                 OpenConnectionFinal(ConnectionInfo, Force, Nothing)
             Catch ex As Exception
@@ -1418,7 +1418,7 @@ Namespace App
             End Try
         End Sub
 
-        Private Shared Sub OpenConnectionFinal(ByVal newConnectionInfo As mRemoteNG.Connection.Info, ByVal Force As mRemoteNG.Connection.Info.Force, ByVal ConForm As System.Windows.Forms.Form)
+        Private Shared Sub OpenConnectionFinal(ByVal newConnectionInfo As dRemote.Connection.Info, ByVal Force As dRemote.Connection.Info.Force, ByVal ConForm As System.Windows.Forms.Form)
             Try
                 If newConnectionInfo.Hostname = "" And newConnectionInfo.Protocol <> Connection.Protocol.Protocols.IntApp Then
                     MessageCollector.AddMessage(Messages.MessageClass.WarningMsg, My.Language.strConnectionOpenFailedNoHostname)
@@ -1554,7 +1554,7 @@ Namespace App
         End Sub
 
         Public Shared Function SwitchToOpenConnection(ByVal nCi As Connection.Info) As Boolean
-            Dim IC As mRemoteNG.Connection.InterfaceControl = FindConnectionContainer(nCi)
+            Dim IC As dRemote.Connection.InterfaceControl = FindConnectionContainer(nCi)
 
             If IC IsNot Nothing Then
                 TryCast(IC.FindForm, UI.Window.Connection).Focus()
@@ -1617,7 +1617,7 @@ Namespace App
         End Sub
 
         Public Shared Sub Prot_Event_Connected(ByVal sender As Object)
-            Dim prot As mRemoteNG.Connection.Protocol.Base = sender
+            Dim prot As dRemote.Connection.Protocol.Base = sender
 
             MessageCollector.AddMessage(Messages.MessageClass.InformationMsg, My.Language.strConnectionEventConnected, True)
             MessageCollector.AddMessage(Messages.MessageClass.ReportMsg, String.Format(My.Language.strConnectionEventConnectedDetail, prot.InterfaceControl.Info.Hostname, prot.InterfaceControl.Info.Protocol.ToString, My.User.Name, prot.InterfaceControl.Info.Description, prot.InterfaceControl.Info.UserField))
@@ -1654,7 +1654,7 @@ Namespace App
 
 #Region "Misc"
         Public Shared Sub GoToURL(ByVal URL As String)
-            Dim cI As New mRemoteNG.Connection.Info
+            Dim cI As New dRemote.Connection.Info
 
             cI.Name = ""
             cI.Hostname = URL
@@ -1666,7 +1666,7 @@ Namespace App
             cI.SetDefaultPort()
             cI.IsQuickConnect = True
 
-            App.Runtime.OpenConnection(cI, mRemoteNG.Connection.Info.Force.DoNotJump)
+            App.Runtime.OpenConnection(cI, dRemote.Connection.Info.Force.DoNotJump)
         End Sub
 
         Public Shared Sub GoToWebsite()

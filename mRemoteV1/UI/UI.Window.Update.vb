@@ -1,8 +1,8 @@
 Imports System.ComponentModel
-Imports mRemoteNG.My
+Imports dRemote.My
 Imports WeifenLuo.WinFormsUI.Docking
 Imports System.IO
-Imports mRemoteNG.App.Runtime
+Imports dRemote.App.Runtime
 
 Namespace UI
     Namespace Window

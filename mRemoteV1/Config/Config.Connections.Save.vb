@@ -2,9 +2,9 @@ Imports System.Windows.Forms
 Imports System.Xml
 Imports System.IO
 Imports System.Globalization
-Imports mRemoteNG.App.Runtime
+Imports dRemote.App.Runtime
 Imports System.Data.SqlClient
-Imports mRemoteNG.Tools.Misc
+Imports dRemote.Tools.Misc
 
 Namespace Config
     Namespace Connections
@@ -140,8 +140,8 @@ Namespace Config
 
                 Dim strProtected As String
                 If tN.Tag IsNot Nothing Then
-                    If TryCast(tN.Tag, mRemoteNG.Root.Info).Password = True Then
-                        _password = TryCast(tN.Tag, mRemoteNG.Root.Info).PasswordString
+                    If TryCast(tN.Tag, dRemote.Root.Info).Password = True Then
+                        _password = TryCast(tN.Tag, dRemote.Root.Info).PasswordString
                         strProtected = Security.Crypt.Encrypt("ThisIsProtected", _password)
                     Else
                         strProtected = Security.Crypt.Encrypt("ThisIsNotProtected", _password)

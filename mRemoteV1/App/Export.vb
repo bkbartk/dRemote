@@ -1,5 +1,5 @@
-﻿Imports mRemoteNG.Forms
-Imports mRemoteNG.App.Runtime
+﻿Imports dRemote.Forms
+Imports dRemote.App.Runtime
 
 Namespace App
     Public Class Export

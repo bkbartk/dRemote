@@ -1,5 +1,5 @@
 Imports System.Windows.Forms
-Imports mRemoteNG.App.Runtime
+Imports dRemote.App.Runtime
 Imports System.DirectoryServices
 
 Namespace Tree
@@ -48,9 +48,9 @@ Namespace Tree
         Public Shared Function GetConstantID(ByVal node As TreeNode) As String
             Select Case GetNodeType(node)
                 Case Type.Connection
-                    Return TryCast(node.Tag, mRemoteNG.Connection.Info).ConstantID
+                    Return TryCast(node.Tag, dRemote.Connection.Info).ConstantID
                 Case Type.Container
-                    Return TryCast(node.Tag, mRemoteNG.Container.Info).ConnectionInfo.ConstantID
+                    Return TryCast(node.Tag, dRemote.Container.Info).ConnectionInfo.ConstantID
             End Select
 
             Return Nothing
@@ -313,7 +313,7 @@ Namespace Tree
                     Else
                         'Get this node's object data.
                         If GetNodeType(old_node) = Type.Connection Then
-                            tTip.SetToolTip(_TreeView, TryCast(old_node.Tag, mRemoteNG.Connection.Info).Description)
+                            tTip.SetToolTip(_TreeView, TryCast(old_node.Tag, dRemote.Connection.Info).Description)
                         End If
                     End If
                 End If

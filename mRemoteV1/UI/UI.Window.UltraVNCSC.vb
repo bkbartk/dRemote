@@ -1,5 +1,5 @@
 ﻿Imports WeifenLuo.WinFormsUI.Docking
-Imports mRemoteNG.App.Runtime
+Imports dRemote.App.Runtime
 
 Namespace UI
     Namespace Window
@@ -53,7 +53,7 @@ Namespace UI
                 Me.ClientSize = New System.Drawing.Size(446, 362)
                 Me.Controls.Add(Me.pnlContainer)
                 Me.Controls.Add(Me.tsMain)
-                Me.Icon = Global.mRemoteNG.My.Resources.UVNC_SC_Icon
+                Me.Icon = Global.dRemote.My.Resources.UVNC_SC_Icon
                 Me.Name = "UltraVNCSC"
                 Me.TabText = "UltraVNC SC"
                 Me.Text = "UltraVNC SC"

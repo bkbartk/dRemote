@@ -1,7 +1,7 @@
 ﻿Imports System.ComponentModel
-Imports mRemoteNG.Config.Connections
-Imports mRemoteNG.App
-Imports mRemoteNG.My
+Imports dRemote.Config.Connections
+Imports dRemote.App
+Imports dRemote.My
 
 Namespace Forms
     Public Class ExportForm
@@ -244,9 +244,9 @@ Namespace Forms
             Public Overrides Function ToString() As String
                 Select Case Format
                     Case Config.Connections.Save.Format.mRXML
-                        Return Language.strMremoteNgXml
+                        Return Language.strdRemoteXml
                     Case Config.Connections.Save.Format.mRCSV
-                        Return Language.strMremoteNgCsv
+                        Return Language.strdRemoteCsv
                     Case Config.Connections.Save.Format.vRDCSV
                         Return Language.strVisionAppRemoteDesktopCsv
                     Case Else

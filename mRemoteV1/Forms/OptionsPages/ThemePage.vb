@@ -1,6 +1,6 @@
 ﻿Imports System.ComponentModel
-Imports mRemoteNG.My
-Imports mRemoteNG.Themes
+Imports dRemote.My
+Imports dRemote.Themes
 
 Namespace Forms.OptionsPages
     Public Class ThemePage

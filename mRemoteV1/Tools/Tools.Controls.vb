@@ -1,5 +1,5 @@
 Imports System.Windows.Forms
-Imports mRemoteNG.App.Runtime
+Imports dRemote.App.Runtime
 
 Namespace Tools
     Public Class Controls

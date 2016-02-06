@@ -1,7 +1,7 @@
-﻿Imports mRemoteNG.Tools.PortScan
-Imports mRemoteNG.My
+﻿Imports dRemote.Tools.PortScan
+Imports dRemote.My
 Imports WeifenLuo.WinFormsUI.Docking
-Imports mRemoteNG.App.Runtime
+Imports dRemote.App.Runtime
 
 Namespace UI
     Namespace Window
@@ -81,7 +81,7 @@ Namespace UI
             End Sub
 
             Private Sub btnImport_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles btnImport.Click
-                Dim protocol As mRemoteNG.Connection.Protocol.Protocols = Tools.Misc.StringToEnum(GetType(mRemoteNG.Connection.Protocol.Protocols), cbProtocol.SelectedItem)
+                Dim protocol As dRemote.Connection.Protocol.Protocols = Tools.Misc.StringToEnum(GetType(dRemote.Connection.Protocol.Protocols), cbProtocol.SelectedItem)
 
                 Dim hosts As New List(Of ScanHost)
                 For Each item As ListViewItem In lvHosts.SelectedItems

@@ -1,6 +1,6 @@
-Imports mRemoteNG.App.Runtime
+Imports dRemote.App.Runtime
 Imports System.ComponentModel
-Imports mRemoteNG.Tools.LocalizedAttributes
+Imports dRemote.Tools.LocalizedAttributes
 
 Namespace Connection
     Namespace Protocol
@@ -207,7 +207,7 @@ Namespace Connection
                 Try
                     AddHandler VNC.ConnectComplete, AddressOf VNCEvent_Connected
                     AddHandler VNC.ConnectionLost, AddressOf VNCEvent_Disconnected
-                    AddHandler mRemoteNG.frmMain.clipboardchange, AddressOf VNCEvent_ClipboardChanged
+                    AddHandler dRemote.frmMain.clipboardchange, AddressOf VNCEvent_ClipboardChanged
                     If Not ((Force And Info.Force.NoCredentials) = Info.Force.NoCredentials) And Not String.IsNullOrEmpty(Info.Password) Then
                         VNC.GetPassword = AddressOf VNCEvent_Authenticate
                     End If

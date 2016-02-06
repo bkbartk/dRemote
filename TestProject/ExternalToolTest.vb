@@ -1,7 +1,7 @@
 ﻿Imports Microsoft.VisualStudio.TestTools.UnitTesting
 
-Imports mRemoteNG.Tools
-Imports mRemoteNG.Connection.PuttySession
+Imports dRemote.Tools
+Imports dRemote.Connection.PuttySession
 
 
 '''<summary>
@@ -47,7 +47,7 @@ Public Class ExternalToolTest
     '''A test for ParseArguments
     '''</summary>
     <TestMethod(), _
-     DeploymentItem("mRemoteNG.exe")> _
+     DeploymentItem("dRemote.exe")> _
     Public Sub ParseArgumentsTest()
         Dim externalTool As New ExternalTool
 

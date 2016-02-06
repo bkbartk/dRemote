@@ -1,6 +1,6 @@
 ﻿Imports System.IO
 Imports System.ComponentModel
-Imports mRemoteNG.My
+Imports dRemote.My
 
 Namespace Themes
     Public Class ThemeManager

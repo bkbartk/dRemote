@@ -1,5 +1,5 @@
-﻿Imports mRemoteNG.App
-Imports mRemoteNG.My
+﻿Imports dRemote.App
+Imports dRemote.My
 
 Namespace Forms.OptionsPages
     Public Class AppearancePage

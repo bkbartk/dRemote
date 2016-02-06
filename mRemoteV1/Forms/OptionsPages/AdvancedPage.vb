@@ -1,8 +1,8 @@
 ﻿Imports System.IO
-Imports mRemoteNG.App.Info
-Imports mRemoteNG.My
-Imports mRemoteNG.Connection.Protocol
-Imports mRemoteNG.Tools
+Imports dRemote.App.Info
+Imports dRemote.My
+Imports dRemote.Connection.Protocol
+Imports dRemote.Tools
 Imports PSTaskDialog
 
 Namespace Forms.OptionsPages

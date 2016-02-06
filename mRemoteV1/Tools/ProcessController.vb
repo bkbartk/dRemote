@@ -1,6 +1,6 @@
 ﻿Imports System.Runtime.InteropServices
 Imports System.Text
-Imports mRemoteNG.My
+Imports dRemote.My
 
 Namespace Tools
     Public Class ProcessController

@@ -1,6 +1,6 @@
 ﻿Imports WeifenLuo.WinFormsUI.Docking
 Imports System.IO
-Imports mRemoteNG.App.Runtime
+Imports dRemote.App.Runtime
 Imports System.Threading
 
 Namespace UI
@@ -415,7 +415,7 @@ Namespace UI
                 Me.Controls.Add(Me.pnlChecks)
                 Me.Controls.Add(Me.chkAlwaysShow)
                 Me.Controls.Add(Me.btnCheckAgain)
-                Me.Icon = Global.mRemoteNG.My.Resources.Resources.ComponentsCheck_Icon
+                Me.Icon = Global.dRemote.My.Resources.Resources.ComponentsCheck_Icon
                 Me.Name = "ComponentsCheck"
                 Me.TabText = "Components Check"
                 Me.Text = "Components Check"
@@ -500,8 +500,8 @@ Namespace UI
                         System.Windows.Forms.Application.DoEvents()
                     Loop
 
-                    If Not New Version(rdpClient.Version) >= mRemoteNG.Connection.Protocol.RDP.Versions.RDC60 Then
-                        Throw New Exception(String.Format("Found RDC Client version {0} but version {1} or higher is required.", rdpClient.Version, mRemoteNG.Connection.Protocol.RDP.Versions.RDC60))
+                    If Not New Version(rdpClient.Version) >= dRemote.Connection.Protocol.RDP.Versions.RDC60 Then
+                        Throw New Exception(String.Format("Found RDC Client version {0} but version {1} or higher is required.", rdpClient.Version, dRemote.Connection.Protocol.RDP.Versions.RDC60))
                     End If
 
                     pbCheck1.Image = My.Resources.Good_Symbol

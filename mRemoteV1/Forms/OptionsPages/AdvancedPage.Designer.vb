@@ -52,7 +52,7 @@
             Me.chkWriteLogFile.Name = "chkWriteLogFile"
             Me.chkWriteLogFile.Size = New System.Drawing.Size(171, 17)
             Me.chkWriteLogFile.TabIndex = 17
-            Me.chkWriteLogFile.Text = "Write log file (mRemoteNG.log)"
+            Me.chkWriteLogFile.Text = "Write log file (dRemote.log)"
             Me.chkWriteLogFile.UseVisualStyleBackColor = True
             '
             'chkAutomaticallyGetSessionInfo
@@ -171,7 +171,7 @@
             '
             'btnLaunchPutty
             '
-            Me.btnLaunchPutty.Image = Global.mRemoteNG.My.Resources.Resources.PuttyConfig
+            Me.btnLaunchPutty.Image = Global.dRemote.My.Resources.Resources.PuttyConfig
             Me.btnLaunchPutty.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
             Me.btnLaunchPutty.Location = New System.Drawing.Point(373, 149)
             Me.btnLaunchPutty.Name = "btnLaunchPutty"

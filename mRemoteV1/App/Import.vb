@@ -1,7 +1,7 @@
 ﻿Imports System.Windows.Forms
 Imports System.IO
-Imports mRemoteNG.My
-Imports mRemoteNG.App.Runtime
+Imports dRemote.My
+Imports dRemote.App.Runtime
 Imports PSTaskDialog
 
 Namespace App
@@ -35,7 +35,7 @@ Namespace App
                         Try
                             Select Case DetermineFileType(fileName)
                                 Case FileType.mRemoteXml
-                                    Config.Import.mRemoteNG.Import(fileName, parentTreeNode)
+                                    Config.Import.dRemote.Import(fileName, parentTreeNode)
                                 Case FileType.RemoteDesktopConnection
                                     Config.Import.RemoteDesktopConnection.Import(fileName, parentTreeNode)
                                 Case FileType.RemoteDesktopConnectionManager

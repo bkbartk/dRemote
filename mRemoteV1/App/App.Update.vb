@@ -2,7 +2,7 @@
 Imports System.Net
 Imports System.ComponentModel
 Imports System.Threading
-Imports mRemoteNG.Tools
+Imports dRemote.Tools
 Imports System.Reflection
 
 Namespace App

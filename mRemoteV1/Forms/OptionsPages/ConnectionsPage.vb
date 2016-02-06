@@ -1,7 +1,7 @@
-﻿Imports mRemoteNG.My
-Imports mRemoteNG.Config
-Imports mRemoteNG.App.Info
-Imports mRemoteNG.Security
+﻿Imports dRemote.My
+Imports dRemote.Config
+Imports dRemote.App.Info
+Imports dRemote.Security
 
 Namespace Forms.OptionsPages
     Public Class ConnectionsPage

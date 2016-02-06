@@ -30,17 +30,17 @@
                 '
                 'sessionMenuRetrieve
                 '
-                Me.sessionMenuRetrieve.Image = Global.mRemoteNG.My.Resources.Resources.Refresh
+                Me.sessionMenuRetrieve.Image = Global.dRemote.My.Resources.Resources.Refresh
                 Me.sessionMenuRetrieve.Name = "sessionMenuRetrieve"
                 Me.sessionMenuRetrieve.Size = New System.Drawing.Size(152, 22)
                 Me.sessionMenuRetrieve.Text = "Retrieve"
                 '
                 'sessionMenuLogoff
                 '
-                Me.sessionMenuLogoff.Image = Global.mRemoteNG.My.Resources.Resources.Session_LogOff
+                Me.sessionMenuLogoff.Image = Global.dRemote.My.Resources.Resources.Session_LogOff
                 Me.sessionMenuLogoff.Name = "sessionMenuLogoff"
                 Me.sessionMenuLogoff.Size = New System.Drawing.Size(152, 22)
-                Me.sessionMenuLogoff.Text = Global.mRemoteNG.My.Language.strLogOff
+                Me.sessionMenuLogoff.Text = Global.dRemote.My.Language.strLogOff
                 '
                 'sessionList
                 '
@@ -64,16 +64,16 @@
                 '
                 'sessionUsernameColumn
                 '
-                Me.sessionUsernameColumn.Text = Global.mRemoteNG.My.Language.strColumnUsername
+                Me.sessionUsernameColumn.Text = Global.dRemote.My.Language.strColumnUsername
                 Me.sessionUsernameColumn.Width = 80
                 '
                 'sessionActivityColumn
                 '
-                Me.sessionActivityColumn.Text = Global.mRemoteNG.My.Language.strActivity
+                Me.sessionActivityColumn.Text = Global.dRemote.My.Language.strActivity
                 '
                 'sessionTypeColumn
                 '
-                Me.sessionTypeColumn.Text = Global.mRemoteNG.My.Language.strType
+                Me.sessionTypeColumn.Text = Global.dRemote.My.Language.strType
                 Me.sessionTypeColumn.Width = 80
                 '
                 'Sessions
@@ -84,7 +84,7 @@
                 Me.HideOnClose = True
                 Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
                 Me.Name = "Sessions"
-                Me.TabText = Global.mRemoteNG.My.Language.strMenuSessions
+                Me.TabText = Global.dRemote.My.Language.strMenuSessions
                 Me.Text = "Sessions"
                 sessionMenu.ResumeLayout(False)
                 Me.ResumeLayout(False)

@@ -2,7 +2,7 @@
 Imports Tamir.SharpSsh
 Imports System.IO
 Imports System.Threading
-Imports mRemoteNG.App.Runtime
+Imports dRemote.App.Runtime
 
 Namespace UI
     Namespace Window
@@ -261,7 +261,7 @@ Namespace UI
                 '
                 Me.btnTransfer.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
                 Me.btnTransfer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-                Me.btnTransfer.Image = Global.mRemoteNG.My.Resources.Resources.SSHTransfer
+                Me.btnTransfer.Image = Global.dRemote.My.Resources.Resources.SSHTransfer
                 Me.btnTransfer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
                 Me.btnTransfer.Location = New System.Drawing.Point(597, 382)
                 Me.btnTransfer.Name = "btnTransfer"

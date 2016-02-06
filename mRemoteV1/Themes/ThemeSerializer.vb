@@ -19,7 +19,7 @@ Namespace Themes
 
             xmlTextWriter.WriteStartDocument()
 
-            xmlTextWriter.WriteStartElement("mRemoteNG")
+            xmlTextWriter.WriteStartElement("dRemote")
 
             xmlTextWriter.WriteStartElement("FileInfo")
             xmlTextWriter.WriteAttributeString("Version", "1.0")
@@ -46,7 +46,7 @@ Namespace Themes
                 xmlTextWriter.WriteEndElement() ' Theme
             Next
 
-            xmlTextWriter.WriteEndElement() ' mRemoteNG
+            xmlTextWriter.WriteEndElement() ' dRemote
 
             xmlTextWriter.Close()
 
@@ -58,7 +58,7 @@ Namespace Themes
             Dim xmlDocument As New XmlDocument()
             xmlDocument.Load(filename)
 
-            Dim fileInfoNode As XmlNode = xmlDocument.SelectSingleNode("/mRemoteNG/FileInfo")
+            Dim fileInfoNode As XmlNode = xmlDocument.SelectSingleNode("/dRemote/FileInfo")
             Dim fileInfoVersion As New Version(fileInfoNode.Attributes("Version").Value)
             If fileInfoVersion > New Version(1, 0) Then
                 Throw New FileFormatException(String.Format("Unsupported FileInfo version ({0}).", fileInfoVersion))
@@ -75,7 +75,7 @@ Namespace Themes
                 Throw New FileFormatException(String.Format("Unsupported FileTypeVersion ({0}).", fileTypeVersion))
             End If
 
-            Dim themeNodes As XmlNodeList = xmlDocument.SelectNodes("/mRemoteNG/Theme")
+            Dim themeNodes As XmlNodeList = xmlDocument.SelectNodes("/dRemote/Theme")
             Dim themes As New List(Of ThemeInfo)
             Dim themeInfo As ThemeInfo
             Dim themeType As Type = (New ThemeInfo).GetType()

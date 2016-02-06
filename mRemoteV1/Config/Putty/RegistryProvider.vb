@@ -1,8 +1,8 @@
 ﻿Imports System.Management
-Imports mRemoteNG.App
-Imports mRemoteNG.Messages
+Imports dRemote.App
+Imports dRemote.Messages
 Imports Microsoft.Win32
-Imports mRemoteNG.Connection.Protocol
+Imports dRemote.Connection.Protocol
 Imports System.Security.Principal
 
 Namespace Config.Putty

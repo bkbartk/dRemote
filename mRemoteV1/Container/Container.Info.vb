@@ -1,6 +1,6 @@
 Imports System.Windows.Forms
 Imports System.ComponentModel
-Imports mRemoteNG.Tools.LocalizedAttributes
+Imports dRemote.Tools.LocalizedAttributes
 
 Namespace Container
     <DefaultProperty("Name")> _

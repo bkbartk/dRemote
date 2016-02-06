@@ -29,8 +29,8 @@
             Me.btnCancel = New System.Windows.Forms.Button()
             Me.lblStatus = New System.Windows.Forms.Label()
             Me.pbLock = New System.Windows.Forms.PictureBox()
-            Me.txtVerify = New mRemoteNG.Controls.TextBox()
-            Me.txtPassword = New mRemoteNG.Controls.TextBox()
+            Me.txtVerify = New dRemote.Controls.TextBox()
+            Me.txtPassword = New dRemote.Controls.TextBox()
             CType(Me.pbLock, System.ComponentModel.ISupportInitialize).BeginInit()
             Me.SuspendLayout()
             '
@@ -59,7 +59,7 @@
             Me.btnOK.Name = "btnOK"
             Me.btnOK.Size = New System.Drawing.Size(75, 23)
             Me.btnOK.TabIndex = 7
-            Me.btnOK.Text = Global.mRemoteNG.My.Language.strButtonOK
+            Me.btnOK.Text = Global.dRemote.My.Language.strButtonOK
             Me.btnOK.UseVisualStyleBackColor = True
             '
             'btnCancel
@@ -70,7 +70,7 @@
             Me.btnCancel.Name = "btnCancel"
             Me.btnCancel.Size = New System.Drawing.Size(75, 23)
             Me.btnCancel.TabIndex = 6
-            Me.btnCancel.Text = Global.mRemoteNG.My.Language.strButtonCancel
+            Me.btnCancel.Text = Global.dRemote.My.Language.strButtonCancel
             Me.btnCancel.UseVisualStyleBackColor = True
             '
             'lblStatus
@@ -88,7 +88,7 @@
             '
             'pbLock
             '
-            Me.pbLock.Image = Global.mRemoteNG.My.Resources.Resources.Lock
+            Me.pbLock.Image = Global.dRemote.My.Resources.Resources.Lock
             Me.pbLock.Location = New System.Drawing.Point(12, 12)
             Me.pbLock.Name = "pbLock"
             Me.pbLock.Size = New System.Drawing.Size(64, 64)

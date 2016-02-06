@@ -1,10 +1,10 @@
 ﻿Imports System.ComponentModel
-Imports mRemoteNG.My
-Imports mRemoteNG.App
-Imports mRemoteNG.App.Info
-Imports mRemoteNG.Security
-Imports mRemoteNG.Tools
-Imports mRemoteNG.UI.Window
+Imports dRemote.My
+Imports dRemote.App
+Imports dRemote.App.Info
+Imports dRemote.Security
+Imports dRemote.Tools
+Imports dRemote.UI.Window
 Imports PSTaskDialog
 
 Namespace Forms.OptionsPages

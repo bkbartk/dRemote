@@ -2,9 +2,9 @@ Imports System.Windows.Forms
 Imports System.Threading
 Imports EOLWTSCOM
 Imports System.ComponentModel
-Imports mRemoteNG.Messages
-Imports mRemoteNG.App.Runtime
-Imports mRemoteNG.Tools.LocalizedAttributes
+Imports dRemote.Messages
+Imports dRemote.App.Runtime
+Imports dRemote.Tools.LocalizedAttributes
 Imports AxMSTSCLib
 Imports MSTSCLib
 

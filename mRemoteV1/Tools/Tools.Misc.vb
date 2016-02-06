@@ -3,8 +3,8 @@ Imports System.ComponentModel
 Imports System.Runtime.InteropServices
 Imports System.Collections.Specialized
 Imports System.Text.RegularExpressions
-Imports mRemoteNG.Forms
-Imports mRemoteNG.App.Runtime
+Imports dRemote.Forms
+Imports dRemote.App.Runtime
 Imports System.IO
 Imports System.Data.SqlClient
 

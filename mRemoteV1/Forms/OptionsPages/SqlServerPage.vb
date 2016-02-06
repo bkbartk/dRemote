@@ -1,7 +1,7 @@
-﻿Imports mRemoteNG.My
-Imports mRemoteNG.App
-Imports mRemoteNG.App.Info
-Imports mRemoteNG.Security
+﻿Imports dRemote.My
+Imports dRemote.App
+Imports dRemote.App.Info
+Imports dRemote.Security
 
 Namespace Forms.OptionsPages
     Public Class SqlServerPage

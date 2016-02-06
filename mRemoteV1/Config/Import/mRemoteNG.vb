@@ -1,9 +1,9 @@
 ﻿Imports System.IO
-Imports mRemoteNG.App.Runtime
+Imports dRemote.App.Runtime
 
 Namespace Config.Import
     ' ReSharper disable once InconsistentNaming
-    Public Class mRemoteNG
+    Public Class dRemote
         Public Shared Sub Import(ByVal fileName As String, ByVal parentTreeNode As TreeNode)
             Dim name As String = Path.GetFileNameWithoutExtension(fileName)
             Dim treeNode As New TreeNode(name)

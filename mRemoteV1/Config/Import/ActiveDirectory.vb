@@ -1,7 +1,7 @@
 ﻿Imports System.DirectoryServices
-Imports mRemoteNG.App.Runtime
+Imports dRemote.App.Runtime
 Imports System.Text.RegularExpressions
-Imports mRemoteNG.My
+Imports dRemote.My
 
 Namespace Config.Import
     Public Class ActiveDirectory

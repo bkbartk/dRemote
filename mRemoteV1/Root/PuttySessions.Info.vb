@@ -1,5 +1,5 @@
-﻿Imports mRemoteNG.My
-Imports mRemoteNG.Tools.LocalizedAttributes
+﻿Imports dRemote.My
+Imports dRemote.Tools.LocalizedAttributes
 
 Namespace Root
     Namespace PuttySessions

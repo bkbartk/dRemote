@@ -1,9 +1,9 @@
 ﻿Imports System.ComponentModel
-Imports mRemoteNG.Messages
-Imports mRemoteNG.Tools.LocalizedAttributes
-Imports mRemoteNG.My
-Imports mRemoteNG.App.Runtime
-Imports mRemoteNG.Tools
+Imports dRemote.Messages
+Imports dRemote.Tools.LocalizedAttributes
+Imports dRemote.My
+Imports dRemote.App.Runtime
+Imports dRemote.Tools
 
 Namespace Connection
     Namespace PuttySession

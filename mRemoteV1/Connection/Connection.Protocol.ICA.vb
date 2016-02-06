@@ -1,7 +1,7 @@
-﻿Imports mRemoteNG.App.Runtime
+﻿Imports dRemote.App.Runtime
 Imports System.Threading
 Imports AxWFICALib
-Imports mRemoteNG.Tools.LocalizedAttributes
+Imports dRemote.Tools.LocalizedAttributes
 
 Namespace Connection
     Namespace Protocol

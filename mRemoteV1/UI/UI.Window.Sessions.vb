@@ -1,7 +1,7 @@
 ﻿Imports System.Threading
-Imports mRemoteNG.My
+Imports dRemote.My
 Imports WeifenLuo.WinFormsUI.Docking
-Imports mRemoteNG.App.Runtime
+Imports dRemote.App.Runtime
 
 Namespace UI
     Namespace Window
@@ -27,11 +27,11 @@ Namespace UI
                 End If
 
                 Try
-                    Dim connectionInfo As mRemoteNG.Connection.Info = TryCast(mRemoteNG.Tree.Node.SelectedNode.Tag, mRemoteNG.Connection.Info)
+                    Dim connectionInfo As dRemote.Connection.Info = TryCast(dRemote.Tree.Node.SelectedNode.Tag, dRemote.Connection.Info)
                     If connectionInfo Is Nothing Then Return
 
-                    If Not (connectionInfo.Protocol = mRemoteNG.Connection.Protocol.Protocols.RDP Or _
-                            connectionInfo.Protocol = mRemoteNG.Connection.Protocol.Protocols.ICA) Then Return
+                    If Not (connectionInfo.Protocol = dRemote.Connection.Protocol.Protocols.RDP Or _
+                            connectionInfo.Protocol = dRemote.Connection.Protocol.Protocols.ICA) Then Return
 
                     Dim data As New BackgroundData
                     With data
@@ -70,10 +70,10 @@ Namespace UI
             Public Sub KillSession()
                 If sessionList.SelectedItems.Count = 0 Then Return
 
-                Dim connectionInfo As mRemoteNG.Connection.Info = TryCast(mRemoteNG.Tree.Node.SelectedNode.Tag, mRemoteNG.Connection.Info)
+                Dim connectionInfo As dRemote.Connection.Info = TryCast(dRemote.Tree.Node.SelectedNode.Tag, dRemote.Connection.Info)
                 If connectionInfo Is Nothing Then Return
 
-                If Not connectionInfo.Protocol = mRemoteNG.Connection.Protocol.Protocols.RDP Then Return
+                If Not connectionInfo.Protocol = dRemote.Connection.Protocol.Protocols.RDP Then Return
 
                 For Each lvItem As ListViewItem In sessionList.SelectedItems
                     KillSession(connectionInfo.Hostname, connectionInfo.Username, connectionInfo.Password, connectionInfo.Domain, lvItem.Tag)
@@ -123,7 +123,7 @@ Namespace UI
                 If data Is Nothing Then Return
 
                 Dim impersonator As New Security.Impersonator
-                Dim terminalSessions As New mRemoteNG.Connection.Protocol.RDP.TerminalSessions
+                Dim terminalSessions As New dRemote.Connection.Protocol.RDP.TerminalSessions
                 Dim serverHandle As Long = 0
                 Try
                     With data
@@ -149,9 +149,9 @@ Namespace UI
             End Sub
 
             ' Get sessions from an already impersonated and connected TerminalSessions object
-            Private Sub GetSessions(ByVal terminalSessions As mRemoteNG.Connection.Protocol.RDP.TerminalSessions, ByVal serverHandle As Long)
-                Dim rdpSessions As mRemoteNG.Connection.Protocol.RDP.SessionsCollection = terminalSessions.GetSessions(serverHandle)
-                For Each session As mRemoteNG.Connection.Protocol.RDP.Session In rdpSessions
+            Private Sub GetSessions(ByVal terminalSessions As dRemote.Connection.Protocol.RDP.TerminalSessions, ByVal serverHandle As Long)
+                Dim rdpSessions As dRemote.Connection.Protocol.RDP.SessionsCollection = terminalSessions.GetSessions(serverHandle)
+                For Each session As dRemote.Connection.Protocol.RDP.Session In rdpSessions
                     Dim item As New ListViewItem
                     item.Tag = session.SessionId
                     item.Text = session.SessionUser
@@ -166,7 +166,7 @@ Namespace UI
                 If data Is Nothing Then Return
 
                 Dim impersonator As New Security.Impersonator
-                Dim terminalSessions As New mRemoteNG.Connection.Protocol.RDP.TerminalSessions
+                Dim terminalSessions As New dRemote.Connection.Protocol.RDP.TerminalSessions
                 Dim serverHandle As Long = 0
                 Try
                     With data
@@ -217,11 +217,11 @@ Namespace UI
             End Sub
 
             Private Sub menuSession_Opening(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs)
-                Dim connectionInfo As mRemoteNG.Connection.Info
-                If (mRemoteNG.Tree.Node.TreeView Is Nothing OrElse mRemoteNG.Tree.Node.SelectedNode Is Nothing) Then
+                Dim connectionInfo As dRemote.Connection.Info
+                If (dRemote.Tree.Node.TreeView Is Nothing OrElse dRemote.Tree.Node.SelectedNode Is Nothing) Then
                     connectionInfo = Nothing
                 Else
-                    connectionInfo = TryCast(mRemoteNG.Tree.Node.SelectedNode.Tag, mRemoteNG.Connection.Info)
+                    connectionInfo = TryCast(dRemote.Tree.Node.SelectedNode.Tag, dRemote.Connection.Info)
                 End If
 
                 If connectionInfo Is Nothing Then
@@ -231,14 +231,14 @@ Namespace UI
                     Return
                 End If
 
-                If connectionInfo.Protocol = mRemoteNG.Connection.Protocol.Protocols.RDP And sessionList.SelectedItems.Count > 0 Then
+                If connectionInfo.Protocol = dRemote.Connection.Protocol.Protocols.RDP And sessionList.SelectedItems.Count > 0 Then
                     sessionMenuLogoff.Enabled = True
                 Else
                     sessionMenuLogoff.Enabled = False
                 End If
 
-                If connectionInfo.Protocol = mRemoteNG.Connection.Protocol.Protocols.RDP Or _
-                   connectionInfo.Protocol = mRemoteNG.Connection.Protocol.Protocols.ICA Then
+                If connectionInfo.Protocol = dRemote.Connection.Protocol.Protocols.RDP Or _
+                   connectionInfo.Protocol = dRemote.Connection.Protocol.Protocols.ICA Then
                     sessionMenuRetrieve.Enabled = True
                 Else
                     sessionMenuRetrieve.Enabled = False

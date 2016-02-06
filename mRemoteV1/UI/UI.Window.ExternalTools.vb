@@ -1,7 +1,7 @@
-﻿Imports mRemoteNG.App
+﻿Imports dRemote.App
 Imports WeifenLuo.WinFormsUI.Docking
-Imports mRemoteNG.App.Runtime
-Imports mRemoteNG.My
+Imports dRemote.App.Runtime
+Imports dRemote.My
 
 Namespace UI
     Namespace Window
@@ -28,7 +28,7 @@ Namespace UI
             End Sub
 
             Private Shared Sub ExternalTools_FormClosed(sender As System.Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
-                mRemoteNG.Config.Settings.Save.SaveExternalAppsToXML()
+                dRemote.Config.Settings.Save.SaveExternalAppsToXML()
             End Sub
 
             Private Sub NewTool_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles NewToolMenuItem.Click, NewToolToolstripButton.Click

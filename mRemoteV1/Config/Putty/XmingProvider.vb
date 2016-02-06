@@ -1,7 +1,7 @@
 ﻿Imports System.IO
-Imports mRemoteNG.App
-Imports mRemoteNG.Messages
-Imports mRemoteNG.Connection.Protocol
+Imports dRemote.App
+Imports dRemote.Messages
+Imports dRemote.Connection.Protocol
 Imports System.Text.RegularExpressions
 
 Namespace Config.Putty

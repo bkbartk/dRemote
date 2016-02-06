@@ -1,7 +1,7 @@
-﻿Imports mRemoteNG.App.Native
+﻿Imports dRemote.App.Native
 Imports System.Threading
-Imports mRemoteNG.App.Runtime
-Imports mRemoteNG.Tools
+Imports dRemote.App.Runtime
+Imports dRemote.Tools
 
 Namespace Connection
     Namespace Protocol

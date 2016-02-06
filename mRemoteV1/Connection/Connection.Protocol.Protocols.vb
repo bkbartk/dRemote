@@ -1,4 +1,4 @@
-Imports mRemoteNG.Tools.LocalizedAttributes
+Imports dRemote.Tools.LocalizedAttributes
 
 Namespace Connection
     Namespace Protocol

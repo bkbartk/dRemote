@@ -1,6 +1,6 @@
 ﻿Imports System.Windows.Forms
-Imports mRemoteNG.App.Runtime
-Imports mRemoteNG.Tools.LocalizedAttributes
+Imports dRemote.App.Runtime
+Imports dRemote.Tools.LocalizedAttributes
 
 Namespace Connection
     Namespace Protocol

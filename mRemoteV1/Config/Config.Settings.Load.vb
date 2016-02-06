@@ -1,6 +1,6 @@
 Imports System.IO
 Imports WeifenLuo.WinFormsUI.Docking
-Imports mRemoteNG.App.Runtime
+Imports dRemote.App.Runtime
 Imports System.Xml
 Imports System.Environment
 
@@ -245,9 +245,9 @@ Namespace Config
 
 #Region "Private Methods"
             Private Function GetContentFromPersistString(ByVal persistString As String) As IDockContent
-                ' pnlLayout.xml persistence XML fix for refactoring to mRemoteNG
+                ' pnlLayout.xml persistence XML fix for refactoring to dRemote
                 If (persistString.StartsWith("mRemote.")) Then
-                    persistString = persistString.Replace("mRemote.", "mRemoteNG.")
+                    persistString = persistString.Replace("mRemote.", "dRemote.")
                 End If
 
                 Try

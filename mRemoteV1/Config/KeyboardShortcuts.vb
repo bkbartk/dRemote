@@ -1,6 +1,6 @@
 ﻿Imports System.Runtime.InteropServices
 Imports System.ComponentModel
-Imports mRemoteNG.App.Runtime
+Imports dRemote.App.Runtime
 Imports SharedLibraryNG
 
 Namespace Config

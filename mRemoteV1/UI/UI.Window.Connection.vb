@@ -1,13 +1,13 @@
 Imports System
 Imports System.Windows
 Imports System.Windows.Forms
-Imports mRemoteNG.Connection
-Imports mRemoteNG.App
+Imports dRemote.Connection
+Imports dRemote.App
 Imports Crownwood
 Imports WeifenLuo.WinFormsUI.Docking
 Imports PSTaskDialog
-Imports mRemoteNG.App.Runtime
-Imports mRemoteNG.Config
+Imports dRemote.App.Runtime
+Imports dRemote.Config
 
 Namespace UI
     Namespace Window
@@ -87,14 +87,14 @@ Namespace UI
                 '
                 'cmenTabFullscreen
                 '
-                Me.cmenTabFullscreen.Image = Global.mRemoteNG.My.Resources.Resources.arrow_out
+                Me.cmenTabFullscreen.Image = Global.dRemote.My.Resources.Resources.arrow_out
                 Me.cmenTabFullscreen.Name = "cmenTabFullscreen"
                 Me.cmenTabFullscreen.Size = New System.Drawing.Size(201, 22)
                 Me.cmenTabFullscreen.Text = "Fullscreen (RDP)"
                 '
                 'cmenTabSmartSize
                 '
-                Me.cmenTabSmartSize.Image = Global.mRemoteNG.My.Resources.Resources.SmartSize
+                Me.cmenTabSmartSize.Image = Global.dRemote.My.Resources.Resources.SmartSize
                 Me.cmenTabSmartSize.Name = "cmenTabSmartSize"
                 Me.cmenTabSmartSize.Size = New System.Drawing.Size(201, 22)
                 Me.cmenTabSmartSize.Text = "SmartSize (RDP/VNC)"
@@ -112,14 +112,14 @@ Namespace UI
                 '
                 'cmenTabScreenshot
                 '
-                Me.cmenTabScreenshot.Image = Global.mRemoteNG.My.Resources.Resources.Screenshot_Add
+                Me.cmenTabScreenshot.Image = Global.dRemote.My.Resources.Resources.Screenshot_Add
                 Me.cmenTabScreenshot.Name = "cmenTabScreenshot"
                 Me.cmenTabScreenshot.Size = New System.Drawing.Size(201, 22)
                 Me.cmenTabScreenshot.Text = "Screenshot"
                 '
                 'cmenTabStartChat
                 '
-                Me.cmenTabStartChat.Image = Global.mRemoteNG.My.Resources.Resources.Chat
+                Me.cmenTabStartChat.Image = Global.dRemote.My.Resources.Resources.Chat
                 Me.cmenTabStartChat.Name = "cmenTabStartChat"
                 Me.cmenTabStartChat.Size = New System.Drawing.Size(201, 22)
                 Me.cmenTabStartChat.Text = "Start Chat (VNC)"
@@ -127,14 +127,14 @@ Namespace UI
                 '
                 'cmenTabTransferFile
                 '
-                Me.cmenTabTransferFile.Image = Global.mRemoteNG.My.Resources.Resources.SSHTransfer
+                Me.cmenTabTransferFile.Image = Global.dRemote.My.Resources.Resources.SSHTransfer
                 Me.cmenTabTransferFile.Name = "cmenTabTransferFile"
                 Me.cmenTabTransferFile.Size = New System.Drawing.Size(201, 22)
                 Me.cmenTabTransferFile.Text = "Transfer File (SSH)"
                 '
                 'cmenTabRefreshScreen
                 '
-                Me.cmenTabRefreshScreen.Image = Global.mRemoteNG.My.Resources.Resources.Refresh
+                Me.cmenTabRefreshScreen.Image = Global.dRemote.My.Resources.Resources.Refresh
                 Me.cmenTabRefreshScreen.Name = "cmenTabRefreshScreen"
                 Me.cmenTabRefreshScreen.Size = New System.Drawing.Size(201, 22)
                 Me.cmenTabRefreshScreen.Text = "Refresh Screen (VNC)"
@@ -142,7 +142,7 @@ Namespace UI
                 'cmenTabSendSpecialKeys
                 '
                 Me.cmenTabSendSpecialKeys.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmenTabSendSpecialKeysCtrlAltDel, Me.cmenTabSendSpecialKeysCtrlEsc})
-                Me.cmenTabSendSpecialKeys.Image = Global.mRemoteNG.My.Resources.Resources.Keyboard
+                Me.cmenTabSendSpecialKeys.Image = Global.dRemote.My.Resources.Resources.Keyboard
                 Me.cmenTabSendSpecialKeys.Name = "cmenTabSendSpecialKeys"
                 Me.cmenTabSendSpecialKeys.Size = New System.Drawing.Size(201, 22)
                 Me.cmenTabSendSpecialKeys.Text = "Send special Keys (VNC)"
@@ -173,7 +173,7 @@ Namespace UI
                 '
                 'cmenTabRenameTab
                 '
-                Me.cmenTabRenameTab.Image = Global.mRemoteNG.My.Resources.Resources.Rename
+                Me.cmenTabRenameTab.Image = Global.dRemote.My.Resources.Resources.Rename
                 Me.cmenTabRenameTab.Name = "cmenTabRenameTab"
                 Me.cmenTabRenameTab.Size = New System.Drawing.Size(201, 22)
                 Me.cmenTabRenameTab.Text = "Rename Tab"
@@ -193,7 +193,7 @@ Namespace UI
                 '
                 'cmenTabDisconnect
                 '
-                Me.cmenTabDisconnect.Image = Global.mRemoteNG.My.Resources.Resources.Pause
+                Me.cmenTabDisconnect.Image = Global.dRemote.My.Resources.Resources.Pause
                 Me.cmenTabDisconnect.Name = "cmenTabDisconnect"
                 Me.cmenTabDisconnect.Size = New System.Drawing.Size(201, 22)
                 Me.cmenTabDisconnect.Text = "Disconnect"
@@ -209,7 +209,7 @@ Namespace UI
                 Me.ClientSize = New System.Drawing.Size(632, 453)
                 Me.Controls.Add(Me.TabController)
                 Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-                Me.Icon = Global.mRemoteNG.My.Resources.Resources.mRemote_Icon
+                Me.Icon = Global.dRemote.My.Resources.Resources.mRemote_Icon
                 Me.Name = "Connection"
                 Me.TabText = "UI.Window.Connection"
                 Me.Text = "UI.Window.Connection"
@@ -233,7 +233,7 @@ Namespace UI
                 Me.TabText = FormText
             End Sub
 
-            Public Function AddConnectionTab(ByVal conI As mRemoteNG.Connection.Info) As Magic.Controls.TabPage
+            Public Function AddConnectionTab(ByVal conI As dRemote.Connection.Info) As Magic.Controls.TabPage
                 Try
                     Dim nTab As New Magic.Controls.TabPage
                     nTab.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right Or AnchorStyles.Top
@@ -266,7 +266,7 @@ Namespace UI
 
                     nTab.Title = nTab.Title.Replace("&", "&&")
 
-                    Dim conIcon As Drawing.Icon = mRemoteNG.Connection.Icon.FromString(conI.Icon)
+                    Dim conIcon As Drawing.Icon = dRemote.Connection.Icon.FromString(conI.Icon)
                     If conIcon IsNot Nothing Then
                         nTab.Icon = conIcon
                     End If
@@ -369,7 +369,7 @@ Namespace UI
                 Try
                     For Each tabP As Magic.Controls.TabPage In Me.TabController.TabPages
                         If tabP.Tag IsNot Nothing Then
-                            Dim interfaceControl As mRemoteNG.Connection.InterfaceControl = tabP.Tag
+                            Dim interfaceControl As dRemote.Connection.InterfaceControl = tabP.Tag
                             interfaceControl.Protocol.Close()
                         End If
                     Next
@@ -412,7 +412,7 @@ Namespace UI
 
                 Try
                     If selectedTab.Tag IsNot Nothing Then
-                        Dim interfaceControl As mRemoteNG.Connection.InterfaceControl = selectedTab.Tag
+                        Dim interfaceControl As dRemote.Connection.InterfaceControl = selectedTab.Tag
                         interfaceControl.Protocol.Close()
                     Else
                         CloseTab(selectedTab)
@@ -434,7 +434,7 @@ Namespace UI
 #Region "Drag and Drop"
             Private Sub TabController_DragDrop(ByVal sender As Object, ByVal e As System.Windows.Forms.DragEventArgs) Handles TabController.DragDrop
                 If e.Data.GetDataPresent("System.Windows.Forms.TreeNode", True) Then
-                    App.Runtime.OpenConnection(e.Data.GetData("System.Windows.Forms.TreeNode", True).Tag, Me, mRemoteNG.Connection.Info.Force.DoNotJump)
+                    App.Runtime.OpenConnection(e.Data.GetData("System.Windows.Forms.TreeNode", True).Tag, Me, dRemote.Connection.Info.Force.DoNotJump)
                 End If
             End Sub
 
@@ -457,14 +457,14 @@ Namespace UI
                         Exit Sub
                     End If
 
-                    Dim IC As mRemoteNG.Connection.InterfaceControl = Me.TabController.SelectedTab.Tag
+                    Dim IC As dRemote.Connection.InterfaceControl = Me.TabController.SelectedTab.Tag
 
                     If IC Is Nothing Then
                         Exit Sub
                     End If
 
-                    If IC.Info.Protocol = mRemoteNG.Connection.Protocol.Protocols.RDP Then
-                        Dim rdp As mRemoteNG.Connection.Protocol.RDP = IC.Protocol
+                    If IC.Info.Protocol = dRemote.Connection.Protocol.Protocols.RDP Then
+                        Dim rdp As dRemote.Connection.Protocol.RDP = IC.Protocol
 
                         cmenTabFullscreen.Enabled = True
                         cmenTabFullscreen.Checked = rdp.Fullscreen
@@ -476,7 +476,7 @@ Namespace UI
                         cmenTabSmartSize.Enabled = False
                     End If
 
-                    If IC.Info.Protocol = mRemoteNG.Connection.Protocol.Protocols.VNC Then
+                    If IC.Info.Protocol = dRemote.Connection.Protocol.Protocols.VNC Then
                         Me.cmenTabSendSpecialKeys.Enabled = True
                         Me.cmenTabViewOnly.Enabled = True
 
@@ -485,7 +485,7 @@ Namespace UI
                         Me.cmenTabRefreshScreen.Enabled = True
                         Me.cmenTabTransferFile.Enabled = False
 
-                        Dim vnc As mRemoteNG.Connection.Protocol.VNC = IC.Protocol
+                        Dim vnc As dRemote.Connection.Protocol.VNC = IC.Protocol
                         Me.cmenTabSmartSize.Checked = vnc.SmartSize
                         Me.cmenTabViewOnly.Checked = vnc.ViewOnly
                     Else
@@ -496,11 +496,11 @@ Namespace UI
                         Me.cmenTabTransferFile.Enabled = False
                     End If
 
-                    If IC.Info.Protocol = mRemoteNG.Connection.Protocol.Protocols.SSH1 Or IC.Info.Protocol = mRemoteNG.Connection.Protocol.Protocols.SSH2 Then
+                    If IC.Info.Protocol = dRemote.Connection.Protocol.Protocols.SSH1 Or IC.Info.Protocol = dRemote.Connection.Protocol.Protocols.SSH2 Then
                         Me.cmenTabTransferFile.Enabled = True
                     End If
 
-                    If TypeOf IC.Protocol Is mRemoteNG.Connection.Protocol.PuttyBase Then
+                    If TypeOf IC.Protocol Is dRemote.Connection.Protocol.PuttyBase Then
                         Me.cmenTabPuttySettings.Enabled = True
                     Else
                         Me.cmenTabPuttySettings.Enabled = False
@@ -543,11 +543,11 @@ Namespace UI
             End Sub
 
             Private Sub cmenTabSendSpecialKeysCtrlAltDel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmenTabSendSpecialKeysCtrlAltDel.Click
-                Me.SendSpecialKeys(mRemoteNG.Connection.Protocol.VNC.SpecialKeys.CtrlAltDel)
+                Me.SendSpecialKeys(dRemote.Connection.Protocol.VNC.SpecialKeys.CtrlAltDel)
             End Sub
 
             Private Sub cmenTabSendSpecialKeysCtrlEsc_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmenTabSendSpecialKeysCtrlEsc.Click
-                Me.SendSpecialKeys(mRemoteNG.Connection.Protocol.VNC.SpecialKeys.CtrlEsc)
+                Me.SendSpecialKeys(dRemote.Connection.Protocol.VNC.SpecialKeys.CtrlEsc)
             End Sub
 
             Private Sub cmenTabFullscreen_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmenTabFullscreen.Click
@@ -579,14 +579,14 @@ Namespace UI
             Private Sub ToggleSmartSize()
                 Try
                     If Me.TabController.SelectedTab IsNot Nothing Then
-                        If TypeOf Me.TabController.SelectedTab.Tag Is mRemoteNG.Connection.InterfaceControl Then
-                            Dim IC As mRemoteNG.Connection.InterfaceControl = Me.TabController.SelectedTab.Tag
+                        If TypeOf Me.TabController.SelectedTab.Tag Is dRemote.Connection.InterfaceControl Then
+                            Dim IC As dRemote.Connection.InterfaceControl = Me.TabController.SelectedTab.Tag
 
-                            If TypeOf IC.Protocol Is mRemoteNG.Connection.Protocol.RDP Then
-                                Dim rdp As mRemoteNG.Connection.Protocol.RDP = IC.Protocol
+                            If TypeOf IC.Protocol Is dRemote.Connection.Protocol.RDP Then
+                                Dim rdp As dRemote.Connection.Protocol.RDP = IC.Protocol
                                 rdp.ToggleSmartSize()
-                            ElseIf TypeOf IC.Protocol Is mRemoteNG.Connection.Protocol.VNC Then
-                                Dim vnc As mRemoteNG.Connection.Protocol.VNC = IC.Protocol
+                            ElseIf TypeOf IC.Protocol Is dRemote.Connection.Protocol.VNC Then
+                                Dim vnc As dRemote.Connection.Protocol.VNC = IC.Protocol
                                 vnc.ToggleSmartSize()
                             End If
                         End If
@@ -599,12 +599,12 @@ Namespace UI
             Private Sub TransferFile()
                 Try
                     If Me.TabController.SelectedTab IsNot Nothing Then
-                        If TypeOf Me.TabController.SelectedTab.Tag Is mRemoteNG.Connection.InterfaceControl Then
-                            Dim IC As mRemoteNG.Connection.InterfaceControl = Me.TabController.SelectedTab.Tag
+                        If TypeOf Me.TabController.SelectedTab.Tag Is dRemote.Connection.InterfaceControl Then
+                            Dim IC As dRemote.Connection.InterfaceControl = Me.TabController.SelectedTab.Tag
 
-                            If IC.Info.Protocol = mRemoteNG.Connection.Protocol.Protocols.SSH1 Or IC.Info.Protocol = mRemoteNG.Connection.Protocol.Protocols.SSH2 Then
+                            If IC.Info.Protocol = dRemote.Connection.Protocol.Protocols.SSH1 Or IC.Info.Protocol = dRemote.Connection.Protocol.Protocols.SSH2 Then
                                 SSHTransferFile()
-                            ElseIf IC.Info.Protocol = mRemoteNG.Connection.Protocol.Protocols.VNC Then
+                            ElseIf IC.Info.Protocol = dRemote.Connection.Protocol.Protocols.VNC Then
                                 VNCTransferFile()
                             End If
                         End If
@@ -617,11 +617,11 @@ Namespace UI
             Private Sub SSHTransferFile()
                 Try
 
-                    Dim IC As mRemoteNG.Connection.InterfaceControl = Me.TabController.SelectedTab.Tag
+                    Dim IC As dRemote.Connection.InterfaceControl = Me.TabController.SelectedTab.Tag
 
                     Windows.Show(Type.SSHTransfer)
 
-                    Dim conI As mRemoteNG.Connection.Info = IC.Info
+                    Dim conI As dRemote.Connection.Info = IC.Info
 
                     Windows.sshtransferForm.Hostname = conI.Hostname
                     Windows.sshtransferForm.Username = conI.Username
@@ -634,8 +634,8 @@ Namespace UI
 
             Private Sub VNCTransferFile()
                 Try
-                    Dim IC As mRemoteNG.Connection.InterfaceControl = Me.TabController.SelectedTab.Tag
-                    Dim vnc As mRemoteNG.Connection.Protocol.VNC = IC.Protocol
+                    Dim IC As dRemote.Connection.InterfaceControl = Me.TabController.SelectedTab.Tag
+                    Dim vnc As dRemote.Connection.Protocol.VNC = IC.Protocol
                     vnc.StartFileTransfer()
                 Catch ex As Exception
                     MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, "VNCTransferFile (UI.Window.Connections) failed" & vbNewLine & ex.Message, True)
@@ -645,13 +645,13 @@ Namespace UI
             Private Sub ToggleViewOnly()
                 Try
                     If Me.TabController.SelectedTab IsNot Nothing Then
-                        If TypeOf Me.TabController.SelectedTab.Tag Is mRemoteNG.Connection.InterfaceControl Then
-                            Dim IC As mRemoteNG.Connection.InterfaceControl = Me.TabController.SelectedTab.Tag
+                        If TypeOf Me.TabController.SelectedTab.Tag Is dRemote.Connection.InterfaceControl Then
+                            Dim IC As dRemote.Connection.InterfaceControl = Me.TabController.SelectedTab.Tag
 
-                            If TypeOf IC.Protocol Is mRemoteNG.Connection.Protocol.VNC Then
+                            If TypeOf IC.Protocol Is dRemote.Connection.Protocol.VNC Then
                                 cmenTabViewOnly.Checked = Not cmenTabViewOnly.Checked
 
-                                Dim vnc As mRemoteNG.Connection.Protocol.VNC = IC.Protocol
+                                Dim vnc As dRemote.Connection.Protocol.VNC = IC.Protocol
                                 vnc.ToggleViewOnly()
                             End If
                         End If
@@ -664,11 +664,11 @@ Namespace UI
             Private Sub StartChat()
                 Try
                     If Me.TabController.SelectedTab IsNot Nothing Then
-                        If TypeOf Me.TabController.SelectedTab.Tag Is mRemoteNG.Connection.InterfaceControl Then
-                            Dim IC As mRemoteNG.Connection.InterfaceControl = Me.TabController.SelectedTab.Tag
+                        If TypeOf Me.TabController.SelectedTab.Tag Is dRemote.Connection.InterfaceControl Then
+                            Dim IC As dRemote.Connection.InterfaceControl = Me.TabController.SelectedTab.Tag
 
-                            If TypeOf IC.Protocol Is mRemoteNG.Connection.Protocol.VNC Then
-                                Dim vnc As mRemoteNG.Connection.Protocol.VNC = IC.Protocol
+                            If TypeOf IC.Protocol Is dRemote.Connection.Protocol.VNC Then
+                                Dim vnc As dRemote.Connection.Protocol.VNC = IC.Protocol
                                 vnc.StartChat()
                             End If
                         End If
@@ -681,11 +681,11 @@ Namespace UI
             Private Sub RefreshScreen()
                 Try
                     If Me.TabController.SelectedTab IsNot Nothing Then
-                        If TypeOf Me.TabController.SelectedTab.Tag Is mRemoteNG.Connection.InterfaceControl Then
-                            Dim IC As mRemoteNG.Connection.InterfaceControl = Me.TabController.SelectedTab.Tag
+                        If TypeOf Me.TabController.SelectedTab.Tag Is dRemote.Connection.InterfaceControl Then
+                            Dim IC As dRemote.Connection.InterfaceControl = Me.TabController.SelectedTab.Tag
 
-                            If TypeOf IC.Protocol Is mRemoteNG.Connection.Protocol.VNC Then
-                                Dim vnc As mRemoteNG.Connection.Protocol.VNC = IC.Protocol
+                            If TypeOf IC.Protocol Is dRemote.Connection.Protocol.VNC Then
+                                Dim vnc As dRemote.Connection.Protocol.VNC = IC.Protocol
                                 vnc.RefreshScreen()
                             End If
                         End If
@@ -695,14 +695,14 @@ Namespace UI
                 End Try
             End Sub
 
-            Private Sub SendSpecialKeys(ByVal Keys As mRemoteNG.Connection.Protocol.VNC.SpecialKeys)
+            Private Sub SendSpecialKeys(ByVal Keys As dRemote.Connection.Protocol.VNC.SpecialKeys)
                 Try
                     If Me.TabController.SelectedTab IsNot Nothing Then
-                        If TypeOf Me.TabController.SelectedTab.Tag Is mRemoteNG.Connection.InterfaceControl Then
-                            Dim IC As mRemoteNG.Connection.InterfaceControl = Me.TabController.SelectedTab.Tag
+                        If TypeOf Me.TabController.SelectedTab.Tag Is dRemote.Connection.InterfaceControl Then
+                            Dim IC As dRemote.Connection.InterfaceControl = Me.TabController.SelectedTab.Tag
 
-                            If TypeOf IC.Protocol Is mRemoteNG.Connection.Protocol.VNC Then
-                                Dim vnc As mRemoteNG.Connection.Protocol.VNC = IC.Protocol
+                            If TypeOf IC.Protocol Is dRemote.Connection.Protocol.VNC Then
+                                Dim vnc As dRemote.Connection.Protocol.VNC = IC.Protocol
                                 vnc.SendSpecialKeys(Keys)
                             End If
                         End If
@@ -715,11 +715,11 @@ Namespace UI
             Private Sub ToggleFullscreen()
                 Try
                     If Me.TabController.SelectedTab IsNot Nothing Then
-                        If TypeOf Me.TabController.SelectedTab.Tag Is mRemoteNG.Connection.InterfaceControl Then
-                            Dim IC As mRemoteNG.Connection.InterfaceControl = Me.TabController.SelectedTab.Tag
+                        If TypeOf Me.TabController.SelectedTab.Tag Is dRemote.Connection.InterfaceControl Then
+                            Dim IC As dRemote.Connection.InterfaceControl = Me.TabController.SelectedTab.Tag
 
-                            If TypeOf IC.Protocol Is mRemoteNG.Connection.Protocol.RDP Then
-                                Dim rdp As mRemoteNG.Connection.Protocol.RDP = IC.Protocol
+                            If TypeOf IC.Protocol Is dRemote.Connection.Protocol.RDP Then
+                                Dim rdp As dRemote.Connection.Protocol.RDP = IC.Protocol
                                 rdp.ToggleFullscreen()
                             End If
                         End If
@@ -732,11 +732,11 @@ Namespace UI
             Private Sub ShowPuttySettingsDialog()
                 Try
                     If Me.TabController.SelectedTab IsNot Nothing Then
-                        If TypeOf Me.TabController.SelectedTab.Tag Is mRemoteNG.Connection.InterfaceControl Then
-                            Dim objInterfaceControl As mRemoteNG.Connection.InterfaceControl = Me.TabController.SelectedTab.Tag
+                        If TypeOf Me.TabController.SelectedTab.Tag Is dRemote.Connection.InterfaceControl Then
+                            Dim objInterfaceControl As dRemote.Connection.InterfaceControl = Me.TabController.SelectedTab.Tag
 
-                            If TypeOf objInterfaceControl.Protocol Is mRemoteNG.Connection.Protocol.PuttyBase Then
-                                Dim objPuttyBase As mRemoteNG.Connection.Protocol.PuttyBase = objInterfaceControl.Protocol
+                            If TypeOf objInterfaceControl.Protocol Is dRemote.Connection.Protocol.PuttyBase Then
+                                Dim objPuttyBase As dRemote.Connection.Protocol.PuttyBase = objInterfaceControl.Protocol
 
                                 objPuttyBase.ShowSettingsDialog()
                             End If
@@ -772,8 +772,8 @@ Namespace UI
             Private Sub StartExternalApp(ByVal ExtA As Tools.ExternalTool)
                 Try
                     If Me.TabController.SelectedTab IsNot Nothing Then
-                        If TypeOf Me.TabController.SelectedTab.Tag Is mRemoteNG.Connection.InterfaceControl Then
-                            Dim IC As mRemoteNG.Connection.InterfaceControl = Me.TabController.SelectedTab.Tag
+                        If TypeOf Me.TabController.SelectedTab.Tag Is dRemote.Connection.InterfaceControl Then
+                            Dim IC As dRemote.Connection.InterfaceControl = Me.TabController.SelectedTab.Tag
 
                             ExtA.Start(IC.Info)
                         End If
@@ -787,8 +787,8 @@ Namespace UI
             Private Sub CloseTabMenu()
                 Try
                     If Me.TabController.SelectedTab IsNot Nothing Then
-                        If TypeOf Me.TabController.SelectedTab.Tag Is mRemoteNG.Connection.InterfaceControl Then
-                            Dim IC As mRemoteNG.Connection.InterfaceControl = Me.TabController.SelectedTab.Tag
+                        If TypeOf Me.TabController.SelectedTab.Tag Is dRemote.Connection.InterfaceControl Then
+                            Dim IC As dRemote.Connection.InterfaceControl = Me.TabController.SelectedTab.Tag
 
                             IC.Protocol.Close()
                         End If
@@ -801,10 +801,10 @@ Namespace UI
             Private Sub DuplicateTab()
                 Try
                     If Me.TabController.SelectedTab IsNot Nothing Then
-                        If TypeOf Me.TabController.SelectedTab.Tag Is mRemoteNG.Connection.InterfaceControl Then
-                            Dim IC As mRemoteNG.Connection.InterfaceControl = Me.TabController.SelectedTab.Tag
+                        If TypeOf Me.TabController.SelectedTab.Tag Is dRemote.Connection.InterfaceControl Then
+                            Dim IC As dRemote.Connection.InterfaceControl = Me.TabController.SelectedTab.Tag
 
-                            App.Runtime.OpenConnection(IC.Info, mRemoteNG.Connection.Info.Force.DoNotJump)
+                            App.Runtime.OpenConnection(IC.Info, dRemote.Connection.Info.Force.DoNotJump)
                             _ignoreChangeSelectedTabClick = False
                         End If
                     End If
@@ -816,13 +816,13 @@ Namespace UI
             Private Sub Reconnect()
                 Try
                     If Me.TabController.SelectedTab IsNot Nothing Then
-                        If TypeOf Me.TabController.SelectedTab.Tag Is mRemoteNG.Connection.InterfaceControl Then
-                            Dim IC As mRemoteNG.Connection.InterfaceControl = Me.TabController.SelectedTab.Tag
-                            Dim conI As mRemoteNG.Connection.Info = IC.Info
+                        If TypeOf Me.TabController.SelectedTab.Tag Is dRemote.Connection.InterfaceControl Then
+                            Dim IC As dRemote.Connection.InterfaceControl = Me.TabController.SelectedTab.Tag
+                            Dim conI As dRemote.Connection.Info = IC.Info
 
                             IC.Protocol.Close()
 
-                            App.Runtime.OpenConnection(conI, mRemoteNG.Connection.Info.Force.DoNotJump)
+                            App.Runtime.OpenConnection(conI, dRemote.Connection.Info.Force.DoNotJump)
                         End If
                     End If
                 Catch ex As Exception
@@ -845,7 +845,7 @@ Namespace UI
 
 #Region "Protocols"
             Public Sub Prot_Event_Closed(ByVal sender As Object)
-                Dim Prot As mRemoteNG.Connection.Protocol.Base = sender
+                Dim Prot As dRemote.Connection.Protocol.Base = sender
                 CloseTab(Prot.InterfaceControl.Parent)
             End Sub
 #End Region
@@ -926,8 +926,8 @@ Namespace UI
             Private Sub FocusIC()
                 Try
                     If Me.TabController.SelectedTab IsNot Nothing Then
-                        If TypeOf Me.TabController.SelectedTab.Tag Is mRemoteNG.Connection.InterfaceControl Then
-                            Dim IC As mRemoteNG.Connection.InterfaceControl = Me.TabController.SelectedTab.Tag
+                        If TypeOf Me.TabController.SelectedTab.Tag Is dRemote.Connection.InterfaceControl Then
+                            Dim IC As dRemote.Connection.InterfaceControl = Me.TabController.SelectedTab.Tag
                             IC.Protocol.Focus()
                         End If
                     End If
@@ -939,11 +939,11 @@ Namespace UI
             Public Sub RefreshIC()
                 Try
                     If Me.TabController.SelectedTab IsNot Nothing Then
-                        If TypeOf Me.TabController.SelectedTab.Tag Is mRemoteNG.Connection.InterfaceControl Then
-                            Dim IC As mRemoteNG.Connection.InterfaceControl = Me.TabController.SelectedTab.Tag
+                        If TypeOf Me.TabController.SelectedTab.Tag Is dRemote.Connection.InterfaceControl Then
+                            Dim IC As dRemote.Connection.InterfaceControl = Me.TabController.SelectedTab.Tag
 
-                            If IC.Info.Protocol = mRemoteNG.Connection.Protocol.Protocols.VNC Then
-                                TryCast(IC.Protocol, mRemoteNG.Connection.Protocol.VNC).RefreshScreen()
+                            If IC.Info.Protocol = dRemote.Connection.Protocol.Protocols.VNC Then
+                                TryCast(IC.Protocol, dRemote.Connection.Protocol.VNC).RefreshScreen()
                             End If
                         End If
                     End If
@@ -1005,7 +1005,7 @@ Namespace UI
             Private Sub TabController_PageDragEnd(ByVal sender As Object, ByVal e As MouseEventArgs) Handles TabController.PageDragEnd, TabController.PageDragQuit
                 Cursor = Cursors.Default
                 InTabDrag = False
-                Dim interfaceControl As mRemoteNG.Connection.InterfaceControl = TryCast(TabController.SelectedTab.Tag, mRemoteNG.Connection.InterfaceControl)
+                Dim interfaceControl As dRemote.Connection.InterfaceControl = TryCast(TabController.SelectedTab.Tag, dRemote.Connection.InterfaceControl)
                 If interfaceControl IsNot Nothing Then interfaceControl.Protocol.Focus()
             End Sub
 #End Region

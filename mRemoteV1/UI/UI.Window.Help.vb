@@ -193,7 +193,7 @@ Namespace UI
                 '
                 Me.ClientSize = New System.Drawing.Size(542, 323)
                 Me.Controls.Add(Me.pnlSplitter)
-                Me.Icon = Global.mRemoteNG.My.Resources.Resources.Help_Icon
+                Me.Icon = Global.dRemote.My.Resources.Resources.Help_Icon
                 Me.Name = "Help"
                 Me.TabText = "Help"
                 Me.Text = "Help"

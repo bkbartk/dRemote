@@ -1,6 +1,6 @@
 Imports System.Text
 Imports WeifenLuo.WinFormsUI.Docking
-Imports mRemoteNG.App.Runtime
+Imports dRemote.App.Runtime
 
 Namespace UI
     Namespace Window
@@ -104,7 +104,7 @@ Namespace UI
                 '
                 'clmMessage
                 '
-                Me.clmMessage.Text = Global.mRemoteNG.My.Language.strColumnMessage
+                Me.clmMessage.Text = Global.dRemote.My.Language.strColumnMessage
                 Me.clmMessage.Width = 184
                 '
                 'cMenMC
@@ -117,19 +117,19 @@ Namespace UI
                 '
                 'cMenMCCopy
                 '
-                Me.cMenMCCopy.Image = Global.mRemoteNG.My.Resources.Resources.Copy
+                Me.cMenMCCopy.Image = Global.dRemote.My.Resources.Resources.Copy
                 Me.cMenMCCopy.Name = "cMenMCCopy"
                 Me.cMenMCCopy.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
                 Me.cMenMCCopy.Size = New System.Drawing.Size(152, 22)
-                Me.cMenMCCopy.Text = Global.mRemoteNG.My.Language.strMenuCopy
+                Me.cMenMCCopy.Text = Global.dRemote.My.Language.strMenuCopy
                 '
                 'cMenMCDelete
                 '
-                Me.cMenMCDelete.Image = Global.mRemoteNG.My.Resources.Resources.Delete
+                Me.cMenMCDelete.Image = Global.dRemote.My.Resources.Resources.Delete
                 Me.cMenMCDelete.Name = "cMenMCDelete"
                 Me.cMenMCDelete.ShortcutKeys = System.Windows.Forms.Keys.Delete
                 Me.cMenMCDelete.Size = New System.Drawing.Size(152, 22)
-                Me.cMenMCDelete.Text = Global.mRemoteNG.My.Language.strMenuDelete
+                Me.cMenMCDelete.Text = Global.dRemote.My.Language.strMenuDelete
                 '
                 'imgListMC
                 '
@@ -144,9 +144,9 @@ Namespace UI
                 Me.Controls.Add(Me.pnlErrorMsg)
                 Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
                 Me.HideOnClose = True
-                Me.Icon = Global.mRemoteNG.My.Resources.Resources.Info_Icon
+                Me.Icon = Global.dRemote.My.Resources.Resources.Info_Icon
                 Me.Name = "ErrorsAndInfos"
-                Me.TabText = Global.mRemoteNG.My.Language.strMenuNotifications
+                Me.TabText = Global.dRemote.My.Language.strMenuNotifications
                 Me.Text = "Notifications"
                 Me.pnlErrorMsg.ResumeLayout(False)
                 Me.pnlErrorMsg.PerformLayout()

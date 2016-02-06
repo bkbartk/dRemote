@@ -1,17 +1,17 @@
 Imports System.IO
-Imports mRemoteNG.App
-Imports mRemoteNG.My
+Imports dRemote.App
+Imports dRemote.My
 Imports SharedLibraryNG
 Imports System.Text
 Imports WeifenLuo.WinFormsUI.Docking
-Imports mRemoteNG.App.Runtime
+Imports dRemote.App.Runtime
 Imports System.Reflection
 Imports System.Runtime.InteropServices
 Imports Crownwood
-Imports mRemoteNG.App.Native
+Imports dRemote.App.Native
 Imports PSTaskDialog
-Imports mRemoteNG.Config
-Imports mRemoteNG.Themes
+Imports dRemote.Config
+Imports dRemote.Themes
 
 Public Class frmMain
     Private _previousWindowState As FormWindowState
@@ -155,7 +155,7 @@ Public Class frmMain
         KeyboardShortcuts.RequestKeyNotifications(Handle)
 
         'GoToURL(App.Info.General.URLDonate)
-        GoToURL(App.Info.General.Advertising)
+        'GoToURL(App.Info.General.Advertising)
     End Sub
 
     Private Sub ApplyLanguage()

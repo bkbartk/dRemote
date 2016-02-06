@@ -1,5 +1,5 @@
-﻿Imports mRemoteNG.Config
-Imports mRemoteNG.My
+﻿Imports dRemote.Config
+Imports dRemote.My
 
 Namespace Forms.OptionsPages
     Public Class KeyboardPage

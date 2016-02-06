@@ -1,6 +1,6 @@
-﻿Imports mRemoteNG.Forms.OptionsPages
-Imports mRemoteNG.App.Runtime
-Imports mRemoteNG.My
+﻿Imports dRemote.Forms.OptionsPages
+Imports dRemote.App.Runtime
+Imports dRemote.My
 
 Namespace Forms
     Public Class OptionsForm

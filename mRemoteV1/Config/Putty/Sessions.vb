@@ -1,5 +1,5 @@
 ﻿Imports System.ComponentModel
-Imports mRemoteNG.Tools
+Imports dRemote.Tools
 
 Namespace Config.Putty
     Public Class Sessions

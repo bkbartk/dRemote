@@ -1,13 +1,13 @@
 Imports System.Runtime.InteropServices
 Imports System.ComponentModel
-Imports mRemoteNG.Messages
-Imports mRemoteNG.App.Native
+Imports dRemote.Messages
+Imports dRemote.App.Native
 Imports System.Threading
 Imports Microsoft.Win32
 Imports System.Drawing
-Imports mRemoteNG.App.Runtime
+Imports dRemote.App.Runtime
 Imports System.Text.RegularExpressions
-Imports mRemoteNG.Tools
+Imports dRemote.Tools
 
 Namespace Connection
     Namespace Protocol

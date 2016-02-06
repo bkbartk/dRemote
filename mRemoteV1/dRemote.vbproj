@@ -7,9 +7,9 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{4934A491-40BC-4E5B-9166-EA1169A220F6}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>mRemoteNG.My.MyApplication</StartupObject>
-    <RootNamespace>mRemoteNG</RootNamespace>
-    <AssemblyName>mRemoteNG</AssemblyName>
+    <StartupObject>dRemote.My.MyApplication</StartupObject>
+    <RootNamespace>dRemote</RootNamespace>
+    <AssemblyName>dRemote</AssemblyName>
     <MyType>WindowsForms</MyType>
     <OptionExplicit>On</OptionExplicit>
     <FileUpgradeFlags>
@@ -19,7 +19,7 @@
     </UpgradeBackupLocation>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
-    <ApplicationIcon>Resources\Icons\mRemote_Icon.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\Icons\dRemote.ico</ApplicationIcon>
     <OptionStrict>Off</OptionStrict>
     <ManifestCertificateThumbprint>B249710A6BB08171F8E75082CF2355AE2890911A</ManifestCertificateThumbprint>
     <ManifestKeyFile>mRemoteV1_TemporaryKey.pfx</ManifestKeyFile>
@@ -921,6 +921,7 @@
     <Content Include="References\VncSharpNG.dll" />
     <Content Include="References\VncSharpNG.pdb" />
     <Content Include="References\WeifenLuo.WinFormsUI.Docking.dll" />
+    <Content Include="Resources\Icons\dRemote.ico" />
     <Content Include="Resources\Icons\RDCMan_Icon.ico" />
     <Content Include="Resources\Images_FamFamFam\Config.png" />
     <Content Include="Resources\Images_FamFamFam\database.png" />

@@ -1,5 +1,5 @@
 ﻿Imports WeifenLuo.WinFormsUI.Docking
-Imports mRemoteNG.App
+Imports dRemote.App
 
 Namespace UI
     Namespace Window

@@ -1,6 +1,6 @@
 ﻿Imports System.ComponentModel
-Imports mRemoteNG.Tools.LocalizedAttributes
-Imports mRemoteNG.My
+Imports dRemote.Tools.LocalizedAttributes
+Imports dRemote.My
 
 Namespace Themes
     Public Class ThemeInfo

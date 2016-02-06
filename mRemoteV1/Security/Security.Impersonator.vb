@@ -1,7 +1,7 @@
 Imports System.Runtime.InteropServices
 Imports System.Security.Principal
 Imports System.Security.Permissions
-Imports mRemoteNG.App.Runtime
+Imports dRemote.App.Runtime
 
 Namespace Security
     Public Class Impersonator

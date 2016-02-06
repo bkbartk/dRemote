@@ -24,7 +24,7 @@
         <System.Diagnostics.DebuggerStepThrough()> _
         Private Sub InitializeComponent()
             Dim LineGroupBox As System.Windows.Forms.GroupBox
-            Dim Alignment1 As mRemoteNG.Controls.Alignment = New mRemoteNG.Controls.Alignment()
+            Dim Alignment1 As dRemote.Controls.Alignment = New dRemote.Controls.Alignment()
             Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(KeyboardPage))
             Me.btnDeleteKeyboardShortcut = New System.Windows.Forms.Button()
             Me.btnNewKeyboardShortcut = New System.Windows.Forms.Button()
@@ -35,7 +35,7 @@
             Me.lblKeyboardCommand = New System.Windows.Forms.Label()
             Me.lstKeyboardShortcuts = New System.Windows.Forms.ListBox()
             Me.lblKeyboardShortcuts = New System.Windows.Forms.Label()
-            Me.lvKeyboardCommands = New mRemoteNG.Controls.ListView()
+            Me.lvKeyboardCommands = New dRemote.Controls.ListView()
             LineGroupBox = New System.Windows.Forms.GroupBox()
             Me.grpModifyKeyboardShortcut.SuspendLayout()
             Me.SuspendLayout()
@@ -138,8 +138,8 @@
             Me.lvKeyboardCommands.InactiveHighlightBackColor = System.Drawing.SystemColors.Highlight
             Me.lvKeyboardCommands.InactiveHighlightBorderColor = System.Drawing.SystemColors.HotTrack
             Me.lvKeyboardCommands.InactiveHighlightForeColor = System.Drawing.SystemColors.HighlightText
-            Alignment1.Horizontal = mRemoteNG.Controls.HorizontalAlignment.Left
-            Alignment1.Vertical = mRemoteNG.Controls.VerticalAlignment.Middle
+            Alignment1.Horizontal = dRemote.Controls.HorizontalAlignment.Left
+            Alignment1.Vertical = dRemote.Controls.VerticalAlignment.Middle
             Me.lvKeyboardCommands.LabelAlignment = Alignment1
             Me.lvKeyboardCommands.LabelWrap = False
             Me.lvKeyboardCommands.Location = New System.Drawing.Point(3, 0)
@@ -184,7 +184,7 @@
         Friend WithEvents lblKeyboardCommand As System.Windows.Forms.Label
         Friend WithEvents lstKeyboardShortcuts As System.Windows.Forms.ListBox
         Friend WithEvents lblKeyboardShortcuts As System.Windows.Forms.Label
-        Friend WithEvents lvKeyboardCommands As mRemoteNG.Controls.ListView
+        Friend WithEvents lvKeyboardCommands As dRemote.Controls.ListView
 
     End Class
 End Namespace
