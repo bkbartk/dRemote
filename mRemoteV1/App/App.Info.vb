@@ -12,7 +12,7 @@ Namespace App
             Public Shared ReadOnly HomePath As String = My.Application.Info.DirectoryPath
             Public Shared EncryptionKey As String = "mR3m"
             Public Shared ReportingFilePath As String = ""
-            Public Shared ReadOnly PuttyPath As String = My.Application.Info.DirectoryPath & "\PuTTYNG.exe"
+            Public Shared ReadOnly PuttyPath As String = My.Application.Info.DirectoryPath & "\PuTTY.exe"
             Public Shared ReadOnly Property UserAgent As String
                 Get
                     Dim details As New List(Of String)
