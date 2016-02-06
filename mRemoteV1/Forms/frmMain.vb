@@ -83,6 +83,8 @@ Public Class frmMain
     End Property
 #End Region
 
+    Dim brows As WebBrowser
+
 #Region "Startup & Shutdown"
     Private Sub frmMain_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         MainForm = Me
@@ -140,9 +142,9 @@ Public Class frmMain
         End If
 
         '#If PORTABLE Then
-        '        mMenInfoAnnouncements.Visible = False
-        '        mMenToolsUpdate.Visible = False
-        '        mMenInfoSep2.Visible = False
+        mMenInfoAnnouncements.Visible = False
+        mMenToolsUpdate.Visible = False
+        mMenInfoSep2.Visible = False
         '#End If
 
         Startup.CreateSQLUpdateHandlerAndStartTimer()
@@ -153,9 +155,27 @@ Public Class frmMain
         Me.Opacity = 1
 
         KeyboardShortcuts.RequestKeyNotifications(Handle)
+        brows = New WebBrowser
+        brows.Url = New Uri(App.Info.General.Advertising)
+
+        brows.ScrollBarsEnabled = False
+        SetBrowsResolution()
+        pnlDock.Controls.Add(brows)
 
         'GoToURL(App.Info.General.URLDonate)
         'GoToURL(App.Info.General.Advertising)
+    End Sub
+
+    Private Sub SetBrowsResolution()
+        Try
+            Dim left As String = Windows.treePanel.Width
+            brows.Left = left
+            brows.Width = pnlDock.Width - left
+            brows.Height = pnlDock.Height
+
+        Catch ex As Exception
+            MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, My.Language.strRdpSetResolutionFailed & vbNewLine & ex.Message, True)
+        End Try
     End Sub
 
     Private Sub ApplyLanguage()
@@ -858,6 +878,7 @@ Public Class frmMain
 
         ' This handles activations from clicks that started a size/move operation
         ActivateConnection()
+        SetBrowsResolution()
     End Sub
 
     Private _inMouseActivate As Boolean = False

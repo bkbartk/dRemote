@@ -4,11 +4,11 @@ Imports System.Threading
 Namespace App
     Namespace Info
         Public Class General
-            Public Shared ReadOnly URLHome As String = "http://www.dRemote.org/"
-            Public Shared ReadOnly URLDonate As String = "http://donate.dRemote.org/"
-            Public Shared ReadOnly URLForum As String = "http://forum.dRemote.org/"
-            Public Shared ReadOnly URLBugs As String = "http://bugs.dRemote.org/"
-            Public Shared ReadOnly Advertising As String = "https://www.sienn.com"
+            Public Shared ReadOnly URLHome As String = "http://www.dRemote.nl/"
+            Public Shared ReadOnly URLDonate As String = "http://donate.dRemote.nl/"
+            Public Shared ReadOnly URLForum As String = "http://forum.dRemote.nl/"
+            Public Shared ReadOnly URLBugs As String = "http://bugs.dRemote.nl/"
+            Public Shared ReadOnly Advertising As String = "http://adsense.dRemote.nl/"
             Public Shared ReadOnly HomePath As String = My.Application.Info.DirectoryPath
             Public Shared EncryptionKey As String = "mR3m"
             Public Shared ReportingFilePath As String = ""
