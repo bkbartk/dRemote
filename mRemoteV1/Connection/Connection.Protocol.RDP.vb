@@ -154,6 +154,19 @@ Namespace Connection
                 End Try
             End Sub
 
+            'Public Sub SendSpecialKeys(ByVal Keys As SpecialKeys)
+            '    Try
+            '        Select Case Keys
+            '            Case SpecialKeys.CtrlAltDel
+            '                VNC.SendSpecialKeys(SpecialKeys.CtrlAltDel)
+            '            Case SpecialKeys.CtrlEsc
+            '                VNC.SendSpecialKeys(SpecialKeys.CtrlEsc)
+            '        End Select
+            '    Catch ex As Exception
+            '        MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, My.Language.strVncSendSpecialKeysFailed & vbNewLine & ex.Message, True)
+            '    End Try
+            'End Sub
+
             Public Sub ToggleFullscreen()
                 Try
                     Me.Fullscreen = Not Me.Fullscreen

@@ -199,22 +199,22 @@
     <Compile Include="App\App.Update.vb" />
     <Compile Include="App\Export.vb" />
     <Compile Include="App\Import.vb" />
-    <Compile Include="Config\Config.Connections.Load.vb" />
-    <Compile Include="Config\Config.Connections.Save.vb" />
-    <Compile Include="Config\Config.Settings.Load.vb" />
-    <Compile Include="Config\Config.Settings.Providers.vb" />
-    <Compile Include="Config\Config.Settings.Save.vb" />
-    <Compile Include="Config\ConfirmClose.vb" />
-    <Compile Include="Config\Import\ActiveDirectory.vb" />
-    <Compile Include="Config\Import\mRemoteNG.vb" />
-    <Compile Include="Config\Import\PortScan.vb" />
-    <Compile Include="Config\Import\PuttyConnectionManager.vb" />
-    <Compile Include="Config\Import\RemoteDesktopConnection.vb" />
-    <Compile Include="Config\Import\RemoteDesktopConnectionManager.vb" />
-    <Compile Include="Config\Putty\RegistryProvider.vb" />
-    <Compile Include="Config\Putty\XmingProvider.vb" />
-    <Compile Include="Config\Putty\Sessions.vb" />
-    <Compile Include="Config\Putty\Provider.vb" />
+    <Compile Include="App\Config\Config.Connections.Load.vb" />
+    <Compile Include="App\Config\Config.Connections.Save.vb" />
+    <Compile Include="App\Config\Config.Settings.Load.vb" />
+    <Compile Include="App\Config\Config.Settings.Providers.vb" />
+    <Compile Include="App\Config\Config.Settings.Save.vb" />
+    <Compile Include="App\Config\ConfirmClose.vb" />
+    <Compile Include="App\Config\Import\ActiveDirectory.vb" />
+    <Compile Include="App\Config\Import\mRemoteNG.vb" />
+    <Compile Include="App\Config\Import\PortScan.vb" />
+    <Compile Include="App\Config\Import\PuttyConnectionManager.vb" />
+    <Compile Include="App\Config\Import\RemoteDesktopConnection.vb" />
+    <Compile Include="App\Config\Import\RemoteDesktopConnectionManager.vb" />
+    <Compile Include="App\Config\Putty\RegistryProvider.vb" />
+    <Compile Include="App\Config\Putty\XmingProvider.vb" />
+    <Compile Include="App\Config\Putty\Sessions.vb" />
+    <Compile Include="App\Config\Putty\Provider.vb" />
     <Compile Include="Connection\Connection.Info.Inheritance.vb" />
     <Compile Include="Controls\ListView.vb">
       <SubType>Component</SubType>
@@ -228,7 +228,7 @@
     <Compile Include="Controls\ToolStripSplitButton.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Config\KeyboardShortcuts.vb" />
+    <Compile Include="App\Config\KeyboardShortcuts.vb" />
     <Compile Include="Forms\OptionsPages\AdvancedPage.Designer.vb">
       <DependentUpon>AdvancedPage.vb</DependentUpon>
     </Compile>
@@ -885,6 +885,7 @@
     <Content Include="Help\Update.htm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Icons\dRemote.ico" />
     <Content Include="obj\Debug Portable\de\mRemoteNG.resources.dll" />
     <Content Include="obj\Debug Portable\el\mRemoteNG.resources.dll" />
     <Content Include="obj\Debug Portable\en-US\mRemoteNG.resources.dll" />
@@ -1253,7 +1254,7 @@
       <Lcid>0</Lcid>
       <WrapperTool>tlbimp</WrapperTool>
       <Isolated>False</Isolated>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
     <COMReference Include="SHDocVw">
       <Guid>{EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B}</Guid>

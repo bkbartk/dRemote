@@ -474,6 +474,8 @@ Namespace UI
                     Else
                         cmenTabFullscreen.Enabled = False
                         cmenTabSmartSize.Enabled = False
+                        cmenTabFullscreen.Visible = False
+                        cmenTabSmartSize.Visible = False
                     End If
 
                     If IC.Info.Protocol = dRemote.Connection.Protocol.Protocols.VNC Then
@@ -483,7 +485,6 @@ Namespace UI
                         Me.cmenTabSmartSize.Enabled = True
                         Me.cmenTabStartChat.Enabled = True
                         Me.cmenTabRefreshScreen.Enabled = True
-                        Me.cmenTabTransferFile.Enabled = False
 
                         Dim vnc As dRemote.Connection.Protocol.VNC = IC.Protocol
                         Me.cmenTabSmartSize.Checked = vnc.SmartSize
@@ -494,16 +495,26 @@ Namespace UI
                         Me.cmenTabStartChat.Enabled = False
                         Me.cmenTabRefreshScreen.Enabled = False
                         Me.cmenTabTransferFile.Enabled = False
+
+                        Me.cmenTabSendSpecialKeys.Visible = False
+                        Me.cmenTabViewOnly.Visible = False
+                        Me.cmenTabStartChat.Visible = False
+                        Me.cmenTabRefreshScreen.Visible = False
+                        Me.cmenTabTransferFile.Visible = False
                     End If
 
                     If IC.Info.Protocol = dRemote.Connection.Protocol.Protocols.SSH1 Or IC.Info.Protocol = dRemote.Connection.Protocol.Protocols.SSH2 Then
                         Me.cmenTabTransferFile.Enabled = True
+                    Else
+                        Me.cmenTabTransferFile.Enabled = False
+                        Me.cmenTabTransferFile.Visible = False
                     End If
 
                     If TypeOf IC.Protocol Is dRemote.Connection.Protocol.PuttyBase Then
                         Me.cmenTabPuttySettings.Enabled = True
                     Else
                         Me.cmenTabPuttySettings.Enabled = False
+                        Me.cmenTabPuttySettings.Visible = False
                     End If
 
                     AddExternalApps()
@@ -544,10 +555,12 @@ Namespace UI
 
             Private Sub cmenTabSendSpecialKeysCtrlAltDel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmenTabSendSpecialKeysCtrlAltDel.Click
                 Me.SendSpecialKeys(dRemote.Connection.Protocol.VNC.SpecialKeys.CtrlAltDel)
+                'SendKeys.SendWait("^%{END}")
             End Sub
 
             Private Sub cmenTabSendSpecialKeysCtrlEsc_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmenTabSendSpecialKeysCtrlEsc.Click
                 Me.SendSpecialKeys(dRemote.Connection.Protocol.VNC.SpecialKeys.CtrlEsc)
+                'SendKeys.Send("^(a)")
             End Sub
 
             Private Sub cmenTabFullscreen_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmenTabFullscreen.Click
