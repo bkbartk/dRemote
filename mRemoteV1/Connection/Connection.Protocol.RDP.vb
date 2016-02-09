@@ -79,6 +79,7 @@ Namespace Connection
                         Loop
 
                         _rdpClient = CType(Control, AxMsRdpClient9NotSafeForScripting).GetOcx()
+
                     Catch ex As Runtime.InteropServices.COMException
                         MessageCollector.AddExceptionMessage(My.Language.strRdpControlCreationFailed, ex)
                         Control.Dispose()
@@ -107,6 +108,8 @@ Namespace Connection
                     If _rdpVersion >= Versions.RDC61 Then
                         _rdpClient.AdvancedSettings7.EnableCredSspSupport = _connectionInfo.UseCredSsp
                     End If
+
+
                     Me.SetUseConsoleSession()
                     Me.SetPort()
                     RedirectKeys = _connectionInfo.RedirectKeys
@@ -122,6 +125,7 @@ Namespace Connection
                     _rdpClient.ConnectingText = My.Language.strConnecting
 
                     Control.Anchor = AnchorStyles.None
+
 
                     Return True
                 Catch ex As Exception
@@ -156,7 +160,8 @@ Namespace Connection
 
             'Public Sub SendRemoteAction(ByVal ActionType As RemoteSessionActionType)
             '    Try
-            '        _rdpClient.SendRemoteAction(ActionType)
+            '        '_rdpClient.SendRemoteAction(ActionType)
+            '        _rdpClient.AdvancedSettings2.HotKeyCtrlAltDel = 1
             '    Catch ex As Exception
             '        MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, My.Language.strRDP & vbNewLine & ex.Message, True)
             '    End Try
@@ -239,8 +244,8 @@ Namespace Connection
                     size = Screen.FromControl(Control).Bounds.Size
                 End If
 
-                Dim msRdpClient As IMsRdpClient9 = _rdpClient
-                msRdpClient.Reconnect(size.Width, size.Height)
+                'Dim msRdpClient As IMsRdpClient9 = _rdpClient
+                _rdpClient.Reconnect(size.Width, size.Height)
             End Sub
 
             Private Sub SetRdGateway()
@@ -457,6 +462,7 @@ Namespace Connection
                     AddHandler _rdpClient.OnFatalError, AddressOf RDPEvent_OnFatalError
                     AddHandler _rdpClient.OnDisconnected, AddressOf RDPEvent_OnDisconnected
                     AddHandler _rdpClient.OnLeaveFullScreenMode, AddressOf RDPEvent_OnLeaveFullscreenMode
+                    AddHandler _rdpClient.OnConfirmClose, AddressOf RDPEvent_OnConfirmClose
                 Catch ex As Exception
                     MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, My.Language.strRdpSetEventHandlersFailed & vbNewLine & ex.Message, True)
                 End Try
@@ -503,7 +509,13 @@ Namespace Connection
                 Fullscreen = False
                 RaiseEvent LeaveFullscreen(Me, New EventArgs())
             End Sub
+            Private Sub RDPEvent_OnConfirmClose()
+                'full screen close
+                Disconnect()
+            End Sub
+
 #End Region
+
 
 #Region "Public Events & Handlers"
             Public Event LeaveFullscreen(ByVal sender As Connection.Protocol.RDP, ByVal e As System.EventArgs)

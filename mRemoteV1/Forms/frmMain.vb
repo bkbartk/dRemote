@@ -166,11 +166,8 @@ Public Class frmMain
 
     Private Sub brows_Navigating(sender As Object, e As System.Windows.Forms.WebBrowserNavigatingEventArgs)
         Dim url As String = e.Url.ToString
-        If (Not sender.DocumentText.ToString.Contains(url) _
-            AndAlso Not url.EndsWith("zrt_lookup.html") _
-            AndAlso Not url.Contains("http://www.dremote.nl") _
-            AndAlso (url.StartsWith("http://") Or url.StartsWith("https://"))) OrElse url.EndsWith(".msi") Then
-            Process.Start(e.Url.ToString)
+        If e.TargetFrameName = "" And url <> "about:blank" Then
+            Process.Start(url)
             e.Cancel = True
         End If
     End Sub
@@ -1055,6 +1052,7 @@ Public Class frmMain
     Private Sub DisplayChanged(ByVal sender As Object, ByVal e As System.EventArgs)
         ResetSysMenuItems()
         AddSysMenuItems()
+        SetBrowsResolution()
     End Sub
 
     Private SysMenSubItems(50) As Integer

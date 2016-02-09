@@ -483,8 +483,8 @@ Namespace UI
                             cmenTabSmartSize.Visible = True
                             cmenTabSmartSize.Checked = rdp.SmartSize
 
-                            cmenTabSendSpecialKeys.Visible = True
-                            cmenTabSendSpecialKeys.DropDownItems.Clear()
+                            'cmenTabSendSpecialKeys.Visible = True
+                            'cmenTabSendSpecialKeys.DropDownItems.Clear()
 
                             'Dim cmenTabSendSpecialKeysAppbar As New System.Windows.Forms.ToolStripMenuItem
                             'cmenTabSendSpecialKeysAppbar.Name = "Appbar"
@@ -616,12 +616,6 @@ Namespace UI
             '            RDP.SendRemoteAction(MSTSCLib.RemoteSessionActionType.RemoteSessionActionStartScreen)
             '    End Select
             'End Sub
-
-            'RemoteSessionActionType.RemoteSessionActionAppbar
-            'RemoteSessionActionType.RemoteSessionActionAppSwitch
-            'RemoteSessionActionType.RemoteSessionActionCharms
-            'RemoteSessionActionType.RemoteSessionActionSnap
-            'RemoteSessionActionType.RemoteSessionActionStartScreen
             Private Sub cmenTabScreenshot_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmenTabScreenshot.Click
                 cmenTab.Close()
                 Application.DoEvents()
