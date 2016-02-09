@@ -156,14 +156,23 @@ Public Class frmMain
 
         KeyboardShortcuts.RequestKeyNotifications(Handle)
         brows = New WebBrowser
-        brows.Url = New Uri(App.Info.General.Advertising)
+        brows.Url = New Uri(App.Info.General.UrlStart)
 
         brows.ScrollBarsEnabled = False
         SetBrowsResolution()
         pnlDock.Controls.Add(brows)
+        AddHandler brows.Navigating, AddressOf brows_Navigating
+    End Sub
 
-        'GoToURL(App.Info.General.URLDonate)
-        'GoToURL(App.Info.General.Advertising)
+    Private Sub brows_Navigating(sender As Object, e As System.Windows.Forms.WebBrowserNavigatingEventArgs)
+        Dim url As String = e.Url.ToString
+        If (Not sender.DocumentText.ToString.Contains(url) _
+            AndAlso Not url.EndsWith("zrt_lookup.html") _
+            AndAlso Not url.Contains("http://www.dremote.nl") _
+            AndAlso (url.StartsWith("http://") Or url.StartsWith("https://"))) OrElse url.EndsWith(".msi") Then
+            Process.Start(e.Url.ToString)
+            e.Cancel = True
+        End If
     End Sub
 
     Private Sub SetBrowsResolution()

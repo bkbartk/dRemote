@@ -154,16 +154,11 @@ Namespace Connection
                 End Try
             End Sub
 
-            'Public Sub SendSpecialKeys(ByVal Keys As SpecialKeys)
+            'Public Sub SendRemoteAction(ByVal ActionType As RemoteSessionActionType)
             '    Try
-            '        Select Case Keys
-            '            Case SpecialKeys.CtrlAltDel
-            '                VNC.SendSpecialKeys(SpecialKeys.CtrlAltDel)
-            '            Case SpecialKeys.CtrlEsc
-            '                VNC.SendSpecialKeys(SpecialKeys.CtrlEsc)
-            '        End Select
+            '        _rdpClient.SendRemoteAction(ActionType)
             '    Catch ex As Exception
-            '        MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, My.Language.strVncSendSpecialKeysFailed & vbNewLine & ex.Message, True)
+            '        MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, My.Language.strRDP & vbNewLine & ex.Message, True)
             '    End Try
             'End Sub
 

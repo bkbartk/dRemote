@@ -91,6 +91,7 @@ Namespace UI
                 Me.cmenTabFullscreen.Name = "cmenTabFullscreen"
                 Me.cmenTabFullscreen.Size = New System.Drawing.Size(201, 22)
                 Me.cmenTabFullscreen.Text = "Fullscreen (RDP)"
+                Me.cmenTabFullscreen.Visible = False
                 '
                 'cmenTabSmartSize
                 '
@@ -98,12 +99,14 @@ Namespace UI
                 Me.cmenTabSmartSize.Name = "cmenTabSmartSize"
                 Me.cmenTabSmartSize.Size = New System.Drawing.Size(201, 22)
                 Me.cmenTabSmartSize.Text = "SmartSize (RDP/VNC)"
+                Me.cmenTabFullscreen.Visible = False
                 '
                 'cmenTabViewOnly
                 '
                 Me.cmenTabViewOnly.Name = "cmenTabViewOnly"
                 Me.cmenTabViewOnly.Size = New System.Drawing.Size(201, 22)
                 Me.cmenTabViewOnly.Text = "View Only (VNC)"
+                Me.cmenTabViewOnly.Visible = False
                 '
                 'ToolStripSeparator1
                 '
@@ -116,6 +119,7 @@ Namespace UI
                 Me.cmenTabScreenshot.Name = "cmenTabScreenshot"
                 Me.cmenTabScreenshot.Size = New System.Drawing.Size(201, 22)
                 Me.cmenTabScreenshot.Text = "Screenshot"
+                Me.cmenTabScreenshot.Visible = False
                 '
                 'cmenTabStartChat
                 '
@@ -131,6 +135,7 @@ Namespace UI
                 Me.cmenTabTransferFile.Name = "cmenTabTransferFile"
                 Me.cmenTabTransferFile.Size = New System.Drawing.Size(201, 22)
                 Me.cmenTabTransferFile.Text = "Transfer File (SSH)"
+                Me.cmenTabTransferFile.Visible = False
                 '
                 'cmenTabRefreshScreen
                 '
@@ -138,6 +143,7 @@ Namespace UI
                 Me.cmenTabRefreshScreen.Name = "cmenTabRefreshScreen"
                 Me.cmenTabRefreshScreen.Size = New System.Drawing.Size(201, 22)
                 Me.cmenTabRefreshScreen.Text = "Refresh Screen (VNC)"
+                Me.cmenTabRefreshScreen.Visible = False
                 '
                 'cmenTabSendSpecialKeys
                 '
@@ -145,19 +151,22 @@ Namespace UI
                 Me.cmenTabSendSpecialKeys.Image = Global.dRemote.My.Resources.Resources.Keyboard
                 Me.cmenTabSendSpecialKeys.Name = "cmenTabSendSpecialKeys"
                 Me.cmenTabSendSpecialKeys.Size = New System.Drawing.Size(201, 22)
-                Me.cmenTabSendSpecialKeys.Text = "Send special Keys (VNC)"
+                Me.cmenTabSendSpecialKeys.Text = "Send Command"
+                Me.cmenTabSendSpecialKeys.Visible = False
                 '
                 'cmenTabSendSpecialKeysCtrlAltDel
                 '
                 Me.cmenTabSendSpecialKeysCtrlAltDel.Name = "cmenTabSendSpecialKeysCtrlAltDel"
                 Me.cmenTabSendSpecialKeysCtrlAltDel.Size = New System.Drawing.Size(141, 22)
                 Me.cmenTabSendSpecialKeysCtrlAltDel.Text = "Ctrl+Alt+Del"
+                Me.cmenTabSendSpecialKeysCtrlAltDel.Visible = False
                 '
                 'cmenTabSendSpecialKeysCtrlEsc
                 '
                 Me.cmenTabSendSpecialKeysCtrlEsc.Name = "cmenTabSendSpecialKeysCtrlEsc"
                 Me.cmenTabSendSpecialKeysCtrlEsc.Size = New System.Drawing.Size(141, 22)
                 Me.cmenTabSendSpecialKeysCtrlEsc.Text = "Ctrl+Esc"
+                Me.cmenTabSendSpecialKeysCtrlEsc.Visible = False
                 '
                 'cmenTabExternalApps
                 '
@@ -203,6 +212,7 @@ Namespace UI
                 Me.cmenTabPuttySettings.Name = "cmenTabPuttySettings"
                 Me.cmenTabPuttySettings.Size = New System.Drawing.Size(201, 22)
                 Me.cmenTabPuttySettings.Text = "PuTTY Settings"
+                Me.cmenTabPuttySettings.Visible = False
                 '
                 'Connection
                 '
@@ -463,66 +473,155 @@ Namespace UI
                         Exit Sub
                     End If
 
-                    If IC.Info.Protocol = dRemote.Connection.Protocol.Protocols.RDP Then
-                        Dim rdp As dRemote.Connection.Protocol.RDP = IC.Protocol
+                    Select Case IC.Info.Protocol
+                        Case dRemote.Connection.Protocol.Protocols.RDP
+                            Dim rdp As dRemote.Connection.Protocol.RDP = IC.Protocol
 
-                        cmenTabFullscreen.Enabled = True
-                        cmenTabFullscreen.Checked = rdp.Fullscreen
+                            cmenTabFullscreen.Visible = True
+                            cmenTabFullscreen.Checked = rdp.Fullscreen
 
-                        cmenTabSmartSize.Enabled = True
-                        cmenTabSmartSize.Checked = rdp.SmartSize
-                    Else
-                        cmenTabFullscreen.Enabled = False
-                        cmenTabSmartSize.Enabled = False
-                        cmenTabFullscreen.Visible = False
-                        cmenTabSmartSize.Visible = False
-                    End If
+                            cmenTabSmartSize.Visible = True
+                            cmenTabSmartSize.Checked = rdp.SmartSize
 
-                    If IC.Info.Protocol = dRemote.Connection.Protocol.Protocols.VNC Then
-                        Me.cmenTabSendSpecialKeys.Enabled = True
-                        Me.cmenTabViewOnly.Enabled = True
+                            cmenTabSendSpecialKeys.Visible = True
+                            cmenTabSendSpecialKeys.DropDownItems.Clear()
 
-                        Me.cmenTabSmartSize.Enabled = True
-                        Me.cmenTabStartChat.Enabled = True
-                        Me.cmenTabRefreshScreen.Enabled = True
+                            'Dim cmenTabSendSpecialKeysAppbar As New System.Windows.Forms.ToolStripMenuItem
+                            'cmenTabSendSpecialKeysAppbar.Name = "Appbar"
+                            'cmenTabSendSpecialKeysAppbar.Size = New System.Drawing.Size(141, 22)
+                            'cmenTabSendSpecialKeysAppbar.Text = "Appbar"
+                            'AddHandler cmenTabSendSpecialKeysAppbar.Click, AddressOf rdpRemoteAction
+                            'cmenTabSendSpecialKeys.DropDownItems.Add(cmenTabSendSpecialKeysAppbar)
 
-                        Dim vnc As dRemote.Connection.Protocol.VNC = IC.Protocol
-                        Me.cmenTabSmartSize.Checked = vnc.SmartSize
-                        Me.cmenTabViewOnly.Checked = vnc.ViewOnly
-                    Else
-                        Me.cmenTabSendSpecialKeys.Enabled = False
-                        Me.cmenTabViewOnly.Enabled = False
-                        Me.cmenTabStartChat.Enabled = False
-                        Me.cmenTabRefreshScreen.Enabled = False
-                        Me.cmenTabTransferFile.Enabled = False
+                            'Dim cmenTabSendSpecialKeysAppSwitch As New System.Windows.Forms.ToolStripMenuItem
+                            'cmenTabSendSpecialKeysAppSwitch.Name = "AppSwitch"
+                            'cmenTabSendSpecialKeysAppSwitch.Size = New System.Drawing.Size(141, 22)
+                            'cmenTabSendSpecialKeysAppSwitch.Text = "AppSwitch"
+                            'AddHandler cmenTabSendSpecialKeysAppSwitch.Click, AddressOf rdpRemoteAction
+                            'cmenTabSendSpecialKeys.DropDownItems.Add(cmenTabSendSpecialKeysAppSwitch)
 
-                        Me.cmenTabSendSpecialKeys.Visible = False
-                        Me.cmenTabViewOnly.Visible = False
-                        Me.cmenTabStartChat.Visible = False
-                        Me.cmenTabRefreshScreen.Visible = False
-                        Me.cmenTabTransferFile.Visible = False
-                    End If
+                            'Dim cmenTabSendSpecialKeysCharms As New System.Windows.Forms.ToolStripMenuItem
+                            'cmenTabSendSpecialKeysCharms.Name = "Charms"
+                            'cmenTabSendSpecialKeysCharms.Size = New System.Drawing.Size(141, 22)
+                            'cmenTabSendSpecialKeysCharms.Text = "Charms"
+                            'AddHandler cmenTabSendSpecialKeysCharms.Click, AddressOf rdpRemoteAction
+                            'cmenTabSendSpecialKeys.DropDownItems.Add(cmenTabSendSpecialKeysCharms)
 
-                    If IC.Info.Protocol = dRemote.Connection.Protocol.Protocols.SSH1 Or IC.Info.Protocol = dRemote.Connection.Protocol.Protocols.SSH2 Then
-                        Me.cmenTabTransferFile.Enabled = True
-                    Else
-                        Me.cmenTabTransferFile.Enabled = False
-                        Me.cmenTabTransferFile.Visible = False
-                    End If
+                            'Dim cmenTabSendSpecialKeysSnap As New System.Windows.Forms.ToolStripMenuItem
+                            'cmenTabSendSpecialKeysSnap.Name = "Snap"
+                            'cmenTabSendSpecialKeysSnap.Size = New System.Drawing.Size(141, 22)
+                            'cmenTabSendSpecialKeysSnap.Text = "Snap"
+                            'AddHandler cmenTabSendSpecialKeysSnap.Click, AddressOf rdpRemoteAction
+                            'cmenTabSendSpecialKeys.DropDownItems.Add(cmenTabSendSpecialKeysSnap)
 
-                    If TypeOf IC.Protocol Is dRemote.Connection.Protocol.PuttyBase Then
-                        Me.cmenTabPuttySettings.Enabled = True
-                    Else
-                        Me.cmenTabPuttySettings.Enabled = False
-                        Me.cmenTabPuttySettings.Visible = False
-                    End If
+                            'Dim cmenTabSendSpecialKeysStartScreen As New System.Windows.Forms.ToolStripMenuItem
+                            'cmenTabSendSpecialKeysStartScreen.Name = "StartScreen"
+                            'cmenTabSendSpecialKeysStartScreen.Size = New System.Drawing.Size(141, 22)
+                            'cmenTabSendSpecialKeysStartScreen.Text = "StartScreen"
+                            'AddHandler cmenTabSendSpecialKeysStartScreen.Click, AddressOf rdpRemoteAction
+                            'cmenTabSendSpecialKeys.DropDownItems.Add(cmenTabSendSpecialKeysStartScreen)
+
+                        Case dRemote.Connection.Protocol.Protocols.VNC
+                            Me.cmenTabSendSpecialKeys.Visible = True
+                            Me.cmenTabSendSpecialKeysCtrlAltDel.Visible = True
+                            Me.cmenTabSendSpecialKeysCtrlEsc.Visible = True
+
+                            Me.cmenTabViewOnly.Visible = True
+
+                            Me.cmenTabSmartSize.Visible = True
+                            Me.cmenTabStartChat.Visible = True
+                            Me.cmenTabRefreshScreen.Visible = True
+
+                            Dim vnc As dRemote.Connection.Protocol.VNC = IC.Protocol
+                            Me.cmenTabSmartSize.Checked = vnc.SmartSize
+                            Me.cmenTabViewOnly.Checked = vnc.ViewOnly
+                        Case dRemote.Connection.Protocol.Protocols.SSH1, dRemote.Connection.Protocol.Protocols.SSH2
+                            Me.cmenTabTransferFile.Visible = True
+                        Case TypeOf IC.Protocol Is dRemote.Connection.Protocol.PuttyBase
+                            Me.cmenTabPuttySettings.Visible = True
+                    End Select
+
+                    'If IC.Info.Protocol = dRemote.Connection.Protocol.Protocols.RDP Then
+                    '    Dim rdp As dRemote.Connection.Protocol.RDP = IC.Protocol
+
+                    '    cmenTabFullscreen.Enabled = True
+                    '    cmenTabFullscreen.Checked = rdp.Fullscreen
+
+                    '    cmenTabSmartSize.Enabled = True
+                    '    cmenTabSmartSize.Checked = rdp.SmartSize
+                    'Else
+                    '    cmenTabFullscreen.Enabled = False
+                    '    cmenTabSmartSize.Enabled = False
+                    '    cmenTabFullscreen.Visible = False
+                    '    cmenTabSmartSize.Visible = False
+                    'End If
+
+                    'If IC.Info.Protocol = dRemote.Connection.Protocol.Protocols.VNC Then
+                    '    Me.cmenTabSendSpecialKeys.Enabled = True
+                    '    Me.cmenTabViewOnly.Enabled = True
+
+                    '    Me.cmenTabSmartSize.Enabled = True
+                    '    Me.cmenTabStartChat.Enabled = True
+                    '    Me.cmenTabRefreshScreen.Enabled = True
+
+                    '    Dim vnc As dRemote.Connection.Protocol.VNC = IC.Protocol
+                    '    Me.cmenTabSmartSize.Checked = vnc.SmartSize
+                    '    Me.cmenTabViewOnly.Checked = vnc.ViewOnly
+                    'Else
+                    '    Me.cmenTabSendSpecialKeys.Enabled = False
+                    '    Me.cmenTabViewOnly.Enabled = False
+                    '    Me.cmenTabStartChat.Enabled = False
+                    '    Me.cmenTabRefreshScreen.Enabled = False
+                    '    Me.cmenTabTransferFile.Enabled = False
+
+                    '    Me.cmenTabSendSpecialKeys.Visible = False
+                    '    Me.cmenTabViewOnly.Visible = False
+                    '    Me.cmenTabStartChat.Visible = False
+                    '    Me.cmenTabRefreshScreen.Visible = False
+                    '    Me.cmenTabTransferFile.Visible = False
+                    'End If
+
+                    'If IC.Info.Protocol = dRemote.Connection.Protocol.Protocols.SSH1 Or IC.Info.Protocol = dRemote.Connection.Protocol.Protocols.SSH2 Then
+                    '    Me.cmenTabTransferFile.Enabled = True
+                    'Else
+                    '    Me.cmenTabTransferFile.Enabled = False
+                    '    Me.cmenTabTransferFile.Visible = False
+                    'End If
+
+                    'If TypeOf IC.Protocol Is dRemote.Connection.Protocol.PuttyBase Then
+                    '    Me.cmenTabPuttySettings.Enabled = True
+                    'Else
+                    '    Me.cmenTabPuttySettings.Enabled = False
+                    '    Me.cmenTabPuttySettings.Visible = False
+                    'End If
 
                     AddExternalApps()
                 Catch ex As Exception
                     MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, "ShowHideMenuButtons (UI.Window.Connections) failed" & vbNewLine & ex.Message, True)
                 End Try
             End Sub
+            'Sub rdpRemoteAction(Sender As System.Windows.Forms.ToolStripMenuItem, e As EventArgs)
+            '    Dim IC As dRemote.Connection.InterfaceControl = Me.TabController.SelectedTab.Tag
+            '    Dim RDP As Protocol.RDP = IC.Protocol
+            '    Select Case Sender.Name
+            '        Case "Appbar"
+            '            RDP.SendRemoteAction(MSTSCLib.RemoteSessionActionType.RemoteSessionActionAppbar)
+            '        Case "AppSwitch"
+            '            RDP.SendRemoteAction(MSTSCLib.RemoteSessionActionType.RemoteSessionActionAppSwitch)
+            '        Case "Charms"
+            '            RDP.SendRemoteAction(MSTSCLib.RemoteSessionActionType.RemoteSessionActionCharms)
+            '        Case "nSnap"
+            '            RDP.SendRemoteAction(MSTSCLib.RemoteSessionActionType.RemoteSessionActionSnap)
+            '        Case "StartScreen"
+            '            RDP.SendRemoteAction(MSTSCLib.RemoteSessionActionType.RemoteSessionActionStartScreen)
+            '    End Select
+            'End Sub
 
+            'RemoteSessionActionType.RemoteSessionActionAppbar
+            'RemoteSessionActionType.RemoteSessionActionAppSwitch
+            'RemoteSessionActionType.RemoteSessionActionCharms
+            'RemoteSessionActionType.RemoteSessionActionSnap
+            'RemoteSessionActionType.RemoteSessionActionStartScreen
             Private Sub cmenTabScreenshot_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmenTabScreenshot.Click
                 cmenTab.Close()
                 Application.DoEvents()
@@ -555,12 +654,11 @@ Namespace UI
 
             Private Sub cmenTabSendSpecialKeysCtrlAltDel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmenTabSendSpecialKeysCtrlAltDel.Click
                 Me.SendSpecialKeys(dRemote.Connection.Protocol.VNC.SpecialKeys.CtrlAltDel)
-                'SendKeys.SendWait("^%{END}")
             End Sub
 
             Private Sub cmenTabSendSpecialKeysCtrlEsc_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmenTabSendSpecialKeysCtrlEsc.Click
                 Me.SendSpecialKeys(dRemote.Connection.Protocol.VNC.SpecialKeys.CtrlEsc)
-                'SendKeys.Send("^(a)")
+
             End Sub
 
             Private Sub cmenTabFullscreen_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmenTabFullscreen.Click
