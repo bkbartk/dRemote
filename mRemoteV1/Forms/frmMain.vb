@@ -617,6 +617,7 @@ Public Class frmMain
     Private Sub mMenViewErrorsAndInfos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mMenViewErrorsAndInfos.Click
         If Me.mMenViewErrorsAndInfos.Checked = False Then
             Windows.errorsPanel.Show(Me.pnlDock)
+            Windows.errorsPanel.DockState = DockState.DockBottomAutoHide
             Me.mMenViewErrorsAndInfos.Checked = True
         Else
             Windows.errorsPanel.Hide()

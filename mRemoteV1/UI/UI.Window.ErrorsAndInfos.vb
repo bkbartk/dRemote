@@ -154,6 +154,7 @@ Namespace UI
                 Me.cMenMC.ResumeLayout(False)
                 Me.ResumeLayout(False)
 
+
             End Sub
 #End Region
 
@@ -288,7 +289,7 @@ Namespace UI
                         Me.pnlErrorMsg_ResetDefaultStyle()
                         Exit Sub
                     End If
-
+                    Me.DockState = DockState.DockBottomAutoHide
                     Dim sItem As ListViewItem = Me.lvErrorCollector.SelectedItems(0)
                     Dim eMsg As Messages.Message = sItem.Tag
                     Select Case eMsg.MsgClass
@@ -308,6 +309,7 @@ Namespace UI
 
                     Me.lblMsgDate.Text = eMsg.MsgDate
                     Me.txtMsgText.Text = eMsg.MsgText
+
                 Catch ex As Exception
                     MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, "lvErrorCollector_SelectedIndexChanged (UI.Window.ErrorsAndInfos) failed" & vbNewLine & ex.Message, True)
                 End Try

@@ -198,6 +198,8 @@ Namespace Config
                         Else
                             Startup.SetDefaultLayout()
                         End If
+
+
                     End With
                 Catch ex As Exception
                     Log.Error("LoadPanelsFromXML failed" & vbNewLine & ex.Message)
