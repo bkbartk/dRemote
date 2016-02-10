@@ -15,39 +15,37 @@ Namespace UI
             Friend WithEvents txtChangeLog As System.Windows.Forms.TextBox
             Friend WithEvents lblChangeLog As System.Windows.Forms.Label
             Friend WithEvents pnlBottom As System.Windows.Forms.Panel
-            Friend WithEvents pbLogo As System.Windows.Forms.PictureBox
             Friend WithEvents lblEdition As System.Windows.Forms.Label
             Friend WithEvents llblFAMFAMFAM As System.Windows.Forms.LinkLabel
             Friend WithEvents llblMagicLibrary As System.Windows.Forms.LinkLabel
             Friend WithEvents llblWeifenLuo As System.Windows.Forms.LinkLabel
+            Friend WithEvents lnklblChangelog As LinkLabel
             Friend WithEvents pnlTop As System.Windows.Forms.Panel
 
             Private Sub InitializeComponent()
-                Me.pnlTop = New System.Windows.Forms.Panel
-                Me.lblEdition = New System.Windows.Forms.Label
-                Me.pbLogo = New System.Windows.Forms.PictureBox
-                Me.pnlBottom = New System.Windows.Forms.Panel
-                Me.llblWeifenLuo = New System.Windows.Forms.LinkLabel
-                Me.llblMagicLibrary = New System.Windows.Forms.LinkLabel
-                Me.llblFAMFAMFAM = New System.Windows.Forms.LinkLabel
-                Me.txtChangeLog = New System.Windows.Forms.TextBox
-                Me.lblTitle = New System.Windows.Forms.Label
-                Me.lblVersion = New System.Windows.Forms.Label
-                Me.lblChangeLog = New System.Windows.Forms.Label
-                Me.lblLicense = New System.Windows.Forms.Label
-                Me.lblCopyright = New System.Windows.Forms.Label
+                Me.pnlTop = New System.Windows.Forms.Panel()
+                Me.lblEdition = New System.Windows.Forms.Label()
+                Me.pnlBottom = New System.Windows.Forms.Panel()
+                Me.lnklblChangelog = New System.Windows.Forms.LinkLabel()
+                Me.llblWeifenLuo = New System.Windows.Forms.LinkLabel()
+                Me.llblMagicLibrary = New System.Windows.Forms.LinkLabel()
+                Me.llblFAMFAMFAM = New System.Windows.Forms.LinkLabel()
+                Me.txtChangeLog = New System.Windows.Forms.TextBox()
+                Me.lblTitle = New System.Windows.Forms.Label()
+                Me.lblVersion = New System.Windows.Forms.Label()
+                Me.lblChangeLog = New System.Windows.Forms.Label()
+                Me.lblLicense = New System.Windows.Forms.Label()
+                Me.lblCopyright = New System.Windows.Forms.Label()
                 Me.pnlTop.SuspendLayout()
-                CType(Me.pbLogo, System.ComponentModel.ISupportInitialize).BeginInit()
                 Me.pnlBottom.SuspendLayout()
                 Me.SuspendLayout()
                 '
                 'pnlTop
                 '
                 Me.pnlTop.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
                 Me.pnlTop.BackColor = System.Drawing.Color.Black
                 Me.pnlTop.Controls.Add(Me.lblEdition)
-                Me.pnlTop.Controls.Add(Me.pbLogo)
                 Me.pnlTop.ForeColor = System.Drawing.Color.White
                 Me.pnlTop.Location = New System.Drawing.Point(-1, -1)
                 Me.pnlTop.Name = "pnlTop"
@@ -68,22 +66,13 @@ Namespace UI
                 Me.lblEdition.TextAlign = System.Drawing.ContentAlignment.BottomRight
                 Me.lblEdition.Visible = False
                 '
-                'pbLogo
-                '
-                Me.pbLogo.Image = Global.dRemote.My.Resources.Resources.Logo
-                Me.pbLogo.Location = New System.Drawing.Point(8, 8)
-                Me.pbLogo.Name = "pbLogo"
-                Me.pbLogo.Size = New System.Drawing.Size(492, 128)
-                Me.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-                Me.pbLogo.TabIndex = 1
-                Me.pbLogo.TabStop = False
-                '
                 'pnlBottom
                 '
                 Me.pnlBottom.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                            Or System.Windows.Forms.AnchorStyles.Left) _
-                            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
                 Me.pnlBottom.BackColor = System.Drawing.SystemColors.Control
+                Me.pnlBottom.Controls.Add(Me.lnklblChangelog)
                 Me.pnlBottom.Controls.Add(Me.llblWeifenLuo)
                 Me.pnlBottom.Controls.Add(Me.llblMagicLibrary)
                 Me.pnlBottom.Controls.Add(Me.llblFAMFAMFAM)
@@ -98,6 +87,17 @@ Namespace UI
                 Me.pnlBottom.Name = "pnlBottom"
                 Me.pnlBottom.Size = New System.Drawing.Size(788, 418)
                 Me.pnlBottom.TabIndex = 1
+                '
+                'lnklblChangelog
+                '
+                Me.lnklblChangelog.AutoSize = True
+                Me.lnklblChangelog.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+                Me.lnklblChangelog.Location = New System.Drawing.Point(114, 199)
+                Me.lnklblChangelog.Name = "lnklblChangelog"
+                Me.lnklblChangelog.Size = New System.Drawing.Size(79, 18)
+                Me.lnklblChangelog.TabIndex = 10
+                Me.lnklblChangelog.TabStop = True
+                Me.lnklblChangelog.Text = "Changelog"
                 '
                 'llblWeifenLuo
                 '
@@ -144,8 +144,8 @@ Namespace UI
                 'txtChangeLog
                 '
                 Me.txtChangeLog.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                            Or System.Windows.Forms.AnchorStyles.Left) _
-                            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
                 Me.txtChangeLog.BackColor = System.Drawing.SystemColors.Control
                 Me.txtChangeLog.BorderStyle = System.Windows.Forms.BorderStyle.None
                 Me.txtChangeLog.Cursor = System.Windows.Forms.Cursors.Default
@@ -167,7 +167,7 @@ Namespace UI
                 Me.lblTitle.ForeColor = System.Drawing.SystemColors.ControlText
                 Me.lblTitle.Location = New System.Drawing.Point(16, 16)
                 Me.lblTitle.Name = "lblTitle"
-                Me.lblTitle.Size = New System.Drawing.Size(122, 27)
+                Me.lblTitle.Size = New System.Drawing.Size(87, 27)
                 Me.lblTitle.TabIndex = 0
                 Me.lblTitle.Text = "dRemote"
                 Me.lblTitle.UseCompatibleTextRendering = True
@@ -234,8 +234,6 @@ Namespace UI
                 Me.TabText = "About"
                 Me.Text = "About"
                 Me.pnlTop.ResumeLayout(False)
-                Me.pnlTop.PerformLayout()
-                CType(Me.pbLogo, System.ComponentModel.ISupportInitialize).EndInit()
                 Me.pnlBottom.ResumeLayout(False)
                 Me.pnlBottom.PerformLayout()
                 Me.ResumeLayout(False)
@@ -319,6 +317,14 @@ Namespace UI
 
             Private Sub llblWeifenLuo_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles llblWeifenLuo.LinkClicked
                 App.Runtime.GoToURL(My.Language.strWeifenLuoAttributionURL)
+            End Sub
+
+            Private Sub lblChangeLog_Click(sender As Object, e As EventArgs) Handles lblChangeLog.Click
+
+            End Sub
+
+            Private Sub lnklblChangelog_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnklblChangelog.LinkClicked
+                Process.Start("http://www.dremote.nl/changelog/")
             End Sub
 #End Region
         End Class

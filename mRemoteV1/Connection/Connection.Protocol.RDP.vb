@@ -54,7 +54,7 @@ Namespace Connection
 #End Region
 
 #Region "Private Declarations"
-            Private _rdpClient As MSTSCLib.MsRdpClient9NotSafeForScripting
+            Private _rdpClient As MsRdpClient9NotSafeForScripting
             Private _rdpVersion As Version
             Private _connectionInfo As Info
             Private _loginComplete As Boolean
