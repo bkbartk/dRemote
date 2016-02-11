@@ -37,6 +37,7 @@
             Me.chkDoubleClickClosesTab = New System.Windows.Forms.CheckBox()
             Me.chkMCWarnings = New System.Windows.Forms.CheckBox()
             Me.chkShowProtocolOnTabs = New System.Windows.Forms.CheckBox()
+            Me.chkEachNewPanelTab = New System.Windows.Forms.CheckBox()
             Me.SuspendLayout()
             '
             'chkAlwaysShowPanelTabs
@@ -46,13 +47,13 @@
             Me.chkAlwaysShowPanelTabs.Name = "chkAlwaysShowPanelTabs"
             Me.chkAlwaysShowPanelTabs.Size = New System.Drawing.Size(139, 17)
             Me.chkAlwaysShowPanelTabs.TabIndex = 12
-            Me.chkAlwaysShowPanelTabs.Text = "Always show panel tabs"
+            Me.chkAlwaysShowPanelTabs.Text = Global.dRemote.My.Language.strAlwaysShowPanelTabs
             Me.chkAlwaysShowPanelTabs.UseVisualStyleBackColor = True
             '
             'chkIdentifyQuickConnectTabs
             '
             Me.chkIdentifyQuickConnectTabs.AutoSize = True
-            Me.chkIdentifyQuickConnectTabs.Location = New System.Drawing.Point(3, 92)
+            Me.chkIdentifyQuickConnectTabs.Location = New System.Drawing.Point(3, 110)
             Me.chkIdentifyQuickConnectTabs.Name = "chkIdentifyQuickConnectTabs"
             Me.chkIdentifyQuickConnectTabs.Size = New System.Drawing.Size(293, 17)
             Me.chkIdentifyQuickConnectTabs.TabIndex = 16
@@ -62,7 +63,7 @@
             'chkUseOnlyErrorsAndInfosPanel
             '
             Me.chkUseOnlyErrorsAndInfosPanel.AutoSize = True
-            Me.chkUseOnlyErrorsAndInfosPanel.Location = New System.Drawing.Point(3, 185)
+            Me.chkUseOnlyErrorsAndInfosPanel.Location = New System.Drawing.Point(3, 203)
             Me.chkUseOnlyErrorsAndInfosPanel.Name = "chkUseOnlyErrorsAndInfosPanel"
             Me.chkUseOnlyErrorsAndInfosPanel.Size = New System.Drawing.Size(278, 17)
             Me.chkUseOnlyErrorsAndInfosPanel.TabIndex = 19
@@ -72,7 +73,7 @@
             'chkOpenNewTabRightOfSelected
             '
             Me.chkOpenNewTabRightOfSelected.AutoSize = True
-            Me.chkOpenNewTabRightOfSelected.Location = New System.Drawing.Point(3, 23)
+            Me.chkOpenNewTabRightOfSelected.Location = New System.Drawing.Point(3, 41)
             Me.chkOpenNewTabRightOfSelected.Name = "chkOpenNewTabRightOfSelected"
             Me.chkOpenNewTabRightOfSelected.Size = New System.Drawing.Size(280, 17)
             Me.chkOpenNewTabRightOfSelected.TabIndex = 13
@@ -82,7 +83,7 @@
             'lblSwitchToErrorsAndInfos
             '
             Me.lblSwitchToErrorsAndInfos.AutoSize = True
-            Me.lblSwitchToErrorsAndInfos.Location = New System.Drawing.Point(3, 210)
+            Me.lblSwitchToErrorsAndInfos.Location = New System.Drawing.Point(3, 228)
             Me.lblSwitchToErrorsAndInfos.Name = "lblSwitchToErrorsAndInfos"
             Me.lblSwitchToErrorsAndInfos.Size = New System.Drawing.Size(159, 13)
             Me.lblSwitchToErrorsAndInfos.TabIndex = 20
@@ -91,7 +92,7 @@
             'chkAlwaysShowPanelSelectionDlg
             '
             Me.chkAlwaysShowPanelSelectionDlg.AutoSize = True
-            Me.chkAlwaysShowPanelSelectionDlg.Location = New System.Drawing.Point(3, 138)
+            Me.chkAlwaysShowPanelSelectionDlg.Location = New System.Drawing.Point(3, 156)
             Me.chkAlwaysShowPanelSelectionDlg.Name = "chkAlwaysShowPanelSelectionDlg"
             Me.chkAlwaysShowPanelSelectionDlg.Size = New System.Drawing.Size(317, 17)
             Me.chkAlwaysShowPanelSelectionDlg.TabIndex = 18
@@ -102,7 +103,7 @@
             '
             Me.chkMCInformation.AutoSize = True
             Me.chkMCInformation.Enabled = False
-            Me.chkMCInformation.Location = New System.Drawing.Point(19, 230)
+            Me.chkMCInformation.Location = New System.Drawing.Point(19, 248)
             Me.chkMCInformation.Name = "chkMCInformation"
             Me.chkMCInformation.Size = New System.Drawing.Size(83, 17)
             Me.chkMCInformation.TabIndex = 21
@@ -112,7 +113,7 @@
             'chkShowLogonInfoOnTabs
             '
             Me.chkShowLogonInfoOnTabs.AutoSize = True
-            Me.chkShowLogonInfoOnTabs.Location = New System.Drawing.Point(3, 46)
+            Me.chkShowLogonInfoOnTabs.Location = New System.Drawing.Point(3, 64)
             Me.chkShowLogonInfoOnTabs.Name = "chkShowLogonInfoOnTabs"
             Me.chkShowLogonInfoOnTabs.Size = New System.Drawing.Size(203, 17)
             Me.chkShowLogonInfoOnTabs.TabIndex = 14
@@ -123,7 +124,7 @@
             '
             Me.chkMCErrors.AutoSize = True
             Me.chkMCErrors.Enabled = False
-            Me.chkMCErrors.Location = New System.Drawing.Point(19, 276)
+            Me.chkMCErrors.Location = New System.Drawing.Point(19, 294)
             Me.chkMCErrors.Name = "chkMCErrors"
             Me.chkMCErrors.Size = New System.Drawing.Size(53, 17)
             Me.chkMCErrors.TabIndex = 23
@@ -133,7 +134,7 @@
             'chkDoubleClickClosesTab
             '
             Me.chkDoubleClickClosesTab.AutoSize = True
-            Me.chkDoubleClickClosesTab.Location = New System.Drawing.Point(3, 115)
+            Me.chkDoubleClickClosesTab.Location = New System.Drawing.Point(3, 133)
             Me.chkDoubleClickClosesTab.Name = "chkDoubleClickClosesTab"
             Me.chkDoubleClickClosesTab.Size = New System.Drawing.Size(159, 17)
             Me.chkDoubleClickClosesTab.TabIndex = 17
@@ -144,7 +145,7 @@
             '
             Me.chkMCWarnings.AutoSize = True
             Me.chkMCWarnings.Enabled = False
-            Me.chkMCWarnings.Location = New System.Drawing.Point(19, 253)
+            Me.chkMCWarnings.Location = New System.Drawing.Point(19, 271)
             Me.chkMCWarnings.Name = "chkMCWarnings"
             Me.chkMCWarnings.Size = New System.Drawing.Size(71, 17)
             Me.chkMCWarnings.TabIndex = 22
@@ -154,17 +155,28 @@
             'chkShowProtocolOnTabs
             '
             Me.chkShowProtocolOnTabs.AutoSize = True
-            Me.chkShowProtocolOnTabs.Location = New System.Drawing.Point(3, 69)
+            Me.chkShowProtocolOnTabs.Location = New System.Drawing.Point(3, 87)
             Me.chkShowProtocolOnTabs.Name = "chkShowProtocolOnTabs"
             Me.chkShowProtocolOnTabs.Size = New System.Drawing.Size(166, 17)
             Me.chkShowProtocolOnTabs.TabIndex = 15
             Me.chkShowProtocolOnTabs.Text = "Show protocols on tab names"
             Me.chkShowProtocolOnTabs.UseVisualStyleBackColor = True
             '
+            'chkEachNewPanelTab
+            '
+            Me.chkEachNewPanelTab.AutoSize = True
+            Me.chkEachNewPanelTab.Location = New System.Drawing.Point(3, 20)
+            Me.chkEachNewPanelTab.Name = "chkEachNewPanelTab"
+            Me.chkEachNewPanelTab.Size = New System.Drawing.Size(217, 17)
+            Me.chkEachNewPanelTab.TabIndex = 24
+            Me.chkEachNewPanelTab.Text = "Open Each connection in new panel tab"
+            Me.chkEachNewPanelTab.UseVisualStyleBackColor = True
+            '
             'TabsPanelsPage
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
             Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+            Me.Controls.Add(Me.chkEachNewPanelTab)
             Me.Controls.Add(Me.chkAlwaysShowPanelTabs)
             Me.Controls.Add(Me.chkIdentifyQuickConnectTabs)
             Me.Controls.Add(Me.chkUseOnlyErrorsAndInfosPanel)
@@ -196,6 +208,6 @@
         Friend WithEvents chkDoubleClickClosesTab As System.Windows.Forms.CheckBox
         Friend WithEvents chkMCWarnings As System.Windows.Forms.CheckBox
         Friend WithEvents chkShowProtocolOnTabs As System.Windows.Forms.CheckBox
-
+        Friend WithEvents chkEachNewPanelTab As CheckBox
     End Class
 End Namespace

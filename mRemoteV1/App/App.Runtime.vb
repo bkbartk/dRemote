@@ -8,7 +8,7 @@ Imports dRemote.Tools
 Imports dRemote.Forms.OptionsPages
 Imports PSTaskDialog
 Imports WeifenLuo.WinFormsUI.Docking
-Imports System.IO
+Imports System.IOtab
 Imports Crownwood
 Imports System.Threading
 Imports System.Xml
@@ -16,6 +16,7 @@ Imports System.Environment
 Imports System.Management
 Imports Microsoft.Win32
 Imports Timer = System.Timers.Timer
+Imports System.IO
 
 Namespace App
     Public Class Runtime
@@ -867,7 +868,7 @@ Namespace App
 #End Region
 
 #Region "Panels"
-        Public Shared Function AddPanel(Optional ByVal title As String = "", Optional ByVal noTabber As Boolean = False) As System.Windows.Forms.Form
+        Public Shared Function AddPanel(Optional ByVal title As String = "", Optional ByVal icon As String = "", Optional ByVal noTabber As Boolean = False) As System.Windows.Forms.Form
             Try
                 If title = "" Then
                     title = My.Language.strNewPanel
@@ -898,15 +899,22 @@ Namespace App
 
                 pnlcForm.TabPageContextMenuStrip = cMen
 
-                TryCast(cForm, UI.Window.Connection).SetFormText(title.Replace("&", "&&"))
+                cForm.SetFormText(title.Replace("&", "&&"))
+                Dim conIcon As Drawing.Icon = dRemote.Connection.Icon.FromString(icon)
+                If conIcon IsNot Nothing Then
+                    cForm.Icon = conIcon
+                    cForm.ShowIcon = True
+                End If
+
 
                 pnlcForm.Show(frmMain.pnlDock, DockState.Document)
 
                 If noTabber Then
-                    TryCast(cForm, UI.Window.Connection).TabController.Dispose()
+                    'TryCast(cForm, UI.Window.Connection).TabController.Dispose()
                 Else
                     WindowList.Add(cForm)
                 End If
+
 
                 Return cForm
             Catch ex As Exception
@@ -1492,8 +1500,11 @@ Namespace App
                 Else
                     cForm = ConForm
                 End If
-
-                If cForm Is Nothing Then
+                If My.Settings.EachNewPanelTab Then
+                    cForm = AddPanel(newConnectionInfo.Name, newConnectionInfo.Icon)
+                    cForm.ShowInTaskbar = True
+                    cForm.Focus()
+                ElseIf cForm Is Nothing Then
                     cForm = AddPanel(cPnl)
                     cForm.Focus()
                 Else

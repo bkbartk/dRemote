@@ -32,6 +32,7 @@ Namespace Forms.OptionsPages
             MyBase.SaveSettings()
 
             chkAlwaysShowPanelTabs.Checked = Settings.AlwaysShowPanelTabs
+            chkEachNewPanelTab.Checked = Settings.EachNewPanelTab
             chkOpenNewTabRightOfSelected.Checked = Settings.OpenTabsRightOfSelected
             chkShowLogonInfoOnTabs.Checked = Settings.ShowLogonInfoOnTabs
             chkShowProtocolOnTabs.Checked = Settings.ShowProtocolOnTabs
@@ -49,6 +50,7 @@ Namespace Forms.OptionsPages
             MyBase.SaveSettings()
 
             Settings.AlwaysShowPanelTabs = chkAlwaysShowPanelTabs.Checked
+            Settings.EachNewPanelTab = chkEachNewPanelTab.Checked
             frmMain.ShowHidePanelTabs()
 
             Settings.OpenTabsRightOfSelected = chkOpenNewTabRightOfSelected.Checked

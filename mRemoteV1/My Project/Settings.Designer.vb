@@ -2314,6 +2314,20 @@ Namespace My
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("False"),  _
          Global.System.Configuration.SettingsManageabilityAttribute(Global.System.Configuration.SettingsManageability.Roaming)>  _
+        Public Property EachNewPanelTab() As Boolean
+            Get
+                Return CType(Me("EachNewPanelTab"),Boolean)
+            End Get
+            Set
+                Me("EachNewPanelTab") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Configuration.SettingsProviderAttribute(GetType(dRemote.Config.Settings.Providers.ChooseProvider)),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False"),  _
+         Global.System.Configuration.SettingsManageabilityAttribute(Global.System.Configuration.SettingsManageability.Roaming)>  _
         Public Property IdentifyQuickConnectTabs() As Boolean
             Get
                 Return CType(Me("IdentifyQuickConnectTabs"),Boolean)
@@ -2512,6 +2526,18 @@ Namespace My
             End Get
             Set
                 Me("KeysNextTab") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property EachNewPanelTab1() As Boolean
+            Get
+                Return CType(Me("EachNewPanelTab1"),Boolean)
+            End Get
+            Set
+                Me("EachNewPanelTab1") = value
             End Set
         End Property
     End Class

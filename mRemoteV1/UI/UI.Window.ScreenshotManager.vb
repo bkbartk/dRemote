@@ -211,7 +211,7 @@ Namespace UI
                     Dim nForm As New Form()
                     nForm.StartPosition = FormStartPosition.CenterParent
                     nForm.ShowInTaskbar = False
-                    nForm.ShowIcon = False
+                    'nForm.ShowIcon = False
                     nForm.MaximizeBox = False
                     nForm.MinimizeBox = False
                     nForm.Width = mImage.Width + 2

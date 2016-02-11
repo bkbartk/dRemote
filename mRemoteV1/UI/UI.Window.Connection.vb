@@ -363,8 +363,8 @@ Namespace UI
             End Sub
 
             Private Sub Connection_FormClosing(ByVal sender As Object, ByVal e As FormClosingEventArgs) Handles Me.FormClosing
-                If Not frmMain.IsClosing And ( _
-                        (My.Settings.ConfirmCloseConnection = ConfirmClose.All And TabController.TabPages.Count > 0) Or _
+                If Not frmMain.IsClosing And (
+                        (My.Settings.ConfirmCloseConnection = ConfirmClose.All And TabController.TabPages.Count > 0) Or
                         (My.Settings.ConfirmCloseConnection = ConfirmClose.Multiple And TabController.TabPages.Count > 1)) Then
                     Dim result As DialogResult = cTaskDialog.MessageBox(Me, My.Application.Info.ProductName, String.Format(My.Language.strConfirmCloseConnectionPanelMainInstruction, Me.Text), "", "", "", My.Language.strCheckboxDoNotShowThisMessageAgain, eTaskDialogButtons.YesNo, eSysIcons.Question, Nothing)
                     If cTaskDialog.VerificationChecked Then
