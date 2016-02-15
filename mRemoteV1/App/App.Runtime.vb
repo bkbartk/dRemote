@@ -1023,7 +1023,7 @@ Namespace App
 
                 ' Load config
                 connectionsLoad.ConnectionFileName = filename
-                connectionsLoad.Load(False)
+                connectionsLoad.Load(False, Windows.treeForm.tvConnections)
 
                 Windows.treeForm.tvConnections.SelectedNode = connectionsLoad.RootTreeNode
             Catch ex As Exception
@@ -1046,7 +1046,11 @@ Namespace App
             LoadConnections(_withDialog, _loadUpdate)
         End Sub
 
-        Public Shared Sub LoadConnections(Optional ByVal withDialog As Boolean = False, Optional ByVal update As Boolean = False)
+        Public Shared Sub LoadConnections(Optional ByVal withDialog As Boolean = False, Optional ByVal update As Boolean = False, Optional ByRef tvConnections As TreeView = Nothing)
+            If IsNothing(tvConnections) Then
+                tvConnections = Windows.treeForm.tvConnections
+            End If
+
             Dim connectionsLoad As New Connections.Load
 
             Try
@@ -1097,7 +1101,7 @@ Namespace App
 
                 Tree.Node.ResetTree()
 
-                connectionsLoad.RootTreeNode = Windows.treeForm.tvConnections.Nodes(0)
+                connectionsLoad.RootTreeNode = tvConnections.Nodes(0)
 
                 connectionsLoad.UseSQL = My.Settings.UseSQLServer
                 connectionsLoad.SQLHost = My.Settings.SQLHost
@@ -1106,7 +1110,7 @@ Namespace App
                 connectionsLoad.SQLPassword = Security.Crypt.Decrypt(My.Settings.SQLPass, Info.General.EncryptionKey)
                 connectionsLoad.SQLUpdate = update
 
-                connectionsLoad.Load(False)
+                connectionsLoad.Load(False, tvConnections)
 
                 If My.Settings.UseSQLServer = True Then
                     LastSqlUpdate = Now
@@ -1362,15 +1366,15 @@ Namespace App
             End Try
         End Function
 
-        Public Shared Sub OpenConnection()
+        Public Shared Sub OpenConnection(ByVal tvConnections As TreeView)
             Try
-                OpenConnection(Connection.Info.Force.None)
+                OpenConnection(Connection.Info.Force.None, tvConnections)
             Catch ex As Exception
                 MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, My.Language.strConnectionOpenFailed & vbNewLine & ex.Message)
             End Try
         End Sub
 
-        Public Shared Sub OpenConnection(ByVal Force As dRemote.Connection.Info.Force)
+        Public Shared Sub OpenConnection(ByVal Force As dRemote.Connection.Info.Force, ByVal tvConnections As TreeView)
             Try
                 If Windows.treeForm.tvConnections.SelectedNode.Tag Is Nothing Then
                     Exit Sub
@@ -1378,7 +1382,7 @@ Namespace App
 
                 If Tree.Node.GetNodeType(Tree.Node.SelectedNode) = Tree.Node.Type.Connection Or
                    Tree.Node.GetNodeType(Tree.Node.SelectedNode) = Tree.Node.Type.PuttySession Then
-                    OpenConnection(Windows.treeForm.tvConnections.SelectedNode.Tag, Force)
+                    OpenConnection(tvConnections.SelectedNode.Tag, Force)
                 ElseIf Tree.Node.GetNodeType(Tree.Node.SelectedNode) = Tree.Node.Type.Container Then
                     For Each tNode As TreeNode In Tree.Node.SelectedNode.Nodes
                         If Tree.Node.GetNodeType(tNode) = Tree.Node.Type.Connection Or
@@ -1500,7 +1504,11 @@ Namespace App
                 Else
                     cForm = ConForm
                 End If
-                If My.Settings.EachNewPanelTab Then
+                If My.Settings.Beta Then
+                    cForm = AddPanel(newConnectionInfo.Name, newConnectionInfo.Icon)
+                    cForm.ShowInTaskbar = True
+                    cForm.Focus()
+                ElseIf My.Settings.EachNewPanelTab Then
                     cForm = AddPanel(newConnectionInfo.Name, newConnectionInfo.Icon)
                     cForm.ShowInTaskbar = True
                     cForm.Focus()
@@ -1558,7 +1566,13 @@ Namespace App
                     End If
                 End If
 
-                frmMain.SelectedConnection = newConnectionInfo
+                If My.Settings.Beta Then
+                    cContainer.Show()
+                    'cForm.Show(frmMainV2.DockPanel1, DockState.Document)
+                Else
+                    frmMain.SelectedConnection = newConnectionInfo
+                End If
+
             Catch ex As Exception
                 MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, My.Language.strConnectionOpenFailed & vbNewLine & ex.Message)
             End Try

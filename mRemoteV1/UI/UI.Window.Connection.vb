@@ -230,6 +230,18 @@ Namespace UI
 #End Region
 
 #Region "Public Methods"
+            Public Sub New()
+                InitializeComponent()
+                Dim FormText As String = ""
+                If FormText = "" Then
+                    FormText = My.Language.strNewPanel
+                End If
+
+                Me.WindowType = Type.Connection
+                Me.InitializeComponent()
+                Me.Text = FormText
+                Me.TabText = FormText
+            End Sub
             Public Sub New(ByVal Panel As DockContent, Optional ByVal FormText As String = "")
 
                 If FormText = "" Then

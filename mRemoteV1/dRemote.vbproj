@@ -175,10 +175,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>References\VncSharpNG.dll</HintPath>
     </Reference>
-    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.2.2864.18696, Culture=neutral, PublicKeyToken=d481317c817cec47, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>References\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
-    </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
@@ -230,6 +226,18 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="App\Config\KeyboardShortcuts.vb" />
+    <Compile Include="Forms\Form2.Designer.vb">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMainV2.Designer.vb">
+      <DependentUpon>frmMainV2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMainV2.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\OptionsPages\AdvancedPage.Designer.vb">
       <DependentUpon>AdvancedPage.vb</DependentUpon>
     </Compile>
@@ -479,6 +487,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\Form2.resx">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmChoosePanel.resx">
       <DependentUpon>frmChoosePanel.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -486,6 +497,9 @@
     <EmbeddedResource Include="Forms\frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMainV2.resx">
+      <DependentUpon>frmMainV2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PasswordForm.resx">
       <DependentUpon>PasswordForm.vb</DependentUpon>
@@ -1279,6 +1293,18 @@
     <Folder Include="obj\Debug Portable\TempPE\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\dremote\ActiveButtons.Net-master\Source\ActiveButtons.csproj">
+      <Project>{16985406-9d78-4817-8485-ea2bd2814ba4}</Project>
+      <Name>ActiveButtons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\dremote\dockpanelsuite-master\WinFormsUI\ThemeVS2013Blue.csproj">
+      <Project>{245e07f6-10d5-4cfa-b003-0deb06b223da}</Project>
+      <Name>ThemeVS2013Blue</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\dremote\dockpanelsuite-master\WinFormsUI\WinFormsUI.csproj">
+      <Project>{c75532c4-765b-418e-b09b-46d36b2abdb1}</Project>
+      <Name>WinFormsUI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SharedLibraryNG\SharedLibraryNG.csproj">
       <Project>{0F615504-5F30-4CF2-8341-1DE7FEC95A23}</Project>
       <Name>SharedLibraryNG</Name>

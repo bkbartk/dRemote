@@ -18,6 +18,7 @@ Namespace UI
                 txtSearch.MinimumSize = New Size(0, 14)
                 txtSearch.Size = New Size(txtSearch.Size.Width, 14)
                 txtSearch.Multiline = False
+
             End Sub
 
             Private Sub ApplyLanguage()
@@ -80,6 +81,28 @@ Namespace UI
 #End Region
 
 #Region "Public Methods"
+            Public Sub New()
+                WindowType = Type.Tree
+                InitializeComponent()
+                FillImageList()
+
+                DescriptionTooltip = New ToolTip
+                DescriptionTooltip.InitialDelay = 300
+                DescriptionTooltip.ReshowDelay = 0
+
+
+                Windows.treePanel.Focus()
+
+                dRemote.Tree.Node.TreeView = tvConnections
+
+                If My.Settings.FirstStart And
+                Not My.Settings.LoadConsFromCustomLocation And
+                Not IO.File.Exists(GetStartupConnectionFileName()) Then
+                    NewConnections(GetStartupConnectionFileName())
+                End If
+                LoadConnections(tvConnections:=tvConnections)
+
+            End Sub
             Public Sub New(ByVal panel As DockContent)
                 WindowType = Type.Tree
                 DockPnl = panel
@@ -162,7 +185,7 @@ Namespace UI
                         If Settings.SingleClickOnConnectionOpensIt And _
                             (dRemote.Tree.Node.GetNodeType(e.Node) = dRemote.Tree.Node.Type.Connection Or _
                              dRemote.Tree.Node.GetNodeType(e.Node) = dRemote.Tree.Node.Type.PuttySession) Then
-                            OpenConnection()
+                            OpenConnection(tvConnections)
                         End If
 
                         If Settings.SingleClickSwitchesToOpenConnection And dRemote.Tree.Node.GetNodeType(e.Node) = dRemote.Tree.Node.Type.Connection Then
@@ -174,10 +197,10 @@ Namespace UI
                 End Try
             End Sub
 
-            Private Shared Sub tvConnections_NodeMouseDoubleClick(ByVal sender As Object, ByVal e As TreeNodeMouseClickEventArgs) Handles tvConnections.NodeMouseDoubleClick
-                If dRemote.Tree.Node.GetNodeType(dRemote.Tree.Node.SelectedNode) = dRemote.Tree.Node.Type.Connection Or _
+            Private Sub tvConnections_NodeMouseDoubleClick(ByVal sender As Object, ByVal e As TreeNodeMouseClickEventArgs) Handles tvConnections.NodeMouseDoubleClick
+                If dRemote.Tree.Node.GetNodeType(dRemote.Tree.Node.SelectedNode) = dRemote.Tree.Node.Type.Connection Or
                    dRemote.Tree.Node.GetNodeType(dRemote.Tree.Node.SelectedNode) = dRemote.Tree.Node.Type.PuttySession Then
-                    OpenConnection()
+                    OpenConnection(tvConnections)
                 End If
             End Sub
 
@@ -459,28 +482,28 @@ Namespace UI
                 SaveConnectionsBG()
             End Sub
 
-            Private Shared Sub cMenTreeConnect_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles cMenTreeConnect.Click
-                OpenConnection(dRemote.Connection.Info.Force.DoNotJump)
+            Private Sub cMenTreeConnect_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles cMenTreeConnect.Click
+                OpenConnection(dRemote.Connection.Info.Force.DoNotJump, tvConnections)
             End Sub
 
-            Private Shared Sub cMenTreeConnectWithOptionsConnectToConsoleSession_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles cMenTreeConnectWithOptionsConnectToConsoleSession.Click
-                OpenConnection(dRemote.Connection.Info.Force.UseConsoleSession Or dRemote.Connection.Info.Force.DoNotJump)
+            Private Sub cMenTreeConnectWithOptionsConnectToConsoleSession_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles cMenTreeConnectWithOptionsConnectToConsoleSession.Click
+                OpenConnection(dRemote.Connection.Info.Force.UseConsoleSession Or dRemote.Connection.Info.Force.DoNotJump, tvConnections)
             End Sub
 
-            Private Shared Sub cMenTreeConnectWithOptionsNoCredentials_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles cMenTreeConnectWithOptionsNoCredentials.Click
-                OpenConnection(dRemote.Connection.Info.Force.NoCredentials)
+            Private Sub cMenTreeConnectWithOptionsNoCredentials_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles cMenTreeConnectWithOptionsNoCredentials.Click
+                OpenConnection(dRemote.Connection.Info.Force.NoCredentials, tvConnections)
             End Sub
 
-            Private Shared Sub cMenTreeConnectWithOptionsDontConnectToConsoleSession_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles cMenTreeConnectWithOptionsDontConnectToConsoleSession.Click
-                OpenConnection(dRemote.Connection.Info.Force.DontUseConsoleSession Or dRemote.Connection.Info.Force.DoNotJump)
+            Private Sub cMenTreeConnectWithOptionsDontConnectToConsoleSession_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles cMenTreeConnectWithOptionsDontConnectToConsoleSession.Click
+                OpenConnection(dRemote.Connection.Info.Force.DontUseConsoleSession Or dRemote.Connection.Info.Force.DoNotJump, tvConnections)
             End Sub
 
-            Private Shared Sub cMenTreeConnectWithOptionsConnectInFullscreen_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles cMenTreeConnectWithOptionsConnectInFullscreen.Click
-                OpenConnection(dRemote.Connection.Info.Force.Fullscreen Or dRemote.Connection.Info.Force.DoNotJump)
+            Private Sub cMenTreeConnectWithOptionsConnectInFullscreen_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles cMenTreeConnectWithOptionsConnectInFullscreen.Click
+                OpenConnection(dRemote.Connection.Info.Force.Fullscreen Or dRemote.Connection.Info.Force.DoNotJump, tvConnections)
             End Sub
 
-            Private Shared Sub cMenTreeConnectWithOptionsChoosePanelBeforeConnecting_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles cMenTreeConnectWithOptionsChoosePanelBeforeConnecting.Click
-                OpenConnection(dRemote.Connection.Info.Force.OverridePanel Or dRemote.Connection.Info.Force.DoNotJump)
+            Private Sub cMenTreeConnectWithOptionsChoosePanelBeforeConnecting_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles cMenTreeConnectWithOptionsChoosePanelBeforeConnecting.Click
+                OpenConnection(dRemote.Connection.Info.Force.OverridePanel Or dRemote.Connection.Info.Force.DoNotJump, tvConnections)
             End Sub
 
             Private Sub cMenTreeDisconnect_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles cMenTreeDisconnect.Click
@@ -778,7 +801,7 @@ Namespace UI
                     If e.KeyCode = Keys.Enter Then
                         If TypeOf tvConnections.SelectedNode.Tag Is dRemote.Connection.Info Then
                             e.Handled = True
-                            OpenConnection()
+                            OpenConnection(tvConnections)
                         Else
                             If tvConnections.SelectedNode.IsExpanded Then
                                 tvConnections.SelectedNode.Collapse(True)

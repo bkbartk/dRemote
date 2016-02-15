@@ -41,7 +41,7 @@ Namespace Config.Import
                 .ContainerList = ContainerList
             End With
 
-            connectionsLoad.Load(True)
+            connectionsLoad.Load(True, Windows.treeForm.tvConnections)
 
             ContainerList.Add(containerInfo)
         End Sub

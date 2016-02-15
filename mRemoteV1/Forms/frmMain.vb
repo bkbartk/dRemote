@@ -162,6 +162,8 @@ Public Class frmMain
         SetBrowsResolution()
         pnlDock.Controls.Add(brows)
         AddHandler brows.Navigating, AddressOf brows_Navigating
+
+
     End Sub
 
     Private Sub brows_Navigating(sender As Object, e As System.Windows.Forms.WebBrowserNavigatingEventArgs)
@@ -1072,6 +1074,17 @@ Public Class frmMain
 
         SystemMenu.InsertMenuItem(SystemMenu.SystemMenuHandle, 0, Tools.SystemMenu.Flags.MF_POPUP Or Tools.SystemMenu.Flags.MF_BYPOSITION, popMen, My.Language.strSendTo)
         SystemMenu.InsertMenuItem(SystemMenu.SystemMenuHandle, 1, Tools.SystemMenu.Flags.MF_BYPOSITION Or Tools.SystemMenu.Flags.MF_SEPARATOR, IntPtr.Zero, Nothing)
+    End Sub
+
+    Private Sub DRemoteV2BetaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DRemoteV2BetaToolStripMenuItem.Click
+        Dim frmBeta As New frmMainV2
+        frmBeta.WindowState = Me.WindowState
+        frmBeta.Width = Me.Width
+        frmBeta.Height = Me.Height
+        frmBeta.Top = Me.Top
+        frmBeta.Left = Me.Left
+        frmBeta.Show()
+        Me.Hide()
     End Sub
 #End Region
 End Class

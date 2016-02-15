@@ -62,6 +62,10 @@
                 mutex.Close()
             End If
         End Sub
+
+        'Friend Sub [Exit]()
+        '    Throw New NotImplementedException()
+        'End Sub
     End Class
 End Namespace
 

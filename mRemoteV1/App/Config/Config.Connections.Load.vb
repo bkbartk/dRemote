@@ -140,12 +140,12 @@ Namespace Config
 #End Region
 
 #Region "Public Methods"
-            Public Sub Load(ByVal import As Boolean)
+            Public Sub Load(ByVal import As Boolean, ByRef tvConnections As TreeView)
                 If UseSQL Then
                     LoadFromSQL()
                 Else
                     Dim connections As String = DecryptCompleteFile()
-                    LoadFromXML(connections, import)
+                    LoadFromXML(connections, import, tvConnections)
                 End If
 
                 frmMain.UsingSqlServer = UseSQL
@@ -602,7 +602,7 @@ Namespace Config
                 Return ""
             End Function
 
-            Private Sub LoadFromXML(ByVal cons As String, ByVal import As Boolean)
+            Private Sub LoadFromXML(ByVal cons As String, ByVal import As Boolean, ByRef tvConnections As TreeView)
                 Try
                     If Not import Then IsConnectionsFileLoaded = False
 
@@ -675,7 +675,7 @@ Namespace Config
                         RootTreeNode.SelectedImageIndex = Images.Enums.TreeImage.Root
                     End If
 
-                    Windows.treeForm.tvConnections.BeginUpdate()
+                    tvConnections.BeginUpdate()
 
                     ' SECTION 3. Populate the TreeView with the DOM nodes.
                     AddNodeFromXml(xDom.DocumentElement, RootTreeNode)
@@ -689,7 +689,7 @@ Namespace Config
                         End If
                     Next
 
-                    Windows.treeForm.tvConnections.EndUpdate()
+                    tvConnections.EndUpdate()
 
                     'open connections from last mremote session
                     If My.Settings.OpenConsFromLastSession = True And My.Settings.NoReconnect = False Then
