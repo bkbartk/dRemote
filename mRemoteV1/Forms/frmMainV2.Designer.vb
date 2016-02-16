@@ -24,17 +24,18 @@ Partial Class frmMainV2
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMainV2))
         Me.DockPanel1 = New WeifenLuo.WinFormsUI.Docking.DockPanel()
-        Me.VS2013BlueTheme1 = New WeifenLuo.WinFormsUI.Docking.VS2013BlueTheme()
+        Me.VS2013BlueTheme2 = New WeifenLuo.WinFormsUI.Docking.VS2013BlueTheme()
         Me.SuspendLayout()
         '
         'DockPanel1
         '
         Me.DockPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DockPanel1.DockBackColor = System.Drawing.SystemColors.Control
         Me.DockPanel1.Location = New System.Drawing.Point(0, 0)
         Me.DockPanel1.Name = "DockPanel1"
         Me.DockPanel1.Size = New System.Drawing.Size(664, 383)
         Me.DockPanel1.TabIndex = 0
-        Me.DockPanel1.Theme = Me.VS2013BlueTheme1
+        Me.DockPanel1.Theme = Me.VS2013BlueTheme2
         '
         'frmMainV2
         '
@@ -50,6 +51,7 @@ Partial Class frmMainV2
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents DockPanel1 As WeifenLuo.WinFormsUI.Docking.DockPanel
     Friend WithEvents VS2013BlueTheme1 As WeifenLuo.WinFormsUI.Docking.VS2013BlueTheme
+    Friend WithEvents DockPanel1 As WeifenLuo.WinFormsUI.Docking.DockPanel
+    Friend WithEvents VS2013BlueTheme2 As WeifenLuo.WinFormsUI.Docking.VS2013BlueTheme
 End Class

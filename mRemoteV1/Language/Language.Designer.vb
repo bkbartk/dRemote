@@ -582,7 +582,7 @@ Namespace My
         '''  Looks up a localized string similar to The (RDP) Sessions feature requires that you have a copy of eolwtscom.dll registered on your system.
         '''dRemote ships with this component but it is not registered automatically if you do not use the dRemote Installer.
         '''To register it manually, run the following command from an elevated command prompt: regsvr32 &quot;C:\Program Files\dRemote\eolwtscom.dll&quot; (where C:\Program Files\dRemote\ is the path to your dRemote installation).
-        '''If this check still fails or you are unable to use the (RDP) Sessions feat [rest of string was truncated]&quot;;.
+        '''If this check still fails or you are unable to use the (RDP) Sessions feature, pleas [rest of string was truncated]&quot;;.
         '''</summary>
         Friend Shared ReadOnly Property strCcEOLFailed() As String
             Get
@@ -603,7 +603,7 @@ Namespace My
         '''  Looks up a localized string similar to To use the Gecko Rendering Engine you need to have XULrunner 1.8.1.x and the path to the installation set in your Options.
         '''You can download XULrunner 1.8.1.3 here: ftp://ftp.mozilla.org/pub/xulrunner/releases/1.8.1.3/contrib/win32/
         '''When you are finished downloading extract the package to a path of your choice. Then in dRemote go to Tools - Options - Advanced and enter the correct path in the XULrunner path field.
-        '''If you are still not able to pass this check or use the Gecko Engine in dRemote please c [rest of string was truncated]&quot;;.
+        '''If you are still not able to pass this check or use the Gecko Engine in dRemote please consu [rest of string was truncated]&quot;;.
         '''</summary>
         Friend Shared ReadOnly Property strCcGeckoFailed() As String
             Get
@@ -1448,6 +1448,24 @@ Namespace My
         Friend Shared ReadOnly Property strDownloadAndInstall() As String
             Get
                 Return ResourceManager.GetString("strDownloadAndInstall", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to dRemote CSV.
+        '''</summary>
+        Friend Shared ReadOnly Property strdRemoteCsv() As String
+            Get
+                Return ResourceManager.GetString("strdRemoteCsv", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to dRemote XML.
+        '''</summary>
+        Friend Shared ReadOnly Property strdRemoteXml() As String
+            Get
+                Return ResourceManager.GetString("strdRemoteXml", resourceCulture)
             End Get
         End Property
         
@@ -3369,24 +3387,6 @@ Namespace My
         Friend Shared ReadOnly Property strMoveUp() As String
             Get
                 Return ResourceManager.GetString("strMoveUp", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to dRemote CSV.
-        '''</summary>
-        Friend Shared ReadOnly Property strdRemoteCsv() As String
-            Get
-                Return ResourceManager.GetString("strdRemoteCsv", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to dRemote XML.
-        '''</summary>
-        Friend Shared ReadOnly Property strdRemoteXml() As String
-            Get
-                Return ResourceManager.GetString("strdRemoteXml", resourceCulture)
             End Get
         End Property
         

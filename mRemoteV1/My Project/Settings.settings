@@ -527,6 +527,9 @@
     <Setting Name="EachNewPanelTab" Provider="dRemote.Config.Settings.Providers.ChooseProvider" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="Beta" Provider="dRemote.Config.Settings.Providers.ChooseProvider" Roaming="true" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
     <Setting Name="IdentifyQuickConnectTabs" Provider="dRemote.Config.Settings.Providers.ChooseProvider" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>

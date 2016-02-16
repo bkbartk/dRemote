@@ -87,6 +87,7 @@ Public Class frmMain
 
 #Region "Startup & Shutdown"
     Private Sub frmMain_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        My.Settings.Beta = False
         MainForm = Me
 
         Startup.CheckCompatibility()
@@ -159,7 +160,8 @@ Public Class frmMain
         brows.Url = New Uri(App.Info.General.UrlStart)
 
         brows.ScrollBarsEnabled = False
-        SetBrowsResolution()
+        brows.Dock = Dock.Fill
+        'SetBrowsResolution()
         pnlDock.Controls.Add(brows)
         AddHandler brows.Navigating, AddressOf brows_Navigating
 
@@ -174,17 +176,17 @@ Public Class frmMain
         End If
     End Sub
 
-    Private Sub SetBrowsResolution()
-        Try
-            Dim left As String = Windows.treePanel.Width
-            brows.Left = left
-            brows.Width = pnlDock.Width - left
-            brows.Height = pnlDock.Height
+    'Private Sub SetBrowsResolution()
+    '    Try
+    '        Dim left As String = Windows.treePanel.Width
+    '        brows.Left = left
+    '        brows.Width = pnlDock.Width - left
+    '        brows.Height = pnlDock.Height
 
-        Catch ex As Exception
-            MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, My.Language.strRdpSetResolutionFailed & vbNewLine & ex.Message, True)
-        End Try
-    End Sub
+    '    Catch ex As Exception
+    '        MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, My.Language.strRdpSetResolutionFailed & vbNewLine & ex.Message, True)
+    '    End Try
+    'End Sub
 
     Private Sub ApplyLanguage()
         mMenFile.Text = My.Language.strMenuFile
@@ -889,7 +891,7 @@ Public Class frmMain
 
         ' This handles activations from clicks that started a size/move operation
         ActivateConnection()
-        SetBrowsResolution()
+        'SetBrowsResolution()
     End Sub
 
     Private _inMouseActivate As Boolean = False
@@ -1055,7 +1057,7 @@ Public Class frmMain
     Private Sub DisplayChanged(ByVal sender As Object, ByVal e As System.EventArgs)
         ResetSysMenuItems()
         AddSysMenuItems()
-        SetBrowsResolution()
+        'SetBrowsResolution()
     End Sub
 
     Private SysMenSubItems(50) As Integer
@@ -1085,6 +1087,7 @@ Public Class frmMain
         frmBeta.Left = Me.Left
         frmBeta.Show()
         Me.Hide()
+        My.Settings.Beta = True
     End Sub
 #End Region
 End Class

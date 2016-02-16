@@ -1376,7 +1376,7 @@ Namespace App
 
         Public Shared Sub OpenConnection(ByVal Force As dRemote.Connection.Info.Force, ByVal tvConnections As TreeView)
             Try
-                If Windows.treeForm.tvConnections.SelectedNode.Tag Is Nothing Then
+                If tvConnections.SelectedNode.Tag Is Nothing Then
                     Exit Sub
                 End If
 
@@ -1504,19 +1504,20 @@ Namespace App
                 Else
                     cForm = ConForm
                 End If
-                If My.Settings.Beta Then
-                    cForm = AddPanel(newConnectionInfo.Name, newConnectionInfo.Icon)
-                    cForm.ShowInTaskbar = True
-                    cForm.Focus()
-                ElseIf My.Settings.EachNewPanelTab Then
-                    cForm = AddPanel(newConnectionInfo.Name, newConnectionInfo.Icon)
-                    cForm.ShowInTaskbar = True
-                    cForm.Focus()
-                ElseIf cForm Is Nothing Then
-                    cForm = AddPanel(cPnl)
-                    cForm.Focus()
-                Else
-                    TryCast(cForm, UI.Window.Connection).Show(frmMain.pnlDock)
+                'If My.Settings.Beta Then
+                '    cForm = AddPanel(newConnectionInfo.Name, newConnectionInfo.Icon)
+                '    cForm.ShowInTaskbar = True
+                '    cForm.Focus()
+                'Else
+                If My.Settings.EachNewPanelTab Then
+                        cForm = AddPanel(newConnectionInfo.Name, newConnectionInfo.Icon)
+                        cForm.ShowInTaskbar = True
+                        cForm.Focus()
+                    ElseIf cForm Is Nothing Then
+                        cForm = AddPanel(cPnl)
+                        cForm.Focus()
+                    Else
+                        TryCast(cForm, UI.Window.Connection).Show(frmMain.pnlDock)
                     TryCast(cForm, UI.Window.Connection).Focus()
                 End If
 
@@ -1566,12 +1567,11 @@ Namespace App
                     End If
                 End If
 
-                If My.Settings.Beta Then
-                    cContainer.Show()
-                    'cForm.Show(frmMainV2.DockPanel1, DockState.Document)
-                Else
-                    frmMain.SelectedConnection = newConnectionInfo
-                End If
+                'If My.Settings.Beta Then
+                '    frmMainV2.DockPaddingEdges = newConnectionInfo
+                'Else
+                frmMain.SelectedConnection = newConnectionInfo
+                'End If
 
             Catch ex As Exception
                 MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, My.Language.strConnectionOpenFailed & vbNewLine & ex.Message)

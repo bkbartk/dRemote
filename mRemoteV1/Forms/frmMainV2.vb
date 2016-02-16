@@ -21,7 +21,8 @@ Public Class frmMainV2
         InitializeComponent()
 
         Dim connections As New UI.Window.Tree()
-        connections.Show(DockPanel1, DockState.DockLeftAutoHide)
+        'connections.Show(DockPanel1, DockState.DockLeftAutoHide)
+        connections.Show(DockPanel1, DockState.DockLeft)
 
         'Dim f2 As New Forms.Form2()
         'f2.Show(DockPanel1, DockState.DockLeft)
@@ -34,23 +35,41 @@ Public Class frmMainV2
 
     Private Sub frmMainV2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim menu As IActiveMenu = ActiveMenu.GetInstance(Me)
-        Dim button As New ActiveButton()
-        button.BackColor = Color.Transparent
-        button.Text = "File"
-        AddHandler button.Click, AddressOf button_Click
-        menu.Items.Add(button)
 
-        My.Settings.Beta = True
+
+        Dim mnubutton As New ActiveButton()
+        mnubutton.BackColor = Color.Transparent
+        mnubutton.Text = "File"
+        AddHandler mnubutton.Click, AddressOf mnubutton_Click
+        menu.Items.Add(mnubutton)
+
+        Dim btnV1 As New ActiveButton()
+        btnV1.BackColor = Color.Transparent
+        btnV1.Text = "Back to dRemote V1"
+        AddHandler btnV1.Click, AddressOf btnV1_Click
+        menu.Items.Add(btnV1)
+
+
 
     End Sub
 
-    Private Sub button_Click(sender As Object, e As EventArgs)
+    Private Sub mnubutton_Click(sender As Object, e As EventArgs)
 
         Dim f2 As New Forms.Form2()
         f2.Show(DockPanel1, DockState.Document)
     End Sub
 
+    Private Sub btnV1_Click(sender As Object, e As EventArgs)
+
+        frmMain.Show()
+        Me.Hide()
+        My.Settings.Beta = False
+    End Sub
     Private Sub frmMainV2_Closed(sender As Object, e As EventArgs) Handles Me.Closed
         Shutdown.Quit()
+    End Sub
+
+    Private Sub DockPanel1_ActiveContentChanged(sender As Object, e As EventArgs) Handles DockPanel1.ActiveContentChanged
+
     End Sub
 End Class
