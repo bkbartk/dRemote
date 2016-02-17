@@ -146,6 +146,13 @@ Namespace UI
                     cMenTreeDelete.ShortcutKeys = Keys.Delete
 
                     dRemote.Tree.Node.FinishRenameSelectedNode(e.Label)
+
+                    'Dim pane As WeifenLuo.WinFormsUI.Docking.DockPane = GetClosestPane(sender)
+                    'pane.DockPanel
+                    'Dim f2 As New Forms.Form2()
+                    'f2.Show(pane.DockPanel, DockState.Document)
+
+
                     Windows.configForm.pGrid_SelectedObjectChanged()
                     ShowHideTreeContextMenuItems(e.Node)
                     SaveConnectionsBG()
@@ -248,8 +255,10 @@ Namespace UI
                         f2.Text = newConnectionInfo.Name
 
                         newProtocol.InterfaceControl = New dRemote.Connection.InterfaceControl(f2, newProtocol, newConnectionInfo)
-
-
+                        newProtocol.Control.Dock = DockStyle.Fill
+                        AddHandler f2.ResizeBegin, AddressOf newProtocol.ResizeBegin
+                        AddHandler f2.Resize, AddressOf newProtocol.Resize
+                        AddHandler f2.ResizeEnd, AddressOf newProtocol.ResizeEnd
                         f2.Controls.Add(newProtocol.Control)
 
                         If newProtocol.SetProps() = False Then
@@ -268,6 +277,10 @@ Namespace UI
 
                 End If
             End Sub
+            Sub fr2_resize(sender As Object, e As EventArgs)
+                Dim s As String = ""
+            End Sub
+
 
             Function GetClosestPane(sender As Object) As Object
                 If Not sender.GetType = GetType(WeifenLuo.WinFormsUI.Docking.DockPane) Then

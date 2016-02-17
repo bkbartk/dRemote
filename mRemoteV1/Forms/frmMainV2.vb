@@ -24,6 +24,16 @@ Public Class frmMainV2
         'connections.Show(DockPanel1, DockState.DockLeftAutoHide)
         connections.Show(DockPanel1, DockState.DockLeft)
 
+        Dim cfg As New UI.Window.Config()
+        Windows.configForm = cfg
+        'connections.Show(DockPanel1, DockState.DockLeftAutoHide)
+        cfg.Show(DockPanel1)
+        cfg.DockTo(connections.Pane, DockStyle.Bottom, 30)
+
+        'Windows.treePanel.Show(frmMain.pnlDock, DockState.DockLeft)
+        'Windows.configPanel.Show(frmMain.pnlDock)
+        'Windows.configPanel.DockTo(Windows.treePanel.Pane, DockStyle.Bottom, -1)
+
         'Dim f2 As New Forms.Form2()
         'f2.Show(DockPanel1, DockState.DockLeft)
         'Dim f3 As New Forms.Form2()
@@ -39,7 +49,7 @@ Public Class frmMainV2
 
         Dim mnubutton As New ActiveButton()
         mnubutton.BackColor = Color.Transparent
-        mnubutton.Text = "File"
+        mnubutton.Text = "Menu"
         AddHandler mnubutton.Click, AddressOf mnubutton_Click
         menu.Items.Add(mnubutton)
 
@@ -55,21 +65,36 @@ Public Class frmMainV2
 
     Private Sub mnubutton_Click(sender As Object, e As EventArgs)
 
-        Dim f2 As New Forms.Form2()
-        f2.Show(DockPanel1, DockState.Document)
+        MessageBox.Show("Menu is not done yes", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        'Dim f2 As New Forms.Form2()
+        'f2.Show(DockPanel1, DockState.Document)
     End Sub
 
     Private Sub btnV1_Click(sender As Object, e As EventArgs)
 
-        frmMain.Show()
-        Me.Hide()
-        My.Settings.Beta = False
+        'frmMain.Show()
+        'Me.Hide()
+        'My.Settings.Beta = False
+        Select Case MsgBox("Save Connection?", MsgBoxStyle.YesNoCancel Or MsgBoxStyle.Question)
+            Case MsgBoxResult.Yes
+                SaveConnections()
+            Case MsgBoxResult.Cancel
+                Return
+        End Select
+        System.Windows.Forms.Application.Restart()
+        'Application.Exit()
+        'Process.Start(Application.ExecutablePath)
+
     End Sub
     Private Sub frmMainV2_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+        Select Case MsgBox("Save Connection?", MsgBoxStyle.YesNoCancel Or MsgBoxStyle.Question)
+            Case MsgBoxResult.Yes
+                SaveConnections()
+            Case MsgBoxResult.Cancel
+                Return
+        End Select
         Shutdown.Quit()
     End Sub
 
-    Private Sub DockPanel1_ActiveContentChanged(sender As Object, e As EventArgs) Handles DockPanel1.ActiveContentChanged
 
-    End Sub
 End Class

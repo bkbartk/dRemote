@@ -163,10 +163,6 @@ Namespace UI
             End Sub
 #End Region
 
-#Region "Private Properties"
-            Private ConfigLoading As Boolean = False
-#End Region
-
 #Region "Public Properties"
             Public Property PropertiesVisible() As Boolean
                 Get
@@ -246,6 +242,10 @@ Namespace UI
 #End Region
 
 #Region "Public Methods"
+            Public Sub New()
+                Me.WindowType = Type.Config
+                Me.InitializeComponent()
+            End Sub
             Public Sub New(ByVal Panel As DockContent)
                 Me.WindowType = Type.Config
                 Me.DockPnl = Panel

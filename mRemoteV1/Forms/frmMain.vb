@@ -1079,6 +1079,12 @@ Public Class frmMain
     End Sub
 
     Private Sub DRemoteV2BetaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DRemoteV2BetaToolStripMenuItem.Click
+        Select Case MsgBox("Save Connection?", MsgBoxStyle.YesNoCancel Or MsgBoxStyle.Question)
+            Case MsgBoxResult.Yes
+                SaveConnections()
+            Case MsgBoxResult.Cancel
+                Return
+        End Select
         Dim frmBeta As New frmMainV2
         frmBeta.WindowState = Me.WindowState
         frmBeta.Width = Me.Width
