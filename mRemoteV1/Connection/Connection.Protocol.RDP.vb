@@ -198,12 +198,12 @@ Namespace Connection
                 _controlBeginningSize = Control.Size
             End Sub
 
-            Public Overrides Sub Resize(ByVal sender As Object, ByVal e As EventArgs)
-                If DoResize() And _controlBeginningSize.IsEmpty Then
-                    ReconnectForResize()
-                End If
-                MyBase.Resize(sender, e)
-            End Sub
+            'Public Overrides Sub Resize(ByVal sender As Object, ByVal e As EventArgs)
+            '    If DoResize() And _controlBeginningSize.IsEmpty Then
+            '        ReconnectForResize()
+            '    End If
+            '    MyBase.Resize(sender, e)
+            'End Sub
 
             Public Overrides Sub ResizeEnd(ByVal sender As Object, ByVal e As EventArgs)
                 DoResize()
@@ -226,7 +226,7 @@ Namespace Connection
             End Function
 
             Private Sub ReconnectForResize()
-                If _rdpVersion < Versions.RDC80 Then Return
+                If IsNothing(_rdpVersion) OrElse _rdpVersion < Versions.RDC80 Then Return
 
                 If Not _loginComplete Then Return
 

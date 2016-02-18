@@ -1365,6 +1365,96 @@ Namespace App
                 Return Nothing
             End Try
         End Function
+        Public Shared Function GetClosestPane(sender As Object) As Object
+            If Not sender.GetType = GetType(WeifenLuo.WinFormsUI.Docking.DockPane) Then
+                Return GetClosestPane(sender.Parent)
+            End If
+            Return sender
+        End Function
+        Public Shared Sub OpenConnectionV2(ByVal tvConnections As TreeView, ByVal sender As Object)
+            Dim pane As WeifenLuo.WinFormsUI.Docking.DockPane = GetClosestPane(sender)
+            Dim f2 As New Forms.frmConnections()
+            f2.Show(pane.DockPanel, DockState.Document)
+
+
+            Dim newProtocol As Protocol.Base
+            ' Create connection based on protocol type
+            Dim newConnectionInfo As dRemote.Connection.Info = tvConnections.SelectedNode.Tag
+            Select Case newConnectionInfo.Protocol
+                Case Protocol.Protocols.RDP
+                    newProtocol = New Protocol.RDP
+                Case Protocol.Protocols.VNC
+                    newProtocol = New Protocol.VNC
+                Case Protocol.Protocols.SSH1
+                    newProtocol = New Protocol.SSH1
+                Case Protocol.Protocols.SSH2
+                    newProtocol = New Protocol.SSH2
+                Case Protocol.Protocols.Telnet
+                    newProtocol = New Protocol.Telnet
+                Case Protocol.Protocols.Rlogin
+                    newProtocol = New Protocol.Rlogin
+                Case Protocol.Protocols.RAW
+                    newProtocol = New Protocol.RAW
+                Case Protocol.Protocols.HTTP
+                    newProtocol = New Protocol.HTTP(newConnectionInfo.RenderingEngine)
+                Case Protocol.Protocols.HTTPS
+                    newProtocol = New Protocol.HTTPS(newConnectionInfo.RenderingEngine)
+                Case Protocol.Protocols.ICA
+                    newProtocol = New Protocol.ICA
+                Case Protocol.Protocols.IntApp
+                    newProtocol = New Protocol.IntegratedProgram
+
+                    If newConnectionInfo.ExtApp = "" Then
+                        Throw New Exception(My.Language.strNoExtAppDefined)
+                    End If
+                Case Else
+                    Exit Sub
+            End Select
+
+            AddHandler newProtocol.Closed, AddressOf Prot_Event_Closed
+
+            AddHandler newProtocol.Disconnected, AddressOf Prot_Event_Disconnected
+            AddHandler newProtocol.Connected, AddressOf Prot_Event_Connected
+            AddHandler newProtocol.Closed, AddressOf Prot_Event_Closed
+            AddHandler newProtocol.ErrorOccured, AddressOf Prot_Event_ErrorOccured
+
+
+            Dim conIcon As Drawing.Icon = dRemote.Connection.Icon.FromString(newConnectionInfo.Icon)
+            If conIcon IsNot Nothing Then
+                f2.Icon = conIcon
+            End If
+            f2.Text = newConnectionInfo.Name
+
+            newProtocol.InterfaceControl = New dRemote.Connection.InterfaceControl(f2, newProtocol, newConnectionInfo)
+
+            AddHandler newProtocol.Control.ClientSizeChanged, AddressOf newProtocol.ResizeEnd
+            ''AddHandler f2.Resize, AddressOf newProtocol.Resize
+            'AddHandler f2.ResizeEnd, AddressOf newProtocol.ResizeEnd
+            'AddHandler f2.SizeChanged, AddressOf newProtocol.ResizeEnd
+            If Not IsNothing(newProtocol.Control) Then
+                newProtocol.Control.Dock = DockStyle.Fill
+                f2.Controls.Add(newProtocol.Control)
+            Else
+                Dim borderwidth As Integer = 5
+                newProtocol.InterfaceControl.Left = -borderwidth
+                newProtocol.InterfaceControl.Top = -borderwidth
+                newProtocol.InterfaceControl.Width = f2.Width + borderwidth * 2
+                newProtocol.InterfaceControl.Height = f2.Height + borderwidth * 2
+                f2.Controls.Add(newProtocol.InterfaceControl)
+            End If
+
+
+            If newProtocol.SetProps() = False Then
+                newProtocol.Close()
+                Exit Sub
+            End If
+
+            If newProtocol.Connect() = False Then
+                newProtocol.Close()
+                Exit Sub
+            End If
+        End Sub
+
 
         Public Shared Sub OpenConnection(ByVal tvConnections As TreeView)
             Try

@@ -66,8 +66,8 @@ Namespace Connection
 
             Public Overrides Sub Focus()
                 Try
-                    If ConnectionWindow.InTabDrag Then Return
-                    SetForegroundWindow(_handle)
+                    'If ConnectionWindow.InTabDrag Then Return
+                    'SetForegroundWindow(_handle)
                 Catch ex As Exception
                     MessageCollector.AddExceptionMessage(My.Language.strIntAppFocusFailed, ex, , True)
                 End Try

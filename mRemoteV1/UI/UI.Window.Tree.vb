@@ -209,67 +209,8 @@ Namespace UI
                 If dRemote.Tree.Node.GetNodeType(dRemote.Tree.Node.SelectedNode) = dRemote.Tree.Node.Type.Connection Or
                    dRemote.Tree.Node.GetNodeType(dRemote.Tree.Node.SelectedNode) = dRemote.Tree.Node.Type.PuttySession Then
                     If My.Settings.Beta Then
+                        OpenConnectionV2(tvConnections, sender)
 
-                        Dim pane As WeifenLuo.WinFormsUI.Docking.DockPane = GetClosestPane(sender)
-                        Dim f2 As New Forms.Form2()
-                        f2.Show(pane.DockPanel, DockState.Document)
-
-                        Dim newProtocol As Protocol.Base
-                        ' Create connection based on protocol type
-                        Dim newConnectionInfo As dRemote.Connection.Info = tvConnections.SelectedNode.Tag
-                        Select Case newConnectionInfo.Protocol
-                            Case Protocol.Protocols.RDP
-                                newProtocol = New Protocol.RDP
-                            Case Protocol.Protocols.VNC
-                                newProtocol = New Protocol.VNC
-                            Case Protocol.Protocols.SSH1
-                                newProtocol = New Protocol.SSH1
-                            Case Protocol.Protocols.SSH2
-                                newProtocol = New Protocol.SSH2
-                            Case Protocol.Protocols.Telnet
-                                newProtocol = New Protocol.Telnet
-                            Case Protocol.Protocols.Rlogin
-                                newProtocol = New Protocol.Rlogin
-                            Case Protocol.Protocols.RAW
-                                newProtocol = New Protocol.RAW
-                            Case Protocol.Protocols.HTTP
-                                newProtocol = New Protocol.HTTP(newConnectionInfo.RenderingEngine)
-                            Case Protocol.Protocols.HTTPS
-                                newProtocol = New Protocol.HTTPS(newConnectionInfo.RenderingEngine)
-                            Case Protocol.Protocols.ICA
-                                newProtocol = New Protocol.ICA
-                            Case Protocol.Protocols.IntApp
-                                newProtocol = New Protocol.IntegratedProgram
-
-                                If newConnectionInfo.ExtApp = "" Then
-                                    Throw New Exception(My.Language.strNoExtAppDefined)
-                                End If
-                            Case Else
-                                Exit Sub
-                        End Select
-
-                        Dim conIcon As Drawing.Icon = dRemote.Connection.Icon.FromString(newConnectionInfo.Icon)
-                        If conIcon IsNot Nothing Then
-                            f2.Icon = conIcon
-                        End If
-                        f2.Text = newConnectionInfo.Name
-
-                        newProtocol.InterfaceControl = New dRemote.Connection.InterfaceControl(f2, newProtocol, newConnectionInfo)
-                        newProtocol.Control.Dock = DockStyle.Fill
-                        AddHandler f2.ResizeBegin, AddressOf newProtocol.ResizeBegin
-                        AddHandler f2.Resize, AddressOf newProtocol.Resize
-                        AddHandler f2.ResizeEnd, AddressOf newProtocol.ResizeEnd
-                        f2.Controls.Add(newProtocol.Control)
-
-                        If newProtocol.SetProps() = False Then
-                            newProtocol.Close()
-                            Exit Sub
-                        End If
-
-                        If newProtocol.Connect() = False Then
-                            newProtocol.Close()
-                            Exit Sub
-                        End If
 
                     Else
                         OpenConnection(tvConnections)
@@ -277,17 +218,14 @@ Namespace UI
 
                 End If
             End Sub
-            Sub fr2_resize(sender As Object, e As EventArgs)
-                Dim s As String = ""
-            End Sub
+            'Sub fr2_resize(sender As Object, e As EventArgs)
+            '    Dim s As String = ""
+            'End Sub
+            ''Sub fr2_resizeEnd(sender As Object, e As EventArgs)
+            ''    Dim s As String = ""
+            ''End Sub
 
 
-            Function GetClosestPane(sender As Object) As Object
-                If Not sender.GetType = GetType(WeifenLuo.WinFormsUI.Docking.DockPane) Then
-                    Return GetClosestPane(sender.Parent)
-                End If
-                Return sender
-            End Function
 
 
             Private Sub tvConnections_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles tvConnections.MouseMove

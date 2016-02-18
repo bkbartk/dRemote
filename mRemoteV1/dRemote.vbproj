@@ -230,10 +230,10 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="App\Config\KeyboardShortcuts.vb" />
-    <Compile Include="Forms\Form2.Designer.vb">
-      <DependentUpon>Form2.vb</DependentUpon>
+    <Compile Include="Forms\frmConnections.Designer.vb">
+      <DependentUpon>frmConnections.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Form2.vb">
+    <Compile Include="Forms\frmConnections.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\frmMainV2.Designer.vb">
@@ -491,8 +491,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Forms\Form2.resx">
-      <DependentUpon>Form2.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\frmConnections.resx">
+      <DependentUpon>frmConnections.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmChoosePanel.resx">
       <DependentUpon>frmChoosePanel.vb</DependentUpon>
