@@ -1,4 +1,5 @@
 ﻿Imports System.ComponentModel
+Imports dRemote.My
 Imports dRemote.Tools
 
 Namespace Config.Putty
@@ -35,7 +36,8 @@ Namespace Config.Putty
                     treeView.Nodes.Add(rootTreeNode)
                 End If
 
-                Dim newTreeNodes As New List(Of TreeNode)
+                Dim PuttyTreeNodes As New List(Of TreeNode)
+
                 For Each sessionInfo As Connection.PuttySession.Info In savedSessions
                     Dim treeNode As TreeNode
                     Dim isNewNode As Boolean
@@ -57,7 +59,7 @@ Namespace Config.Putty
 
                     treeNode.Tag = sessionInfo
 
-                    If isNewNode Then newTreeNodes.Add(treeNode)
+                    If isNewNode Then PuttyTreeNodes.Add(treeNode)
                 Next
 
                 For Each treeNode As TreeNode In rootTreeNode.Nodes
@@ -70,22 +72,39 @@ Namespace Config.Putty
                     End If
                 Next
 
-                If Not newTreeNodes.Count = 0 Then
+                If Not PuttyTreeNodes.Count = 0 Then
                     If Not inUpdate Then
                         treeView.BeginUpdate()
                         inUpdate = True
                     End If
-                    rootTreeNode.Nodes.AddRange(newTreeNodes.ToArray())
+                    rootTreeNode.Nodes.AddRange(PuttyTreeNodes.ToArray())
                 End If
 
                 If inUpdate Then
                     Tree.Node.Sort(rootTreeNode, SortOrder.Ascending)
-                    rootTreeNode.Expand()
+                    'rootTreeNode.Expand()
                     treeView.EndUpdate()
                 End If
+                If My.Settings.CollapsePuttyTree Then
+                    rootTreeNode.Collapse()
+                Else
+                    rootTreeNode.Expand()
+                End If
             Next
+            AddHandler treeView.AfterExpand, AddressOf treeView_AfterExpand
+            AddHandler treeView.AfterCollapse, AddressOf treeView_AfterCollapse
         End Sub
+        Public Shared Sub treeView_AfterExpand(ByVal sender As Object, ByVal e As TreeViewEventArgs)
+            If e.Node.Level = 0 And e.Node.Text = Language.strPuttySavedSessionsRootName Then
+                My.Settings.CollapsePuttyTree = False
+            End If
+        End Sub
+        Public Shared Sub treeView_AfterCollapse(ByVal sender As Object, ByVal e As TreeViewEventArgs)
+            If e.Node.Level = 0 And e.Node.Text = Language.strPuttySavedSessionsRootName Then
+                My.Settings.CollapsePuttyTree = True
+            End If
 
+        End Sub
         Public Shared Sub StartWatcher()
             For Each provider As Provider In Providers
                 provider.StartWatcher()
