@@ -1376,7 +1376,6 @@ Namespace App
             Dim f2 As New Forms.frmConnections()
             f2.Show(pane.DockPanel, DockState.Document)
 
-
             Dim newProtocol As Protocol.Base
             ' Create connection based on protocol type
             Dim newConnectionInfo As dRemote.Connection.Info = tvConnections.SelectedNode.Tag
@@ -1427,10 +1426,10 @@ Namespace App
 
             newProtocol.InterfaceControl = New dRemote.Connection.InterfaceControl(f2, newProtocol, newConnectionInfo)
 
-            AddHandler newProtocol.Control.ClientSizeChanged, AddressOf newProtocol.ResizeEnd
-            ''AddHandler f2.Resize, AddressOf newProtocol.Resize
+            'AddHandler newProtocol.Control.ClientSizeChanged, AddressOf newProtocol.ResizeEnd
+            AddHandler f2.Resize, AddressOf newProtocol.ResizeV2
             'AddHandler f2.ResizeEnd, AddressOf newProtocol.ResizeEnd
-            'AddHandler f2.SizeChanged, AddressOf newProtocol.ResizeEnd
+
             If Not IsNothing(newProtocol.Control) Then
                 newProtocol.Control.Dock = DockStyle.Fill
                 f2.Controls.Add(newProtocol.Control)

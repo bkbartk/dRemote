@@ -1,3 +1,4 @@
+Imports System.Security.Permissions
 Imports System.Threading
 Imports dRemote.App.Runtime
 
@@ -46,6 +47,15 @@ Namespace Connection
                     Me._Control = value
                 End Set
             End Property
+            'Private _resizestarted As Boolean
+            'Public Property resizestarted() As Boolean
+            '    Get
+            '        Return Me._resizestarted
+            '    End Get
+            '    Set(ByVal value As Boolean)
+            '        Me._resizestarted = value
+            '    End Set
+            'End Property
 #End Region
 
             Private _Force As dRemote.Connection.Info.Force
@@ -69,6 +79,31 @@ Namespace Connection
                 Catch ex As Exception
                     MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, "Couldn't focus Control (Connection.Protocol.Base)" & vbNewLine & ex.Message, True)
                 End Try
+            End Sub
+
+            Public resizeStarted As Boolean = False
+
+            Public WithEvents resizeTimer As New Timers.Timer(500)
+
+
+            Public Overridable Sub ResizeV2(ByVal sender As System.Object, ByVal e As EventArgs)
+                resizeTimer.AutoReset = False
+                If Not resizeStarted Then
+                    Me.ResizeBegin(sender, e)
+                    resizeStarted = True
+                End If
+
+                resizeTimer.Stop()
+                resizeTimer.Start()
+            End Sub
+
+            Public Overridable Sub ResizeEnd_elapsed(ByVal sender As System.Object, ByVal e As EventArgs) Handles resizeTimer.Elapsed
+                If resizeStarted And Not System.Windows.Forms.MouseButtons.Left Then
+                    Me.ResizeEnd(sender, e)
+                    resizeStarted = False
+                ElseIf resizeStarted Then
+                    resizeTimer.Start()
+                End If
             End Sub
 
             Public Overridable Sub ResizeBegin(ByVal sender As System.Object, ByVal e As EventArgs) Handles _connectionWindow.ResizeBegin
@@ -134,10 +169,10 @@ Namespace Connection
                         End Try
                     End If
 
-                    If Me._InterfaceControl IsNot Nothing Then
+                    If Me._interfaceControl IsNot Nothing Then
                         Try
-                            If Me._InterfaceControl.Parent IsNot Nothing Then
-                                If Me._InterfaceControl.Parent.Tag IsNot Nothing Then
+                            If Me._interfaceControl.Parent IsNot Nothing Then
+                                If Me._interfaceControl.Parent.Tag IsNot Nothing Then
                                     Me.SetTagToNothing()
                                 End If
 
@@ -154,21 +189,21 @@ Namespace Connection
 
             Private Delegate Sub DisposeInterfaceCB()
             Private Sub DisposeInterface()
-                If Me._InterfaceControl.InvokeRequired Then
+                If Me._interfaceControl.InvokeRequired Then
                     Dim s As New DisposeInterfaceCB(AddressOf DisposeInterface)
-                    Me._InterfaceControl.Invoke(s)
+                    Me._interfaceControl.Invoke(s)
                 Else
-                    Me._InterfaceControl.Dispose()
+                    Me._interfaceControl.Dispose()
                 End If
             End Sub
 
             Private Delegate Sub SetTagToNothingCB()
             Private Sub SetTagToNothing()
-                If Me._InterfaceControl.Parent.InvokeRequired Then
+                If Me._interfaceControl.Parent.InvokeRequired Then
                     Dim s As New SetTagToNothingCB(AddressOf SetTagToNothing)
-                    Me._InterfaceControl.Parent.Invoke(s)
+                    Me._interfaceControl.Parent.Invoke(s)
                 Else
-                    Me._InterfaceControl.Parent.Tag = Nothing
+                    Me._interfaceControl.Parent.Tag = Nothing
                 End If
             End Sub
 

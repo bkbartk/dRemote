@@ -198,12 +198,12 @@ Namespace Connection
                 _controlBeginningSize = Control.Size
             End Sub
 
-            'Public Overrides Sub Resize(ByVal sender As Object, ByVal e As EventArgs)
-            '    If DoResize() And _controlBeginningSize.IsEmpty Then
-            '        ReconnectForResize()
-            '    End If
-            '    MyBase.Resize(sender, e)
-            'End Sub
+            Public Overrides Sub Resize(ByVal sender As Object, ByVal e As EventArgs)
+                If DoResize() And _controlBeginningSize.IsEmpty Then
+                    ReconnectForResize()
+                End If
+                MyBase.Resize(sender, e)
+            End Sub
 
             Public Overrides Sub ResizeEnd(ByVal sender As Object, ByVal e As EventArgs)
                 DoResize()
@@ -214,8 +214,15 @@ Namespace Connection
             End Sub
 #End Region
 
+            Delegate Sub SetTextLocation(location As Point)
+
 #Region "Private Methods"
             Private Function DoResize() As Boolean
+                If Control.InvokeRequired Then
+                    Control.Invoke(New Action(AddressOf DoResize))
+                    Return True
+                End If
+
                 Control.Location = InterfaceControl.Location
                 If Not Control.Size = InterfaceControl.Size And Not InterfaceControl.Size = Size.Empty Then
                     Control.Size = InterfaceControl.Size
@@ -224,6 +231,18 @@ Namespace Connection
                     Return False
                 End If
             End Function
+
+
+            'Public Sub CheckUnusedTabs(strTabToRemove As String)
+            '    If TaskBarRef.tabControl1.InvokeRequired Then
+            '        TaskBarRef.tabControl1.Invoke(New Action(Of String)(AddressOf CheckUnusedTabs), strTabToRemove)
+            '        Return
+            '    End If
+
+            '    Dim tp As TabPage = TaskBarRef.tabControl1.TabPages(strTabToRemove)
+            '    tp.Controls.Remove(Me)
+            '    TaskBarRef.tabControl1.TabPages.Remove(tp)
+            'End Sub
 
             Private Sub ReconnectForResize()
                 If IsNothing(_rdpVersion) OrElse _rdpVersion < Versions.RDC80 Then Return
