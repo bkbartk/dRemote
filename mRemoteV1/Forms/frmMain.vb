@@ -1085,6 +1085,14 @@ Public Class frmMain
             Case MsgBoxResult.Cancel
                 Return
         End Select
+        'For Each pne As DockPane In Me.pnlDock.Panes
+        '    For Each ctrl As Control In pne.Controls
+        '        ctrl
+        '    Next
+        'Next
+
+
+
         Dim frmBeta As New frmMainV2
         frmBeta.WindowState = Me.WindowState
         frmBeta.Width = Me.Width
