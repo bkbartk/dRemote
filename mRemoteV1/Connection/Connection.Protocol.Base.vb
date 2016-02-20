@@ -156,6 +156,10 @@ Namespace Connection
             End Sub
 
             Private Sub CloseBG()
+                If Control.InvokeRequired Then
+                    Control.Invoke(New Action(AddressOf CloseBG))
+                    Return
+                End If
                 RaiseEvent Closed(Me)
 
                 Try
@@ -170,17 +174,28 @@ Namespace Connection
                     End If
 
                     If Me._interfaceControl IsNot Nothing Then
-                        Try
-                            If Me._interfaceControl.Parent IsNot Nothing Then
+                        'Try
+                        If Me._interfaceControl.Parent IsNot Nothing Then
+                            If My.Settings.Beta And Me._interfaceControl.Parent.[GetType]().ToString() = "dRemote.Forms.frmConnections" Then
+
+                                Dim parent As Form = CType(Me._interfaceControl.Parent, Form)
                                 If Me._interfaceControl.Parent.Tag IsNot Nothing Then
                                     Me.SetTagToNothing()
                                 End If
+                                Me.DisposeInterface()
+                                parent.Close()
 
+                            Else
+                                If Me._interfaceControl.Parent.Tag IsNot Nothing Then
+                                    Me.SetTagToNothing()
+                                End If
                                 Me.DisposeInterface()
                             End If
-                        Catch ex As Exception
-                            MessageCollector.AddMessage(Messages.MessageClass.WarningMsg, "Could not set InterfaceControl.Parent.Tag or Dispose Interface, probably form is already closed (Connection.Protocol.Base)" & vbNewLine & ex.Message, True)
-                        End Try
+
+                        End If
+                        'Catch ex As Exception
+                        '    MessageCollector.AddMessage(Messages.MessageClass.WarningMsg, "Could not set InterfaceControl.Parent.Tag or Dispose Interface, probably form is already closed (Connection.Protocol.Base)" & vbNewLine & ex.Message, True)
+                        'End Try
                     End If
                 Catch ex As Exception
                     MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, "Couldn't Close InterfaceControl BG (Connection.Protocol.Base)" & vbNewLine & ex.Message, True)

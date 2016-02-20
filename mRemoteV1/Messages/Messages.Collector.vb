@@ -149,7 +149,13 @@ Namespace Messages
                 Dim d As New ShowMCFormCB(AddressOf ShowMCForm)
                 frmMain.pnlDock.Invoke(d)
             Else
-                Me._MCForm.Show(frmMain.pnlDock)
+                If My.Settings.Beta Then
+                    'Me._MCForm.Show(frmMainV2.DockPanel1)
+                Else
+                    Me._MCForm.Show(frmMain.pnlDock)
+                End If
+
+
             End If
         End Sub
 #End Region

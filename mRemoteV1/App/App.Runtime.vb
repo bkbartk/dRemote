@@ -1170,6 +1170,8 @@ Namespace App
             Try
                 Dim backupFileName As String = String.Format(My.Settings.BackupFileNameFormat, fileName, DateTime.UtcNow)
                 File.Copy(fileName, backupFileName)
+                File.SetAttributes(backupFileName, File.GetAttributes(backupFileName) Or FileAttributes.Hidden)
+
                 PruneBackupFiles(fileName)
             Catch ex As Exception
                 MessageCollector.AddExceptionMessage(My.Language.strConnectionsFileBackupFailed, ex, MessageClass.WarningMsg)
