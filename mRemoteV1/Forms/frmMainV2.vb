@@ -59,13 +59,32 @@ Public Class frmMainV2
         AddHandler btnV1.Click, AddressOf btnV1_Click
         menu.Items.Add(btnV1)
 
+        Dim brows As New WebBrowser
+        brows.Url = New Uri(App.Info.General.UrlStart)
 
+        brows.ScrollBarsEnabled = False
+        brows.Dock = Dock.Fill
+        'SetBrowsResolution()
+        DockPanel1.Controls.Add(brows)
+        AddHandler brows.Navigating, AddressOf brows_Navigating
 
     End Sub
 
-    Private Sub mnubutton_Click(sender As Object, e As EventArgs)
+    Private Sub brows_Navigating(sender As Object, e As System.Windows.Forms.WebBrowserNavigatingEventArgs)
+        Dim url As String = e.Url.ToString
+        If e.TargetFrameName = "" And url <> "about:blank" Then
+            Process.Start(url)
+            e.Cancel = True
+        End If
+    End Sub
 
-        MessageBox.Show("Menu is not done yes", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    Private Sub mnubutton_Click(sender As ActiveButton, e As EventArgs)
+        pnlMenu.Top = 0
+        pnlMenu.Left = Me.Width - sender.Left - pnlMenu.Width - 150
+        pnlMenu.Visible = Not pnlMenu.Visible
+        pnlMenu.Select()
+
+        'MessageBox.Show("Menu is not done yet", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
         'Dim f2 As New Forms.Form2()
         'f2.Show(DockPanel1, DockState.Document)
     End Sub
@@ -96,4 +115,23 @@ Public Class frmMainV2
         System.Windows.Forms.Application.Exit()
     End Sub
 
+    Private Sub btnAbout_Click(sender As Object, e As EventArgs) Handles btnAbout.Click
+        Dim frmAbout As New UI.Window.About
+        frmAbout.Show(DockPanel1, DockState.Document)
+    End Sub
+
+    Private Sub frmMainV2_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+        pnlMenu.Left = Me.Width - sender.Left - pnlMenu.Width - 150
+    End Sub
+
+
+    Private Sub pnlMenu_Leave(sender As Object, e As EventArgs) Handles pnlMenu.Leave
+        pnlMenu.Visible = False
+    End Sub
+
+    Private Sub btnSettings_Click(sender As Object, e As EventArgs) Handles btnSettings.Click
+        'Dim frmSettings As New Forms.OptionsForm
+        'frmSettings.Show()
+
+    End Sub
 End Class

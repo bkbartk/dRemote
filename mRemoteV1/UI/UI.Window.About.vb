@@ -242,6 +242,12 @@ Namespace UI
 #End Region
 
 #Region "Public Methods"
+            Public Sub New()
+                Me.WindowType = Type.About
+                'Me.DockPnl = Panel
+                Me.InitializeComponent()
+                App.Runtime.FontOverride(Me)
+            End Sub
             Public Sub New(ByVal Panel As DockContent)
                 Me.WindowType = Type.About
                 Me.DockPnl = Panel

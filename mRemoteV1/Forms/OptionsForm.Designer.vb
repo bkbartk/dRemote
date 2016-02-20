@@ -1,7 +1,7 @@
 ﻿Namespace Forms
     <Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
     Partial Class OptionsForm
-        Inherits System.Windows.Forms.Form
+        Inherits Form
 
         'Form overrides dispose to clean up the component list.
         <System.Diagnostics.DebuggerNonUserCode()> _
@@ -24,11 +24,9 @@
         <System.Diagnostics.DebuggerStepThrough()> _
         Private Sub InitializeComponent()
             Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(OptionsForm))
-            Dim Alignment2 As dRemote.Controls.Alignment = New dRemote.Controls.Alignment()
             Me.PagePanel = New System.Windows.Forms.Panel()
             Me.OkButton = New System.Windows.Forms.Button()
             Me.CancelButtonControl = New System.Windows.Forms.Button()
-            Me.PageListView = New dRemote.Controls.ListView()
             Me.SuspendLayout()
             '
             'PagePanel
@@ -49,23 +47,6 @@
             Me.CancelButtonControl.Name = "CancelButtonControl"
             Me.CancelButtonControl.UseVisualStyleBackColor = True
             '
-            'PageListView
-            '
-            Me.PageListView.InactiveHighlightBackColor = System.Drawing.SystemColors.Highlight
-            Me.PageListView.InactiveHighlightBorderColor = System.Drawing.SystemColors.HotTrack
-            Me.PageListView.InactiveHighlightForeColor = System.Drawing.SystemColors.HighlightText
-            Alignment2.Horizontal = dRemote.Controls.HorizontalAlignment.Left
-            Alignment2.Vertical = dRemote.Controls.VerticalAlignment.Middle
-            Me.PageListView.LabelAlignment = Alignment2
-            resources.ApplyResources(Me.PageListView, "PageListView")
-            Me.PageListView.MultiSelect = False
-            Me.PageListView.Name = "PageListView"
-            Me.PageListView.OwnerDraw = True
-            Me.PageListView.ShowFocusCues = False
-            Me.PageListView.TileSize = New System.Drawing.Size(150, 30)
-            Me.PageListView.UseCompatibleStateImageBehavior = False
-            Me.PageListView.View = System.Windows.Forms.View.Tile
-            '
             'OptionsForm
             '
             Me.AcceptButton = Me.OkButton
@@ -75,7 +56,6 @@
             Me.Controls.Add(Me.CancelButtonControl)
             Me.Controls.Add(Me.OkButton)
             Me.Controls.Add(Me.PagePanel)
-            Me.Controls.Add(Me.PageListView)
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
             Me.MaximizeBox = False
             Me.MinimizeBox = False

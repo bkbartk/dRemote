@@ -1096,10 +1096,10 @@ Public Class frmMain
 
         Dim frmBeta As New frmMainV2
         frmBeta.WindowState = Me.WindowState
-        frmBeta.Width = Me.Width
-        frmBeta.Height = Me.Height
-        frmBeta.Top = Me.Top
-        frmBeta.Left = Me.Left
+        'frmBeta.Width = Me.Width
+        'frmBeta.Height = Me.Height
+        'frmBeta.Top = Me.Top
+        'frmBeta.Left = Me.Left
         My.Settings.Beta = True
 
         Me.Close()
