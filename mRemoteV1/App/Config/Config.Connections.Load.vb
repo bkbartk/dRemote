@@ -151,7 +151,11 @@ Namespace Config
                 frmMain.UsingSqlServer = UseSQL
                 frmMain.ConnectionsFileName = ConnectionFileName
 
-                If Not import Then Putty.Sessions.AddSessionsToTree()
+                If Not import Then
+
+                    Putty.Sessions.AddSessionsToTree()
+
+                End If
             End Sub
 #End Region
 
@@ -745,7 +749,7 @@ Namespace Config
                                 containerInfo.Name = xmlNode.Attributes("Name").Value
 
                                 If confVersion >= 0.8 Then
-                                    If xmlNode.Attributes("Expanded").Value = "True" Then
+                                    If Not IsNothing(xmlNode) AndAlso Not IsNothing(xmlNode.Attributes("Expanded")) AndAlso xmlNode.Attributes("Expanded").Value = "True" Then
                                         containerInfo.IsExpanded = True
                                     Else
                                         containerInfo.IsExpanded = False

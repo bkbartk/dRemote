@@ -33,6 +33,9 @@ Namespace Config.Putty
                         treeView.BeginUpdate()
                         inUpdate = True
                     End If
+                    If Not IsNothing(rootTreeNode.TreeView) Then
+                        rootTreeNode.TreeView.Nodes.Remove(rootTreeNode)
+                    End If
                     treeView.Nodes.Add(rootTreeNode)
                 End If
 

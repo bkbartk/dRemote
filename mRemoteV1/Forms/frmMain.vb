@@ -954,10 +954,11 @@ Public Class frmMain
                             SelectTabRelative(1)
                     End Select
             End Select
+            MyBase.WndProc(m)
         Catch ex As Exception
         End Try
 
-        MyBase.WndProc(m)
+
     End Sub
 
     Private Sub ActivateConnection()
@@ -1086,11 +1087,11 @@ Public Class frmMain
                 Return
         End Select
         'For Each pne As DockPane In Me.pnlDock.Panes
-        '    For Each ctrl As Control In pne.Controls
-        '        ctrl
-        '    Next
+        '    pne.CloseActiveContent()
+        '    'For Each ctrl As Control In pne.Controls
+        '    '    ctrl
+        '    'Next
         'Next
-
 
 
         Dim frmBeta As New frmMainV2
@@ -1099,9 +1100,18 @@ Public Class frmMain
         frmBeta.Height = Me.Height
         frmBeta.Top = Me.Top
         frmBeta.Left = Me.Left
-        frmBeta.Show()
-        Me.Hide()
         My.Settings.Beta = True
+
+        Me.Close()
+        frmBeta.Show()
+
+
+    End Sub
+
+    Private Sub frmMain_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+        If Not My.Settings.Beta Then
+            System.Windows.Forms.Application.Exit()
+        End If
     End Sub
 #End Region
 End Class

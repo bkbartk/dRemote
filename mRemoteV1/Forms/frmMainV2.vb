@@ -93,7 +93,7 @@ Public Class frmMainV2
             Case MsgBoxResult.Cancel
                 Return
         End Select
-        Shutdown.Quit()
+        System.Windows.Forms.Application.Exit()
     End Sub
 
 End Class
