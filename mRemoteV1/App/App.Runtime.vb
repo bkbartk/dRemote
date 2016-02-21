@@ -1375,8 +1375,9 @@ Namespace App
         End Function
         Public Shared Sub OpenConnectionV2(ByVal tvConnections As TreeView, ByVal sender As Object)
             Dim pane As WeifenLuo.WinFormsUI.Docking.DockPane = GetClosestPane(sender)
-            Dim f2 As New Forms.frmConnections()
-            f2.Show(pane.DockPanel, DockState.Document)
+            Dim conform As New Forms.frmConnections()
+            conform.Show(pane.DockPanel, DockState.Document)
+            conform.TabPageContextMenuStrip = conform.cmenTab
 
             Dim newProtocol As Protocol.Base
             ' Create connection based on protocol type
@@ -1422,26 +1423,27 @@ Namespace App
 
             Dim conIcon As Drawing.Icon = dRemote.Connection.Icon.FromString(newConnectionInfo.Icon)
             If conIcon IsNot Nothing Then
-                f2.Icon = conIcon
+                conform.Icon = conIcon
             End If
-            f2.Text = newConnectionInfo.Name
+            conform.Text = newConnectionInfo.Name
 
-            newProtocol.InterfaceControl = New dRemote.Connection.InterfaceControl(f2, newProtocol, newConnectionInfo)
+            newProtocol.InterfaceControl = New dRemote.Connection.InterfaceControl(conform, newProtocol, newConnectionInfo)
 
             'AddHandler newProtocol.Control.ClientSizeChanged, AddressOf newProtocol.ResizeEnd
-            AddHandler f2.Resize, AddressOf newProtocol.ResizeV2
+            AddHandler conform.Resize, AddressOf newProtocol.ResizeV2
             'AddHandler f2.ResizeEnd, AddressOf newProtocol.ResizeEnd
 
+            ShowHideMenuButtons(conform, newProtocol)
             If Not IsNothing(newProtocol.Control) Then
                 newProtocol.Control.Dock = DockStyle.Fill
-                f2.Controls.Add(newProtocol.Control)
+                conform.Controls.Add(newProtocol.Control)
             Else
                 Dim borderwidth As Integer = 5
                 newProtocol.InterfaceControl.Left = -borderwidth
                 newProtocol.InterfaceControl.Top = -borderwidth
-                newProtocol.InterfaceControl.Width = f2.Width + borderwidth * 2
-                newProtocol.InterfaceControl.Height = f2.Height + borderwidth * 2
-                f2.Controls.Add(newProtocol.InterfaceControl)
+                newProtocol.InterfaceControl.Width = conform.Width + borderwidth * 2
+                newProtocol.InterfaceControl.Height = conform.Height + borderwidth * 2
+                conform.Controls.Add(newProtocol.InterfaceControl)
             End If
 
 
@@ -1455,7 +1457,74 @@ Namespace App
                 Exit Sub
             End If
         End Sub
+        Shared Sub ShowHideMenuButtons(ByRef conform As Forms.frmConnections, newProtocol As Protocol.Base)
+            Try
 
+
+                Dim IC As dRemote.Connection.InterfaceControl = newProtocol.InterfaceControl
+
+                If IC Is Nothing Then
+                    Exit Sub
+                End If
+
+                Select Case newProtocol.InterfaceControl.Info.Protocol
+                    Case dRemote.Connection.Protocol.Protocols.RDP
+                        Dim rdp As dRemote.Connection.Protocol.RDP = IC.Protocol
+
+                        conform.cmenTabFullscreen.Visible = True
+                        conform.cmenTabFullscreen.Checked = rdp.Fullscreen
+
+                        conform.cmenTabSmartSize.Visible = True
+                        conform.cmenTabSmartSize.Checked = rdp.SmartSize
+
+
+                    Case dRemote.Connection.Protocol.Protocols.VNC
+                        conform.cmenTabSendSpecialKeys.Visible = True
+                        conform.cmenTabSendSpecialKeysCtrlAltDel.Visible = True
+                        conform.cmenTabSendSpecialKeysCtrlEsc.Visible = True
+
+                        conform.cmenTabViewOnly.Visible = True
+
+                        conform.cmenTabSmartSize.Visible = True
+                        conform.cmenTabStartChat.Visible = True
+                        conform.cmenTabRefreshScreen.Visible = True
+
+                        Dim vnc As dRemote.Connection.Protocol.VNC = IC.Protocol
+                        conform.cmenTabSmartSize.Checked = vnc.SmartSize
+                        conform.cmenTabViewOnly.Checked = vnc.ViewOnly
+                    Case dRemote.Connection.Protocol.Protocols.SSH1, dRemote.Connection.Protocol.Protocols.SSH2
+                        conform.cmenTabTransferFile.Visible = True
+                    Case TypeOf IC.Protocol Is dRemote.Connection.Protocol.PuttyBase
+                        conform.cmenTabPuttySettings.Visible = True
+                End Select
+
+                AddExternalApps(conform)
+            Catch ex As Exception
+                MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, "ShowHideMenuButtons (UI.Window.Connections) failed" & vbNewLine & ex.Message, True)
+            End Try
+        End Sub
+
+        Shared Sub AddExternalApps(conform As Forms.frmConnections)
+            Try
+                'clean up
+                conform.cmenTabExternalApps.DropDownItems.Clear()
+
+                'add ext apps
+                For Each extA As Tools.ExternalTool In Runtime.ExternalTools
+                    Dim nItem As New ToolStripMenuItem
+                    nItem.Text = extA.DisplayName
+                    nItem.Tag = extA
+
+                    nItem.Image = extA.Image
+
+                    'AddHandler nItem.Click, AddressOf cmenTabExternalAppsEntry_Click
+
+                    conform.cmenTabExternalApps.DropDownItems.Add(nItem)
+                Next
+            Catch ex As Exception
+                MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, "cMenTreeTools_DropDownOpening failed (UI.Window.Tree)" & vbNewLine & ex.Message, True)
+            End Try
+        End Sub
 
         Public Shared Sub OpenConnection(ByVal tvConnections As TreeView)
             Try

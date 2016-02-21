@@ -660,6 +660,9 @@
       <DependentUpon>UI.Window.Announcement.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\UI.Window.Base.resx">
+      <DependentUpon>UI.Window.Base.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\UI.Window.ComponentsCheck.resx">
       <DependentUpon>UI.Window.ComponentsCheck.vb</DependentUpon>
       <SubType>Designer</SubType>

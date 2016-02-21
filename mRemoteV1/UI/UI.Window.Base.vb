@@ -42,6 +42,18 @@ Namespace UI
             Private Sub Base_FormClosed(sender As System.Object, e As System.Windows.Forms.FormClosedEventArgs) Handles MyBase.FormClosed
                 frmMain.ShowHidePanelTabs(Me)
             End Sub
+
+            Private Sub InitializeComponent()
+                Me.SuspendLayout()
+                '
+                'Base
+                '
+                Me.ClientSize = New System.Drawing.Size(284, 261)
+                Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+                Me.Name = "Base"
+                Me.ResumeLayout(False)
+
+            End Sub
 #End Region
         End Class
     End Namespace
