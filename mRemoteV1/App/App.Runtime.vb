@@ -1459,8 +1459,6 @@ Namespace App
         End Sub
         Shared Sub ShowHideMenuButtons(ByRef conform As Forms.frmConnections, newProtocol As Protocol.Base)
             Try
-
-
                 Dim IC As dRemote.Connection.InterfaceControl = newProtocol.InterfaceControl
 
                 If IC Is Nothing Then
@@ -1469,13 +1467,13 @@ Namespace App
 
                 Select Case newProtocol.InterfaceControl.Info.Protocol
                     Case dRemote.Connection.Protocol.Protocols.RDP
-                        Dim rdp As dRemote.Connection.Protocol.RDP = IC.Protocol
+                        'Dim rdp As dRemote.Connection.Protocol.RDP = IC.Protocol
 
                         conform.cmenTabFullscreen.Visible = True
-                        conform.cmenTabFullscreen.Checked = rdp.Fullscreen
+                        conform.cmenTabFullscreen.Checked = False 'rdp.Fullscreen
 
                         conform.cmenTabSmartSize.Visible = True
-                        conform.cmenTabSmartSize.Checked = rdp.SmartSize
+                        conform.cmenTabSmartSize.Checked = False 'rdp.SmartSize
 
 
                     Case dRemote.Connection.Protocol.Protocols.VNC
@@ -1489,22 +1487,53 @@ Namespace App
                         conform.cmenTabStartChat.Visible = True
                         conform.cmenTabRefreshScreen.Visible = True
 
-                        Dim vnc As dRemote.Connection.Protocol.VNC = IC.Protocol
-                        conform.cmenTabSmartSize.Checked = vnc.SmartSize
-                        conform.cmenTabViewOnly.Checked = vnc.ViewOnly
+                        'Dim vnc As dRemote.Connection.Protocol.VNC = IC.Protocol
+                        conform.cmenTabSmartSize.Checked = False ' vnc.SmartSize
+                        conform.cmenTabViewOnly.Checked = False 'vnc.ViewOnly
                     Case dRemote.Connection.Protocol.Protocols.SSH1, dRemote.Connection.Protocol.Protocols.SSH2
                         conform.cmenTabTransferFile.Visible = True
                     Case TypeOf IC.Protocol Is dRemote.Connection.Protocol.PuttyBase
                         conform.cmenTabPuttySettings.Visible = True
                 End Select
 
-                AddExternalApps(conform)
+
+                AddHandler conform.cmenTabFullscreen.Click, AddressOf newProtocol.ToggleFullscreen
+                AddHandler conform.cmenTabSmartSize.Click, AddressOf newProtocol.ToggleSmartSize
+                AddHandler conform.cmenTabViewOnly.Click, AddressOf newProtocol.ToggleViewOnly
+                AddHandler conform.cmenTabScreenshot.Click, AddressOf newProtocol.cmenTabScreenshot
+                AddHandler conform.cmenTabStartChat.Click, AddressOf newProtocol.StartChat
+                AddHandler conform.cmenTabTransferFile.Click, AddressOf newProtocol.TransferFile
+                AddHandler conform.cmenTabRefreshScreen.Click, AddressOf newProtocol.RefreshScreen
+                AddHandler conform.cmenTabSendSpecialKeysCtrlAltDel.Click, AddressOf newProtocol.cmenTabSendSpecialKeysCtrlAltDel
+                AddHandler conform.cmenTabSendSpecialKeysCtrlEsc.Click, AddressOf newProtocol.cmenTabSendSpecialKeysCtrlEsc
+                AddHandler conform.cmenTabPuttySettings.Click, AddressOf newProtocol.ShowPuttySettingsDialog
+                'AddHandler conform.cmenTabExternalApps.Click, AddressOf newProtocol.StartExternalApp
+                AddHandler conform.cmenTabRenameTab.Click, AddressOf RenameTab
+                AddHandler conform.cmenTabDuplicateTab.Click, AddressOf newProtocol.DuplicateTab
+                AddHandler conform.cmenTabReconnect.Click, AddressOf newProtocol.Reconnect
+                AddHandler conform.cmenTabDisconnect.Click, AddressOf newProtocol.Disconnect
+
+
+                AddExternalApps(conform, newProtocol)
             Catch ex As Exception
                 MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, "ShowHideMenuButtons (UI.Window.Connections) failed" & vbNewLine & ex.Message, True)
             End Try
         End Sub
 
-        Shared Sub AddExternalApps(conform As Forms.frmConnections)
+        Shared Sub RenameTab(Sender As Object, e As EventArgs)
+            Try
+                Dim tab As Form = Sender.Parent.Parent
+                Dim nTitle As String = InputBox(My.Language.strNewTitle & ":", , tab.Text.Replace("&&", "&"))
+
+                If nTitle <> "" Then
+                    tab.Text = nTitle.Replace("&", "&&")
+                End If
+            Catch ex As Exception
+                MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, "RenameTab (UI.Window.Connections) failed" & vbNewLine & ex.Message, True)
+            End Try
+        End Sub
+
+        Shared Sub AddExternalApps(conform As Forms.frmConnections, newProtocol As Protocol.Base)
             Try
                 'clean up
                 conform.cmenTabExternalApps.DropDownItems.Clear()
@@ -1517,7 +1546,7 @@ Namespace App
 
                     nItem.Image = extA.Image
 
-                    'AddHandler nItem.Click, AddressOf cmenTabExternalAppsEntry_Click
+                    AddHandler nItem.Click, AddressOf newProtocol.StartExternalApp
 
                     conform.cmenTabExternalApps.DropDownItems.Add(nItem)
                 Next

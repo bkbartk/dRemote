@@ -269,6 +269,211 @@ Namespace Connection
                 Close()
             End Sub
 #End Region
+#Region "Tab Actions"
+            Sub cmenTabScreenshot(ByVal sender As System.Object, ByVal e As System.EventArgs)
+                Dim cmenTab As ContextMenuStrip = sender.Parent
+                Dim conForm As Form = cmenTab.Parent
+                cmenTab.Close()
+                Application.DoEvents()
+                Windows.screenshotForm.AddScreenshot(Tools.Misc.TakeScreenshot(conForm))
+            End Sub
+            Sub ToggleSmartSize(Sender As Object, e As EventArgs)
+                Try
+                    Dim IC As dRemote.Connection.InterfaceControl = Me.InterfaceControl
+
+                    If TypeOf IC.Protocol Is dRemote.Connection.Protocol.RDP Then
+                        Dim rdp As dRemote.Connection.Protocol.RDP = IC.Protocol
+                        rdp.ToggleSmartSize()
+                    ElseIf TypeOf IC.Protocol Is dRemote.Connection.Protocol.VNC Then
+                        Dim vnc As dRemote.Connection.Protocol.VNC = IC.Protocol
+                        vnc.ToggleSmartSize()
+                    End If
+                Catch ex As Exception
+                    MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, "ToggleSmartSize (UI.Window.Connections) failed" & vbNewLine & ex.Message, True)
+                End Try
+            End Sub
+
+            Sub TransferFile(Sender As Object, e As EventArgs)
+                Try
+
+                    Dim IC As dRemote.Connection.InterfaceControl = Me.InterfaceControl
+
+                    If IC.Info.Protocol = dRemote.Connection.Protocol.Protocols.SSH1 Or IC.Info.Protocol = dRemote.Connection.Protocol.Protocols.SSH2 Then
+                        SSHTransferFile()
+                    ElseIf IC.Info.Protocol = dRemote.Connection.Protocol.Protocols.VNC Then
+                        VNCTransferFile()
+                    End If
+
+                Catch ex As Exception
+                    MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, "TransferFile (UI.Window.Connections) failed" & vbNewLine & ex.Message, True)
+                End Try
+            End Sub
+
+            Sub SSHTransferFile()
+                Try
+
+                    Dim IC As dRemote.Connection.InterfaceControl = Me.InterfaceControl
+
+                    Windows.Show(UI.Window.Type.SSHTransfer)
+
+                    Dim conI As dRemote.Connection.Info = IC.Info
+
+                    Windows.sshtransferForm.Hostname = conI.Hostname
+                    Windows.sshtransferForm.Username = conI.Username
+                    Windows.sshtransferForm.Password = conI.Password
+                    Windows.sshtransferForm.Port = conI.Port
+                Catch ex As Exception
+                    MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, "SSHTransferFile (UI.Window.Connections) failed" & vbNewLine & ex.Message, True)
+                End Try
+            End Sub
+
+            Sub VNCTransferFile()
+                Try
+                    Dim IC As dRemote.Connection.InterfaceControl = Me.InterfaceControl
+                    Dim vnc As dRemote.Connection.Protocol.VNC = IC.Protocol
+                    vnc.StartFileTransfer()
+                Catch ex As Exception
+                    MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, "VNCTransferFile (UI.Window.Connections) failed" & vbNewLine & ex.Message, True)
+                End Try
+            End Sub
+
+            Sub ToggleViewOnly(Sender As Object, e As EventArgs)
+                Try
+
+                    Dim IC As dRemote.Connection.InterfaceControl = Me.InterfaceControl
+
+                    If TypeOf IC.Protocol Is dRemote.Connection.Protocol.VNC Then
+                        Sender.Checked = Not Sender.Checked
+
+                        Dim vnc As dRemote.Connection.Protocol.VNC = IC.Protocol
+                        vnc.ToggleViewOnly()
+                    End If
+                Catch ex As Exception
+                    MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, "ToggleViewOnly (UI.Window.Connections) failed" & vbNewLine & ex.Message, True)
+                End Try
+            End Sub
+
+            Sub StartChat(Sender As Object, e As EventArgs)
+                Try
+                    Dim IC As dRemote.Connection.InterfaceControl = Me.InterfaceControl
+
+                    If TypeOf IC.Protocol Is dRemote.Connection.Protocol.VNC Then
+                        Dim vnc As dRemote.Connection.Protocol.VNC = IC.Protocol
+                        vnc.StartChat()
+                    End If
+                Catch ex As Exception
+                    MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, "StartChat (UI.Window.Connections) failed" & vbNewLine & ex.Message, True)
+                End Try
+            End Sub
+
+            Sub RefreshScreen(Sender As Object, e As EventArgs)
+                Try
+                    Dim IC As dRemote.Connection.InterfaceControl = Me.InterfaceControl
+
+                    If TypeOf IC.Protocol Is dRemote.Connection.Protocol.VNC Then
+                        Dim vnc As dRemote.Connection.Protocol.VNC = IC.Protocol
+                        vnc.RefreshScreen()
+                    End If
+                Catch ex As Exception
+                    MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, "RefreshScreen (UI.Window.Connections) failed" & vbNewLine & ex.Message, True)
+                End Try
+            End Sub
+
+            Sub cmenTabSendSpecialKeysCtrlAltDel(ByVal sender As System.Object, ByVal e As System.EventArgs)
+                Me.SendSpecialKeys(dRemote.Connection.Protocol.VNC.SpecialKeys.CtrlAltDel)
+            End Sub
+
+            Sub cmenTabSendSpecialKeysCtrlEsc(ByVal sender As System.Object, ByVal e As System.EventArgs)
+                Me.SendSpecialKeys(dRemote.Connection.Protocol.VNC.SpecialKeys.CtrlEsc)
+
+            End Sub
+            Sub SendSpecialKeys(ByVal Keys As dRemote.Connection.Protocol.VNC.SpecialKeys)
+                Try
+                    Dim IC As dRemote.Connection.InterfaceControl = Me.InterfaceControl
+
+                    If TypeOf IC.Protocol Is dRemote.Connection.Protocol.VNC Then
+                        Dim vnc As dRemote.Connection.Protocol.VNC = IC.Protocol
+                        vnc.SendSpecialKeys(Keys)
+                    End If
+                Catch ex As Exception
+                    MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, "SendSpecialKeys (UI.Window.Connections) failed" & vbNewLine & ex.Message, True)
+                End Try
+            End Sub
+
+            Sub ToggleFullscreen(Sender As Object, e As EventArgs)
+                Try
+
+                    Dim IC As dRemote.Connection.InterfaceControl = Me.InterfaceControl
+
+                    If TypeOf IC.Protocol Is dRemote.Connection.Protocol.RDP Then
+                        Dim rdp As dRemote.Connection.Protocol.RDP = IC.Protocol
+                        rdp.ToggleFullscreen()
+                    End If
+                Catch ex As Exception
+                    MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, "ToggleFullscreen (UI.Window.Connections) failed" & vbNewLine & ex.Message, True)
+                End Try
+            End Sub
+
+            Sub ShowPuttySettingsDialog(Sender As Object, e As EventArgs)
+                Try
+                    Dim objInterfaceControl As dRemote.Connection.InterfaceControl = Me.InterfaceControl
+
+                    If TypeOf objInterfaceControl.Protocol Is dRemote.Connection.Protocol.PuttyBase Then
+                        Dim objPuttyBase As dRemote.Connection.Protocol.PuttyBase = objInterfaceControl.Protocol
+
+                        objPuttyBase.ShowSettingsDialog()
+                    End If
+                Catch ex As Exception
+                    MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, "ShowPuttySettingsDialog (UI.Window.Connections) failed" & vbNewLine & ex.Message, True)
+                End Try
+            End Sub
+
+            Sub StartExternalApp(ByVal Sender As Object, ByVal e As System.EventArgs)
+                Try
+                    Dim extA As Tools.ExternalTool = Sender.Tag
+                    Dim IC As dRemote.Connection.InterfaceControl = Me.InterfaceControl
+
+                    extA.Start(IC.Info)
+                Catch ex As Exception
+                    MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, "cmenTabExternalAppsEntry_Click failed (UI.Window.Tree)" & vbNewLine & ex.Message, True)
+                End Try
+            End Sub
+
+            Sub CloseTabMenu(Sender As Object, e As EventArgs)
+                Try
+                    Dim IC As dRemote.Connection.InterfaceControl = Me.InterfaceControl
+
+                    IC.Protocol.Close()
+                Catch ex As Exception
+                    MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, "CloseTabMenu (UI.Window.Connections) failed" & vbNewLine & ex.Message, True)
+                End Try
+            End Sub
+
+            Sub DuplicateTab(Sender As Object, e As EventArgs)
+                Try
+                    Dim IC As dRemote.Connection.InterfaceControl = Me.InterfaceControl
+
+                    App.Runtime.OpenConnection(IC.Info, dRemote.Connection.Info.Force.DoNotJump)
+                    '_ignoreChangeSelectedTabClick = False
+                Catch ex As Exception
+                    MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, "DuplicateTab (UI.Window.Connections) failed" & vbNewLine & ex.Message, True)
+                End Try
+            End Sub
+
+            Sub Reconnect(Sender As Object, e As EventArgs)
+                Try
+                    Dim IC As dRemote.Connection.InterfaceControl = Me.InterfaceControl
+                    Dim conI As dRemote.Connection.Info = IC.Info
+
+                    IC.Protocol.Close()
+
+                    App.Runtime.OpenConnection(conI, dRemote.Connection.Info.Force.DoNotJump)
+                Catch ex As Exception
+                    MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, "Reconnect (UI.Window.Connections) failed" & vbNewLine & ex.Message, True)
+                End Try
+            End Sub
+#End Region
+
         End Class
     End Namespace
 End Namespace

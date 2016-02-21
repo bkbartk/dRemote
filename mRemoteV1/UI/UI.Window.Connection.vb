@@ -83,7 +83,7 @@ Namespace UI
                 Me.cmenTab.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmenTabFullscreen, Me.cmenTabSmartSize, Me.cmenTabViewOnly, Me.ToolStripSeparator1, Me.cmenTabScreenshot, Me.cmenTabStartChat, Me.cmenTabTransferFile, Me.cmenTabRefreshScreen, Me.cmenTabSendSpecialKeys, Me.cmenTabPuttySettings, Me.cmenTabExternalApps, Me.cmenTabSep1, Me.cmenTabRenameTab, Me.cmenTabDuplicateTab, Me.cmenTabReconnect, Me.cmenTabDisconnect})
                 Me.cmenTab.Name = "cmenTab"
                 Me.cmenTab.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-                Me.cmenTab.Size = New System.Drawing.Size(188, 324)
+                Me.cmenTab.Size = New System.Drawing.Size(188, 346)
                 '
                 'cmenTabFullscreen
                 '
@@ -156,14 +156,14 @@ Namespace UI
                 'cmenTabSendSpecialKeysCtrlAltDel
                 '
                 Me.cmenTabSendSpecialKeysCtrlAltDel.Name = "cmenTabSendSpecialKeysCtrlAltDel"
-                Me.cmenTabSendSpecialKeysCtrlAltDel.Size = New System.Drawing.Size(141, 22)
+                Me.cmenTabSendSpecialKeysCtrlAltDel.Size = New System.Drawing.Size(152, 22)
                 Me.cmenTabSendSpecialKeysCtrlAltDel.Text = "Ctrl+Alt+Del"
                 Me.cmenTabSendSpecialKeysCtrlAltDel.Visible = False
                 '
                 'cmenTabSendSpecialKeysCtrlEsc
                 '
                 Me.cmenTabSendSpecialKeysCtrlEsc.Name = "cmenTabSendSpecialKeysCtrlEsc"
-                Me.cmenTabSendSpecialKeysCtrlEsc.Size = New System.Drawing.Size(141, 22)
+                Me.cmenTabSendSpecialKeysCtrlEsc.Size = New System.Drawing.Size(152, 22)
                 Me.cmenTabSendSpecialKeysCtrlEsc.Text = "Ctrl+Esc"
                 Me.cmenTabSendSpecialKeysCtrlEsc.Visible = False
                 '
@@ -1124,6 +1124,7 @@ Namespace UI
                 Dim interfaceControl As dRemote.Connection.InterfaceControl = TryCast(TabController.SelectedTab.Tag, dRemote.Connection.InterfaceControl)
                 If interfaceControl IsNot Nothing Then interfaceControl.Protocol.Focus()
             End Sub
+
 #End Region
         End Class
     End Namespace
