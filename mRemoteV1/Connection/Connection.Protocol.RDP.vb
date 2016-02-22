@@ -212,6 +212,10 @@ Namespace Connection
                 End If
                 _controlBeginningSize = Size.Empty
             End Sub
+
+            Public Overrides Sub Reconnect(Sender As Object, e As EventArgs)
+                ReconnectForResize()
+            End Sub
 #End Region
 
             Delegate Sub SetTextLocation(location As Point)

@@ -1369,12 +1369,21 @@ Namespace App
         End Function
         Public Shared Function GetClosestPane(sender As Object) As Object
             If Not sender.GetType = GetType(WeifenLuo.WinFormsUI.Docking.DockPane) Then
-                Return GetClosestPane(sender.Parent)
+                If IsNothing(sender.Parent) Then
+                    Return Nothing
+                Else
+                    Return GetClosestPane(sender.Parent)
+                End If
+
             End If
             Return sender
         End Function
         Public Shared Sub OpenConnectionV2(ByVal tvConnections As TreeView, ByVal sender As Object)
             Dim pane As WeifenLuo.WinFormsUI.Docking.DockPane = GetClosestPane(sender)
+            If IsNothing(pane) Then
+                pane = GetClosestPane(pane)
+            End If
+
             Dim conform As New Forms.frmConnections()
             conform.Show(pane.DockPanel, DockState.Document)
             conform.TabPageContextMenuStrip = conform.cmenTab
@@ -1507,9 +1516,8 @@ Namespace App
                 AddHandler conform.cmenTabSendSpecialKeysCtrlAltDel.Click, AddressOf newProtocol.cmenTabSendSpecialKeysCtrlAltDel
                 AddHandler conform.cmenTabSendSpecialKeysCtrlEsc.Click, AddressOf newProtocol.cmenTabSendSpecialKeysCtrlEsc
                 AddHandler conform.cmenTabPuttySettings.Click, AddressOf newProtocol.ShowPuttySettingsDialog
-                'AddHandler conform.cmenTabExternalApps.Click, AddressOf newProtocol.StartExternalApp
-                AddHandler conform.cmenTabRenameTab.Click, AddressOf RenameTab
-                AddHandler conform.cmenTabDuplicateTab.Click, AddressOf newProtocol.DuplicateTab
+                AddHandler conform.cmenTabExternalApps.Click, AddressOf newProtocol.StartExternalApp
+                AddHandler conform.cmenTabRenameTab.Click, AddressOf newProtocol.RenameTab
                 AddHandler conform.cmenTabReconnect.Click, AddressOf newProtocol.Reconnect
                 AddHandler conform.cmenTabDisconnect.Click, AddressOf newProtocol.Disconnect
 
@@ -1517,19 +1525,6 @@ Namespace App
                 AddExternalApps(conform, newProtocol)
             Catch ex As Exception
                 MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, "ShowHideMenuButtons (UI.Window.Connections) failed" & vbNewLine & ex.Message, True)
-            End Try
-        End Sub
-
-        Shared Sub RenameTab(Sender As Object, e As EventArgs)
-            Try
-                Dim tab As Form = Sender.Parent.Parent
-                Dim nTitle As String = InputBox(My.Language.strNewTitle & ":", , tab.Text.Replace("&&", "&"))
-
-                If nTitle <> "" Then
-                    tab.Text = nTitle.Replace("&", "&&")
-                End If
-            Catch ex As Exception
-                MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, "RenameTab (UI.Window.Connections) failed" & vbNewLine & ex.Message, True)
             End Try
         End Sub
 

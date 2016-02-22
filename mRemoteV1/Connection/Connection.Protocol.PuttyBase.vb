@@ -174,7 +174,10 @@ Namespace Connection
                         If PuttyHandle.ToInt32 = 0 Then Thread.Sleep(0)
                     End While
 
-                    If Not _isPuttyNg Then
+                    If InterfaceControl.IsDisposed Then
+                    End If
+
+                    If Not _isPuttyNg And Not InterfaceControl.IsDisposed Then
                         SetParent(PuttyHandle, InterfaceControl.Handle)
                     End If
 

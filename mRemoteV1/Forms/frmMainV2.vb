@@ -50,7 +50,7 @@ Public Class frmMainV2
         Dim mnubutton As New ActiveButton()
         mnubutton.BackColor = Color.Transparent
         mnubutton.Text = "Menu"
-        AddHandler mnubutton.Click, AddressOf mnubutton_Click
+        AddHandler mnubutton.Click, AddressOf mnubutton_MouseClick
         menu.Items.Add(mnubutton)
 
         Dim btnV1 As New ActiveButton()
@@ -78,15 +78,10 @@ Public Class frmMainV2
         End If
     End Sub
 
-    Private Sub mnubutton_Click(sender As ActiveButton, e As EventArgs)
-        pnlMenu.Top = 0
-        pnlMenu.Left = Me.Width - sender.Left - pnlMenu.Width - 150
-        pnlMenu.Visible = Not pnlMenu.Visible
-        pnlMenu.Select()
+    Private Sub mnubutton_MouseClick(sender As ActiveButton, e As MouseEventArgs)
 
-        'MessageBox.Show("Menu is not done yet", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        'Dim f2 As New Forms.Form2()
-        'f2.Show(DockPanel1, DockState.Document)
+        mainMenu.Show(Me.Width - sender.Left - 200, 20)
+
     End Sub
 
     Private Sub btnV1_Click(sender As Object, e As EventArgs)
@@ -115,23 +110,8 @@ Public Class frmMainV2
         System.Windows.Forms.Application.Exit()
     End Sub
 
-    Private Sub btnAbout_Click(sender As Object, e As EventArgs) Handles btnAbout.Click
+    Private Sub btnAmout_Click(sender As Object, e As EventArgs) Handles btnAmout.Click
         Dim frmAbout As New UI.Window.About
         frmAbout.Show(DockPanel1, DockState.Document)
-    End Sub
-
-    Private Sub frmMainV2_Resize(sender As Object, e As EventArgs) Handles Me.Resize
-        pnlMenu.Left = Me.Width - sender.Left - pnlMenu.Width - 150
-    End Sub
-
-
-    Private Sub pnlMenu_Leave(sender As Object, e As EventArgs) Handles pnlMenu.Leave
-        pnlMenu.Visible = False
-    End Sub
-
-    Private Sub btnSettings_Click(sender As Object, e As EventArgs) Handles btnSettings.Click
-        'Dim frmSettings As New Forms.OptionsForm
-        'frmSettings.Show()
-
     End Sub
 End Class

@@ -139,9 +139,9 @@ Namespace Connection
             End Function
 
             Public Overridable Function Connect() As Boolean
-                If InterfaceControl.Info.Protocol <> Protocols.RDP Then
-                    RaiseEvent Connected(Me)
-                End If
+                'If InterfaceControl.Info.Protocol <> Protocols.RDP Then
+                RaiseEvent Connected(Me)
+                'End If
             End Function
 
             Public Overridable Sub Disconnect()
@@ -156,7 +156,7 @@ Namespace Connection
             End Sub
 
             Private Sub CloseBG()
-                If Control.InvokeRequired Then
+                If Not IsNothing(Control) AndAlso Control.InvokeRequired Then
                     Control.Invoke(New Action(AddressOf CloseBG))
                     Return
                 End If
@@ -448,26 +448,32 @@ Namespace Connection
                     MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, "CloseTabMenu (UI.Window.Connections) failed" & vbNewLine & ex.Message, True)
                 End Try
             End Sub
-
-            Sub DuplicateTab(Sender As Object, e As EventArgs)
+            Sub RenameTab(Sender As ToolStripMenuItem, e As EventArgs)
                 Try
-                    Dim IC As dRemote.Connection.InterfaceControl = Me.InterfaceControl
+                    Dim tab As Form = Me.InterfaceControl.Parent
+                    Dim nTitle As String = InputBox(My.Language.strNewTitle & ":", , tab.Text.Replace("&&", "&"))
 
-                    App.Runtime.OpenConnection(IC.Info, dRemote.Connection.Info.Force.DoNotJump)
-                    '_ignoreChangeSelectedTabClick = False
+                    If nTitle <> "" Then
+                        tab.Text = nTitle.Replace("&", "&&")
+                    End If
                 Catch ex As Exception
-                    MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, "DuplicateTab (UI.Window.Connections) failed" & vbNewLine & ex.Message, True)
+                    MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, "RenameTab (UI.Window.Connections) failed" & vbNewLine & ex.Message, True)
                 End Try
             End Sub
 
-            Sub Reconnect(Sender As Object, e As EventArgs)
+
+            Overridable Sub Reconnect(Sender As Object, e As EventArgs)
                 Try
                     Dim IC As dRemote.Connection.InterfaceControl = Me.InterfaceControl
-                    Dim conI As dRemote.Connection.Info = IC.Info
 
                     IC.Protocol.Close()
+                    IC.Protocol.Resize(Sender, e)
+                    IC.Protocol.Connect()
 
-                    App.Runtime.OpenConnection(conI, dRemote.Connection.Info.Force.DoNotJump)
+                    'IC.Protocol.Disconnect()
+                    'IC.Protocol.Connect()
+
+                    'App.Runtime.OpenConnectionV2(Nothing, Me.InterfaceControl)
                 Catch ex As Exception
                     MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, "Reconnect (UI.Window.Connections) failed" & vbNewLine & ex.Message, True)
                 End Try
