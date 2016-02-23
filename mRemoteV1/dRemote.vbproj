@@ -950,6 +950,7 @@
     <Content Include="References\WeifenLuo.WinFormsUI.Docking.dll" />
     <Content Include="Resources\Icons\dRemote.ico" />
     <Content Include="Resources\Icons\RDCMan_Icon.ico" />
+    <Content Include="Resources\Images\dRemote.png" />
     <Content Include="Resources\Images_FamFamFam\Config.png" />
     <Content Include="Resources\Images_FamFamFam\database.png" />
     <Content Include="Resources\Images_FamFamFam\Link.png" />
@@ -1078,7 +1079,6 @@
     <None Include="Resources\Icons_FamFamFam\News_Icon.ico" />
     <None Include="Resources\Images_FamFamFam\News.png" />
     <None Include="Resources\Announcement\mRemote_Announcement.txt" />
-    <None Include="Resources\Update\mRemote_Update.txt" />
     <Content Include="Help\Main.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
