@@ -4,7 +4,7 @@ Imports dRemote.My
 Imports WeifenLuo.WinFormsUI.Docking
 
 Namespace Forms
-    Public Class OptionsForm
+    Partial Public Class OptionsForm
         'Inherits DockContent
 #Region "Constructors"
         Public Sub New()
@@ -48,7 +48,7 @@ Namespace Forms
 
 #Region "Private Methods"
 #Region "Event Handlers"
-        Private Sub OptionsForm_Load(sender As System.Object, e As EventArgs)
+        Private Sub OptionsForm_Load(sender As System.Object, e As EventArgs) Handles MyBase.Load
             For Each keyValuePair As KeyValuePair(Of OptionsPage, PageInfo) In _pages
                 Dim page As OptionsPage = keyValuePair.Key
                 Dim pageInfo As PageInfo = keyValuePair.Value
@@ -62,7 +62,7 @@ Namespace Forms
             ShowPage(_startPage)
         End Sub
 
-        Private Sub OptionsForm_FormClosing(sender As System.Object, e As FormClosingEventArgs)
+        Private Sub OptionsForm_FormClosing(sender As System.Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
             If DialogResult = DialogResult.OK Then
                 SaveSettings()
             Else
@@ -192,7 +192,6 @@ Namespace Forms
                 IconKey = Guid.NewGuid.ToString()
             End Sub
         End Class
-
 #End Region
     End Class
 End Namespace

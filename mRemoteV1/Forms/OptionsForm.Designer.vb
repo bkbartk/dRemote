@@ -1,10 +1,10 @@
 ﻿Namespace Forms
-    <Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+    <Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
     Partial Class OptionsForm
-        Inherits Form
+        Inherits System.Windows.Forms.Form
 
         'Form overrides dispose to clean up the component list.
-        <System.Diagnostics.DebuggerNonUserCode()> _
+        <System.Diagnostics.DebuggerNonUserCode()>
         Protected Overrides Sub Dispose(ByVal disposing As Boolean)
             Try
                 If disposing AndAlso components IsNot Nothing Then
@@ -21,12 +21,14 @@
         'NOTE: The following procedure is required by the Windows Form Designer
         'It can be modified using the Windows Form Designer.  
         'Do not modify it using the code editor.
-        <System.Diagnostics.DebuggerStepThrough()> _
+        <System.Diagnostics.DebuggerStepThrough()>
         Private Sub InitializeComponent()
             Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(OptionsForm))
+            Dim Alignment1 As dRemote.Controls.Alignment = New dRemote.Controls.Alignment()
             Me.PagePanel = New System.Windows.Forms.Panel()
             Me.OkButton = New System.Windows.Forms.Button()
             Me.CancelButtonControl = New System.Windows.Forms.Button()
+            Me.PageListView = New dRemote.Controls.ListView()
             Me.SuspendLayout()
             '
             'PagePanel
@@ -47,6 +49,22 @@
             Me.CancelButtonControl.Name = "CancelButtonControl"
             Me.CancelButtonControl.UseVisualStyleBackColor = True
             '
+            'PageListView
+            '
+            Me.PageListView.InactiveHighlightBackColor = System.Drawing.SystemColors.Highlight
+            Me.PageListView.InactiveHighlightBorderColor = System.Drawing.SystemColors.HotTrack
+            Me.PageListView.InactiveHighlightForeColor = System.Drawing.SystemColors.HighlightText
+            Alignment1.Vertical = dRemote.Controls.VerticalAlignment.Middle
+            Me.PageListView.LabelAlignment = Alignment1
+            resources.ApplyResources(Me.PageListView, "PageListView")
+            Me.PageListView.MultiSelect = False
+            Me.PageListView.Name = "PageListView"
+            Me.PageListView.OwnerDraw = True
+            Me.PageListView.ShowFocusCues = False
+            Me.PageListView.TileSize = New System.Drawing.Size(150, 30)
+            Me.PageListView.UseCompatibleStateImageBehavior = False
+            Me.PageListView.View = System.Windows.Forms.View.Tile
+            '
             'OptionsForm
             '
             Me.AcceptButton = Me.OkButton
@@ -56,6 +74,7 @@
             Me.Controls.Add(Me.CancelButtonControl)
             Me.Controls.Add(Me.OkButton)
             Me.Controls.Add(Me.PagePanel)
+            Me.Controls.Add(Me.PageListView)
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
             Me.MaximizeBox = False
             Me.MinimizeBox = False

@@ -133,4 +133,10 @@ Public Class frmMainV2
         Dim frmAbout As New UI.Window.About
         frmAbout.Show(DockPanel1, DockState.Document)
     End Sub
+
+    Private Sub mMenToolsOptions_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mMenToolsOptions.Click
+        Using optionsForm As New Forms.OptionsForm()
+            optionsForm.ShowDialog(Me)
+        End Using
+    End Sub
 End Class

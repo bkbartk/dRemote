@@ -29,6 +29,7 @@ Partial Class frmMainV2
         Me.mainMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.cmenTabSep1 = New System.Windows.Forms.ToolStripSeparator()
         Me.btnAmout = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mMenToolsOptions = New System.Windows.Forms.ToolStripMenuItem()
         Me.mainMenu.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -45,23 +46,30 @@ Partial Class frmMainV2
         '
         'mainMenu
         '
-        Me.mainMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmenTabSep1, Me.btnAmout})
+        Me.mainMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mMenToolsOptions, Me.cmenTabSep1, Me.btnAmout})
         Me.mainMenu.Name = "cmenTab"
         Me.mainMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-        Me.mainMenu.Size = New System.Drawing.Size(108, 32)
+        Me.mainMenu.Size = New System.Drawing.Size(153, 76)
         Me.mainMenu.Text = "File"
         '
         'cmenTabSep1
         '
         Me.cmenTabSep1.Name = "cmenTabSep1"
-        Me.cmenTabSep1.Size = New System.Drawing.Size(104, 6)
+        Me.cmenTabSep1.Size = New System.Drawing.Size(149, 6)
         '
         'btnAmout
         '
         Me.btnAmout.Image = Global.dRemote.My.Resources.Resources.Help
         Me.btnAmout.Name = "btnAmout"
-        Me.btnAmout.Size = New System.Drawing.Size(107, 22)
+        Me.btnAmout.Size = New System.Drawing.Size(152, 22)
         Me.btnAmout.Text = "About"
+        '
+        'mMenToolsOptions
+        '
+        Me.mMenToolsOptions.Image = CType(resources.GetObject("mMenToolsOptions.Image"), System.Drawing.Image)
+        Me.mMenToolsOptions.Name = "mMenToolsOptions"
+        Me.mMenToolsOptions.Size = New System.Drawing.Size(152, 22)
+        Me.mMenToolsOptions.Text = "Options"
         '
         'frmMainV2
         '
@@ -84,4 +92,5 @@ Partial Class frmMainV2
     Friend WithEvents mainMenu As ContextMenuStrip
     Friend WithEvents cmenTabSep1 As ToolStripSeparator
     Friend WithEvents btnAmout As ToolStripMenuItem
+    Friend WithEvents mMenToolsOptions As ToolStripMenuItem
 End Class
