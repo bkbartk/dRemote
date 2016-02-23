@@ -1473,29 +1473,40 @@ Namespace UI
 
 #Region "Host Status (Ping)"
             Private HostName As String
+            Private port As String
             Private pThread As Threading.Thread
 
             Private Sub CheckHostAlive()
-                Dim pingSender As New Ping
-                Dim pReply As PingReply
-
-                Try
-                    pReply = pingSender.Send(HostName)
-
-                    If pReply.Status = IPStatus.Success Then
-                        If Me.btnHostStatus.Tag = "checking" Then
+                If Me.btnHostStatus.Tag = "checking" Then
+                    Using tcpClient As New Net.Sockets.TcpClient()
+                        Try
+                            tcpClient.Connect(HostName, port)
                             ShowStatusImage(My.Resources.HostStatus_On)
-                        End If
-                    Else
-                        If Me.btnHostStatus.Tag = "checking" Then
+                        Catch generatedExceptionName As Exception
                             ShowStatusImage(My.Resources.HostStatus_Off)
-                        End If
-                    End If
-                Catch ex As Exception
-                    If Me.btnHostStatus.Tag = "checking" Then
-                        ShowStatusImage(My.Resources.HostStatus_Off)
-                    End If
-                End Try
+                        End Try
+                    End Using
+                End If
+                'Dim pingSender As New Ping
+                'Dim pReply As PingReply
+
+                'Try
+                '    pReply = pingSender.Send(HostName)
+
+                '    If pReply.Status = IPStatus.Success Then
+                '        If Me.btnHostStatus.Tag = "checking" Then
+                '            ShowStatusImage(My.Resources.HostStatus_On)
+                '        End If
+                '    Else
+                '        If Me.btnHostStatus.Tag = "checking" Then
+                '            ShowStatusImage(My.Resources.HostStatus_Off)
+                '        End If
+                '    End If
+                'Catch ex As Exception
+                '    If Me.btnHostStatus.Tag = "checking" Then
+                '        ShowStatusImage(My.Resources.HostStatus_Off)
+                '    End If
+                'End Try
             End Sub
 
             Delegate Sub ShowStatusImageCB(ByVal [Image] As Image)
@@ -1522,6 +1533,7 @@ Namespace UI
 
                     Me.btnHostStatus.Tag = "checking"
                     HostName = TryCast(ConnectionInfo, dRemote.Connection.Info).Hostname
+                    port = TryCast(ConnectionInfo, dRemote.Connection.Info).Port
                     pThread = New Threading.Thread(AddressOf CheckHostAlive)
                     pThread.SetApartmentState(Threading.ApartmentState.STA)
                     pThread.IsBackground = True
