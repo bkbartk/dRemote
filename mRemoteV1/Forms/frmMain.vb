@@ -165,6 +165,7 @@ Public Class frmMain
         pnlDock.Controls.Add(brows)
         AddHandler brows.Navigating, AddressOf brows_Navigating
 
+        Windows.dockPanel = pnlDock
 
     End Sub
 
@@ -1080,12 +1081,12 @@ Public Class frmMain
     End Sub
 
     Private Sub DRemoteV2BetaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DRemoteV2BetaToolStripMenuItem.Click
-        Select Case MsgBox("Save Connection?", MsgBoxStyle.YesNoCancel Or MsgBoxStyle.Question)
-            Case MsgBoxResult.Yes
-                SaveConnections()
-            Case MsgBoxResult.Cancel
-                Return
-        End Select
+        'Select Case MsgBox("Save Connection?", MsgBoxStyle.YesNoCancel Or MsgBoxStyle.Question)
+        '    Case MsgBoxResult.Yes
+        '        SaveConnections()
+        '    Case MsgBoxResult.Cancel
+        '        Return
+        'End Select
         'For Each pne As DockPane In Me.pnlDock.Panes
         '    pne.CloseActiveContent()
         '    'For Each ctrl As Control In pne.Controls

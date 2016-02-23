@@ -38,6 +38,7 @@ Partial Class frmMainV2
         Me.DockPanel1.DockBackColor = System.Drawing.SystemColors.Control
         Me.DockPanel1.Location = New System.Drawing.Point(0, 0)
         Me.DockPanel1.Name = "DockPanel1"
+        Me.DockPanel1.ShowDocumentIcon = True
         Me.DockPanel1.Size = New System.Drawing.Size(664, 383)
         Me.DockPanel1.TabIndex = 0
         Me.DockPanel1.Theme = Me.VS2013BlueTheme2

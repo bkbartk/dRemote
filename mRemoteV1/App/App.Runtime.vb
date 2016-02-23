@@ -212,6 +212,7 @@ Namespace App
 
 #Region "Classes"
         Public Class Windows
+            Public Shared dockPanel As DockPanel
             Public Shared treeForm As UI.Window.Tree
             Public Shared treePanel As New DockContent
             Public Shared configForm As UI.Window.Config
@@ -254,14 +255,14 @@ Namespace App
                                 aboutPanel = aboutForm
                             End If
 
-                            aboutForm.Show(frmMain.pnlDock)
+                            aboutForm.Show(dockPanel)
                         Case UI.Window.Type.ActiveDirectoryImport
                             If adimportForm Is Nothing OrElse adimportForm.IsDisposed Then
                                 adimportForm = New UI.Window.ActiveDirectoryImport(adimportPanel)
                                 adimportPanel = adimportForm
                             End If
 
-                            adimportPanel.Show(frmMain.pnlDock)
+                            adimportPanel.Show(dockPanel)
                         Case UI.Window.Type.Options
                             Using optionsForm As New OptionsForm()
                                 optionsForm.ShowDialog(frmMain)
@@ -270,54 +271,54 @@ Namespace App
                             sshtransferForm = New UI.Window.SSHTransfer(sshtransferPanel)
                             sshtransferPanel = sshtransferForm
 
-                            sshtransferForm.Show(frmMain.pnlDock)
+                            sshtransferForm.Show(dockPanel)
                         Case UI.Window.Type.Update
                             If updateForm Is Nothing OrElse updateForm.IsDisposed Then
                                 updateForm = New UI.Window.Update(updatePanel)
                                 updatePanel = updateForm
                             End If
 
-                            updateForm.Show(frmMain.pnlDock)
+                            updateForm.Show(dockPanel)
                         Case UI.Window.Type.Help
                             If helpForm Is Nothing OrElse helpForm.IsDisposed Then
                                 helpForm = New UI.Window.Help(helpPanel)
                                 helpPanel = helpForm
                             End If
 
-                            helpForm.Show(frmMain.pnlDock)
+                            helpForm.Show(dockPanel)
                         Case UI.Window.Type.ExternalApps
                             If externalappsForm Is Nothing OrElse externalappsForm.IsDisposed Then
                                 externalappsForm = New UI.Window.ExternalTools(externalappsPanel)
                                 externalappsPanel = externalappsForm
                             End If
 
-                            externalappsForm.Show(frmMain.pnlDock)
+                            externalappsForm.Show(dockPanel)
                         Case UI.Window.Type.PortScan
                             portscanForm = New UI.Window.PortScan(portscanPanel, portScanImport)
                             portscanPanel = portscanForm
 
-                            portscanForm.Show(frmMain.pnlDock)
+                            portscanForm.Show(dockPanel)
                         Case UI.Window.Type.UltraVNCSC
                             If ultravncscForm Is Nothing OrElse ultravncscForm.IsDisposed Then
                                 ultravncscForm = New UI.Window.UltraVNCSC(ultravncscPanel)
                                 ultravncscPanel = ultravncscForm
                             End If
 
-                            ultravncscForm.Show(frmMain.pnlDock)
+                            ultravncscForm.Show(dockPanel)
                         Case UI.Window.Type.ComponentsCheck
                             If componentscheckForm Is Nothing OrElse componentscheckForm.IsDisposed Then
                                 componentscheckForm = New UI.Window.ComponentsCheck(componentscheckPanel)
                                 componentscheckPanel = componentscheckForm
                             End If
 
-                            componentscheckForm.Show(frmMain.pnlDock)
+                            componentscheckForm.Show(dockPanel)
                         Case UI.Window.Type.Announcement
                             If AnnouncementForm Is Nothing OrElse AnnouncementForm.IsDisposed Then
                                 AnnouncementForm = New UI.Window.Announcement(AnnouncementPanel)
                                 AnnouncementPanel = AnnouncementForm
                             End If
 
-                            AnnouncementForm.Show(frmMain.pnlDock)
+                            AnnouncementForm.Show(dockPanel)
                     End Select
                 Catch ex As Exception
                     MessageCollector.AddMessage(MessageClass.ErrorMsg, "App.Runtime.Windows.Show() failed." & vbNewLine & ex.Message, True)
@@ -421,6 +422,8 @@ Namespace App
 
                 Windows.AnnouncementForm = New UI.Window.Announcement(Windows.AnnouncementPanel)
                 Windows.AnnouncementPanel = Windows.AnnouncementForm
+
+
             End Sub
 
             Public Shared Sub SetDefaultLayout()
@@ -1380,9 +1383,9 @@ Namespace App
         End Function
         Public Shared Sub OpenConnectionV2(ByVal tvConnections As TreeView, ByVal sender As Object)
             Dim pane As WeifenLuo.WinFormsUI.Docking.DockPane = GetClosestPane(sender)
-            If IsNothing(pane) Then
-                pane = GetClosestPane(pane)
-            End If
+            'If IsNothing(pane) Then
+            '    pane = GetClosestPane(pane)
+            'End If
 
             Dim conform As New Forms.frmConnections()
             conform.Show(pane.DockPanel, DockState.Document)
@@ -1448,10 +1451,10 @@ Namespace App
                 conform.Controls.Add(newProtocol.Control)
             Else
                 Dim borderwidth As Integer = 5
-                newProtocol.InterfaceControl.Left = -borderwidth
-                newProtocol.InterfaceControl.Top = -borderwidth
-                newProtocol.InterfaceControl.Width = conform.Width + borderwidth * 2
-                newProtocol.InterfaceControl.Height = conform.Height + borderwidth * 2
+                'newProtocol.InterfaceControl.Left = -borderwidth
+                'newProtocol.InterfaceControl.Top = -borderwidth
+                'newProtocol.InterfaceControl.Width = conform.Width + borderwidth * 2
+                'newProtocol.InterfaceControl.Height = conform.Height + borderwidth * 2
                 conform.Controls.Add(newProtocol.InterfaceControl)
             End If
 

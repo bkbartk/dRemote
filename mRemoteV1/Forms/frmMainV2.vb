@@ -20,28 +20,46 @@ Public Class frmMainV2
     Public Sub New()
         InitializeComponent()
 
-        Dim connections As New UI.Window.Tree()
+
+        Windows.treeForm = New UI.Window.Tree()
         'connections.Show(DockPanel1, DockState.DockLeftAutoHide)
-        connections.Show(DockPanel1, DockState.DockLeft)
+        Windows.treeForm.Show(DockPanel1, DockState.DockLeft)
+        Windows.treeForm = Windows.treeForm
 
-        Dim cfg As New UI.Window.Config()
-        Windows.configForm = cfg
+
+        Windows.configForm = New UI.Window.Config()
         'connections.Show(DockPanel1, DockState.DockLeftAutoHide)
-        cfg.Show(DockPanel1)
-        cfg.DockTo(connections.Pane, DockStyle.Bottom, 30)
+        Windows.configForm.Show(DockPanel1)
+        Windows.configForm.DockTo(Windows.treeForm.Pane, DockStyle.Bottom, 30)
 
-        'Windows.treePanel.Show(frmMain.pnlDock, DockState.DockLeft)
-        'Windows.configPanel.Show(frmMain.pnlDock)
-        'Windows.configPanel.DockTo(Windows.treePanel.Pane, DockStyle.Bottom, -1)
-
-        'Dim f2 As New Forms.Form2()
-        'f2.Show(DockPanel1, DockState.DockLeft)
-        'Dim f3 As New Forms.Form2()
-        'f3.Show(DockPanel1, DockState.DockRight)
-        'Dim f4 As New Forms.Form2()
-        'f4.Show(DockPanel1, DockState.Document)
+        Windows.dockPanel = DockPanel1
 
     End Sub
+
+    'Public Shared Sub CreatePanels()
+    '    Windows.configForm = New UI.Window.Config(Windows.configPanel)
+    '    Windows.configPanel = Windows.configForm
+
+    '    Windows.treeForm = New UI.Window.Tree(Windows.treePanel)
+    '    Windows.treePanel = Windows.treeForm
+    '    Tree.Node.TreeView = Windows.treeForm.tvConnections
+
+    '    Windows.errorsForm = New UI.Window.ErrorsAndInfos(Windows.errorsPanel)
+    '    Windows.errorsPanel = Windows.errorsForm
+
+    '    Windows.sessionsForm = New UI.Window.Sessions(Windows.sessionsPanel)
+    '    Windows.sessionsPanel = Windows.sessionsForm
+
+    '    Windows.screenshotForm = New UI.Window.ScreenshotManager(Windows.screenshotPanel)
+    '    Windows.screenshotPanel = Windows.screenshotForm
+
+    '    Windows.updateForm = New UI.Window.Update(Windows.updatePanel)
+    '    Windows.updatePanel = Windows.updateForm
+
+    '    Windows.AnnouncementForm = New UI.Window.Announcement(Windows.AnnouncementPanel)
+    '    Windows.AnnouncementPanel = Windows.AnnouncementForm
+    'End Sub
+
 
     Private Sub frmMainV2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim menu As IActiveMenu = ActiveMenu.GetInstance(Me)
@@ -68,6 +86,7 @@ Public Class frmMainV2
         DockPanel1.Controls.Add(brows)
         AddHandler brows.Navigating, AddressOf brows_Navigating
 
+
     End Sub
 
     Private Sub brows_Navigating(sender As Object, e As System.Windows.Forms.WebBrowserNavigatingEventArgs)
@@ -89,24 +108,24 @@ Public Class frmMainV2
         'frmMain.Show()
         'Me.Hide()
         'My.Settings.Beta = False
-        Select Case MsgBox("Save Connection?", MsgBoxStyle.YesNoCancel Or MsgBoxStyle.Question)
-            Case MsgBoxResult.Yes
-                SaveConnections()
-            Case MsgBoxResult.Cancel
-                Return
-        End Select
+        'Select Case MsgBox("Save Connection?", MsgBoxStyle.YesNoCancel Or MsgBoxStyle.Question)
+        '    Case MsgBoxResult.Yes
+        '        SaveConnections()
+        '    Case MsgBoxResult.Cancel
+        '        Return
+        'End Select
         System.Windows.Forms.Application.Restart()
         'Application.Exit()
         'Process.Start(Application.ExecutablePath)
 
     End Sub
     Private Sub frmMainV2_Closed(sender As Object, e As EventArgs) Handles Me.Closed
-        Select Case MsgBox("Save Connection?", MsgBoxStyle.YesNoCancel Or MsgBoxStyle.Question)
-            Case MsgBoxResult.Yes
-                SaveConnections()
-            Case MsgBoxResult.Cancel
-                Return
-        End Select
+        'Select Case MsgBox("Save Connection?", MsgBoxStyle.YesNoCancel Or MsgBoxStyle.Question)
+        '    Case MsgBoxResult.Yes
+        '        SaveConnections()
+        '    Case MsgBoxResult.Cancel
+        '        Return
+        'End Select
         System.Windows.Forms.Application.Exit()
     End Sub
 

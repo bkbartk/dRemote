@@ -26,8 +26,8 @@ Namespace UI
                 Text = Language.strConnections
                 TabText = Language.strConnections
 
-                mMenAddConnection.ToolTipText = Language.strAddConnection
-                mMenAddFolder.ToolTipText = Language.strAddFolder
+                'mMenAddConnection.ToolTipText = Language.strAddConnection
+                'mMenAddFolder.ToolTipText = Language.strAddFolder
                 mMenView.ToolTipText = Language.strMenuView.Replace("&", "")
                 mMenViewExpandAllFolders.Text = Language.strExpandAllFolders
                 mMenViewCollapseAllFolders.Text = Language.strCollapseAllFolders
@@ -496,12 +496,24 @@ Namespace UI
 #End Region
 
 #Region "Tree Context Menu"
-            Private Sub cMenTreeAddConnection_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles cMenTreeAddConnection.Click, mMenAddConnection.Click
+            Private Shared Sub mMenFileLoad_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles mMenFileLoad.Click
+                If IsConnectionsFileLoaded Then
+                    Select Case MsgBox(Language.strSaveConnectionsFileBeforeOpeningAnother, MsgBoxStyle.YesNoCancel Or MsgBoxStyle.Question)
+                        Case MsgBoxResult.Yes
+                            SaveConnections()
+                        Case MsgBoxResult.Cancel
+                            Return
+                    End Select
+                End If
+
+                LoadConnections(True)
+            End Sub
+            Private Sub cMenTreeAddConnection_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles cMenTreeAddConnection.Click
                 AddConnection()
                 SaveConnectionsBG()
             End Sub
 
-            Private Sub cMenTreeAddFolder_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles cMenTreeAddFolder.Click, mMenAddFolder.Click
+            Private Sub cMenTreeAddFolder_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles cMenTreeAddFolder.Click
                 AddFolder()
                 SaveConnectionsBG()
             End Sub
@@ -748,7 +760,7 @@ Namespace UI
 
             Private Shared Sub StartExternalApp(ByVal externalTool As Tools.ExternalTool)
                 Try
-                    If dRemote.Tree.Node.GetNodeType(dRemote.Tree.Node.SelectedNode) = dRemote.Tree.Node.Type.Connection Or _
+                    If dRemote.Tree.Node.GetNodeType(dRemote.Tree.Node.SelectedNode) = dRemote.Tree.Node.Type.Connection Or
                        dRemote.Tree.Node.GetNodeType(dRemote.Tree.Node.SelectedNode) = dRemote.Tree.Node.Type.PuttySession Then
                         externalTool.Start(dRemote.Tree.Node.SelectedNode.Tag)
                     End If
@@ -841,6 +853,40 @@ Namespace UI
                     MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, "tvConnections_KeyDown (UI.Window.Tree) failed" & vbNewLine & ex.Message, True)
                 End Try
             End Sub
+
+            Private Shared Sub mMenFileNew_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles mMenFileNew.Click
+                Dim saveFileDialog As SaveFileDialog = Tools.Controls.ConnectionsSaveAsDialog
+                If Not saveFileDialog.ShowDialog() = DialogResult.OK Then Return
+
+                NewConnections(saveFileDialog.FileName)
+            End Sub
+
+            Private Shared Sub mMenFileSave_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles mMenFileSave.Click
+                SaveConnections()
+            End Sub
+
+            Private Shared Sub mMenFileSaveAs_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles mMenFileSaveAs.Click
+                SaveConnectionsAs()
+            End Sub
+
+
+            Private Shared Sub mMenFileImportFromFile_Click(sender As System.Object, e As EventArgs) Handles mMenFileImportFromFile.Click
+                Import.ImportFromFile(Windows.treeForm.tvConnections.Nodes(0), Windows.treeForm.tvConnections.SelectedNode)
+            End Sub
+
+            Private Shared Sub mMenFileImportFromActiveDirectory_Click(sender As System.Object, e As EventArgs) Handles mMenFileImportFromActiveDirectory.Click
+                Windows.Show(UI.Window.Type.ActiveDirectoryImport)
+            End Sub
+
+            Private Shared Sub mMenFileImportFromPortScan_Click(sender As System.Object, e As EventArgs) Handles mMenFileImportFromPortScan.Click
+                Windows.Show(UI.Window.Type.PortScan, True)
+            End Sub
+
+            Private Shared Sub mMenFileExport_Click(sender As System.Object, e As EventArgs) Handles mMenFileExport.Click
+                Export.ExportToFile(Windows.treeForm.tvConnections.Nodes(0), Windows.treeForm.tvConnections.SelectedNode)
+            End Sub
+
+
 #End Region
         End Class
     End Namespace
