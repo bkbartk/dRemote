@@ -24,14 +24,42 @@ Partial Class frmMainV2
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMainV2))
-        Me.DockPanel1 = New WeifenLuo.WinFormsUI.Docking.DockPanel()
-        Me.VS2013BlueTheme2 = New WeifenLuo.WinFormsUI.Docking.VS2013BlueTheme()
         Me.mainMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.mMenToolsOptions = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmenTabSep1 = New System.Windows.Forms.ToolStripSeparator()
         Me.btnAmout = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mMenToolsOptions = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DockPanel1 = New WeifenLuo.WinFormsUI.Docking.DockPanel()
+        Me.VS2013BlueTheme2 = New WeifenLuo.WinFormsUI.Docking.VS2013BlueTheme()
+        Me.mMenToolsUpdate = New System.Windows.Forms.ToolStripMenuItem()
         Me.mainMenu.SuspendLayout()
         Me.SuspendLayout()
+        '
+        'mainMenu
+        '
+        Me.mainMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mMenToolsUpdate, Me.mMenToolsOptions, Me.cmenTabSep1, Me.btnAmout})
+        Me.mainMenu.Name = "cmenTab"
+        Me.mainMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
+        Me.mainMenu.Size = New System.Drawing.Size(172, 98)
+        Me.mainMenu.Text = "File"
+        '
+        'mMenToolsOptions
+        '
+        Me.mMenToolsOptions.Image = CType(resources.GetObject("mMenToolsOptions.Image"), System.Drawing.Image)
+        Me.mMenToolsOptions.Name = "mMenToolsOptions"
+        Me.mMenToolsOptions.Size = New System.Drawing.Size(171, 22)
+        Me.mMenToolsOptions.Text = "Options"
+        '
+        'cmenTabSep1
+        '
+        Me.cmenTabSep1.Name = "cmenTabSep1"
+        Me.cmenTabSep1.Size = New System.Drawing.Size(168, 6)
+        '
+        'btnAmout
+        '
+        Me.btnAmout.Image = Global.dRemote.My.Resources.Resources.Help
+        Me.btnAmout.Name = "btnAmout"
+        Me.btnAmout.Size = New System.Drawing.Size(171, 22)
+        Me.btnAmout.Text = "About"
         '
         'DockPanel1
         '
@@ -44,32 +72,12 @@ Partial Class frmMainV2
         Me.DockPanel1.TabIndex = 0
         Me.DockPanel1.Theme = Me.VS2013BlueTheme2
         '
-        'mainMenu
+        'mMenToolsUpdate
         '
-        Me.mainMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mMenToolsOptions, Me.cmenTabSep1, Me.btnAmout})
-        Me.mainMenu.Name = "cmenTab"
-        Me.mainMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-        Me.mainMenu.Size = New System.Drawing.Size(153, 76)
-        Me.mainMenu.Text = "File"
-        '
-        'cmenTabSep1
-        '
-        Me.cmenTabSep1.Name = "cmenTabSep1"
-        Me.cmenTabSep1.Size = New System.Drawing.Size(149, 6)
-        '
-        'btnAmout
-        '
-        Me.btnAmout.Image = Global.dRemote.My.Resources.Resources.Help
-        Me.btnAmout.Name = "btnAmout"
-        Me.btnAmout.Size = New System.Drawing.Size(152, 22)
-        Me.btnAmout.Text = "About"
-        '
-        'mMenToolsOptions
-        '
-        Me.mMenToolsOptions.Image = CType(resources.GetObject("mMenToolsOptions.Image"), System.Drawing.Image)
-        Me.mMenToolsOptions.Name = "mMenToolsOptions"
-        Me.mMenToolsOptions.Size = New System.Drawing.Size(152, 22)
-        Me.mMenToolsOptions.Text = "Options"
+        Me.mMenToolsUpdate.Image = Global.dRemote.My.Resources.Resources.Update
+        Me.mMenToolsUpdate.Name = "mMenToolsUpdate"
+        Me.mMenToolsUpdate.Size = New System.Drawing.Size(171, 22)
+        Me.mMenToolsUpdate.Text = "Check for Updates"
         '
         'frmMainV2
         '
@@ -93,4 +101,5 @@ Partial Class frmMainV2
     Friend WithEvents cmenTabSep1 As ToolStripSeparator
     Friend WithEvents btnAmout As ToolStripMenuItem
     Friend WithEvents mMenToolsOptions As ToolStripMenuItem
+    Friend WithEvents mMenToolsUpdate As ToolStripMenuItem
 End Class

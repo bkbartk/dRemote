@@ -222,7 +222,8 @@ Namespace App
         End Function
 
         Private Sub GetUpdateInfo()
-            Dim updateFileUri As New Uri(New Uri(My.Settings.UpdateAddress), New Uri(Info.Update.FileName, UriKind.Relative))
+            'Dim updateFileUri As New Uri(New Uri(My.Settings.UpdateAddress), New Uri(Info.Update.FileName, UriKind.Relative))
+            Dim updateFileUri As New Uri(App.Info.General.URLUpdate)
             Dim e As DownloadStringCompletedEventArgs = DownloadString(updateFileUri)
 
             If Not e.Cancelled And e.Error Is Nothing Then

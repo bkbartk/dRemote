@@ -287,7 +287,7 @@
     <value>La característica de Sesiones (RDP) necesita que se haya registrado la librería eolwtscom.dll en su sistema.
 dRemote viene con este componente pero no lo registra automáticamente a menos que ejecute el paquete de instalación.
 Para registrarlo manualmente haga ésto: Abra el diálogo de ejecutar (Inicio - Ejecutar) e introduzca lo siguiente: regsvr32 "c:\Archivos de Programa\dRemote\eolwtscom.dll" (donde c:\Archivos de Programa\dRemote\ es la ruta a la instalación de dRemote).
-Si continúa sin funcionar la comprobación ó no puede utilizar Sesiones (RDP) en dRemote, consulte el Foro de dRemote en http://forum.dRemote.org/</value>
+Si continúa sin funcionar la comprobación ó no puede utilizar Sesiones (RDP) en dRemote, consulte el Foro de dRemote en http://forum.dremote.nl/</value>
   </data>
   <data name="strCcEOLOK" xml:space="preserve">
     <value>EOLWTSCOM ha sido localizado y parece estar registrado correctamente.</value>
@@ -296,7 +296,7 @@ Si continúa sin funcionar la comprobación ó no puede utilizar Sesiones (RDP) 
     <value>Para emplear el Motor de Renderizado Gecko necesita tener XULrunner 1.8.1.x y configurada en sus opciones la ruta de instalación.
 Puede descargar XULrunner 1.8.1.3 aquí: ftp://ftp.mozilla.org/pub/xulrunner/releases/1.8.1.3/contrib/win32/
 Cuando haya concluido la descarga, extraiga el paquete en un directorio de su elección. Entonces, en dRemote vaya a Herramientas - Opciones - Avanzado e introduzca dicha ruta en el campo que indica la instalación de XULrunner.
-Si continúa sin funcionar la comprobación ó no puede utilizar el motor Gecko en dRemote, consulte el Foro de dRemote en http://forum.dRemote.org/</value>
+Si continúa sin funcionar la comprobación ó no puede utilizar el motor Gecko en dRemote, consulte el Foro de dRemote en http://forum.dremote.nl/</value>
   </data>
   <data name="strCcGeckoOK" xml:space="preserve">
     <value>XULrunner ha sido localizado y parece estar instalado correctamente.</value>
@@ -305,7 +305,7 @@ Si continúa sin funcionar la comprobación ó no puede utilizar el motor Gecko 
     <value>ICA necesita que esté instalado XenDesktop Online Plugin y que la librería wfica.ocx esté registrada. Puede descargar el cliente aquí: http://www.citrix.com/download/
 Si tiene instalado XenDesktop Online Plugin y la comprobación continúa fallando, pruebe a registrar wfica.ocx manualmente.
 Para hacer ésto, abra el diálogo ejecutar (Inicio - Ejecutar) e introduzca lo siguiente: regsvr32 "c:\Archivos de Programa\Citrix\ICA Client\wfica.ocx" (Donde c:\Archivos de Programa\Citrix\ICA Client\ es la ruta a su instalación de XenDesktop Online Plugin).
-Si continúa sin funcionar la comprobación ó no puede utilizar ICA en dRemote, consulte el Foro de dRemote en http://forum.dRemote.org/</value>
+Si continúa sin funcionar la comprobación ó no puede utilizar ICA en dRemote, consulte el Foro de dRemote en http://forum.dremote.nl/</value>
   </data>
   <data name="strCcICAOK" xml:space="preserve">
     <value>Todos los componentes de ICA han sido localizados y parecen estar registrados correctamente.
@@ -323,7 +323,7 @@ Por favor, asegúrese de que tiene Putty.exe en el directorio de dRemote (por de
   </data>
   <data name="strCcRDPFailed" xml:space="preserve">
     <value>Para que RDP funcione adecuadamente necesita tener instalada al menos la versión 6.1 de Remote Desktop Connection (Cliente de Servicios de Terminal). Puede descargarlo de la dirección: http://support.microsoft.com/kb/951616. Si tiene instalado RDP 6.1 y la comprobación sigue fallando, intente registrar la librería mstscax.dll manualmente. Para hacerlo, abra el diálogo de ejecutar (Inicio-Ejecutar) e introduzca lo siguiente: regsvr32 "c:\windows\system32\mstscax.dll" (donde c:\ es su unidad de sistema).
-Si continúa teniendo problemas para hacer funcionar RDP, consulte el Foro de dRemote en http://forum.dRemote.org/</value>
+Si continúa teniendo problemas para hacer funcionar RDP, consulte el Foro de dRemote en http://forum.dremote.nl/</value>
   </data>
   <data name="strCcRDPOK" xml:space="preserve">
     <value>Todos los componentes RDP han sido localizados y parecen registrados adecuadamente.
@@ -332,7 +332,7 @@ Versión de Control {0} de la Conexión de Escritorio Remoto</value>
   <data name="strCcVNCFailed" xml:space="preserve">
     <value>VNC necesita que VncSharpNG.dll esté situada en la carpeta donde está instalado dRemote.
 Por favor, compruebe que tiene el archivo VncSharpNG.dll en la carpeta de instalación de dRemote (normalmente C:\Archivos de Programa\dRemote\).
-Si continúa sin funcionar la comprobación ó no puede utilizar VNC en dRemote, consulte el Foro de dRemote en http://forum.dRemote.org/</value>
+Si continúa sin funcionar la comprobación ó no puede utilizar VNC en dRemote, consulte el Foro de dRemote en http://forum.dremote.nl/</value>
   </data>
   <data name="strCcVNCOK" xml:space="preserve">
     <value>Todos los componentes VNC han sido localizados y parecen registrados adecuadamente.

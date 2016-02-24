@@ -283,7 +283,7 @@
     <value>O recurso de sessões (RDP) requer que você tenha uma cópia registrada do eolwtscom.dll no seu sistema. 
 dRemote vem com este componente mas não o registra automaticamente a menos que você instale o pacote. 
 Para registrá-lo manualmente faça isso: Abra a caixa de diálogo Executar (Iniciar - Executar) e digite o seguinte: regsvr32 "c:\Program Files\dRemote\eolwtscom.dll" (onde c:\Program Files\dRemote\ é o caminho para a instalação de dRemote). 
-Se você ainda não conseguir passar por esta verificação ou não conseguir usar o recurso de sessões (RDP) no dRemote, por favor, consulte o fórum de dRemote em http://forum.dRemote.org/</value>
+Se você ainda não conseguir passar por esta verificação ou não conseguir usar o recurso de sessões (RDP) no dRemote, por favor, consulte o fórum de dRemote em http://forum.dremote.nl/</value>
   </data>
   <data name="strCcEOLOK" xml:space="preserve">
     <value>EOLWTSCOM foi encontrada e parece ser registrado corretamente.</value>
@@ -293,7 +293,7 @@ Se você ainda não conseguir passar por esta verificação ou não conseguir us
 Você pode baixar o XULrunner 1.8.1.3 em: ftp://ftp.mozilla.org/pub/xulrunner/releases/1.8.1.3/contrib/win32/ 
 Quando terminar de baixar o pacote, extraia o pacote para um caminho de sua escolha. 
 Em seguida, emtre no dRemote e vá em ferramentas - opções - avançadas e digite o caminho correto no campo caminho XULrunner. 
-Se ainda não conseguir passar esta verificação ou usar o motor Gecko em dRemote por favor consultar o fórum de dRemote em http://forum.dRemote.org/</value>
+Se ainda não conseguir passar esta verificação ou usar o motor Gecko em dRemote por favor consultar o fórum de dRemote em http://forum.dremote.nl/</value>
   </data>
   <data name="strCcGeckoOK" xml:space="preserve">
     <value>XULrunner foi encontrado e aparenta estar instalado corretamente.</value>
@@ -302,7 +302,7 @@ Se ainda não conseguir passar esta verificação ou usar o motor Gecko em dRemo
     <value>ICA requer que o XenDesktop Online Plugin esteja instalado e a biblioteca wfica.ocs registrada. Você pode baixar o cliente aqui: http://www.citrix.com/download/ 
 Se você tiver o Plugin Online XenDesktop instalado e a verificação ainda falhar, tente registrar manualmente o wfica.ocx 
 Para fazer isso abra a caixa de diálogo Executar (Iniciar - Executar) e digite o seguinte: regsvr32 "c:\Program Files\Citrix\ICA Client\wfica.ocx" (onde c:\Program Files\Citrix\ICA Client\ é o caminho para a instalação do Plugin Online do XenDesktop). 
-Se você ainda não puder passar por esta verificação ou usar ICA em dRemote, por favor, consulte o fórum de dRemote no http://forum.dRemote.org/"</value>
+Se você ainda não puder passar por esta verificação ou usar ICA em dRemote, por favor, consulte o fórum de dRemote no http://forum.dremote.nl/"</value>
   </data>
   <data name="strCcICAOK" xml:space="preserve">
     <value>Todos os componentes de ICA, foram encontrados e parecem ser registrado corretamente. Citrix ICA cliente controle versão {0}</value>

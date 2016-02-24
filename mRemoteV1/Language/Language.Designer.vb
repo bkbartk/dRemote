@@ -671,7 +671,7 @@ Namespace My
         
         '''<summary>
         '''  Looks up a localized string similar to For RDP to work properly you need to have at least Remote Desktop Connection (Terminal Services) Client 6.0 installed. You can download it here: http://support.microsoft.com/kb/925876
-        '''If this check still fails or you are unable to use RDP, please consult the dRemote Forum at http://forum.dRemote.org/..
+        '''If this check still fails or you are unable to use RDP, please consult the dRemote Forum at http://forum.dremote.nl/..
         '''</summary>
         Friend Shared ReadOnly Property strCcRDPFailed() As String
             Get
@@ -692,7 +692,7 @@ Namespace My
         '''<summary>
         '''  Looks up a localized string similar to VNC requires VncSharpNG.dll to be located in your dRemote application folder.
         '''Please make sure that you have the VncSharpNG.dll file in your dRemote application folder (usually C:\Program Files\dRemote\).
-        '''If you are still not able to pass this check or use VNC in dRemote please consult the dRemote Forum at http://forum.dRemote.org/.
+        '''If you are still not able to pass this check or use VNC in dRemote please consult the dRemote Forum at http://forum.dremote.nl/.
         '''</summary>
         Friend Shared ReadOnly Property strCcVNCFailed() As String
             Get

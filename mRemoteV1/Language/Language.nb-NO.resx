@@ -287,7 +287,7 @@ Vennligst bruk Fil - Last inn tilkoblinger for vanlige tilkoblingsfiler!</value>
     <value>(RDP) økter-funksjonen krever at du har en registrert kopi av eolwtscom.dll på systemet.
 dRemote leveres med denne komponenten, men vil ikke automatisk registrere det med mindre du kjører installasjonsprogrammet.
 For å registrere det manuelt gjør dette: Åpne Kjør-dialogboksen (Start - Kjør) og skriv inn følgende: regsvr32 "c:\Program Files\dRemote\eolwtscom.dll" (der c:\Program Files\dRemote\ er banen til din dRemote-installasjon).
-Hvis du fortsatt ikke passerer denne kontrollen eller bruke (RDP) økter-funksjonene i dRemote kan du konsultere dRemote-forumet på http://forum.dRemote.org/</value>
+Hvis du fortsatt ikke passerer denne kontrollen eller bruke (RDP) økter-funksjonene i dRemote kan du konsultere dRemote-forumet på http://forum.dremote.nl/</value>
   </data>
   <data name="strCcEOLOK" xml:space="preserve">
     <value>EOLWTSCOM ble funnet, og synes å være korrekt registrert.</value>
@@ -296,7 +296,7 @@ Hvis du fortsatt ikke passerer denne kontrollen eller bruke (RDP) økter-funksjo
     <value>For å bruke Gecko-renderingsmotoren må du ha XULrunner 1.8.1.x installert og stien til installasjonen angitt i Alternativer.
 Du kan laste ned XULrunner 1.8.1.3 herfra: ftp://ftp.mozilla.org/pub/xulrunner/releases/1.8.1.3/contrib/win32/
 Når nedlastingen er ferdig, pakk den ut til et passende sted. I dRemote, gå til Verktøy - Alternativer - Avansert og skriv inn korrekt sti i XULrunner-stifeltet.
-Hvis du fremdeles ikke passerer denne kontrollen eller brukre Gecko-renderingsmotoren i dRemote, vennligst konsulter dRemote-forumet på http://forum.dRemote.org/</value>
+Hvis du fremdeles ikke passerer denne kontrollen eller brukre Gecko-renderingsmotoren i dRemote, vennligst konsulter dRemote-forumet på http://forum.dremote.nl/</value>
   </data>
   <data name="strCcGeckoOK" xml:space="preserve">
     <value>XULrunner ble funnet å ser ut til å være korrekt installert.</value>
@@ -305,7 +305,7 @@ Hvis du fremdeles ikke passerer denne kontrollen eller brukre Gecko-renderingsmo
     <value>ICA krever at XenDesktop Online Plugin er installert og at wfica.ocx-biblioteket er registrert. Du kan laste ned klienten herfra: http://www.citrix.com/download/
 Hvis du har XenDesktop Online Pluginen installert og kontrollen fremdeles feiler, kan du forsøke å registrere wfica.ocx manuelt.
 For å gjøre dette, åpne Kjør-dialogboksen (Start - Kjør) og skriv inn følgende: regsvr32 "c:\Program Files\Citrix\ICA Client\wfica.ocx" (der c:\Program Files\Citrix\ICA Client\ er stien til XenDesktop Online Plugin-installasjonen).
-Hvis du fremdeles ikke passerer kontrollen eller bruke ICA i dRemote, vennligst konsulter dRemote-forumet på http://forum.dRemote.org/</value>
+Hvis du fremdeles ikke passerer kontrollen eller bruke ICA i dRemote, vennligst konsulter dRemote-forumet på http://forum.dremote.nl/</value>
   </data>
   <data name="strCcICAOK" xml:space="preserve">
     <value>Alle ICA-komponenter ble funnet, og ser ut til å være korrekt registrert.
@@ -324,7 +324,7 @@ Vennligst kontroller at du enten har putty.exe i dRemote-mappen (standard: C:\Pr
   <data name="strCcRDPFailed" xml:space="preserve">
     <value>For at RDP skal fungere korrekt må du som et minimum ha Remote Desktop Connection (Terminal Services Client) 6.1 installert. Denne kan lastes ned herfra: http://support.microsoft.com/kb/951616
 Hvis du har RDP 6.1 installert og kontrollen fremdeles feiler, kan du prøve å registrere mstscax.dll manuelt. For å gjøre dette, åpne Kjør-dialogboksen (Start - Kjør) og skriv inn følgende: regsvr32 "c:\windows\system32\mstscax.dll" (der c:\ er systemdisken).
-Hvis du fremdeles har problemer med å få RDP til å fungere, vennligst konsulter dRemote-forumet på http://forum.dRemote.org/</value>
+Hvis du fremdeles har problemer med å få RDP til å fungere, vennligst konsulter dRemote-forumet på http://forum.dremote.nl/</value>
   </data>
   <data name="strCcRDPOK" xml:space="preserve">
     <value>Alle RDP-komponenter ble funnet og ser ut til å være korrekt registrert.
@@ -333,7 +333,7 @@ Remote Desktop Connection Control Version {0}</value>
   <data name="strCcVNCFailed" xml:space="preserve">
     <value>VNC krever at VncSharpNG.dll finnes i mappen dRemote er installert i.
 Vennligst kontroller at du har VncSharpNG.dll i installasjonsmappen til dRemote (vanligvis C:\Program Files\dRemote\).
-Hvis du ikke passerer kontrollen eller ikke får brukt VNC i dRemote, vennligst konsulter dRemote-forumet på http://forum.dRemote.org/</value>
+Hvis du ikke passerer kontrollen eller ikke får brukt VNC i dRemote, vennligst konsulter dRemote-forumet på http://forum.dremote.nl/</value>
   </data>
   <data name="strCcVNCOK" xml:space="preserve">
     <value>Alle VNC-komponenter ble funnet og ser ut til å være korrekt registrert.

@@ -2443,7 +2443,7 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Configuration.SettingsProviderAttribute(GetType(dRemote.Config.Settings.Providers.ChooseProvider)),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("https://update.dRemote.org/announcement.txt")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("http://update.dRemote.nl/announcement.txt")>  _
         Public ReadOnly Property AnnouncementAddress() As String
             Get
                 Return CType(Me("AnnouncementAddress"),String)
@@ -2453,7 +2453,7 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Configuration.SettingsProviderAttribute(GetType(dRemote.Config.Settings.Providers.ChooseProvider)),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("https://update.dRemote.org/")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("http://update.dRemote.nl/")>  _
         Public Property UpdateAddress() As String
             Get
                 Return CType(Me("UpdateAddress"),String)

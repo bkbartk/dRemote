@@ -287,7 +287,7 @@ Gebruik dan Bestand - Laad Connecties voor normale connectie bestanden!</value>
     <value>De (RDP) Sessies optie vereist dat u een geregistreerde versie van eolwtscom.dll op uw systeem heeft.
 dRemote neemt dit onderdeel automatisch mee bij instalatie, maar zal niet automatisch registreren al u handmatig heeft geïnstalleerd, tenzij u het installatieprogramma opnieuw uitvoert.
 Om handmatig te registreren : Open het dialoogvenster Uitvoeren (Start - Uitvoeren) en typ het volgende: regsvr32 "c:\Program Files\dRemote\eolwtscom.dll" (Waar c:\Program Files\dRemote\ het pad is naar uw dRemote installatie).
-Als u nog steeds niet in staat bent om de langs check te komen gebruik dan ICA in dRemote of raadpleeg dRemote Forum op http://forum.dRemote.org/</value>
+Als u nog steeds niet in staat bent om de langs check te komen gebruik dan ICA in dRemote of raadpleeg dRemote Forum op http://forum.dremote.nl/</value>
   </data>
   <data name="strCcEOLOK" xml:space="preserve">
     <value>EOLWTSCOM werd gevonden en lijkt correct te zijn geïnstalleerd.</value>
@@ -296,7 +296,7 @@ Als u nog steeds niet in staat bent om de langs check te komen gebruik dan ICA i
     <value>Voor het gebruik van de Gecko Rendering Engine heb je XULrunner 1.8.1.x nodig en correcte pad naar de installatiemap welke onder Opties kunnen worden ingesteld.
 U kunt XULrunner 1.8.1.3 vanaf deze locatie downloaden: ftp://ftp.mozilla.org/pub/xulrunner/releases/1.8.1.3/contrib/win32/
 Wanneer de download van het pakket is voltooid kunt u deze uitpakken naar een willekeurige locatie. Ga daarna vervolgens in dRemote naar Extra - Opties - Geavanceerd en voer het juiste pad in naar de uitgepakte XULrunner bestanden.
-Als u nog steeds niet in staat bent om de langs check te komen gebruik dan de Gecko Engine in dRemote of raadpleeg dRemote Forum op http://forum.dRemote.org/</value>
+Als u nog steeds niet in staat bent om de langs check te komen gebruik dan de Gecko Engine in dRemote of raadpleeg dRemote Forum op http://forum.dremote.nl/</value>
   </data>
   <data name="strCcGeckoOK" xml:space="preserve">
     <value>XULrunner werd gevonden en lijkt correct te zijn geïnstalleerd.</value>
@@ -305,7 +305,7 @@ Als u nog steeds niet in staat bent om de langs check te komen gebruik dan de Ge
     <value>ICA vereist dat de XenDesktop Online Plugin is geïnstalleerd is en dat de wfica.ocx bibliotheek is geregistreerd. U kunt de cliënt van deze locatie downloaden: http://www.citrix.com/download/
 Als u de XenDesktop Online Plugin heeft geïnstalleerd en de check nog niet lukt, probeer dan om handmatig wfica.ocx te registreren
 Om dit uit te voeren opent u het dialoogvenster Uitvoeren (Start - Uitvoeren) en typ het volgende: regsvr32 "c:\Program Files\Citrix\ICA Client\wfica.ocx" (Waarbij c:\Program Files\Citrix\ICA Client\ het pad is naar uw XenDesktop Online Plugin installatie).
-Als u nog steeds niet in staat bent om de langs check te komen gebruik dan ICA in dRemote of raadpleeg dRemote Forum op http://forum.dRemote.org/</value>
+Als u nog steeds niet in staat bent om de langs check te komen gebruik dan ICA in dRemote of raadpleeg dRemote Forum op http://forum.dremote.nl/</value>
   </data>
   <data name="strCcICAOK" xml:space="preserve">
     <value>Alle ICA componenten werden gevonden en lijken correct te zijn geregistreerd.
@@ -324,7 +324,7 @@ Zorg ervoor dat u ofwel de Putty.exe in uw dRemote directory staat(standaard: c:
   <data name="strCcRDPFailed" xml:space="preserve">
     <value>Om RDP goed te laten werken moet je minimaal Verbinding met extern bureaublad (Terminal Services Client) 6.1 geïnstalleerd te hebben. U kunt het hier downloaden: http://support.microsoft.com/kb/951616
 Als u RDP 6.1 heeft geïnstalleerd en de check nog niet lukt, probeer dan om handmatig mstscax.dll te registreren. Om dit uit te voeren opent u het dialoogvenster Uitvoeren (Start - Uitvoeren) en typ het volgende:  regsvr32 "c:\windows\system32\mstscax.dll" (Waarbij c: \ je systeem schijf is).
-Als u nog steeds niet in staat bent om de langs check te komen voor RDP raadpleeg dRemote Forum op http://forum.dRemote.org/</value>
+Als u nog steeds niet in staat bent om de langs check te komen voor RDP raadpleeg dRemote Forum op http://forum.dremote.nl/</value>
   </data>
   <data name="strCcRDPOK" xml:space="preserve">
     <value>Alle RDP componenten werden gevonden en lijken correct te zijn geregistreerd.
@@ -333,7 +333,7 @@ Verbinding met extern bureaublad Versie {0}</value>
   <data name="strCcVNCFailed" xml:space="preserve">
     <value>VNC vereist dat VncSharpNG.dll in de dRemote installatiemap is geplaatst.
 Zorg ervoor dat u  VncSharpNG.dll bestand in de  dRemote installatiemap wordt geplaatst (standaard C:\Program Files\dRemote\).
-Als u nog steeds niet in staat bent om de langs check te komen gebruik dan VNC in dRemote of raadpleeg dRemote Forum op http://forum.dRemote.org/</value>
+Als u nog steeds niet in staat bent om de langs check te komen gebruik dan VNC in dRemote of raadpleeg dRemote Forum op http://forum.dremote.nl/</value>
   </data>
   <data name="strCcVNCOK" xml:space="preserve">
     <value>Alle VNC componenten werden gevonden en lijken correct te zijn geregistreerd.

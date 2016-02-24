@@ -552,10 +552,10 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="AnnouncementAddress" Provider="dRemote.Config.Settings.Providers.ChooseProvider" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">https://update.dRemote.org/announcement.txt</Value>
+      <Value Profile="(Default)">http://update.dRemote.nl/announcement.txt</Value>
     </Setting>
     <Setting Name="UpdateAddress" Provider="dRemote.Config.Settings.Providers.ChooseProvider" Type="System.String" Scope="User">
-      <Value Profile="(Default)">https://update.dRemote.org/</Value>
+      <Value Profile="(Default)">http://update.dRemote.nl/</Value>
     </Setting>
     <Setting Name="ConDefaultLoadBalanceInfo" Provider="dRemote.Config.Settings.Providers.ChooseProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)" />

@@ -149,10 +149,12 @@ Namespace Connection
             End Sub
 
             Public Overridable Sub Close()
-                Dim t As New Thread(AddressOf CloseBG)
-                t.SetApartmentState(Threading.ApartmentState.STA)
-                t.IsBackground = True
-                t.Start()
+                'Dim t As New Thread(AddressOf CloseBG)
+                't.SetApartmentState(Threading.ApartmentState.STA)
+                ''t.IsBackground = True
+                't.Start()
+
+                CloseBG()
             End Sub
 
             Private Sub CloseBG()
@@ -183,6 +185,10 @@ Namespace Connection
                                     Me.SetTagToNothing()
                                 End If
                                 Me.DisposeInterface()
+                                'If Not IsNothing(parent) AndAlso parent.InvokeRequired Then
+                                '    parent.Invoke(New Action(AddressOf CloseBG))
+                                '    Return
+                                'End If
                                 parent.Close()
 
                             Else
@@ -197,6 +203,7 @@ Namespace Connection
                         '    MessageCollector.AddMessage(Messages.MessageClass.WarningMsg, "Could not set InterfaceControl.Parent.Tag or Dispose Interface, probably form is already closed (Connection.Protocol.Base)" & vbNewLine & ex.Message, True)
                         'End Try
                     End If
+
                 Catch ex As Exception
                     MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, "Couldn't Close InterfaceControl BG (Connection.Protocol.Base)" & vbNewLine & ex.Message, True)
                 End Try
@@ -468,12 +475,16 @@ Namespace Connection
 
                     IC.Protocol.Close()
                     IC.Protocol.Resize(Sender, e)
-                    IC.Protocol.Connect()
+                    'IC.Protocol.Connect()
 
                     'IC.Protocol.Disconnect()
                     'IC.Protocol.Connect()
+                    Dim conI As dRemote.Connection.Info = IC.Info
+                    App.Runtime.OpenConnectionV2(conI, dRemote.Connection.Info.Force.DoNotJump)
 
-                    'App.Runtime.OpenConnectionV2(Nothing, Me.InterfaceControl)
+                    IC.Protocol.Disconnect()
+
+                    App.Runtime.OpenConnection(conI, dRemote.Connection.Info.Force.DoNotJump)
                 Catch ex As Exception
                     MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, "Reconnect (UI.Window.Connections) failed" & vbNewLine & ex.Message, True)
                 End Try

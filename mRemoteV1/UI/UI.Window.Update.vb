@@ -40,7 +40,8 @@ Namespace UI
             End Sub
 
             Private Sub btnDownload_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles btnDownload.Click
-                DownloadUpdate()
+                Process.Start(_appUpdate.CurrentUpdateInfo.DownloadAddress.ToString)
+                'DownloadUpdate()
             End Sub
 
             Private Sub pbUpdateImage_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles pbUpdateImage.Click
@@ -151,7 +152,7 @@ Namespace UI
                     If e.Cancelled Then Return
                     If e.Error IsNot Nothing Then Throw e.Error
 
-                    txtChangeLog.Text = _appUpdate.ChangeLog
+                    txtChangeLog.Text = _appUpdate.ChangeLog.Replace(vbLf, vbCrLf)
                 Catch ex As Exception
                     MessageCollector.AddExceptionMessage(Language.strUpdateGetChangeLogFailed, ex)
                 End Try

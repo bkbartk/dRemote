@@ -87,7 +87,11 @@ Public Class frmMain
 
 #Region "Startup & Shutdown"
     Private Sub frmMain_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        My.Settings.Beta = False
+
+        If My.Settings.Beta Then
+            Me.Visible = False
+        End If
+
         MainForm = Me
 
         Startup.CheckCompatibility()
@@ -144,7 +148,7 @@ Public Class frmMain
 
         '#If PORTABLE Then
         mMenInfoAnnouncements.Visible = False
-        mMenToolsUpdate.Visible = False
+        'mMenToolsUpdate.Visible = False
         mMenInfoSep2.Visible = False
         '#End If
 
@@ -166,6 +170,13 @@ Public Class frmMain
         AddHandler brows.Navigating, AddressOf brows_Navigating
 
         Windows.dockPanel = pnlDock
+        If My.Settings.Beta Then
+            Dim frmBeta As New frmMainV2
+            frmBeta.WindowState = WindowState.Maximized
+
+            Me.Close()
+            frmBeta.Show()
+        End If
 
     End Sub
 

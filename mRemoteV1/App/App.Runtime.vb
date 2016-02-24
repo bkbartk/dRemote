@@ -1370,30 +1370,36 @@ Namespace App
                 Return Nothing
             End Try
         End Function
-        Public Shared Function GetClosestPane(sender As Object) As Object
-            If Not sender.GetType = GetType(WeifenLuo.WinFormsUI.Docking.DockPane) Then
-                If IsNothing(sender.Parent) Then
-                    Return Nothing
-                Else
-                    Return GetClosestPane(sender.Parent)
-                End If
+        'Public Shared Function GetClosestPane(sender As Object) As Object
+        '    If Not sender.GetType = GetType(WeifenLuo.WinFormsUI.Docking.DockPane) Then
+        '        If IsNothing(sender.Parent) Then
+        '            Return Nothing
+        '        Else
+        '            Return GetClosestPane(sender.Parent)
+        '        End If
 
-            End If
-            Return sender
-        End Function
+        '    End If
+        '    Return sender
+        'End Function
         Public Shared Sub OpenConnectionV2(ByVal tvConnections As TreeView, ByVal sender As Object)
-            Dim pane As WeifenLuo.WinFormsUI.Docking.DockPane = GetClosestPane(sender)
+            Dim newConnectionInfo As dRemote.Connection.Info = tvConnections.SelectedNode.Tag
+            OpenConnectionV2(newConnectionInfo, sender)
+        End Sub
+
+        Public Shared Sub OpenConnectionV2(ByVal newConnectionInfo As dRemote.Connection.Info, ByVal sender As Object)
+            'Dim pane As WeifenLuo.WinFormsUI.Docking.DockPane = GetClosestPane(sender)
             'If IsNothing(pane) Then
             '    pane = GetClosestPane(pane)
             'End If
 
             Dim conform As New Forms.frmConnections()
-            conform.Show(pane.DockPanel, DockState.Document)
+
+            conform.Show(App.Runtime.Windows.dockPanel, DockState.Document)
             conform.TabPageContextMenuStrip = conform.cmenTab
 
             Dim newProtocol As Protocol.Base
             ' Create connection based on protocol type
-            Dim newConnectionInfo As dRemote.Connection.Info = tvConnections.SelectedNode.Tag
+            'Dim newConnectionInfo As dRemote.Connection.Info = tvConnections.SelectedNode.Tag
             Select Case newConnectionInfo.Protocol
                 Case Protocol.Protocols.RDP
                     newProtocol = New Protocol.RDP

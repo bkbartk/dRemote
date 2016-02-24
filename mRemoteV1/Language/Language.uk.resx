@@ -284,7 +284,7 @@
     <value>Для (RDP) сесій повинна бути зареєстрована в системі eolwtscom.dll.
 dRemote завантажиться з цим компонентом, але не зареєструє його автоматично.
 Щоб зареєструвати його вручну: Відкрийте (Пуск - Виконати) і введіть наступну команду: regsvr32 "C:\Program Files\dRemote\eolwtscom.dll" (де C:\Program Files\dRemote \ це шлях до встановленого dRemote).
-Якщо у вас все ж не виходить зареєструвати компонент для RDP - зверніться на форум dRemote http://forum.dRemote.org/</value>
+Якщо у вас все ж не виходить зареєструвати компонент для RDP - зверніться на форум dRemote http://forum.dremote.nl/</value>
   </data>
   <data name="strCcEOLOK" xml:space="preserve">
     <value>EOLWTSCOM знайдено і зареєстровано.</value>
@@ -293,7 +293,7 @@ dRemote завантажиться з цим компонентом, але не
     <value>Для використання Gecko у Вас має бути встановлений XULRunner 1.8.1.x
 Ви можете завантажити XULRunner 1.8.1.3 тут: ftp://ftp.mozilla.org/pub/xulrunner/releases/1.8.1.3/contrib/win32/
 Після завантаження вийміть пакет у будь-яку папку. Потім у dRemote перейдіть в меню Інструменти - Опції - Додатково і введіть правильний шлях у полі Шлях XULRunner.
-Якщо у вас нічого не вийшло зверніться на форум dRemote http://forum.dRemote.org/</value>
+Якщо у вас нічого не вийшло зверніться на форум dRemote http://forum.dremote.nl/</value>
   </data>
   <data name="strCcGeckoOK" xml:space="preserve">
     <value>XULRunner було знайдено і встановлено правильно.</value>
@@ -302,7 +302,7 @@ dRemote завантажиться з цим компонентом, але не
     <value>ICA потрібний встановлений XenDesktop Online Plugin і зареєстрована бібліотека wfica.ocx. Ви можете завантажити клієнт тут: http://www.citrix.com/download/
 Якщо у вас є встановлений XenDesktop Online Plugin і нічого не працює, спробуйте зареєструвати wfica.ocx вручну.
 Для цього відкрийте (Пуск - Виконати) і введіть наступну команду: regsvr32 "C:\Program Files\Citrix\ICA Client\wfica.ocx" (де C:\Program Files\Citrix ICA Client\ це шлях до XenDesktop Online Plugin).
-Якщо у вас все таки не працює ICA в dRemote зверніться на форум dRemote http://forum.dRemote.org/ "</value>
+Якщо у вас все таки не працює ICA в dRemote зверніться на форум dRemote http://forum.dremote.nl/ "</value>
   </data>
   <data name="strCcICAOK" xml:space="preserve">
     <value>Всі компоненти ICA були знайдені і зареєстровані.
@@ -321,7 +321,7 @@ Citrix ICA Client Control версії {0}</value>
   <data name="strCcRDPFailed" xml:space="preserve">
     <value>Для правильної роботи RDP необхідно мати встановлений Remote Desktop Connection (Terminal Services Client) 6.1. Ви можете отримати його тут: http://support.microsoft.com/kb/951616
 Якщо у вас є встановлений RDP 6.1 і підключитися не вдається, спробуйте зареєструватися mstscax.dll вручну. Для цього відкрийте (Пуск - Виконати) і введіть наступну команду: regsvr32 "C:\Windows\system32\mstscax.dll" (де C: \ - ваш системний диск).
-Якщо у вас виникли проблеми при роботі з RDP зверніться на форум dRemotehttp: / / forum.dRemote.org /</value>
+Якщо у вас виникли проблеми при роботі з RDP зверніться на форум dRemotehttp: / / forum.dremote.nl /</value>
   </data>
   <data name="strCcRDPOK" xml:space="preserve">
     <value>Всі RDP компоненти були знайдені і зареєстровані.
@@ -330,7 +330,7 @@ Remote Desktop Connection, Control Version {0}</value>
   <data name="strCcVNCFailed" xml:space="preserve">
     <value>VNC требуется VncSharpNG.dll который находится в папке с dRemote.
  Убедитесь, что у вас есть VncSharpNG.dll в папке dRemote (обычно C:\Program Files\dRemote\).
- Если  у вас все же не работает VNC в dRemote обратитесь на форум dRemotehttp://forum.dRemote.org/</value>
+ Если  у вас все же не работает VNC в dRemote обратитесь на форум dRemotehttp://forum.dremote.nl/</value>
   </data>
   <data name="strCcVNCOK" xml:space="preserve">
     <value>Всі VNC компоненти були знайдені і зареєстровані.

@@ -114,6 +114,7 @@ Public Class frmMainV2
         '    Case MsgBoxResult.Cancel
         '        Return
         'End Select
+        My.Settings.Beta = False
         System.Windows.Forms.Application.Restart()
         'Application.Exit()
         'Process.Start(Application.ExecutablePath)
@@ -138,5 +139,8 @@ Public Class frmMainV2
         Using optionsForm As New Forms.OptionsForm()
             optionsForm.ShowDialog(Me)
         End Using
+    End Sub
+    Private Sub mMenToolsUpdate_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mMenToolsUpdate.Click
+        App.Runtime.Windows.Show(UI.Window.Type.Update)
     End Sub
 End Class

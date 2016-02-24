@@ -286,7 +286,7 @@ Per favore usare File -&gt; Carica connessioni per i file delle connessioni norm
   <data name="strCcEOLFailed" xml:space="preserve">
     <value>Per utilizzare le sessioni RDP è necessario avere una copia di eolwtscom.dll registrata nel proprio sistema. dRemote viene distribuito con questo componente ma è in grado di registrarlo automaticamente soltanto eseguendo un setup completo.
 Per effettuare una registrazione manuale, aprire la finestra "Esegui" (WIN+R) ed inserire il testo: regsvr32 "C:\Programmi\dRemote\eolwtscom.dll" (dove C:\Programmi\dRemote\ è il percorso di installazione di dRemote).
-Se il controllo fallisce o risulta impossibile utilizzare le sessioni RDP con dRemote per favore consultare il forum di dRemote all'indirizzo http://forum.dRemote.org/</value>
+Se il controllo fallisce o risulta impossibile utilizzare le sessioni RDP con dRemote per favore consultare il forum di dRemote all'indirizzo http://forum.dremote.nl/</value>
   </data>
   <data name="strCcEOLOK" xml:space="preserve">
     <value>EOLWTSCOM è stato rilevato e sembra essere registrato correttamente.</value>
@@ -294,7 +294,7 @@ Se il controllo fallisce o risulta impossibile utilizzare le sessioni RDP con dR
   <data name="strCcGeckoFailed" xml:space="preserve">
     <value>Per utilizzare il motore di rendering Gecko è necessario possedere XULrunner 1.8.1.x ed il percorso di installazione configurato nelle impostazioni. XULrunner 1.8.1.3 può essere scaricato al seguente indirizzo: ftp://ftp.mozilla.org/pub/xulrunner/releases/1.8.1.3/contrib/win32/
 Quando il download è terminato, è sufficiente estrarre il pacchetto in una cartella a piacere ed  impostare tale percorso sotto Strumenti - Opzioni - Avanzate - Percorso XULrunner.
-Se il controllo fallisce o risulta impossibile utilizzare il motore di rendering Gecko con dRemote, per favore consultare il forum di dRemote all'indirizzo http://forum.dRemote.org/</value>
+Se il controllo fallisce o risulta impossibile utilizzare il motore di rendering Gecko con dRemote, per favore consultare il forum di dRemote all'indirizzo http://forum.dremote.nl/</value>
   </data>
   <data name="strCcGeckoOK" xml:space="preserve">
     <value>XULrunner è stato rilevato e sembra installato correttamente.</value>
@@ -302,7 +302,7 @@ Se il controllo fallisce o risulta impossibile utilizzare il motore di rendering
   <data name="strCcICAFailed" xml:space="preserve">
     <value>ICA richiede che il plugin XenDesktop Online sia installato e che la libreria wfica.ocx sia registrata. Il client è scaricabile all'indirizzo http://www.citrix.com/download/
 Se il plugin XenDesktop Online è installato ma il controllo fallisce, provare a registrare wfica.ocx manualmente. Aprire la finestra "Esegui" (WIN+R) ed inserire il testo: regsvr32 "C:\Programmi\Citrix\ICA Client\wfica.ocx" (dove C:\Programmi\Citrix\ICA Client\ è il percorso di installazione del plugin XenDesktop Online).
-Se il controllo fallisce e risulta impossibile utilizzare ICA con dRemote, per favore consulta il forum di dRemote all'indirizzo http://forum.dRemote.org/</value>
+Se il controllo fallisce e risulta impossibile utilizzare ICA con dRemote, per favore consulta il forum di dRemote all'indirizzo http://forum.dremote.nl/</value>
   </data>
   <data name="strCcICAOK" xml:space="preserve">
     <value>Tutti i componenti ICA sono stati installati e sembrano registrati correttamente.
@@ -321,7 +321,7 @@ Assicurarsi che Putty.exe sia contenuto nella cartella dRemote (default: C:\Prog
   <data name="strCcRDPFailed" xml:space="preserve">
     <value>Per fare funzionare RDP correttamente è necessario avere installato Remote Desktop Connection (Terminal Services Client) versione 6.1, disponibile all'indirizzo http://support.microsoft.com/kb/951616/it
 Se RDP 6.1 è installato e questo controllo fallisce, tentare di registrare mstscax.dll manualmente. Aprire la schermata "Esegui" (combinazione tasti WIN+R) ed inserire il seguente testo: regsvr32 "C:\Windows\System32\mstscax.dll"
-Se il problema con RDP persiste consultare il forum di dRemote all'indirizzo http://forum.dRemote.org/</value>
+Se il problema con RDP persiste consultare il forum di dRemote all'indirizzo http://forum.dremote.nl/</value>
   </data>
   <data name="strCcRDPOK" xml:space="preserve">
     <value>Tutti i componenti RDP sono stati rilevati e sembrano registrati correttamente.
@@ -330,7 +330,7 @@ Remote Desktop Connection Control versione {0}</value>
   <data name="strCcVNCFailed" xml:space="preserve">
     <value>VNC richiede che VncSharpNG.dll sia presente nella cartella del programma dRemote.
 Per favore assicurarsi che il file VncSharpNG.dll sia presente nella cartella del programma dRemote (solitamente C:\Programmi\dRemote\).
-Se risulta ancora impossibile utilizzare VNC con dRemote, contattare il forum all'indirizzo http://forum.dRemote.org/</value>
+Se risulta ancora impossibile utilizzare VNC con dRemote, contattare il forum all'indirizzo http://forum.dremote.nl/</value>
   </data>
   <data name="strCcVNCOK" xml:space="preserve">
     <value>Tutti i componenti VNC sono stati rilevati e sembrano registrati correttamente.
