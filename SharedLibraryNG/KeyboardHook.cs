@@ -172,8 +172,8 @@ namespace SharedLibraryNG
         private static IntPtr GetFocusWindow()
         {
             var guiThreadInfo = new Win32.GUITHREADINFO();
-            if (!Win32.GetGUIThreadInfo(0, guiThreadInfo))
-                throw new Win32Exception(Marshal.GetLastWin32Error());
+            //if (!Win32.GetGUIThreadInfo(0, guiThreadInfo))
+            //    throw new Win32Exception(Marshal.GetLastWin32Error());
 			return Win32.GetAncestor(guiThreadInfo.hwndFocus, Win32.GA_ROOT);
         }
 

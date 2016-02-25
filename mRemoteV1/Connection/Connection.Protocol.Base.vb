@@ -149,12 +149,10 @@ Namespace Connection
             End Sub
 
             Public Overridable Sub Close()
-                'Dim t As New Thread(AddressOf CloseBG)
-                't.SetApartmentState(Threading.ApartmentState.STA)
-                ''t.IsBackground = True
-                't.Start()
-
-                CloseBG()
+                Dim t As New Thread(AddressOf CloseBG)
+                t.SetApartmentState(Threading.ApartmentState.STA)
+                t.IsBackground = True
+                t.Start()
             End Sub
 
             Private Sub CloseBG()
