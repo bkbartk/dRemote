@@ -250,7 +250,7 @@ Namespace Config
                     Windows.treeForm.InitialRefresh()
                     SetSelectedNode(_selectedTreeNode)
                 Catch ex As Exception
-                    Throw
+                    'Throw
                 Finally
                     If sqlCon IsNot Nothing Then
                         sqlCon.Close()

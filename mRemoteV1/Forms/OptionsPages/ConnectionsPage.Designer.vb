@@ -51,6 +51,7 @@
             Me.radCloseWarnMultiple = New System.Windows.Forms.RadioButton()
             Me.radCloseWarnExit = New System.Windows.Forms.RadioButton()
             Me.radCloseWarnNever = New System.Windows.Forms.RadioButton()
+            Me.chkInherit = New System.Windows.Forms.CheckBox()
             Me.pnlRdpReconnectionCount.SuspendLayout()
             CType(Me.numRdpReconnectionCount, System.ComponentModel.ISupportInitialize).BeginInit()
             Me.pnlDefaultCredentials.SuspendLayout()
@@ -63,7 +64,7 @@
             '
             Me.pnlRdpReconnectionCount.Controls.Add(Me.lblRdpReconnectionCount)
             Me.pnlRdpReconnectionCount.Controls.Add(Me.numRdpReconnectionCount)
-            Me.pnlRdpReconnectionCount.Location = New System.Drawing.Point(3, 69)
+            Me.pnlRdpReconnectionCount.Location = New System.Drawing.Point(3, 88)
             Me.pnlRdpReconnectionCount.Name = "pnlRdpReconnectionCount"
             Me.pnlRdpReconnectionCount.Size = New System.Drawing.Size(596, 29)
             Me.pnlRdpReconnectionCount.TabIndex = 10
@@ -119,7 +120,7 @@
             Me.pnlDefaultCredentials.Controls.Add(Me.lblCredentialsPassword)
             Me.pnlDefaultCredentials.Controls.Add(Me.txtCredentialsUsername)
             Me.pnlDefaultCredentials.Controls.Add(Me.lblCredentialsDomain)
-            Me.pnlDefaultCredentials.Location = New System.Drawing.Point(3, 139)
+            Me.pnlDefaultCredentials.Location = New System.Drawing.Point(3, 158)
             Me.pnlDefaultCredentials.Name = "pnlDefaultCredentials"
             Me.pnlDefaultCredentials.Size = New System.Drawing.Size(596, 175)
             Me.pnlDefaultCredentials.TabIndex = 12
@@ -238,7 +239,7 @@
             Me.pnlAutoSave.Controls.Add(Me.lblAutoSave1)
             Me.pnlAutoSave.Controls.Add(Me.numAutoSave)
             Me.pnlAutoSave.Controls.Add(Me.lblAutoSave2)
-            Me.pnlAutoSave.Location = New System.Drawing.Point(3, 104)
+            Me.pnlAutoSave.Location = New System.Drawing.Point(3, 123)
             Me.pnlAutoSave.Name = "pnlAutoSave"
             Me.pnlAutoSave.Size = New System.Drawing.Size(596, 29)
             Me.pnlAutoSave.TabIndex = 11
@@ -277,7 +278,7 @@
             Me.pnlConfirmCloseConnection.Controls.Add(Me.radCloseWarnMultiple)
             Me.pnlConfirmCloseConnection.Controls.Add(Me.radCloseWarnExit)
             Me.pnlConfirmCloseConnection.Controls.Add(Me.radCloseWarnNever)
-            Me.pnlConfirmCloseConnection.Location = New System.Drawing.Point(3, 320)
+            Me.pnlConfirmCloseConnection.Location = New System.Drawing.Point(3, 339)
             Me.pnlConfirmCloseConnection.Name = "pnlConfirmCloseConnection"
             Me.pnlConfirmCloseConnection.Size = New System.Drawing.Size(596, 137)
             Me.pnlConfirmCloseConnection.TabIndex = 13
@@ -318,7 +319,7 @@
             Me.radCloseWarnExit.AutoSize = True
             Me.radCloseWarnExit.Location = New System.Drawing.Point(16, 77)
             Me.radCloseWarnExit.Name = "radCloseWarnExit"
-            Me.radCloseWarnExit.Size = New System.Drawing.Size(216, 17)
+            Me.radCloseWarnExit.Size = New System.Drawing.Size(198, 17)
             Me.radCloseWarnExit.TabIndex = 3
             Me.radCloseWarnExit.TabStop = True
             Me.radCloseWarnExit.Text = "Warn me only when exiting dRemote"
@@ -335,10 +336,21 @@
             Me.radCloseWarnNever.Text = "Do not warn me when closing connections"
             Me.radCloseWarnNever.UseVisualStyleBackColor = True
             '
+            'chkInherit
+            '
+            Me.chkInherit.AutoSize = True
+            Me.chkInherit.Location = New System.Drawing.Point(3, 67)
+            Me.chkInherit.Name = "chkInherit"
+            Me.chkInherit.Size = New System.Drawing.Size(159, 17)
+            Me.chkInherit.TabIndex = 14
+            Me.chkInherit.Text = "Set Inherit all default to True"
+            Me.chkInherit.UseVisualStyleBackColor = True
+            '
             'ConnectionsPage
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
             Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+            Me.Controls.Add(Me.chkInherit)
             Me.Controls.Add(Me.pnlRdpReconnectionCount)
             Me.Controls.Add(Me.chkSingleClickOnConnectionOpensIt)
             Me.Controls.Add(Me.chkHostnameLikeDisplayName)
@@ -389,6 +401,6 @@
         Friend WithEvents radCloseWarnMultiple As System.Windows.Forms.RadioButton
         Friend WithEvents radCloseWarnExit As System.Windows.Forms.RadioButton
         Friend WithEvents radCloseWarnNever As System.Windows.Forms.RadioButton
-
+        Friend WithEvents chkInherit As CheckBox
     End Class
 End Namespace

@@ -641,6 +641,61 @@ Namespace UI
                         newConnectionInfo.Inherit.TurnOffInheritanceCompletely()
                     Else
                         newConnectionInfo.Parent = containerNode.Tag
+                        Dim defaultinherit As Boolean = My.Settings.Inherit
+                        If defaultinherit Then
+                            newConnectionInfo.Inherit.CacheBitmaps = defaultinherit
+                            newConnectionInfo.Inherit.Colors = defaultinherit
+                            newConnectionInfo.Inherit.Description = defaultinherit
+                            newConnectionInfo.Inherit.DisplayThemes = defaultinherit
+                            newConnectionInfo.Inherit.DisplayWallpaper = defaultinherit
+                            newConnectionInfo.Inherit.EnableFontSmoothing = defaultinherit
+                            newConnectionInfo.Inherit.EnableDesktopComposition = defaultinherit
+                            newConnectionInfo.Inherit.Domain = defaultinherit
+                            newConnectionInfo.Inherit.Icon = defaultinherit
+                            newConnectionInfo.Inherit.Panel = defaultinherit
+                            newConnectionInfo.Inherit.Password = defaultinherit
+                            newConnectionInfo.Inherit.Port = defaultinherit
+                            newConnectionInfo.Inherit.Protocol = defaultinherit
+                            newConnectionInfo.Inherit.PuttySession = defaultinherit
+                            newConnectionInfo.Inherit.RedirectDiskDrives = defaultinherit
+                            newConnectionInfo.Inherit.RedirectKeys = defaultinherit
+                            newConnectionInfo.Inherit.RedirectPorts = defaultinherit
+                            newConnectionInfo.Inherit.RedirectPrinters = defaultinherit
+                            newConnectionInfo.Inherit.RedirectSmartCards = defaultinherit
+                            newConnectionInfo.Inherit.RedirectSound = defaultinherit
+                            newConnectionInfo.Inherit.Resolution = defaultinherit
+                            newConnectionInfo.Inherit.AutomaticResize = defaultinherit
+                            newConnectionInfo.Inherit.UseConsoleSession = defaultinherit
+                            newConnectionInfo.Inherit.UseCredSsp = defaultinherit
+                            newConnectionInfo.Inherit.RenderingEngine = defaultinherit
+                            newConnectionInfo.Inherit.Username = defaultinherit
+                            'newConnectionInfo.Inherit.ICAEncryptionStrength = defaultinherit
+                            newConnectionInfo.Inherit.ICAEncryption = defaultinherit
+                            newConnectionInfo.Inherit.RDPAuthenticationLevel = defaultinherit
+                            newConnectionInfo.Inherit.LoadBalanceInfo = defaultinherit
+                            newConnectionInfo.Inherit.PreExtApp = defaultinherit
+                            newConnectionInfo.Inherit.PostExtApp = defaultinherit
+                            newConnectionInfo.Inherit.MacAddress = defaultinherit
+                            newConnectionInfo.Inherit.UserField = defaultinherit
+                            newConnectionInfo.Inherit.ExtApp = defaultinherit
+                            newConnectionInfo.Inherit.VNCCompression = defaultinherit
+                            newConnectionInfo.Inherit.VNCEncoding = defaultinherit
+                            newConnectionInfo.Inherit.VNCAuthMode = defaultinherit
+                            newConnectionInfo.Inherit.VNCProxyType = defaultinherit
+                            newConnectionInfo.Inherit.VNCProxyIP = defaultinherit
+                            newConnectionInfo.Inherit.VNCProxyPort = defaultinherit
+                            newConnectionInfo.Inherit.VNCProxyUsername = defaultinherit
+                            newConnectionInfo.Inherit.VNCProxyPassword = defaultinherit
+                            newConnectionInfo.Inherit.VNCColors = defaultinherit
+                            newConnectionInfo.Inherit.VNCSmartSizeMode = defaultinherit
+                            newConnectionInfo.Inherit.VNCViewOnly = defaultinherit
+                            newConnectionInfo.Inherit.RDGatewayHostname = defaultinherit
+                            newConnectionInfo.Inherit.RDGatewayUseConnectionCredentials = defaultinherit
+                            newConnectionInfo.Inherit.RDGatewayUsername = defaultinherit
+                            newConnectionInfo.Inherit.RDGatewayPassword = defaultinherit
+                            newConnectionInfo.Inherit.RDGatewayDomain = defaultinherit
+                            newConnectionInfo.Inherit.RDGatewayUsageMethod = defaultinherit
+                        End If
                     End If
 
                     newConnectionInfo.TreeNode = newTreeNode

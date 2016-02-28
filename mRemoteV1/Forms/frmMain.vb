@@ -135,10 +135,10 @@ Public Class frmMain
 
         'LoadCredentials()
         LoadConnections()
-        If Not IsConnectionsFileLoaded Then
-            System.Windows.Forms.Application.Exit()
-            Return
-        End If
+        'If Not IsConnectionsFileLoaded Then
+        '    'System.Windows.Forms.Application.Exit()
+        '    'Return
+        'End If
 
         Putty.Sessions.StartWatcher()
 

@@ -46,6 +46,7 @@ Namespace Forms.OptionsPages
             chkSingleClickOnConnectionOpensIt.Checked = My.Settings.SingleClickOnConnectionOpensIt
             chkSingleClickOnOpenedConnectionSwitchesToIt.Checked = My.Settings.SingleClickSwitchesToOpenConnection
             chkHostnameLikeDisplayName.Checked = My.Settings.SetHostnameLikeDisplayName
+            chkInherit.Checked = My.Settings.Inherit
 
             numRdpReconnectionCount.Value = My.Settings.RdpReconnectionCount
 
@@ -83,6 +84,7 @@ Namespace Forms.OptionsPages
             My.Settings.SingleClickOnConnectionOpensIt = chkSingleClickOnConnectionOpensIt.Checked
             My.Settings.SingleClickSwitchesToOpenConnection = chkSingleClickOnOpenedConnectionSwitchesToIt.Checked
             My.Settings.SetHostnameLikeDisplayName = chkHostnameLikeDisplayName.Checked
+            My.Settings.Inherit = chkInherit.Checked
 
             My.Settings.RdpReconnectionCount = numRdpReconnectionCount.Value
 
@@ -121,5 +123,6 @@ Namespace Forms.OptionsPages
             txtCredentialsPassword.Enabled = radCredentialsCustom.Checked
             txtCredentialsDomain.Enabled = radCredentialsCustom.Checked
         End Sub
+
     End Class
 End Namespace

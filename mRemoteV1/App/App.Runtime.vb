@@ -1137,32 +1137,27 @@ Namespace App
                     Select Case cTaskDialog.CommandButtonResult
                         Case 0
                             LoadConnections(withDialog, update)
-                            Return
                         Case 1
                             My.Settings.UseSQLServer = False
                             LoadConnections(True, update)
-                            Return
                         Case Else
-                            Application.Exit()
-                            Return
+                            'Application.Exit()
                     End Select
                 Else
                     If TypeOf ex Is FileNotFoundException And Not withDialog Then
                         MessageCollector.AddExceptionMessage(String.Format(My.Language.strConnectionsFileCouldNotBeLoadedNew, connectionsLoad.ConnectionFileName), ex, MessageClass.InformationMsg)
                         NewConnections(connectionsLoad.ConnectionFileName)
-                        Return
                     End If
 
                     MessageCollector.AddExceptionMessage(String.Format(My.Language.strConnectionsFileCouldNotBeLoaded, connectionsLoad.ConnectionFileName), ex)
                     If Not connectionsLoad.ConnectionFileName = GetStartupConnectionFileName() Then
                         LoadConnections(withDialog, update)
-                        Return
-                    Else
-                        MsgBox(String.Format(My.Language.strErrorStartupConnectionFileLoad, vbNewLine, Application.ProductName, GetStartupConnectionFileName(), Misc.GetExceptionMessageRecursive(ex)), MsgBoxStyle.OkOnly + MsgBoxStyle.Critical)
-                        Application.Exit()
-                        Return
+                        'Else
+                        '    MsgBox(String.Format(My.Language.strErrorStartupConnectionFileLoad, vbNewLine, Application.ProductName, GetStartupConnectionFileName(), Misc.GetExceptionMessageRecursive(ex)), MsgBoxStyle.OkOnly + MsgBoxStyle.Critical)
+                        'Application.Exit()
                     End If
                 End If
+                Return
             End Try
         End Sub
 
@@ -1178,7 +1173,7 @@ Namespace App
                 PruneBackupFiles(fileName)
             Catch ex As Exception
                 MessageCollector.AddExceptionMessage(My.Language.strConnectionsFileBackupFailed, ex, MessageClass.WarningMsg)
-                Throw
+                'Throw
             End Try
         End Sub
 
