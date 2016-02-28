@@ -127,8 +127,10 @@ Namespace Messages
             Me.ShowMCForm()
             Me._MCForm.lvErrorCollector.Focus()
             Me._MCForm.lvErrorCollector.SelectedItems.Clear()
-            Me._MCForm.lvErrorCollector.Items(0).Selected = True
-            Me._MCForm.lvErrorCollector.FocusedItem = Me._MCForm.lvErrorCollector.Items(0)
+            If Me._MCForm.lvErrorCollector.Items.Count > 0 Then
+                Me._MCForm.lvErrorCollector.Items(0).Selected = True
+                Me._MCForm.lvErrorCollector.FocusedItem = Me._MCForm.lvErrorCollector.Items(0)
+            End If
         End Sub
 
         Private Shared Sub ShowMessageBox(ByVal Msg As Messages.Message)

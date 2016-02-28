@@ -1439,7 +1439,8 @@ Namespace App
                 conform.Icon = conIcon
             End If
             conform.Text = newConnectionInfo.Name
-
+            newProtocol.Control.Height = conform.Height
+            newProtocol.Control.Width = conform.Width
             newProtocol.InterfaceControl = New dRemote.Connection.InterfaceControl(conform, newProtocol, newConnectionInfo)
 
             'AddHandler newProtocol.Control.ClientSizeChanged, AddressOf newProtocol.ResizeEnd
@@ -1456,6 +1457,7 @@ Namespace App
                 'newProtocol.InterfaceControl.Top = -borderwidth
                 'newProtocol.InterfaceControl.Width = conform.Width + borderwidth * 2
                 'newProtocol.InterfaceControl.Height = conform.Height + borderwidth * 2
+                'newProtocol.InterfaceControl.Dock = DockStyle.Fill
                 conform.Controls.Add(newProtocol.InterfaceControl)
             End If
 
