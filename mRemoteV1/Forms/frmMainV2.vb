@@ -22,19 +22,50 @@ Public Class frmMainV2
 
 
         Windows.treeForm = New UI.Window.Tree()
-        'connections.Show(DockPanel1, DockState.DockLeftAutoHide)
-        Windows.treeForm.Show(DockPanel1, DockState.DockLeft)
-        Windows.treeForm = Windows.treeForm
-
-
         Windows.configForm = New UI.Window.Config()
-        'connections.Show(DockPanel1, DockState.DockLeftAutoHide)
-        Windows.configForm.Show(DockPanel1)
-        Windows.configForm.DockTo(Windows.treeForm.Pane, DockStyle.Bottom, 30)
 
+        'Windows.configForm = New UI.Window.Config(Windows.configPanel)
+        'Windows.configPanel = Windows.configForm
+
+        'Windows.treeForm = New UI.Window.Tree(Windows.treePanel)
+        'Windows.treePanel = Windows.treeForm
         Windows.dockPanel = DockPanel1
+        Dim newPath As String = App.Info.Settings.SettingsPath & "\2" & App.Info.Settings.LayoutFileName
+        If File.Exists(newPath) Then
+            Try
+                resetLayout()
+                'DockPanel1.LoadFromXml(newPath, AddressOf GetContentFromPersistString)
+            Catch
+                resetLayout()
+            End Try
+        Else
+            resetLayout()
+        End If
 
     End Sub
+    Private Function GetContentFromPersistString(ByVal persistString As String) As IDockContent
+        ' pnlLayout.xml persistence XML fix for refactoring to dRemote
+        Try
+            Select Case persistString
+                Case GetType(UI.Window.Config).ToString
+                    Return Windows.configForm
+                Case GetType(UI.Window.Tree).ToString
+                    Return Windows.treeForm
+                    'Case GetType(UI.Window.ErrorsAndInfos).ToString
+                    '    Return Windows.errorsPanel
+                    'Case GetType(UI.Window.Sessions).ToString
+                    '    Return Windows.sessionsPanel
+                    'Case GetType(UI.Window.ScreenshotManager).ToString
+                    '    Return Windows.screenshotPanel
+
+            End Select
+
+        Catch ex As Exception
+            Log.Error("GetContentFromPersistString failed" & vbNewLine & ex.Message)
+        End Try
+
+        Return Nothing
+    End Function
 
     'Public Shared Sub CreatePanels()
     '    Windows.configForm = New UI.Window.Config(Windows.configPanel)
@@ -114,6 +145,7 @@ Public Class frmMainV2
         '    Case MsgBoxResult.Cancel
         '        Return
         'End Select
+        SavePanelsToXML()
         My.Settings.Beta = False
         System.Windows.Forms.Application.Restart()
         'Application.Exit()
@@ -127,7 +159,18 @@ Public Class frmMainV2
         '    Case MsgBoxResult.Cancel
         '        Return
         'End Select
+        SavePanelsToXML()
         System.Windows.Forms.Application.Exit()
+    End Sub
+    Public Shared Sub SavePanelsToXML()
+        Try
+            If Not Directory.Exists(App.Info.Settings.SettingsPath) Then
+                Directory.CreateDirectory(App.Info.Settings.SettingsPath)
+            End If
+            Windows.dockPanel.SaveAsXml(App.Info.Settings.SettingsPath & "\2" & App.Info.Settings.LayoutFileName)
+        Catch ex As Exception
+            MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, "SavePanelsToXML failed" & vbNewLine & vbNewLine & ex.Message, False)
+        End Try
     End Sub
 
     Private Sub btnAmout_Click(sender As Object, e As EventArgs) Handles btnAmout.Click
@@ -143,4 +186,40 @@ Public Class frmMainV2
     Private Sub mMenToolsUpdate_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mMenToolsUpdate.Click
         App.Runtime.Windows.Show(UI.Window.Type.Update)
     End Sub
+    Private Sub mMenViewResetLayout_Click(sender As Object, e As EventArgs) Handles mMenViewResetLayout.Click
+        If MsgBox(My.Language.strConfirmResetLayout, MsgBoxStyle.Question Or MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+            resetLayout()
+        End If
+    End Sub
+    Sub resetLayout()
+        Windows.treeForm.Show(DockPanel1, DockState.DockLeft)
+        Windows.configForm.Show(DockPanel1)
+        Windows.configForm.DockTo(Windows.treeForm.Pane, DockStyle.Bottom, -1)
+    End Sub
+
+    Private Sub mMenViewConnections_Click(sender As Object, e As EventArgs) Handles mMenViewConnections.Click
+        mMenViewConnections.Checked = Not mMenViewConnections.Checked
+        If mMenViewConnections.Checked Then
+            Windows.treeForm.Show()
+        Else
+            Windows.treeForm.Hide()
+        End If
+
+    End Sub
+
+    Private Sub mMenViewConfig_Click(sender As Object, e As EventArgs) Handles mMenViewConfig.Click
+        mMenViewConfig.Checked = Not mMenViewConfig.Checked
+        If mMenViewConfig.Checked Then
+            Windows.configForm.Show()
+        Else
+            Windows.configForm.Hide()
+        End If
+    End Sub
+
+
+    Private Sub cMenLayout_DropDownOpening(sender As Object, e As EventArgs) Handles cMenLayout.DropDownOpening
+        mMenViewConnections.Checked = Not Windows.treeForm.IsHidden
+        mMenViewConfig.Checked = Not Windows.configForm.IsHidden
+    End Sub
+
 End Class
