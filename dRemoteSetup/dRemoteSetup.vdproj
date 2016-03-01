@@ -2665,7 +2665,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SharedLibraryNG, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:SharedLibraryNG, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_A5B9C8E9911CCD0CFD6498FAFD944A1B"
@@ -3651,15 +3651,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:dRemote"
-        "ProductCode" = "8:{C5DA1091-A019-46E4-8444-384CBDF26015}"
-        "PackageCode" = "8:{67A6E87D-DC02-4E86-8D10-2016B14BF7C9}"
+        "ProductCode" = "8:{788F74AB-E6D7-4863-8A47-1EC354DB747C}"
+        "PackageCode" = "8:{492E3386-2A6C-4E36-841F-FE5D06C7F8A2}"
         "UpgradeCode" = "8:{D4A20E0A-A55A-4204-A1D9-F23840067024}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:0.2.206"
+        "ProductVersion" = "8:0.2.210"
         "Manufacturer" = "8:dRemote"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://www.dremote.nl"
