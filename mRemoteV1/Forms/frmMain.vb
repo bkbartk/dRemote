@@ -1115,6 +1115,8 @@ Public Class frmMain
         'frmBeta.Top = Me.Top
         'frmBeta.Left = Me.Left
         My.Settings.Beta = True
+        My.Settings.Save()
+        Threading.Thread.Sleep(500)
         System.Windows.Forms.Application.Restart()
         'Me.Close()
         'frmBeta.Show()

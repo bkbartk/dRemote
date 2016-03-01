@@ -26,15 +26,15 @@ Partial Class frmMainV2
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMainV2))
         Me.mainMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.cMenLayout = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mMenViewResetLayout = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mMenViewConnections = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mMenViewConfig = New System.Windows.Forms.ToolStripMenuItem()
         Me.mMenToolsUpdate = New System.Windows.Forms.ToolStripMenuItem()
         Me.mMenToolsOptions = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmenTabSep1 = New System.Windows.Forms.ToolStripSeparator()
         Me.btnAmout = New System.Windows.Forms.ToolStripMenuItem()
         Me.DockPanel1 = New WeifenLuo.WinFormsUI.Docking.DockPanel()
         Me.VS2013BlueTheme2 = New WeifenLuo.WinFormsUI.Docking.VS2013BlueTheme()
-        Me.mMenViewResetLayout = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mMenViewConnections = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mMenViewConfig = New System.Windows.Forms.ToolStripMenuItem()
         Me.mainMenu.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -43,7 +43,7 @@ Partial Class frmMainV2
         Me.mainMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cMenLayout, Me.mMenToolsUpdate, Me.mMenToolsOptions, Me.cmenTabSep1, Me.btnAmout})
         Me.mainMenu.Name = "cmenTab"
         Me.mainMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-        Me.mainMenu.Size = New System.Drawing.Size(172, 120)
+        Me.mainMenu.Size = New System.Drawing.Size(172, 98)
         Me.mainMenu.Text = "File"
         '
         'cMenLayout
@@ -53,6 +53,31 @@ Partial Class frmMainV2
         Me.cMenLayout.Name = "cMenLayout"
         Me.cMenLayout.Size = New System.Drawing.Size(171, 22)
         Me.cMenLayout.Text = "Layout"
+        '
+        'mMenViewResetLayout
+        '
+        Me.mMenViewResetLayout.Image = Global.dRemote.My.Resources.Resources.application_side_tree
+        Me.mMenViewResetLayout.Name = "mMenViewResetLayout"
+        Me.mMenViewResetLayout.Size = New System.Drawing.Size(141, 22)
+        Me.mMenViewResetLayout.Text = "Reset Layout"
+        '
+        'mMenViewConnections
+        '
+        Me.mMenViewConnections.Checked = True
+        Me.mMenViewConnections.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.mMenViewConnections.Image = Global.dRemote.My.Resources.Resources.Root
+        Me.mMenViewConnections.Name = "mMenViewConnections"
+        Me.mMenViewConnections.Size = New System.Drawing.Size(141, 22)
+        Me.mMenViewConnections.Text = "Connections"
+        '
+        'mMenViewConfig
+        '
+        Me.mMenViewConfig.Checked = True
+        Me.mMenViewConfig.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.mMenViewConfig.Image = Global.dRemote.My.Resources.Resources.cog
+        Me.mMenViewConfig.Name = "mMenViewConfig"
+        Me.mMenViewConfig.Size = New System.Drawing.Size(141, 22)
+        Me.mMenViewConfig.Text = "Config"
         '
         'mMenToolsUpdate
         '
@@ -91,31 +116,6 @@ Partial Class frmMainV2
         Me.DockPanel1.TabIndex = 0
         Me.DockPanel1.Theme = Me.VS2013BlueTheme2
         '
-        'mMenViewResetLayout
-        '
-        Me.mMenViewResetLayout.Image = Global.dRemote.My.Resources.Resources.application_side_tree
-        Me.mMenViewResetLayout.Name = "mMenViewResetLayout"
-        Me.mMenViewResetLayout.Size = New System.Drawing.Size(152, 22)
-        Me.mMenViewResetLayout.Text = "Reset Layout"
-        '
-        'mMenViewConnections
-        '
-        Me.mMenViewConnections.Checked = True
-        Me.mMenViewConnections.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.mMenViewConnections.Image = Global.dRemote.My.Resources.Resources.Root
-        Me.mMenViewConnections.Name = "mMenViewConnections"
-        Me.mMenViewConnections.Size = New System.Drawing.Size(152, 22)
-        Me.mMenViewConnections.Text = "Connections"
-        '
-        'mMenViewConfig
-        '
-        Me.mMenViewConfig.Checked = True
-        Me.mMenViewConfig.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.mMenViewConfig.Image = Global.dRemote.My.Resources.Resources.cog
-        Me.mMenViewConfig.Name = "mMenViewConfig"
-        Me.mMenViewConfig.Size = New System.Drawing.Size(152, 22)
-        Me.mMenViewConfig.Text = "Config"
-        '
         'frmMainV2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -127,6 +127,7 @@ Partial Class frmMainV2
         Me.IsMdiContainer = True
         Me.Name = "frmMainV2"
         Me.Text = "dRemote"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.mainMenu.ResumeLayout(False)
         Me.ResumeLayout(False)
 

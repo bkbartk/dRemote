@@ -151,6 +151,8 @@ Public Class frmMainV2
         'End Select
         SavePanelsToXML()
         My.Settings.Beta = False
+        My.Settings.Save()
+        Threading.Thread.Sleep(500)
         System.Windows.Forms.Application.Restart()
         'Application.Exit()
         'Process.Start(Application.ExecutablePath)
