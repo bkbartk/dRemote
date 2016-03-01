@@ -147,24 +147,30 @@ namespace SharedLibraryNG
             var result = 0;
 
             foreach (var notificationEntry in NotificationEntries)
-                if (GetFocusWindow() == notificationEntry.WindowHandle && notificationEntry.KeyCode == key.vkCode)
+            {
+                try
                 {
-                    var modifierKeys = GetModifierKeyState();
-					if (!ModifierKeysMatch(notificationEntry.ModifierKeys, modifierKeys)) continue;
-
-                    var wParam = new IntPtr(msg);
-                    var lParam = new HookKeyMsgData
+                    if (GetFocusWindow() == notificationEntry.WindowHandle && notificationEntry.KeyCode == key.vkCode)
                     {
-                        KeyCode = key.vkCode,
-                        ModifierKeys = modifierKeys,
-                        WasBlocked = notificationEntry.Block,
-                    };
+                        var modifierKeys = GetModifierKeyState();
+                        if (!ModifierKeysMatch(notificationEntry.ModifierKeys, modifierKeys)) continue;
 
-                    if (!PostMessage(notificationEntry.WindowHandle, HookKeyMsg, wParam, lParam))
-                        throw new Win32Exception(Marshal.GetLastWin32Error());
+                        var wParam = new IntPtr(msg);
+                        var lParam = new HookKeyMsgData
+                        {
+                            KeyCode = key.vkCode,
+                            ModifierKeys = modifierKeys,
+                            WasBlocked = notificationEntry.Block,
+                        };
 
-                    if (notificationEntry.Block) result = 1;
+                        if (!PostMessage(notificationEntry.WindowHandle, HookKeyMsg, wParam, lParam))
+                            throw new Win32Exception(Marshal.GetLastWin32Error());
+
+                        if (notificationEntry.Block) result = 1;
+                    }
                 }
+                catch { }
+            }
 
             return result;
         }
