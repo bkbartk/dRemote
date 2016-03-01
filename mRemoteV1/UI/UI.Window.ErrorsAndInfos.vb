@@ -185,6 +185,12 @@ Namespace UI
 #End Region
 
 #Region "Public Methods"
+            Public Sub New()
+                Me.WindowType = Type.ErrorsAndInfos
+                Me.InitializeComponent()
+                Me.LayoutVertical()
+                Me.FillImageList()
+            End Sub
             Public Sub New(ByVal Panel As DockContent)
                 Me.WindowType = Type.ErrorsAndInfos
                 Me.DockPnl = Panel

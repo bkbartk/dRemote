@@ -1148,8 +1148,9 @@ Namespace App
                         MessageCollector.AddExceptionMessage(String.Format(My.Language.strConnectionsFileCouldNotBeLoadedNew, connectionsLoad.ConnectionFileName), ex, MessageClass.InformationMsg)
                         NewConnections(connectionsLoad.ConnectionFileName)
                     End If
-
-                    MessageCollector.AddExceptionMessage(String.Format(My.Language.strConnectionsFileCouldNotBeLoaded, connectionsLoad.ConnectionFileName), ex)
+                    If Not IsNothing(MessageCollector) Then
+                        MessageCollector.AddExceptionMessage(String.Format(My.Language.strConnectionsFileCouldNotBeLoaded, connectionsLoad.ConnectionFileName), ex)
+                    End If
                     If Not connectionsLoad.ConnectionFileName = GetStartupConnectionFileName() Then
                         LoadConnections(withDialog, update)
                         'Else
@@ -1165,6 +1166,14 @@ Namespace App
             ' This intentionally doesn't prune any existing backup files. We just assume the user doesn't want any new ones created.
             If My.Settings.BackupFileKeepCount = 0 Then Return
 
+            Dim t As New Thread(AddressOf CreateBackupFileBG)
+            t.SetApartmentState(Threading.ApartmentState.STA)
+            t.Start(fileName)
+        End Sub
+        Protected Shared Sub CreateBackupFileBG(ByVal fileName As String)
+            ' This intentionally doesn't prune any existing backup files. We just assume the user doesn't want any new ones created.
+            If My.Settings.BackupFileKeepCount = 0 Then Return
+
             Try
                 Dim backupFileName As String = String.Format(My.Settings.BackupFileNameFormat, fileName, DateTime.UtcNow)
                 File.Copy(fileName, backupFileName)
@@ -1172,8 +1181,7 @@ Namespace App
 
                 PruneBackupFiles(fileName)
             Catch ex As Exception
-                MessageCollector.AddExceptionMessage(My.Language.strConnectionsFileBackupFailed, ex, MessageClass.WarningMsg)
-                'Throw
+
             End Try
         End Sub
 

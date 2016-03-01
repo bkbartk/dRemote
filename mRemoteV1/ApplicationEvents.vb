@@ -26,6 +26,9 @@
 
                 GC.KeepAlive(mutex)
             End If
+            If Not My.Settings.Beta Then
+                Application.MainForm = frmMain
+            End If
         End Sub
 
         Private Function GetCurrentInstanceWindowHandle() As IntPtr

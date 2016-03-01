@@ -23,6 +23,7 @@ Public Class frmMainV2
 
         Windows.treeForm = New UI.Window.Tree()
         Windows.configForm = New UI.Window.Config()
+        Windows.errorsForm = New UI.Window.ErrorsAndInfos()
 
         'Windows.configForm = New UI.Window.Config(Windows.configPanel)
         'Windows.configPanel = Windows.configForm
@@ -33,8 +34,8 @@ Public Class frmMainV2
         Dim newPath As String = App.Info.Settings.SettingsPath & "\2" & App.Info.Settings.LayoutFileName
         If File.Exists(newPath) Then
             Try
-                resetLayout()
-                'DockPanel1.LoadFromXml(newPath, AddressOf GetContentFromPersistString)
+                'resetLayout()
+                DockPanel1.LoadFromXml(newPath, AddressOf GetContentFromPersistString)
             Catch
                 resetLayout()
             End Try
@@ -51,12 +52,12 @@ Public Class frmMainV2
                     Return Windows.configForm
                 Case GetType(UI.Window.Tree).ToString
                     Return Windows.treeForm
-                    'Case GetType(UI.Window.ErrorsAndInfos).ToString
-                    '    Return Windows.errorsPanel
-                    'Case GetType(UI.Window.Sessions).ToString
-                    '    Return Windows.sessionsPanel
-                    'Case GetType(UI.Window.ScreenshotManager).ToString
-                    '    Return Windows.screenshotPanel
+                Case GetType(UI.Window.ErrorsAndInfos).ToString
+                    Return Windows.errorsForm
+                Case GetType(UI.Window.Sessions).ToString
+                    Return Windows.sessionsForm
+                Case GetType(UI.Window.ScreenshotManager).ToString
+                    Return Windows.screenshotPanel
 
             End Select
 
@@ -107,6 +108,9 @@ Public Class frmMainV2
         btnV1.Text = "Back to dRemote V1"
         AddHandler btnV1.Click, AddressOf btnV1_Click
         menu.Items.Add(btnV1)
+
+        Startup.CreateLogger()
+        MessageCollector = New Messages.Collector(Windows.errorsForm)
 
         Dim brows As New WebBrowser
         brows.Url = New Uri(App.Info.General.UrlStart)

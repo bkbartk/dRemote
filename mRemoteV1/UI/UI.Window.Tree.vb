@@ -180,7 +180,9 @@ Namespace UI
 
                     LastSelected = dRemote.Tree.Node.GetConstantID(e.Node)
                 Catch ex As Exception
-                    MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, "tvConnections_AfterSelect (UI.Window.Tree) failed" & vbNewLine & ex.Message, True)
+                    If Not IsNothing(MessageCollector) Then
+                        MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, "tvConnections_AfterSelect (UI.Window.Tree) failed" & vbNewLine & ex.Message, True)
+                    End If
                 End Try
             End Sub
 

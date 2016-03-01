@@ -170,13 +170,15 @@ Public Class frmMain
         AddHandler brows.Navigating, AddressOf brows_Navigating
 
         Windows.dockPanel = pnlDock
-        If My.Settings.Beta Then
-            Dim frmBeta As New frmMainV2
-            frmBeta.WindowState = WindowState.Maximized
+        'If My.Settings.Beta Then
+        '    Me.Close()
+        '    Me.Dispose()
+        '    Dim frmBeta As New frmMainV2
+        '    frmBeta.WindowState = WindowState.Maximized
 
-            Me.Close()
-            frmBeta.Show()
-        End If
+
+        '    frmBeta.Show()
+        'End If
 
     End Sub
 
@@ -1106,16 +1108,16 @@ Public Class frmMain
         'Next
 
 
-        Dim frmBeta As New frmMainV2
-        frmBeta.WindowState = Me.WindowState
+        'Dim frmBeta As New frmMainV2
+        'frmBeta.WindowState = Me.WindowState
         'frmBeta.Width = Me.Width
         'frmBeta.Height = Me.Height
         'frmBeta.Top = Me.Top
         'frmBeta.Left = Me.Left
         My.Settings.Beta = True
-
-        Me.Close()
-        frmBeta.Show()
+        System.Windows.Forms.Application.Restart()
+        'Me.Close()
+        'frmBeta.Show()
 
 
     End Sub
