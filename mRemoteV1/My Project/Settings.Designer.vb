@@ -1323,33 +1323,20 @@ Namespace My
                 Me("InhDefaultPostExtApp") = value
             End Set
         End Property
-
-        <Global.System.Configuration.UserScopedSettingAttribute(),
-         Global.System.Configuration.SettingsProviderAttribute(GetType(dRemote.Config.Settings.Providers.ChooseProvider)),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.DefaultSettingValueAttribute("False")>
-        Public Property Inherit() As Boolean
-            Get
-                Return CType(Me("Inherit"), Boolean)
-            End Get
-            Set
-                Me("Inherit") = Value
-            End Set
-        End Property
-
-        <Global.System.Configuration.UserScopedSettingAttribute(),
-         Global.System.Configuration.SettingsProviderAttribute(GetType(dRemote.Config.Settings.Providers.ChooseProvider)),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.DefaultSettingValueAttribute("False")>
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Configuration.SettingsProviderAttribute(GetType(dRemote.Config.Settings.Providers.ChooseProvider)),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
         Public Property SetHostnameLikeDisplayName() As Boolean
             Get
-                Return CType(Me("SetHostnameLikeDisplayName"), Boolean)
+                Return CType(Me("SetHostnameLikeDisplayName"),Boolean)
             End Get
             Set
-                Me("SetHostnameLikeDisplayName") = Value
+                Me("SetHostnameLikeDisplayName") = value
             End Set
         End Property
-
+        
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Configuration.SettingsProviderAttribute(GetType(dRemote.Config.Settings.Providers.ChooseProvider)),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2321,35 +2308,21 @@ Namespace My
                 Me("AlwaysShowPanelTabs") = value
             End Set
         End Property
-
-        <Global.System.Configuration.UserScopedSettingAttribute(),
-         Global.System.Configuration.SettingsProviderAttribute(GetType(dRemote.Config.Settings.Providers.ChooseProvider)),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.DefaultSettingValueAttribute("False"),
-         Global.System.Configuration.SettingsManageabilityAttribute(Global.System.Configuration.SettingsManageability.Roaming)>
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Configuration.SettingsProviderAttribute(GetType(dRemote.Config.Settings.Providers.ChooseProvider)),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False"),  _
+         Global.System.Configuration.SettingsManageabilityAttribute(Global.System.Configuration.SettingsManageability.Roaming)>  _
         Public Property EachNewPanelTab() As Boolean
             Get
-                Return CType(Me("EachNewPanelTab"), Boolean)
+                Return CType(Me("EachNewPanelTab"),Boolean)
             End Get
             Set
                 Me("EachNewPanelTab") = value
             End Set
         End Property
-
-        <Global.System.Configuration.UserScopedSettingAttribute(),
-         Global.System.Configuration.SettingsProviderAttribute(GetType(dRemote.Config.Settings.Providers.ChooseProvider)),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.DefaultSettingValueAttribute("False"),
-         Global.System.Configuration.SettingsManageabilityAttribute(Global.System.Configuration.SettingsManageability.Roaming)>
-        Public Property CollapsePuttyTree() As Boolean
-            Get
-                Return CType(Me("CollapsePuttyTree"), Boolean)
-            End Get
-            Set
-                Me("CollapsePuttyTree") = Value
-            End Set
-        End Property
-
+        
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Configuration.SettingsProviderAttribute(GetType(dRemote.Config.Settings.Providers.ChooseProvider)),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2579,6 +2552,30 @@ Namespace My
             End Get
             Set
                 Me("EachNewPanelTab1") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property Inherit() As String
+            Get
+                Return CType(Me("Inherit"),String)
+            End Get
+            Set
+                Me("Inherit") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property CollapsePuttyTree() As String
+            Get
+                Return CType(Me("CollapsePuttyTree"),String)
+            End Get
+            Set
+                Me("CollapsePuttyTree") = value
             End Set
         End Property
     End Class
