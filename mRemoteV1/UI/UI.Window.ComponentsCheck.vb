@@ -496,7 +496,7 @@ Namespace UI
                     rdpClient.CreateControl()
 
                     Do Until rdpClient.Created
-                        Thread.Sleep(0)
+                        Thread.Sleep(100)
                         System.Windows.Forms.Application.DoEvents()
                     Loop
 
@@ -528,7 +528,7 @@ Namespace UI
                     VNC.CreateControl()
 
                     Do Until VNC.Created
-                        Thread.Sleep(10)
+                        Thread.Sleep(100)
                         System.Windows.Forms.Application.DoEvents()
                     Loop
 

@@ -111,6 +111,11 @@ Public Class frmMainV2
 
         Startup.CreateLogger()
         MessageCollector = New Messages.Collector(Windows.errorsForm)
+        Dim SettingsLoad As New Config.Settings.Load()
+
+        SettingsLoad.LoadExternalAppsFromXML()
+
+
 
         Dim brows As New WebBrowser
         brows.Url = New Uri(App.Info.General.UrlStart)
@@ -120,8 +125,6 @@ Public Class frmMainV2
         'SetBrowsResolution()
         DockPanel1.Controls.Add(brows)
         AddHandler brows.Navigating, AddressOf brows_Navigating
-
-
     End Sub
 
     Private Sub brows_Navigating(sender As Object, e As System.Windows.Forms.WebBrowserNavigatingEventArgs)
@@ -228,4 +231,23 @@ Public Class frmMainV2
         mMenViewConfig.Checked = Not Windows.configForm.IsHidden
     End Sub
 
+    Private Sub mMenToolsSSHTransfer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mMenToolsSSHTransfer.Click
+        App.Runtime.Windows.Show(UI.Window.Type.SSHTransfer)
+    End Sub
+
+    Private Sub mMenToolsUVNCSC_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mMenToolsUVNCSC.Click
+        App.Runtime.Windows.Show(UI.Window.Type.UltraVNCSC)
+    End Sub
+
+    Private Sub mMenToolsExternalApps_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mMenToolsExternalApps.Click
+        App.Runtime.Windows.Show(UI.Window.Type.ExternalApps)
+    End Sub
+
+    Private Sub mMenToolsPortScan_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles mMenToolsPortScan.Click
+        App.Runtime.Windows.Show(UI.Window.Type.PortScan, False)
+    End Sub
+
+    Private Sub mMenToolsComponentsCheck_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mMenToolsComponentsCheck.Click
+        App.Runtime.Windows.Show(UI.Window.Type.ComponentsCheck)
+    End Sub
 End Class

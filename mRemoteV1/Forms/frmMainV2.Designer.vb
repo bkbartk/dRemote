@@ -25,6 +25,12 @@ Partial Class frmMainV2
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMainV2))
         Me.mainMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mMenToolsSSHTransfer = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mMenToolsUVNCSC = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mMenToolsExternalApps = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mMenToolsPortScan = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mMenToolsComponentsCheck = New System.Windows.Forms.ToolStripMenuItem()
         Me.cMenLayout = New System.Windows.Forms.ToolStripMenuItem()
         Me.mMenViewResetLayout = New System.Windows.Forms.ToolStripMenuItem()
         Me.mMenViewConnections = New System.Windows.Forms.ToolStripMenuItem()
@@ -40,11 +46,56 @@ Partial Class frmMainV2
         '
         'mainMenu
         '
-        Me.mainMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cMenLayout, Me.mMenToolsUpdate, Me.mMenToolsOptions, Me.cmenTabSep1, Me.btnAmout})
+        Me.mainMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolsToolStripMenuItem, Me.cMenLayout, Me.mMenToolsUpdate, Me.mMenToolsOptions, Me.cmenTabSep1, Me.btnAmout})
         Me.mainMenu.Name = "cmenTab"
         Me.mainMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-        Me.mainMenu.Size = New System.Drawing.Size(172, 98)
+        Me.mainMenu.Size = New System.Drawing.Size(172, 142)
         Me.mainMenu.Text = "File"
+        '
+        'ToolsToolStripMenuItem
+        '
+        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mMenToolsSSHTransfer, Me.mMenToolsUVNCSC, Me.mMenToolsExternalApps, Me.mMenToolsPortScan, Me.mMenToolsComponentsCheck})
+        Me.ToolsToolStripMenuItem.Image = Global.dRemote.My.Resources.Resources.Options
+        Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
+        Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
+        Me.ToolsToolStripMenuItem.Text = "Tools"
+        '
+        'mMenToolsSSHTransfer
+        '
+        Me.mMenToolsSSHTransfer.Image = Global.dRemote.My.Resources.Resources.SSHTransfer
+        Me.mMenToolsSSHTransfer.Name = "mMenToolsSSHTransfer"
+        Me.mMenToolsSSHTransfer.Size = New System.Drawing.Size(184, 22)
+        Me.mMenToolsSSHTransfer.Text = "SSH File Transfer"
+        '
+        'mMenToolsUVNCSC
+        '
+        Me.mMenToolsUVNCSC.Image = Global.dRemote.My.Resources.Resources.UVNC_SC
+        Me.mMenToolsUVNCSC.Name = "mMenToolsUVNCSC"
+        Me.mMenToolsUVNCSC.Size = New System.Drawing.Size(184, 22)
+        Me.mMenToolsUVNCSC.Text = "UltraVNC SingleClick"
+        Me.mMenToolsUVNCSC.Visible = False
+        '
+        'mMenToolsExternalApps
+        '
+        Me.mMenToolsExternalApps.Image = Global.dRemote.My.Resources.Resources.ExtApp
+        Me.mMenToolsExternalApps.Name = "mMenToolsExternalApps"
+        Me.mMenToolsExternalApps.Size = New System.Drawing.Size(184, 22)
+        Me.mMenToolsExternalApps.Text = "External Applications"
+        '
+        'mMenToolsPortScan
+        '
+        Me.mMenToolsPortScan.Image = Global.dRemote.My.Resources.Resources.PortScan
+        Me.mMenToolsPortScan.Name = "mMenToolsPortScan"
+        Me.mMenToolsPortScan.Size = New System.Drawing.Size(184, 22)
+        Me.mMenToolsPortScan.Text = "Port Scan"
+        '
+        'mMenToolsComponentsCheck
+        '
+        Me.mMenToolsComponentsCheck.Enabled = False
+        Me.mMenToolsComponentsCheck.Image = Global.dRemote.My.Resources.Resources.cog_error
+        Me.mMenToolsComponentsCheck.Name = "mMenToolsComponentsCheck"
+        Me.mMenToolsComponentsCheck.Size = New System.Drawing.Size(184, 22)
+        Me.mMenToolsComponentsCheck.Text = "Components Check"
         '
         'cMenLayout
         '
@@ -88,7 +139,7 @@ Partial Class frmMainV2
         '
         'mMenToolsOptions
         '
-        Me.mMenToolsOptions.Image = CType(resources.GetObject("mMenToolsOptions.Image"), System.Drawing.Image)
+        Me.mMenToolsOptions.Image = Global.dRemote.My.Resources.Resources.Config
         Me.mMenToolsOptions.Name = "mMenToolsOptions"
         Me.mMenToolsOptions.Size = New System.Drawing.Size(171, 22)
         Me.mMenToolsOptions.Text = "Options"
@@ -144,4 +195,10 @@ Partial Class frmMainV2
     Friend WithEvents mMenViewResetLayout As ToolStripMenuItem
     Friend WithEvents mMenViewConnections As ToolStripMenuItem
     Friend WithEvents mMenViewConfig As ToolStripMenuItem
+    Friend WithEvents ToolsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents mMenToolsUVNCSC As ToolStripMenuItem
+    Friend WithEvents mMenToolsComponentsCheck As ToolStripMenuItem
+    Friend WithEvents mMenToolsPortScan As ToolStripMenuItem
+    Friend WithEvents mMenToolsExternalApps As ToolStripMenuItem
+    Friend WithEvents mMenToolsSSHTransfer As ToolStripMenuItem
 End Class

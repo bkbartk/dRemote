@@ -20,6 +20,9 @@ Namespace Config
 #End Region
 
 #Region "Public Methods"
+            Public Sub New()
+
+            End Sub
             Public Sub New(ByVal MainForm As frmMain)
                 Me._MainForm = MainForm
             End Sub
@@ -207,15 +210,10 @@ Namespace Config
             End Sub
 
             Public Sub LoadExternalAppsFromXML()
-                Dim oldPath As String = GetFolderPath(SpecialFolder.LocalApplicationData) & "\" & My.Application.Info.ProductName & "\" & App.Info.Settings.ExtAppsFilesName
                 Dim newPath As String = App.Info.Settings.SettingsPath & "\" & App.Info.Settings.ExtAppsFilesName
                 Dim xDom As New XmlDocument()
                 If File.Exists(newPath) Then
                     xDom.Load(newPath)
-#If Not PORTABLE Then
-                ElseIf File.Exists(oldPath) Then
-                    xDom.Load(oldPath)
-#End If
                 Else
                     Exit Sub
                 End If
@@ -237,11 +235,12 @@ Namespace Config
                     ExternalTools.Add(extA)
                 Next
 
-                MainForm.SwitchToolBarText(My.Settings.ExtAppsTBShowText)
-
                 xDom = Nothing
+                If Not My.Settings.Beta Then
+                    MainForm.SwitchToolBarText(My.Settings.ExtAppsTBShowText)
+                    frmMain.AddExternalToolsToToolBar()
+                End If
 
-                frmMain.AddExternalToolsToToolBar()
             End Sub
 #End Region
 

@@ -109,7 +109,6 @@ Namespace Connection
                         _rdpClient.AdvancedSettings7.EnableCredSspSupport = _connectionInfo.UseCredSsp
                     End If
 
-
                     Me.SetUseConsoleSession()
                     Me.SetPort()
                     RedirectKeys = _connectionInfo.RedirectKeys
