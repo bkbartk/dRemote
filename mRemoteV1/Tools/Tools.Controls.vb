@@ -154,6 +154,7 @@ Namespace Tools
             Private Sub ShowForm()
                 mainform.Show()
                 mainform.WindowState = PreviousWindowState
+                mainform.Activate()
 
                 If My.Settings.ShowSystemTrayIcon = False Then
                     App.Runtime.NotificationAreaIcon.Dispose()
