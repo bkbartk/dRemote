@@ -707,8 +707,10 @@ Namespace Config
                     RootTreeNode.EnsureVisible()
 
                     If Not import Then IsConnectionsFileLoaded = True
-                    Windows.treeForm.InitialRefresh()
-                    SetSelectedNode(RootTreeNode)
+                    If Not My.Settings.Beta Then
+                        Windows.treeForm.InitialRefresh()
+                        SetSelectedNode(RootTreeNode)
+                    End If
                 Catch ex As Exception
                     App.Runtime.IsConnectionsFileLoaded = False
                     MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, My.Language.strLoadFromXmlFailed & vbNewLine & ex.Message & vbNewLine & ex.StackTrace, True)

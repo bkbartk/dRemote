@@ -152,6 +152,8 @@ Public Class frmMainV2
         '    Case MsgBoxResult.Cancel
         '        Return
         'End Select
+
+        SaveConnections()
         SavePanelsToXML()
         My.Settings.Beta = False
         My.Settings.Save()
@@ -168,6 +170,7 @@ Public Class frmMainV2
         '    Case MsgBoxResult.Cancel
         '        Return
         'End Select
+        SaveConnections()
         SavePanelsToXML()
         System.Windows.Forms.Application.Exit()
     End Sub
