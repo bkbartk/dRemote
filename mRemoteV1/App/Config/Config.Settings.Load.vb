@@ -27,7 +27,7 @@ Namespace Config
                 Me._MainForm = MainForm
             End Sub
 
-            Public Sub Load()
+            Public Sub Load(Sender As Form)
                 Try
                     With Me._MainForm
                         ' Migrate settings from previous version
@@ -48,7 +48,7 @@ Namespace Config
                         App.SupportedCultures.InstantiateSingleton()
                         If Not My.Settings.OverrideUICulture = "" And App.SupportedCultures.IsNameSupported(My.Settings.OverrideUICulture) Then
                             Threading.Thread.CurrentThread.CurrentUICulture = New Globalization.CultureInfo(My.Settings.OverrideUICulture)
-                            log.InfoFormat("Override Culture: {0}/{1}", Threading.Thread.CurrentThread.CurrentUICulture.Name, Threading.Thread.CurrentThread.CurrentUICulture.NativeName)
+                            Log.InfoFormat("Override Culture: {0}/{1}", Threading.Thread.CurrentThread.CurrentUICulture.Name, Threading.Thread.CurrentThread.CurrentUICulture.NativeName)
                         End If
 
                         Themes.ThemeManager.LoadTheme(My.Settings.ThemeName)
@@ -98,7 +98,7 @@ Namespace Config
                         End If
 
                         If My.Settings.ShowSystemTrayIcon Then
-                            App.Runtime.NotificationAreaIcon = New Tools.Controls.NotificationAreaIcon()
+                            App.Runtime.NotificationAreaIcon = New Tools.Controls.NotificationAreaIcon(Sender)
                         End If
 
                         If My.Settings.AutoSaveEveryMinutes > 0 Then

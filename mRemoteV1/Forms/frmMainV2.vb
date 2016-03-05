@@ -115,6 +115,8 @@ Public Class frmMainV2
 
         SettingsLoad.LoadExternalAppsFromXML()
 
+        ' Load GUI Configuration
+        SettingsLoad.Load(Me)
 
 
         Dim brows As New WebBrowser
@@ -162,6 +164,18 @@ Public Class frmMainV2
         'Application.Exit()
         'Process.Start(Application.ExecutablePath)
 
+    End Sub
+    Private Sub frmMainV2_Resize(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Resize
+        If WindowState = FormWindowState.Minimized Then
+            If My.Settings.MinimizeToTray Then
+                If NotificationAreaIcon Is Nothing Then
+                    NotificationAreaIcon = New Tools.Controls.NotificationAreaIcon(Me)
+                End If
+                Hide()
+            End If
+        Else
+            App.Runtime.PreviousWindowState = WindowState
+        End If
     End Sub
     Private Sub frmMainV2_Closed(sender As Object, e As EventArgs) Handles Me.Closed
         'Select Case MsgBox("Save Connection?", MsgBoxStyle.YesNoCancel Or MsgBoxStyle.Question)

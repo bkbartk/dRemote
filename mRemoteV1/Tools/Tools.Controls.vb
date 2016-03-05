@@ -5,6 +5,7 @@ Namespace Tools
     Public Class Controls
         Public Class ComboBoxItem
             Private _Text As String
+
             Public Property Text() As String
                 Get
                     Return Me._Text
@@ -45,6 +46,8 @@ Namespace Tools
             Private _cMenSep1 As ToolStripSeparator
             Private _cMenExit As ToolStripMenuItem
 
+            Private mainform As Form
+
             Private _Disposed As Boolean
             Public Property Disposed() As Boolean
                 Get
@@ -55,13 +58,13 @@ Namespace Tools
                 End Set
             End Property
 
-
             'Public Event MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs)
             'Public Event MouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs)
 
 
-            Public Sub New()
+            Public Sub New(Sender As Form)
                 Try
+                    mainform = Sender
                     Me._cMenCons = New ToolStripMenuItem
                     Me._cMenCons.Text = My.Language.strConnections
                     Me._cMenCons.Image = My.Resources.Root
@@ -78,9 +81,9 @@ Namespace Tools
                     Me._cMen.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me._cMenCons, Me._cMenSep1, Me._cMenExit})
 
                     Me._nI = New NotifyIcon
-                    Me._nI.Text = "mRemote"
-                    Me._nI.BalloonTipText = "mRemote"
-                    Me._nI.Icon = My.Resources.mRemote_Icon
+                    Me._nI.Text = "dRemote"
+                    Me._nI.BalloonTipText = "dRemote"
+                    Me._nI.Icon = My.Resources.dRemote
                     Me._nI.ContextMenuStrip = Me._cMen
                     Me._nI.Visible = True
 
@@ -141,7 +144,7 @@ Namespace Tools
             End Sub
 
             Private Sub nI_MouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs)
-                If frmMain.Visible = True Then
+                If mainform.Visible = True Then
                     HideForm()
                 Else
                     ShowForm()
@@ -149,8 +152,8 @@ Namespace Tools
             End Sub
 
             Private Sub ShowForm()
-                frmMain.Show()
-                frmMain.WindowState = frmMain.PreviousWindowState
+                mainform.Show()
+                mainform.WindowState = PreviousWindowState
 
                 If My.Settings.ShowSystemTrayIcon = False Then
                     App.Runtime.NotificationAreaIcon.Dispose()
@@ -159,20 +162,21 @@ Namespace Tools
             End Sub
 
             Private Sub HideForm()
-                frmMain.Hide()
-                frmMain.PreviousWindowState = frmMain.WindowState
+                mainform.Hide()
+                App.Runtime.PreviousWindowState = mainform.WindowState
             End Sub
 
             Private Sub ConMenItem_MouseUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs)
                 If e.Button = MouseButtons.Left Then
                     If TypeOf sender.Tag Is Connection.Info Then
-                        If frmMain.Visible = False Then ShowForm()
+                        If mainform.Visible = False Then ShowForm()
                         App.Runtime.OpenConnection(sender.Tag)
                     End If
                 End If
             End Sub
 
             Private Sub cMenExit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+                SaveConnections()
                 App.Runtime.Shutdown.Quit()
             End Sub
         End Class

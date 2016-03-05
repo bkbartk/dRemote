@@ -732,7 +732,9 @@
     <None Include="bin\Debug Portable\confCons.xml.20160204-1844310470.backup" />
     <None Include="bin\Debug Portable\confCons.xml.backup" />
     <None Include="bin\Debug Portable\mRemoteNG.application" />
-    <None Include="bin\Debug Portable\mRemoteNG.exe.config" />
+    <None Include="bin\Debug Portable\mRemoteNG.exe.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="bin\Debug Portable\mRemoteNG.exe.manifest" />
     <None Include="bin\Debug Portable\mRemoteNG.log" />
     <None Include="bin\Debug Portable\mRemoteNG.vshost.application" />
@@ -1084,7 +1086,6 @@
     <None Include="Resources\Icons\ComponentsCheck_Icon.ico" />
     <None Include="Resources\Icons_FamFamFam\News_Icon.ico" />
     <None Include="Resources\Images_FamFamFam\News.png" />
-    <None Include="Resources\Announcement\mRemote_Announcement.txt" />
     <Content Include="Help\Main.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -1189,7 +1190,9 @@
     <None Include="Resources\Icons\mRemote_Icon.ico" />
     <None Include="Resources\Icons\Sessions_Icon.ico" />
     <None Include="Resources\Icons\Info_Icon.ico" />
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="My Project\Settings.settings">
       <CustomToolNamespace>My</CustomToolNamespace>
       <Generator>SettingsSingleFileGenerator</Generator>

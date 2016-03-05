@@ -14,15 +14,15 @@ Imports dRemote.Config
 Imports dRemote.Themes
 
 Public Class frmMain
-    Private _previousWindowState As FormWindowState
-    Public Property PreviousWindowState As FormWindowState
-        Get
-            Return _previousWindowState
-        End Get
-        Set(value As FormWindowState)
-            _previousWindowState = value
-        End Set
-    End Property
+    'Private _previousWindowState As FormWindowState
+    'Public Property PreviousWindowState As FormWindowState
+    '    Get
+    '        Return _previousWindowState
+    '    End Get
+    '    Set(value As FormWindowState)
+    '        _previousWindowState = value
+    '    End Set
+    'End Property
     Public Shared Event clipboardchange()
     Private fpChainedWindowHandle As IntPtr
 
@@ -102,7 +102,7 @@ Public Class frmMain
         Dim SettingsLoad As New Config.Settings.Load(Me)
 
         ' Load GUI Configuration
-        SettingsLoad.Load()
+        SettingsLoad.Load(Me)
 
         Debug.Print("---------------------------" & vbNewLine & "[START] - " & Now)
 
@@ -891,12 +891,12 @@ Public Class frmMain
         If WindowState = FormWindowState.Minimized Then
             If My.Settings.MinimizeToTray Then
                 If NotificationAreaIcon Is Nothing Then
-                    NotificationAreaIcon = New Tools.Controls.NotificationAreaIcon()
+                    NotificationAreaIcon = New Tools.Controls.NotificationAreaIcon(Me)
                 End If
                 Hide()
             End If
         Else
-            PreviousWindowState = WindowState
+            App.Runtime.PreviousWindowState = WindowState
         End If
     End Sub
 

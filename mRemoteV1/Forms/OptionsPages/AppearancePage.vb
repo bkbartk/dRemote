@@ -60,7 +60,7 @@ Namespace Forms.OptionsPages
             Settings.ShowSystemTrayIcon = chkShowSystemTrayIcon.Checked
             If Settings.ShowSystemTrayIcon Then
                 If Runtime.NotificationAreaIcon Is Nothing Then
-                    Runtime.NotificationAreaIcon = New Tools.Controls.NotificationAreaIcon
+                    Runtime.NotificationAreaIcon = New Tools.Controls.NotificationAreaIcon(frmMainV2)
                 End If
             Else
                 If Runtime.NotificationAreaIcon IsNot Nothing Then

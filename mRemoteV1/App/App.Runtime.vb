@@ -118,6 +118,16 @@ Namespace App
             End Set
         End Property
 
+        Private Shared _PreviousWindowState As FormWindowState
+        Public Shared Property PreviousWindowState() As FormWindowState
+            Get
+                Return _PreviousWindowState
+            End Get
+            Set(ByVal value As FormWindowState)
+                _PreviousWindowState = value
+            End Set
+        End Property
+
         Private Shared _systemMenu As Tools.SystemMenu
         Public Shared Property SystemMenu() As SystemMenu
             Get

@@ -127,6 +127,9 @@
   <data name="Collapse" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\Collapse.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="dRemote" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\dRemote.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ErrorSmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\ErrorSmall.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
