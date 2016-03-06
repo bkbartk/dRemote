@@ -17,7 +17,6 @@ Namespace UI
             PortScan = 14
             UltraVNCSC = 16
             ComponentsCheck = 17
-            Announcement = 18
         End Enum
     End Namespace
 End Namespace

@@ -105,7 +105,7 @@ Public Class frmMainV2
 
         Dim btnV1 As New ActiveButton()
         btnV1.BackColor = Color.Transparent
-        btnV1.Text = "Back to dRemote V1"
+        btnV1.Text = "dRemote classic"
         AddHandler btnV1.Click, AddressOf btnV1_Click
         menu.Items.Add(btnV1)
 
@@ -262,9 +262,5 @@ Public Class frmMainV2
 
     Private Sub mMenToolsPortScan_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles mMenToolsPortScan.Click
         App.Runtime.Windows.Show(UI.Window.Type.PortScan, False)
-    End Sub
-
-    Private Sub mMenToolsComponentsCheck_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mMenToolsComponentsCheck.Click
-        App.Runtime.Windows.Show(UI.Window.Type.ComponentsCheck)
     End Sub
 End Class

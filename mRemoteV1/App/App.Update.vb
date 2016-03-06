@@ -104,14 +104,6 @@ Namespace App
             Return _currentUpdateInfo.Version > My.Application.Info.Version
         End Function
 
-        Public Function IsAnnouncementAvailable() As Boolean
-            If _currentAnnouncementInfo Is Nothing OrElse _
-                (Not _currentAnnouncementInfo.IsValid Or _
-                 String.IsNullOrEmpty(_currentAnnouncementInfo.Name)) Then Return False
-
-            Return (Not _currentAnnouncementInfo.Name = My.Settings.LastAnnouncement)
-        End Function
-
         Public Sub GetUpdateInfoAsync()
             If IsGetUpdateInfoRunning Then _getUpdateInfoThread.Abort()
 

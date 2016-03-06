@@ -253,8 +253,6 @@ Namespace App
             Public Shared ultravncscPanel As New DockContent
             Public Shared componentscheckForm As UI.Window.ComponentsCheck
             Public Shared componentscheckPanel As New DockContent
-            Public Shared AnnouncementForm As UI.Window.Announcement
-            Public Shared AnnouncementPanel As New DockContent
 
             Public Shared Sub Show(ByVal windowType As UI.Window.Type, Optional ByVal portScanImport As Boolean = False)
                 Try
@@ -322,13 +320,6 @@ Namespace App
                             End If
 
                             componentscheckForm.Show(dockPanel)
-                        Case UI.Window.Type.Announcement
-                            If AnnouncementForm Is Nothing OrElse AnnouncementForm.IsDisposed Then
-                                AnnouncementForm = New UI.Window.Announcement(AnnouncementPanel)
-                                AnnouncementPanel = AnnouncementForm
-                            End If
-
-                            AnnouncementForm.Show(dockPanel)
                     End Select
                 Catch ex As Exception
                     MessageCollector.AddMessage(MessageClass.ErrorMsg, "App.Runtime.Windows.Show() failed." & vbNewLine & ex.Message, True)
@@ -429,10 +420,6 @@ Namespace App
 
                 Windows.updateForm = New UI.Window.Update(Windows.updatePanel)
                 Windows.updatePanel = Windows.updateForm
-
-                Windows.AnnouncementForm = New UI.Window.Announcement(Windows.AnnouncementPanel)
-                Windows.AnnouncementPanel = Windows.AnnouncementForm
-
 
             End Sub
 
@@ -560,35 +547,6 @@ Namespace App
                     If _appUpdate.IsUpdateAvailable() Then Windows.Show(UI.Window.Type.Update)
                 Catch ex As Exception
                     MessageCollector.AddExceptionMessage("GetUpdateInfoCompleted() failed.", ex, MessageClass.ErrorMsg, True)
-                End Try
-            End Sub
-
-            Public Shared Sub CheckForAnnouncement()
-                If _appUpdate Is Nothing Then
-                    _appUpdate = New Update
-                ElseIf _appUpdate.IsGetAnnouncementInfoRunning Then
-                    Return
-                End If
-
-                AddHandler _appUpdate.GetAnnouncementInfoCompletedEvent, AddressOf GetAnnouncementInfoCompleted
-                _appUpdate.GetAnnouncementInfoAsync()
-            End Sub
-
-            Private Shared Sub GetAnnouncementInfoCompleted(ByVal sender As Object, ByVal e As AsyncCompletedEventArgs)
-                If MainForm.InvokeRequired Then
-                    MainForm.Invoke(New AsyncCompletedEventHandler(AddressOf GetAnnouncementInfoCompleted), New Object() {sender, e})
-                    Return
-                End If
-
-                Try
-                    RemoveHandler _appUpdate.GetAnnouncementInfoCompletedEvent, AddressOf GetAnnouncementInfoCompleted
-
-                    If e.Cancelled Then Return
-                    If e.Error IsNot Nothing Then Throw e.Error
-
-                    If _appUpdate.IsAnnouncementAvailable() Then Windows.Show(UI.Window.Type.Announcement)
-                Catch ex As Exception
-                    MessageCollector.AddExceptionMessage("GetAnnouncementInfoCompleted() failed.", ex, MessageClass.ErrorMsg, True)
                 End Try
             End Sub
 

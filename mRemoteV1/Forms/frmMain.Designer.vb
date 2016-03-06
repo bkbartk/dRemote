@@ -82,10 +82,10 @@ Partial Class frmMain
         Me.mMenInfoForum = New System.Windows.Forms.ToolStripMenuItem()
         Me.mMenInfoBugReport = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.mMenInfoAnnouncements = New System.Windows.Forms.ToolStripMenuItem()
         Me.mMenToolsUpdate = New System.Windows.Forms.ToolStripMenuItem()
         Me.mMenInfoSep2 = New System.Windows.Forms.ToolStripSeparator()
         Me.mMenInfoAbout = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DRemoteV2BetaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.mMenSep3 = New System.Windows.Forms.ToolStripSeparator()
         Me.lblQuickConnect = New System.Windows.Forms.ToolStripLabel()
         Me.cmbQuickConnect = New dRemote.Controls.QuickConnectComboBox()
@@ -106,7 +106,6 @@ Partial Class frmMain
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.tmrAutoSave = New System.Windows.Forms.Timer(Me.components)
-        Me.DRemoteV2BetaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.msMain.SuspendLayout()
         Me.tsContainer.ContentPanel.SuspendLayout()
         Me.tsContainer.TopToolStripPanel.SuspendLayout()
@@ -137,7 +136,7 @@ Partial Class frmMain
         Me.msMain.Location = New System.Drawing.Point(3, 0)
         Me.msMain.Name = "msMain"
         Me.msMain.Padding = New System.Windows.Forms.Padding(2, 2, 0, 2)
-        Me.msMain.Size = New System.Drawing.Size(382, 24)
+        Me.msMain.Size = New System.Drawing.Size(290, 24)
         Me.msMain.Stretch = False
         Me.msMain.TabIndex = 16
         Me.msMain.Text = "Main Toolbar"
@@ -483,7 +482,7 @@ Partial Class frmMain
         '
         'mMenInfo
         '
-        Me.mMenInfo.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mMenInfoHelp, Me.mMenInfoSep1, Me.mMenInfoWebsite, Me.mMenInfoDonate, Me.mMenInfoForum, Me.mMenInfoBugReport, Me.ToolStripSeparator2, Me.mMenInfoAnnouncements, Me.mMenToolsUpdate, Me.mMenInfoSep2, Me.mMenInfoAbout})
+        Me.mMenInfo.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mMenInfoHelp, Me.mMenInfoSep1, Me.mMenInfoWebsite, Me.mMenInfoDonate, Me.mMenInfoForum, Me.mMenInfoBugReport, Me.ToolStripSeparator2, Me.mMenToolsUpdate, Me.mMenInfoSep2, Me.mMenInfoAbout})
         Me.mMenInfo.Name = "mMenInfo"
         Me.mMenInfo.Size = New System.Drawing.Size(44, 20)
         Me.mMenInfo.Text = "&Help"
@@ -535,13 +534,6 @@ Partial Class frmMain
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
         Me.ToolStripSeparator2.Size = New System.Drawing.Size(168, 6)
         '
-        'mMenInfoAnnouncements
-        '
-        Me.mMenInfoAnnouncements.Image = Global.dRemote.My.Resources.Resources.News
-        Me.mMenInfoAnnouncements.Name = "mMenInfoAnnouncements"
-        Me.mMenInfoAnnouncements.Size = New System.Drawing.Size(171, 22)
-        Me.mMenInfoAnnouncements.Text = "Announcements"
-        '
         'mMenToolsUpdate
         '
         Me.mMenToolsUpdate.Image = Global.dRemote.My.Resources.Resources.Update
@@ -560,6 +552,12 @@ Partial Class frmMain
         Me.mMenInfoAbout.Name = "mMenInfoAbout"
         Me.mMenInfoAbout.Size = New System.Drawing.Size(171, 22)
         Me.mMenInfoAbout.Text = "About dRemote"
+        '
+        'DRemoteV2BetaToolStripMenuItem
+        '
+        Me.DRemoteV2BetaToolStripMenuItem.Name = "DRemoteV2BetaToolStripMenuItem"
+        Me.DRemoteV2BetaToolStripMenuItem.Size = New System.Drawing.Size(109, 20)
+        Me.DRemoteV2BetaToolStripMenuItem.Text = "dRemoteV2 Beta!"
         '
         'mMenSep3
         '
@@ -745,12 +743,6 @@ Partial Class frmMain
         '
         Me.tmrAutoSave.Interval = 10000
         '
-        'DRemoteV2BetaToolStripMenuItem
-        '
-        Me.DRemoteV2BetaToolStripMenuItem.Name = "DRemoteV2BetaToolStripMenuItem"
-        Me.DRemoteV2BetaToolStripMenuItem.Size = New System.Drawing.Size(109, 20)
-        Me.DRemoteV2BetaToolStripMenuItem.Text = "dRemoteV2 Beta!"
-        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -829,7 +821,6 @@ Partial Class frmMain
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents mMenToolsUVNCSC As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents mMenToolsComponentsCheck As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents mMenInfoAnnouncements As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents mMenInfoSep2 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents mMenInfoBugReport As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator2 As System.Windows.Forms.ToolStripSeparator

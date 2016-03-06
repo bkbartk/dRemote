@@ -30,7 +30,6 @@ Partial Class frmMainV2
         Me.mMenToolsUVNCSC = New System.Windows.Forms.ToolStripMenuItem()
         Me.mMenToolsExternalApps = New System.Windows.Forms.ToolStripMenuItem()
         Me.mMenToolsPortScan = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mMenToolsComponentsCheck = New System.Windows.Forms.ToolStripMenuItem()
         Me.cMenLayout = New System.Windows.Forms.ToolStripMenuItem()
         Me.mMenViewResetLayout = New System.Windows.Forms.ToolStripMenuItem()
         Me.mMenViewConnections = New System.Windows.Forms.ToolStripMenuItem()
@@ -54,7 +53,7 @@ Partial Class frmMainV2
         '
         'ToolsToolStripMenuItem
         '
-        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mMenToolsSSHTransfer, Me.mMenToolsUVNCSC, Me.mMenToolsExternalApps, Me.mMenToolsPortScan, Me.mMenToolsComponentsCheck})
+        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mMenToolsSSHTransfer, Me.mMenToolsUVNCSC, Me.mMenToolsExternalApps, Me.mMenToolsPortScan})
         Me.ToolsToolStripMenuItem.Image = Global.dRemote.My.Resources.Resources.Options
         Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
         Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
@@ -88,14 +87,6 @@ Partial Class frmMainV2
         Me.mMenToolsPortScan.Name = "mMenToolsPortScan"
         Me.mMenToolsPortScan.Size = New System.Drawing.Size(184, 22)
         Me.mMenToolsPortScan.Text = "Port Scan"
-        '
-        'mMenToolsComponentsCheck
-        '
-        Me.mMenToolsComponentsCheck.Enabled = False
-        Me.mMenToolsComponentsCheck.Image = Global.dRemote.My.Resources.Resources.cog_error
-        Me.mMenToolsComponentsCheck.Name = "mMenToolsComponentsCheck"
-        Me.mMenToolsComponentsCheck.Size = New System.Drawing.Size(184, 22)
-        Me.mMenToolsComponentsCheck.Text = "Components Check"
         '
         'cMenLayout
         '
@@ -197,7 +188,6 @@ Partial Class frmMainV2
     Friend WithEvents mMenViewConfig As ToolStripMenuItem
     Friend WithEvents ToolsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents mMenToolsUVNCSC As ToolStripMenuItem
-    Friend WithEvents mMenToolsComponentsCheck As ToolStripMenuItem
     Friend WithEvents mMenToolsPortScan As ToolStripMenuItem
     Friend WithEvents mMenToolsExternalApps As ToolStripMenuItem
     Friend WithEvents mMenToolsSSHTransfer As ToolStripMenuItem

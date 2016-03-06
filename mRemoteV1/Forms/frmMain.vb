@@ -146,11 +146,8 @@ Public Class frmMain
             Windows.Show(UI.Window.Type.ComponentsCheck)
         End If
 
-        '#If PORTABLE Then
-        mMenInfoAnnouncements.Visible = False
-        'mMenToolsUpdate.Visible = False
+
         mMenInfoSep2.Visible = False
-        '#End If
 
         Startup.CreateSQLUpdateHandlerAndStartTimer()
 
@@ -249,7 +246,6 @@ Public Class frmMain
         mMenInfoDonate.Text = My.Language.strMenuDonate
         mMenInfoWebsite.Text = My.Language.strMenuWebsite
         mMenInfoAbout.Text = My.Language.strMenuAbout
-        mMenInfoAnnouncements.Text = My.Language.strMenuAnnouncements
 
         lblQuickConnect.Text = My.Language.strLabelConnect
         btnQuickConnect.Text = My.Language.strMenuConnect
@@ -330,7 +326,6 @@ Public Class frmMain
         If My.Settings.UpdatePending Or Date.UtcNow > nextUpdateCheck Then
             If Not IsHandleCreated Then CreateHandle() ' Make sure the handle is created so that InvokeRequired returns the correct result
             Startup.CheckForUpdate()
-            Startup.CheckForAnnouncement()
         End If
     End Sub
 
@@ -823,10 +818,6 @@ Public Class frmMain
 
     Private Sub mMenInfoDonate_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mMenInfoDonate.Click
         App.Runtime.GoToDonate()
-    End Sub
-
-    Private Sub mMenInfoAnnouncements_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mMenInfoAnnouncements.Click
-        App.Runtime.Windows.Show(UI.Window.Type.Announcement)
     End Sub
 
     Private Sub mMenInfoAbout_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mMenInfoAbout.Click

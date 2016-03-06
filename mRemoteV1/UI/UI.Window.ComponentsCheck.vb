@@ -518,7 +518,7 @@ Namespace UI
                     MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, ex.Message, True)
                 End Try
 
-                If rdpClient IsNot Nothing Then rdpClient.Dispose()
+                'If rdpClient IsNot Nothing Then rdpClient.Dispose()
 
 
                 Dim VNC As VncSharp.RemoteDesktop = Nothing
@@ -571,33 +571,33 @@ Namespace UI
                 End If
 
 
-                Dim ICA As AxWFICALib.AxICAClient = Nothing
+                'Dim ICA As AxWFICALib.AxICAClient = Nothing
 
-                Try
-                    ICA = New AxWFICALib.AxICAClient
-                    ICA.Parent = Me
-                    ICA.CreateControl()
+                'Try
+                '    ICA = New AxWFICALib.AxICAClient
+                '    ICA.Parent = Me
+                '    ICA.CreateControl()
 
-                    Do Until ICA.Created
-                        Thread.Sleep(10)
-                        System.Windows.Forms.Application.DoEvents()
-                    Loop
+                '    Do Until ICA.Created
+                '        Thread.Sleep(10)
+                '        System.Windows.Forms.Application.DoEvents()
+                '    Loop
 
-                    pbCheck4.Image = My.Resources.Good_Symbol
-                    lblCheck4.ForeColor = Color.DarkOliveGreen
-                    lblCheck4.Text = "ICA (Citrix ICA) " & My.Language.strCcCheckSucceeded
-                    txtCheck4.Text = String.Format(My.Language.strCcICAOK, ICA.Version)
-                Catch ex As Exception
-                    pbCheck4.Image = My.Resources.Bad_Symbol
-                    lblCheck4.ForeColor = Color.Firebrick
-                    lblCheck4.Text = "ICA (Citrix ICA) " & My.Language.strCcCheckFailed
-                    txtCheck4.Text = My.Language.strCcICAFailed
+                '    pbCheck4.Image = My.Resources.Good_Symbol
+                '    lblCheck4.ForeColor = Color.DarkOliveGreen
+                '    lblCheck4.Text = "ICA (Citrix ICA) " & My.Language.strCcCheckSucceeded
+                '    txtCheck4.Text = String.Format(My.Language.strCcICAOK, ICA.Version)
+                'Catch ex As Exception
+                '    pbCheck4.Image = My.Resources.Bad_Symbol
+                '    lblCheck4.ForeColor = Color.Firebrick
+                '    lblCheck4.Text = "ICA (Citrix ICA) " & My.Language.strCcCheckFailed
+                '    txtCheck4.Text = My.Language.strCcICAFailed
 
-                    MessageCollector.AddMessage(Messages.MessageClass.WarningMsg, "ICA " & errorMsg, True)
-                    MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, ex.Message, True)
-                End Try
+                '    MessageCollector.AddMessage(Messages.MessageClass.WarningMsg, "ICA " & errorMsg, True)
+                '    MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, ex.Message, True)
+                'End Try
 
-                If ICA IsNot Nothing Then ICA.Dispose()
+                'If ICA IsNot Nothing Then ICA.Dispose()
 
 
                 Dim GeckoBad As Boolean = False
