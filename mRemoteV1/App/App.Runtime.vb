@@ -243,7 +243,6 @@ Namespace App
             Public Shared sshtransferPanel As New DockContent
             Public Shared adimportForm As UI.Window.ActiveDirectoryImport
             Public Shared adimportPanel As New DockContent
-            Public Shared helpForm As UI.Window.Help
             Public Shared helpPanel As New DockContent
             Public Shared externalappsForm As UI.Window.ExternalTools
             Public Shared externalappsPanel As New DockContent
@@ -287,13 +286,6 @@ Namespace App
                             End If
 
                             updateForm.Show(dockPanel)
-                        Case UI.Window.Type.Help
-                            If helpForm Is Nothing OrElse helpForm.IsDisposed Then
-                                helpForm = New UI.Window.Help(helpPanel)
-                                helpPanel = helpForm
-                            End If
-
-                            helpForm.Show(dockPanel)
                         Case UI.Window.Type.ExternalApps
                             If externalappsForm Is Nothing OrElse externalappsForm.IsDisposed Then
                                 externalappsForm = New UI.Window.ExternalTools(externalappsPanel)
@@ -1415,8 +1407,10 @@ Namespace App
                 conform.Icon = conIcon
             End If
             conform.Text = newConnectionInfo.Name
-            newProtocol.Control.Height = conform.Height
-            newProtocol.Control.Width = conform.Width
+            If Not IsNothing(newProtocol.Control) Then
+                newProtocol.Control.Height = conform.Height
+                newProtocol.Control.Width = conform.Width
+            End If
             newProtocol.InterfaceControl = New dRemote.Connection.InterfaceControl(conform, newProtocol, newConnectionInfo)
 
             'AddHandler newProtocol.Control.ClientSizeChanged, AddressOf newProtocol.ResizeEnd
@@ -1428,12 +1422,6 @@ Namespace App
                 newProtocol.Control.Dock = DockStyle.Fill
                 conform.Controls.Add(newProtocol.Control)
             Else
-                Dim borderwidth As Integer = 5
-                'newProtocol.InterfaceControl.Left = -borderwidth
-                'newProtocol.InterfaceControl.Top = -borderwidth
-                'newProtocol.InterfaceControl.Width = conform.Width + borderwidth * 2
-                'newProtocol.InterfaceControl.Height = conform.Height + borderwidth * 2
-                'newProtocol.InterfaceControl.Dock = DockStyle.Fill
                 conform.Controls.Add(newProtocol.InterfaceControl)
             End If
 

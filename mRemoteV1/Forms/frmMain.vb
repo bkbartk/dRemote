@@ -801,7 +801,8 @@ Public Class frmMain
 
 #Region "Info"
     Private Sub mMenInfoHelp_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mMenInfoHelp.Click
-        App.Runtime.Windows.Show(UI.Window.Type.Help)
+        Process.Start("http://helpclassic.dremote.nl/")
+        'App.Runtime.Windows.Show(UI.Window.Type.Help)
     End Sub
 
     Private Sub mMenInfoForum_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mMenInfoForum.Click

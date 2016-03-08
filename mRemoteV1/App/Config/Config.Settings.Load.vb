@@ -29,98 +29,105 @@ Namespace Config
 
             Public Sub Load(Sender As Form)
                 Try
-                    With Me._MainForm
-                        ' Migrate settings from previous version
-                        If My.Settings.DoUpgrade Then
-                            Try
-                                My.Settings.Upgrade()
-                            Catch ex As Exception
-                                Log.Error("My.Settings.Upgrade() failed" & vbNewLine & ex.Message)
-                            End Try
-                            My.Settings.DoUpgrade = False
+                    ' Migrate settings from previous version
+                    If My.Settings.DoUpgrade Then
+                        Try
+                            My.Settings.Upgrade()
+                        Catch ex As Exception
+                            Log.Error("My.Settings.Upgrade() failed" & vbNewLine & ex.Message)
+                        End Try
+                        My.Settings.DoUpgrade = False
 
-                            ' Clear pending update flag
-                            ' This is used for automatic updates, not for settings migration, but it
-                            ' needs to be cleared here because we know that we just updated.
-                            My.Settings.UpdatePending = False
-                        End If
+                        ' Clear pending update flag
+                        ' This is used for automatic updates, not for settings migration, but it
+                        ' needs to be cleared here because we know that we just updated.
+                        My.Settings.UpdatePending = False
+                    End If
 
-                        App.SupportedCultures.InstantiateSingleton()
-                        If Not My.Settings.OverrideUICulture = "" And App.SupportedCultures.IsNameSupported(My.Settings.OverrideUICulture) Then
-                            Threading.Thread.CurrentThread.CurrentUICulture = New Globalization.CultureInfo(My.Settings.OverrideUICulture)
-                            Log.InfoFormat("Override Culture: {0}/{1}", Threading.Thread.CurrentThread.CurrentUICulture.Name, Threading.Thread.CurrentThread.CurrentUICulture.NativeName)
-                        End If
+                    App.SupportedCultures.InstantiateSingleton()
+                    If Not My.Settings.OverrideUICulture = "" And App.SupportedCultures.IsNameSupported(My.Settings.OverrideUICulture) Then
+                        Threading.Thread.CurrentThread.CurrentUICulture = New Globalization.CultureInfo(My.Settings.OverrideUICulture)
+                        Log.InfoFormat("Override Culture: {0}/{1}", Threading.Thread.CurrentThread.CurrentUICulture.Name, Threading.Thread.CurrentThread.CurrentUICulture.NativeName)
+                    End If
 
-                        Themes.ThemeManager.LoadTheme(My.Settings.ThemeName)
+                    Themes.ThemeManager.LoadTheme(My.Settings.ThemeName)
 
-                        .WindowState = FormWindowState.Normal
-                        If My.Settings.MainFormState = FormWindowState.Normal Then
-                            If Not My.Settings.MainFormLocation.IsEmpty Then .Location = My.Settings.MainFormLocation
-                            If Not My.Settings.MainFormSize.IsEmpty Then .Size = My.Settings.MainFormSize
-                        Else
-                            If Not My.Settings.MainFormRestoreLocation.IsEmpty Then .Location = My.Settings.MainFormRestoreLocation
-                            If Not My.Settings.MainFormRestoreSize.IsEmpty Then .Size = My.Settings.MainFormRestoreSize
-                        End If
-                        If My.Settings.MainFormState = FormWindowState.Maximized Then
-                            .WindowState = FormWindowState.Maximized
-                        End If
 
-                        ' Make sure the form is visible on the screen
-                        Const minHorizontal As Integer = 300
-                        Const minVertical As Integer = 150
-                        Dim screenBounds As Drawing.Rectangle = Screen.FromHandle(.Handle).Bounds
-                        Dim newBounds As Drawing.Rectangle = .Bounds
+                    If My.Settings.UseCustomPuttyPath Then
+                        Connection.Protocol.PuttyBase.PuttyPath = My.Settings.CustomPuttyPath
+                    Else
+                        Connection.Protocol.PuttyBase.PuttyPath = App.Info.General.PuttyPath
+                    End If
 
-                        If newBounds.Right < screenBounds.Left + minHorizontal Then
-                            newBounds.X = screenBounds.Left + minHorizontal - newBounds.Width
-                        End If
-                        If newBounds.Left > screenBounds.Right - minHorizontal Then
-                            newBounds.X = screenBounds.Right - minHorizontal
-                        End If
-                        If newBounds.Bottom < screenBounds.Top + minVertical Then
-                            newBounds.Y = screenBounds.Top + minVertical - newBounds.Height
-                        End If
-                        If newBounds.Top > screenBounds.Bottom - minVertical Then
-                            newBounds.Y = screenBounds.Bottom - minVertical
-                        End If
+                    If Not IsNothing(Me._MainForm) Then
+                        With Me._MainForm
 
-                        .Location = newBounds.Location
 
-                        If My.Settings.MainFormKiosk = True Then
-                            .Fullscreen.Value = True
-                            .mMenViewFullscreen.Checked = True
-                        End If
+                            .WindowState = FormWindowState.Normal
+                            If My.Settings.MainFormState = FormWindowState.Normal Then
+                                If Not My.Settings.MainFormLocation.IsEmpty Then .Location = My.Settings.MainFormLocation
+                                If Not My.Settings.MainFormSize.IsEmpty Then .Size = My.Settings.MainFormSize
+                            Else
+                                If Not My.Settings.MainFormRestoreLocation.IsEmpty Then .Location = My.Settings.MainFormRestoreLocation
+                                If Not My.Settings.MainFormRestoreSize.IsEmpty Then .Size = My.Settings.MainFormRestoreSize
+                            End If
+                            If My.Settings.MainFormState = FormWindowState.Maximized Then
+                                .WindowState = FormWindowState.Maximized
+                            End If
 
-                        If My.Settings.UseCustomPuttyPath Then
-                            Connection.Protocol.PuttyBase.PuttyPath = My.Settings.CustomPuttyPath
-                        Else
-                            Connection.Protocol.PuttyBase.PuttyPath = App.Info.General.PuttyPath
-                        End If
+                            ' Make sure the form is visible on the screen
+                            Const minHorizontal As Integer = 300
+                            Const minVertical As Integer = 150
+                            Dim screenBounds As Drawing.Rectangle = Screen.FromHandle(.Handle).Bounds
+                            Dim newBounds As Drawing.Rectangle = .Bounds
 
-                        If My.Settings.ShowSystemTrayIcon Then
-                            App.Runtime.NotificationAreaIcon = New Tools.Controls.NotificationAreaIcon(Sender)
-                        End If
+                            If newBounds.Right < screenBounds.Left + minHorizontal Then
+                                newBounds.X = screenBounds.Left + minHorizontal - newBounds.Width
+                            End If
+                            If newBounds.Left > screenBounds.Right - minHorizontal Then
+                                newBounds.X = screenBounds.Right - minHorizontal
+                            End If
+                            If newBounds.Bottom < screenBounds.Top + minVertical Then
+                                newBounds.Y = screenBounds.Top + minVertical - newBounds.Height
+                            End If
+                            If newBounds.Top > screenBounds.Bottom - minVertical Then
+                                newBounds.Y = screenBounds.Bottom - minVertical
+                            End If
 
-                        If My.Settings.AutoSaveEveryMinutes > 0 Then
-                            .tmrAutoSave.Interval = My.Settings.AutoSaveEveryMinutes * 60000
-                            .tmrAutoSave.Enabled = True
-                        End If
+                            .Location = newBounds.Location
 
-                        My.Settings.ConDefaultPassword = Security.Crypt.Decrypt(My.Settings.ConDefaultPassword, App.Info.General.EncryptionKey)
+                            If My.Settings.MainFormKiosk = True Then
+                                .Fullscreen.Value = True
+                                .mMenViewFullscreen.Checked = True
+                            End If
 
-                        Me.LoadPanelsFromXML()
-                        Me.LoadExternalAppsFromXML()
 
-                        If My.Settings.AlwaysShowPanelTabs Then
-                            frmMain.pnlDock.DocumentStyle = DocumentStyle.DockingWindow
-                        End If
+                            If My.Settings.ShowSystemTrayIcon Then
+                                App.Runtime.NotificationAreaIcon = New Tools.Controls.NotificationAreaIcon(Sender)
+                            End If
 
-                        If My.Settings.ResetToolbars = False Then
-                            LoadToolbarsFromSettings()
-                        Else
-                            SetToolbarsDefault()
-                        End If
-                    End With
+                            If My.Settings.AutoSaveEveryMinutes > 0 Then
+                                .tmrAutoSave.Interval = My.Settings.AutoSaveEveryMinutes * 60000
+                                .tmrAutoSave.Enabled = True
+                            End If
+
+                            My.Settings.ConDefaultPassword = Security.Crypt.Decrypt(My.Settings.ConDefaultPassword, App.Info.General.EncryptionKey)
+
+                            Me.LoadPanelsFromXML()
+                            Me.LoadExternalAppsFromXML()
+
+                            If My.Settings.AlwaysShowPanelTabs Then
+                                frmMain.pnlDock.DocumentStyle = DocumentStyle.DockingWindow
+                            End If
+
+                            If My.Settings.ResetToolbars = False Then
+                                LoadToolbarsFromSettings()
+                            Else
+                                SetToolbarsDefault()
+                            End If
+                        End With
+                    End If
+
                 Catch ex As Exception
                     Log.Error("Loading settings failed" & vbNewLine & ex.Message)
                 End Try
