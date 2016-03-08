@@ -717,29 +717,12 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug Portable\confCons.xml.20160204-1842027302.backup" />
-    <None Include="bin\Debug Portable\confCons.xml.20160204-1843354818.backup" />
-    <None Include="bin\Debug Portable\confCons.xml.20160204-1844310470.backup" />
-    <None Include="bin\Debug Portable\confCons.xml.backup" />
-    <None Include="bin\Debug Portable\mRemoteNG.application" />
-    <None Include="bin\Debug Portable\mRemoteNG.exe.config">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="bin\Debug Portable\mRemoteNG.exe.manifest" />
-    <None Include="bin\Debug Portable\mRemoteNG.log" />
-    <None Include="bin\Debug Portable\mRemoteNG.vshost.application" />
-    <None Include="bin\Debug Portable\mRemoteNG.vshost.exe.config" />
-    <None Include="bin\Debug Portable\mRemoteNG.vshost.exe.manifest">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="bin\Debug Portable\portable.config" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\Debug Portable\putty.exe" />
     <Content Include="Help\CMDSwitches.htm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -1297,6 +1280,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="bin\" />
     <Folder Include="My Project\DataSources\" />
     <Folder Include="obj\Debug Portable\TempPE\" />
   </ItemGroup>

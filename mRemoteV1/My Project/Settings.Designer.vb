@@ -2342,6 +2342,20 @@ Namespace My
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("False"),  _
          Global.System.Configuration.SettingsManageabilityAttribute(Global.System.Configuration.SettingsManageability.Roaming)>  _
+        Public Property CollapsePuttyTree() As Boolean
+            Get
+                Return CType(Me("CollapsePuttyTree"),Boolean)
+            End Get
+            Set
+                Me("CollapsePuttyTree") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Configuration.SettingsProviderAttribute(GetType(dRemote.Config.Settings.Providers.ChooseProvider)),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False"),  _
+         Global.System.Configuration.SettingsManageabilityAttribute(Global.System.Configuration.SettingsManageability.Roaming)>  _
         Public Property IdentifyQuickConnectTabs() As Boolean
             Get
                 Return CType(Me("IdentifyQuickConnectTabs"),Boolean)
@@ -2544,38 +2558,16 @@ Namespace My
         End Property
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Configuration.SettingsProviderAttribute(GetType(dRemote.Config.Settings.Providers.ChooseProvider)),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
-        Public Property EachNewPanelTab1() As Boolean
-            Get
-                Return CType(Me("EachNewPanelTab1"),Boolean)
-            End Get
-            Set
-                Me("EachNewPanelTab1") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False"),  _
+         Global.System.Configuration.SettingsManageabilityAttribute(Global.System.Configuration.SettingsManageability.Roaming)>  _
         Public Property Inherit() As String
             Get
                 Return CType(Me("Inherit"),String)
             End Get
             Set
                 Me("Inherit") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
-        Public Property CollapsePuttyTree() As String
-            Get
-                Return CType(Me("CollapsePuttyTree"),String)
-            End Get
-            Set
-                Me("CollapsePuttyTree") = value
             End Set
         End Property
     End Class

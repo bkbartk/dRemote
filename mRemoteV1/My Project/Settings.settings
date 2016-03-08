@@ -530,6 +530,9 @@
     <Setting Name="Beta" Provider="dRemote.Config.Settings.Providers.ChooseProvider" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="CollapsePuttyTree" Provider="dRemote.Config.Settings.Providers.ChooseProvider" Roaming="true" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
     <Setting Name="IdentifyQuickConnectTabs" Provider="dRemote.Config.Settings.Providers.ChooseProvider" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
@@ -578,13 +581,7 @@
     <Setting Name="KeysNextTab" Provider="dRemote.Config.Settings.Providers.ChooseProvider" Roaming="true" Type="System.String" Scope="User">
       <Value Profile="(Default)">9/8, 34/8</Value>
     </Setting>
-    <Setting Name="EachNewPanelTab1" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="Inherit" Type="System.String" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="CollapsePuttyTree" Type="System.String" Scope="User">
+    <Setting Name="Inherit" Provider="dRemote.Config.Settings.Providers.ChooseProvider" Roaming="true" Type="System.String" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
