@@ -117,6 +117,7 @@ Public Class frmMainV2
 
         ' Load GUI Configuration
         SettingsLoad.Load(Me)
+        Startup.GetConnectionIcons()
 
 
         Dim brows As New WebBrowser

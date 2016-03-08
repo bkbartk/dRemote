@@ -888,7 +888,9 @@
     <Content Include="Help\Update.htm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Icons\dRemote.ico" />
+    <Content Include="Icons\dRemote.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="obj\Debug Portable\de\mRemoteNG.resources.dll" />
     <Content Include="obj\Debug Portable\el\mRemoteNG.resources.dll" />
     <Content Include="obj\Debug Portable\en-US\mRemoteNG.resources.dll" />
