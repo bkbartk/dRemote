@@ -18,11 +18,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedLibraryNG", "SharedLi
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "dRemoteSetup", "dRemoteSetup\dRemoteSetup.vdproj", "{858DD639-1695-42CA-B2BB-39ECBB26B990}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsUI", "..\dremote\dockpanelsuite-master\WinFormsUI\WinFormsUI.csproj", "{C75532C4-765B-418E-B09B-46D36B2ABDB1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsUI", "WinFormsUI\WinFormsUI.csproj", "{C75532C4-765B-418E-B09B-46D36B2ABDB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThemeVS2013Blue", "..\dremote\dockpanelsuite-master\WinFormsUI\ThemeVS2013Blue.csproj", "{245E07F6-10D5-4CFA-B003-0DEB06B223DA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThemeVS2013Blue", "WinFormsUI\ThemeVS2013Blue.csproj", "{245E07F6-10D5-4CFA-B003-0DEB06B223DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActiveButtons", "..\dremote\ActiveButtons.Net-master\Source\ActiveButtons.csproj", "{16985406-9D78-4817-8485-EA2BD2814BA4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActiveButtons", "ActiveButtons.Net-master\Source\ActiveButtons.csproj", "{16985406-9D78-4817-8485-EA2BD2814BA4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

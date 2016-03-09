@@ -1112,21 +1112,21 @@
     <Folder Include="obj\Debug Portable\TempPE\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\dremote\ActiveButtons.Net-master\Source\ActiveButtons.csproj">
+    <ProjectReference Include="..\ActiveButtons.Net-master\Source\ActiveButtons.csproj">
       <Project>{16985406-9d78-4817-8485-ea2bd2814ba4}</Project>
       <Name>ActiveButtons</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\dremote\dockpanelsuite-master\WinFormsUI\ThemeVS2013Blue.csproj">
-      <Project>{245e07f6-10d5-4cfa-b003-0deb06b223da}</Project>
-      <Name>ThemeVS2013Blue</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\dremote\dockpanelsuite-master\WinFormsUI\WinFormsUI.csproj">
-      <Project>{c75532c4-765b-418e-b09b-46d36b2abdb1}</Project>
-      <Name>WinFormsUI</Name>
     </ProjectReference>
     <ProjectReference Include="..\SharedLibraryNG\SharedLibraryNG.csproj">
       <Project>{0F615504-5F30-4CF2-8341-1DE7FEC95A23}</Project>
       <Name>SharedLibraryNG</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WinFormsUI\ThemeVS2013Blue.csproj">
+      <Project>{245e07f6-10d5-4cfa-b003-0deb06b223da}</Project>
+      <Name>ThemeVS2013Blue</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WinFormsUI\WinFormsUI.csproj">
+      <Project>{c75532c4-765b-418e-b09b-46d36b2abdb1}</Project>
+      <Name>WinFormsUI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
