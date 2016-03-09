@@ -299,7 +299,7 @@ Namespace UI
                             cMenTreeToolsSort.Enabled = False
                             cMenTreeDuplicate.Enabled = False
                             cMenTreeRename.Enabled = False
-                            cMenTreeDelete.Enabled = False
+                            'cMenTreeDelete.Enabled = False
                             cMenTreeMoveUp.Enabled = False
                             cMenTreeMoveDown.Enabled = False
                         Case dRemote.Tree.Node.Type.Container

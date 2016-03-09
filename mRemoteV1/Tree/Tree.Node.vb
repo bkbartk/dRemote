@@ -347,6 +347,12 @@ Namespace Tree
                         If MsgBox(String.Format(My.Language.strConfirmDeleteNodeConnection, SelectedNode.Text), MsgBoxStyle.YesNo Or MsgBoxStyle.Question) = MsgBoxResult.Yes Then
                             SelectedNode.Remove()
                         End If
+                    Case Type.PuttySession
+                        If MsgBox(String.Format(My.Language.strConfirmDeleteNodeConnection, SelectedNode.Text), MsgBoxStyle.YesNo Or MsgBoxStyle.Question) = MsgBoxResult.Yes Then
+                            Dim regpro As New Config.Putty.RegistryProvider
+                            regpro.DeleteSession(SelectedNode.Text)
+                            SelectedNode.Remove()
+                        End If
                     Case Else
                         MessageCollector.AddMessage(Messages.MessageClass.WarningMsg, "Tree item type is unknown so it cannot be deleted!")
                 End Select

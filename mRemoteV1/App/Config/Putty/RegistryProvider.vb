@@ -36,6 +36,15 @@ Namespace Config.Putty
             Return sessionNames.ToArray()
         End Function
 
+        Public Function DeleteSession(ByVal name As String) As Boolean
+            Dim sessionsKey As RegistryKey = Registry.CurrentUser.OpenSubKey(PuttySessionsKey, True)
+            If sessionsKey Is Nothing Then Return False
+
+            sessionsKey.DeleteSubKey(name)
+
+            Return True
+        End Function
+
         Public Overrides Function GetSession(ByVal sessionName As String) As Connection.PuttySession.Info
             Dim sessionsKey As RegistryKey = Registry.CurrentUser.OpenSubKey(PuttySessionsKey)
             If sessionsKey Is Nothing Then Return Nothing
