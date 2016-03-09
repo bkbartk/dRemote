@@ -516,7 +516,7 @@ Namespace UI
 
                     End If
 
-                    Me.ShowHideGridItems()
+                    'Me.ShowHideGridItems()
                     Me.SetHostStatus(Obj)
                 Catch ex As Exception
                     MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, My.Language.strConfigPropertyGridObjectFailed & vbNewLine & ex.Message, True)
