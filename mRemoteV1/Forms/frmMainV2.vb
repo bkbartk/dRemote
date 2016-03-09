@@ -96,7 +96,6 @@ Public Class frmMainV2
     Private Sub frmMainV2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim menu As IActiveMenu = ActiveMenu.GetInstance(Me)
 
-
         Dim mnubutton As New ActiveButton()
         mnubutton.BackColor = Color.Transparent
         mnubutton.Text = "Menu"
