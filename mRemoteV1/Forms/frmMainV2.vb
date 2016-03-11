@@ -138,8 +138,9 @@ Public Class frmMainV2
     End Sub
 
     Private Sub mnubutton_MouseClick(sender As ActiveButton, e As MouseEventArgs)
-
-        mainMenu.Show(Me.Width - sender.Left - 200, 20)
+        Dim left As Integer = Me.Width + Me.Left - sender.Left - 200
+        Dim top As Integer = Me.Top + 30
+        mainMenu.Show(left, top)
 
     End Sub
 
