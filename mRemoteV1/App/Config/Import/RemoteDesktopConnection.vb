@@ -49,6 +49,12 @@ Namespace Config.Import
                     connectionInfo.Username = value
                 Case "domain"
                     connectionInfo.Domain = value
+                Case "loadbalanceinfo"
+                    connectionInfo.LoadBalanceInfo = value
+                Case "gatewayusagemethod"
+                    connectionInfo.RDGatewayUsageMethod = value
+                Case "gatewayhostname"
+                    connectionInfo.RDGatewayHostname = value
                 Case "session bpp"
                     Select Case value
                         Case 8
