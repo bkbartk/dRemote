@@ -45,11 +45,10 @@ Partial Class frmMainV2
         '
         'mainMenu
         '
-        Me.mainMenu.ImageScalingSize = New System.Drawing.Size(24, 24)
         Me.mainMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolsToolStripMenuItem, Me.cMenLayout, Me.mMenToolsUpdate, Me.mMenToolsOptions, Me.cmenTabSep1, Me.btnAmout})
         Me.mainMenu.Name = "cmenTab"
         Me.mainMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-        Me.mainMenu.Size = New System.Drawing.Size(312, 200)
+        Me.mainMenu.Size = New System.Drawing.Size(172, 142)
         Me.mainMenu.Text = "File"
         '
         'ToolsToolStripMenuItem
@@ -57,21 +56,21 @@ Partial Class frmMainV2
         Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mMenToolsSSHTransfer, Me.mMenToolsUVNCSC, Me.mMenToolsExternalApps, Me.mMenToolsPortScan})
         Me.ToolsToolStripMenuItem.Image = Global.dRemote.My.Resources.Resources.Options
         Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
-        Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(311, 38)
+        Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
         Me.ToolsToolStripMenuItem.Text = "Tools"
         '
         'mMenToolsSSHTransfer
         '
         Me.mMenToolsSSHTransfer.Image = Global.dRemote.My.Resources.Resources.SSHTransfer
         Me.mMenToolsSSHTransfer.Name = "mMenToolsSSHTransfer"
-        Me.mMenToolsSSHTransfer.Size = New System.Drawing.Size(336, 38)
+        Me.mMenToolsSSHTransfer.Size = New System.Drawing.Size(184, 22)
         Me.mMenToolsSSHTransfer.Text = "SSH File Transfer"
         '
         'mMenToolsUVNCSC
         '
         Me.mMenToolsUVNCSC.Image = Global.dRemote.My.Resources.Resources.UVNC_SC
         Me.mMenToolsUVNCSC.Name = "mMenToolsUVNCSC"
-        Me.mMenToolsUVNCSC.Size = New System.Drawing.Size(336, 38)
+        Me.mMenToolsUVNCSC.Size = New System.Drawing.Size(184, 22)
         Me.mMenToolsUVNCSC.Text = "UltraVNC SingleClick"
         Me.mMenToolsUVNCSC.Visible = False
         '
@@ -79,14 +78,14 @@ Partial Class frmMainV2
         '
         Me.mMenToolsExternalApps.Image = Global.dRemote.My.Resources.Resources.ExtApp
         Me.mMenToolsExternalApps.Name = "mMenToolsExternalApps"
-        Me.mMenToolsExternalApps.Size = New System.Drawing.Size(336, 38)
+        Me.mMenToolsExternalApps.Size = New System.Drawing.Size(184, 22)
         Me.mMenToolsExternalApps.Text = "External Applications"
         '
         'mMenToolsPortScan
         '
         Me.mMenToolsPortScan.Image = Global.dRemote.My.Resources.Resources.PortScan
         Me.mMenToolsPortScan.Name = "mMenToolsPortScan"
-        Me.mMenToolsPortScan.Size = New System.Drawing.Size(336, 38)
+        Me.mMenToolsPortScan.Size = New System.Drawing.Size(184, 22)
         Me.mMenToolsPortScan.Text = "Port Scan"
         '
         'cMenLayout
@@ -94,14 +93,14 @@ Partial Class frmMainV2
         Me.cMenLayout.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mMenViewResetLayout, Me.mMenViewConnections, Me.mMenViewConfig})
         Me.cMenLayout.Image = Global.dRemote.My.Resources.Resources.Panels
         Me.cMenLayout.Name = "cMenLayout"
-        Me.cMenLayout.Size = New System.Drawing.Size(311, 38)
+        Me.cMenLayout.Size = New System.Drawing.Size(171, 22)
         Me.cMenLayout.Text = "Layout"
         '
         'mMenViewResetLayout
         '
         Me.mMenViewResetLayout.Image = Global.dRemote.My.Resources.Resources.application_side_tree
         Me.mMenViewResetLayout.Name = "mMenViewResetLayout"
-        Me.mMenViewResetLayout.Size = New System.Drawing.Size(250, 38)
+        Me.mMenViewResetLayout.Size = New System.Drawing.Size(141, 22)
         Me.mMenViewResetLayout.Text = "Reset Layout"
         '
         'mMenViewConnections
@@ -110,7 +109,7 @@ Partial Class frmMainV2
         Me.mMenViewConnections.CheckState = System.Windows.Forms.CheckState.Checked
         Me.mMenViewConnections.Image = Global.dRemote.My.Resources.Resources.Root
         Me.mMenViewConnections.Name = "mMenViewConnections"
-        Me.mMenViewConnections.Size = New System.Drawing.Size(250, 38)
+        Me.mMenViewConnections.Size = New System.Drawing.Size(141, 22)
         Me.mMenViewConnections.Text = "Connections"
         '
         'mMenViewConfig
@@ -119,33 +118,33 @@ Partial Class frmMainV2
         Me.mMenViewConfig.CheckState = System.Windows.Forms.CheckState.Checked
         Me.mMenViewConfig.Image = Global.dRemote.My.Resources.Resources.cog
         Me.mMenViewConfig.Name = "mMenViewConfig"
-        Me.mMenViewConfig.Size = New System.Drawing.Size(250, 38)
+        Me.mMenViewConfig.Size = New System.Drawing.Size(141, 22)
         Me.mMenViewConfig.Text = "Config"
         '
         'mMenToolsUpdate
         '
         Me.mMenToolsUpdate.Image = Global.dRemote.My.Resources.Resources.Update
         Me.mMenToolsUpdate.Name = "mMenToolsUpdate"
-        Me.mMenToolsUpdate.Size = New System.Drawing.Size(311, 38)
+        Me.mMenToolsUpdate.Size = New System.Drawing.Size(171, 22)
         Me.mMenToolsUpdate.Text = "Check for Updates"
         '
         'mMenToolsOptions
         '
         Me.mMenToolsOptions.Image = Global.dRemote.My.Resources.Resources.Config
         Me.mMenToolsOptions.Name = "mMenToolsOptions"
-        Me.mMenToolsOptions.Size = New System.Drawing.Size(311, 38)
+        Me.mMenToolsOptions.Size = New System.Drawing.Size(171, 22)
         Me.mMenToolsOptions.Text = "Options"
         '
         'cmenTabSep1
         '
         Me.cmenTabSep1.Name = "cmenTabSep1"
-        Me.cmenTabSep1.Size = New System.Drawing.Size(308, 6)
+        Me.cmenTabSep1.Size = New System.Drawing.Size(168, 6)
         '
         'btnAmout
         '
         Me.btnAmout.Image = Global.dRemote.My.Resources.Resources.Help
         Me.btnAmout.Name = "btnAmout"
-        Me.btnAmout.Size = New System.Drawing.Size(311, 38)
+        Me.btnAmout.Size = New System.Drawing.Size(171, 22)
         Me.btnAmout.Text = "About"
         '
         'DockPanel1
@@ -153,23 +152,21 @@ Partial Class frmMainV2
         Me.DockPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DockPanel1.DockBackColor = System.Drawing.SystemColors.Control
         Me.DockPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.DockPanel1.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
         Me.DockPanel1.Name = "DockPanel1"
         Me.DockPanel1.ShowDocumentIcon = True
-        Me.DockPanel1.Size = New System.Drawing.Size(1328, 736)
+        Me.DockPanel1.Size = New System.Drawing.Size(664, 383)
         Me.DockPanel1.TabIndex = 0
         Me.DockPanel1.Theme = Me.VS2013BlueTheme2
         '
         'frmMainV2
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.ClientSize = New System.Drawing.Size(1328, 736)
+        Me.ClientSize = New System.Drawing.Size(664, 383)
         Me.Controls.Add(Me.DockPanel1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.IsMdiContainer = True
-        Me.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
         Me.Name = "frmMainV2"
         Me.Text = "dRemote"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
