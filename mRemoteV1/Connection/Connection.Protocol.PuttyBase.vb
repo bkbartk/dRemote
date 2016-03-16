@@ -157,6 +157,7 @@ Namespace Connection
                         .Arguments = arguments.ToString
                     End With
 
+
                     PuttyProcess.EnableRaisingEvents = True
                     AddHandler PuttyProcess.Exited, AddressOf ProcessExited
 
@@ -164,7 +165,8 @@ Namespace Connection
                     PuttyProcess.WaitForInputIdle(My.Settings.MaxPuttyWaitTime * 1000)
 
                     Dim startTicks As Integer = Environment.TickCount
-                    While PuttyHandle.ToInt32 = 0 And Environment.TickCount < startTicks + (My.Settings.MaxPuttyWaitTime * 1000)
+                    Dim first As Boolean = True
+                    While first Or (PuttyHandle.ToInt32 = 0 And Environment.TickCount < startTicks + (My.Settings.MaxPuttyWaitTime * 1000))
                         If _isPuttyNg Then
                             PuttyHandle = FindWindowEx(InterfaceControl.Handle, 0, vbNullString, vbNullString)
                         Else
@@ -172,11 +174,12 @@ Namespace Connection
                             PuttyHandle = PuttyProcess.MainWindowHandle
                         End If
                         If PuttyHandle.ToInt32 = 0 Then Thread.Sleep(0)
+                        first = False
                     End While
 
-                    If InterfaceControl.IsDisposed Then
-                    End If
 
+                    'If InterfaceControl.IsDisposed Then
+                    'End If
                     If Not _isPuttyNg And Not InterfaceControl.IsDisposed Then
                         SetParent(PuttyHandle, InterfaceControl.Handle)
                     End If
@@ -188,7 +191,6 @@ Namespace Connection
                     MessageCollector.AddMessage(MessageClass.InformationMsg, String.Format(My.Language.strPuttyParentHandle, InterfaceControl.Parent.Handle.ToString), True)
 
                     Resize(Me, New EventArgs)
-
                     MyBase.Connect()
                     Return True
                 Catch ex As Exception
@@ -196,7 +198,6 @@ Namespace Connection
                     Return False
                 End Try
             End Function
-
             Public Overrides Sub Focus()
                 Try
                     'If ConnectionWindow.InTabDrag Then Return
