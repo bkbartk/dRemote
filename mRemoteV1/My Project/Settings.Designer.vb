@@ -2244,8 +2244,7 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Configuration.SettingsProviderAttribute(GetType(dRemote.Config.Settings.Providers.ChooseProvider)),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("10"),  _
-         Global.System.Configuration.SettingsManageabilityAttribute(Global.System.Configuration.SettingsManageability.Roaming)>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("10")>  _
         Public Property BackupFileKeepCount() As Integer
             Get
                 Return CType(Me("BackupFileKeepCount"),Integer)
@@ -2258,8 +2257,7 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Configuration.SettingsProviderAttribute(GetType(dRemote.Config.Settings.Providers.ChooseProvider)),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("{0}.{1:yyyyMMdd-HHmmssffff}.backup"),  _
-         Global.System.Configuration.SettingsManageabilityAttribute(Global.System.Configuration.SettingsManageability.Roaming)>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("{0}.{1:yyyyMMdd-HHmmssffff}.backup")>  _
         Public Property BackupFileNameFormat() As String
             Get
                 Return CType(Me("BackupFileNameFormat"),String)
@@ -2298,8 +2296,7 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Configuration.SettingsProviderAttribute(GetType(dRemote.Config.Settings.Providers.ChooseProvider)),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False"),  _
-         Global.System.Configuration.SettingsManageabilityAttribute(Global.System.Configuration.SettingsManageability.Roaming)>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
         Public Property AlwaysShowPanelTabs() As Boolean
             Get
                 Return CType(Me("AlwaysShowPanelTabs"),Boolean)
@@ -2312,8 +2309,7 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Configuration.SettingsProviderAttribute(GetType(dRemote.Config.Settings.Providers.ChooseProvider)),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False"),  _
-         Global.System.Configuration.SettingsManageabilityAttribute(Global.System.Configuration.SettingsManageability.Roaming)>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
         Public Property EachNewPanelTab() As Boolean
             Get
                 Return CType(Me("EachNewPanelTab"),Boolean)
@@ -2326,8 +2322,7 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Configuration.SettingsProviderAttribute(GetType(dRemote.Config.Settings.Providers.ChooseProvider)),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False"),  _
-         Global.System.Configuration.SettingsManageabilityAttribute(Global.System.Configuration.SettingsManageability.Roaming)>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
         Public Property Beta() As Boolean
             Get
                 Return CType(Me("Beta"),Boolean)
@@ -2340,22 +2335,7 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Configuration.SettingsProviderAttribute(GetType(dRemote.Config.Settings.Providers.ChooseProvider)),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False"),  _
-         Global.System.Configuration.SettingsManageabilityAttribute(Global.System.Configuration.SettingsManageability.Roaming)>  _
-        Public Property CollapsePuttyTree() As Boolean
-            Get
-                Return CType(Me("CollapsePuttyTree"),Boolean)
-            End Get
-            Set
-                Me("CollapsePuttyTree") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Configuration.SettingsProviderAttribute(GetType(dRemote.Config.Settings.Providers.ChooseProvider)),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False"),  _
-         Global.System.Configuration.SettingsManageabilityAttribute(Global.System.Configuration.SettingsManageability.Roaming)>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
         Public Property IdentifyQuickConnectTabs() As Boolean
             Get
                 Return CType(Me("IdentifyQuickConnectTabs"),Boolean)
@@ -2518,8 +2498,7 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Configuration.SettingsProviderAttribute(GetType(dRemote.Config.Settings.Providers.ChooseProvider)),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("RDP"),  _
-         Global.System.Configuration.SettingsManageabilityAttribute(Global.System.Configuration.SettingsManageability.Roaming)>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("RDP")>  _
         Public Property QuickConnectProtocol() As String
             Get
                 Return CType(Me("QuickConnectProtocol"),String)
@@ -2532,8 +2511,7 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Configuration.SettingsProviderAttribute(GetType(dRemote.Config.Settings.Providers.ChooseProvider)),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("9/9, 33/8"),  _
-         Global.System.Configuration.SettingsManageabilityAttribute(Global.System.Configuration.SettingsManageability.Roaming)>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("9/9, 33/8")>  _
         Public Property KeysPreviousTab() As String
             Get
                 Return CType(Me("KeysPreviousTab"),String)
@@ -2546,8 +2524,7 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Configuration.SettingsProviderAttribute(GetType(dRemote.Config.Settings.Providers.ChooseProvider)),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("9/8, 34/8"),  _
-         Global.System.Configuration.SettingsManageabilityAttribute(Global.System.Configuration.SettingsManageability.Roaming)>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("9/8, 34/8")>  _
         Public Property KeysNextTab() As String
             Get
                 Return CType(Me("KeysNextTab"),String)
@@ -2560,14 +2537,26 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Configuration.SettingsProviderAttribute(GetType(dRemote.Config.Settings.Providers.ChooseProvider)),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False"),  _
-         Global.System.Configuration.SettingsManageabilityAttribute(Global.System.Configuration.SettingsManageability.Roaming)>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
         Public Property Inherit() As String
             Get
                 Return CType(Me("Inherit"),String)
             End Get
             Set
                 Me("Inherit") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Configuration.SettingsProviderAttribute(GetType(dRemote.Config.Settings.Providers.ChooseProvider)),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property CollapsePuttyTree() As Boolean
+            Get
+                Return CType(Me("CollapsePuttyTree"),Boolean)
+            End Get
+            Set
+                Me("CollapsePuttyTree") = value
             End Set
         End Property
     End Class
