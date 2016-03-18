@@ -98,12 +98,21 @@ Namespace Config.Putty
             AddHandler treeView.AfterCollapse, AddressOf treeView_AfterCollapse
         End Sub
         Public Shared Sub treeView_AfterExpand(ByVal sender As Object, ByVal e As TreeViewEventArgs)
-            If e.Node.Level = 0 And e.Node.Text = Language.strPuttySavedSessionsRootName Then
+            Dim comparename As String = Language.strPuttySavedSessionsRootName
+            If Not String.IsNullOrEmpty(My.Settings.PuttySavedSessionsName) Then
+                comparename = My.Settings.PuttySavedSessionsName
+            End If
+
+            If e.Node.Level = 0 And e.Node.Text = comparename Then
                 My.Settings.CollapsePuttyTree = False
             End If
         End Sub
         Public Shared Sub treeView_AfterCollapse(ByVal sender As Object, ByVal e As TreeViewEventArgs)
-            If e.Node.Level = 0 And e.Node.Text = Language.strPuttySavedSessionsRootName Then
+            Dim comparename As String = Language.strPuttySavedSessionsRootName
+            If Not String.IsNullOrEmpty(My.Settings.PuttySavedSessionsName) Then
+                comparename = My.Settings.PuttySavedSessionsName
+            End If
+            If e.Node.Level = 0 And e.Node.Text = comparename Then
                 My.Settings.CollapsePuttyTree = True
             End If
 
