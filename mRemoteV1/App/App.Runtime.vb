@@ -1358,9 +1358,24 @@ Namespace App
             '    pane = GetClosestPane(pane)
             'End If
 
+
             Dim conform As New Forms.frmConnections()
 
+            'If My.Settings.GroupTabs Then
+            '    Dim frmGroup As New Forms.frmGroupTabs()
+
+            '    frmGroup.Show(App.Runtime.Windows.dockPanel, DockState.Document)
+            '    frmGroup.pnlGroup = New WeifenLuo.WinFormsUI.Docking.DockPanel()
+            '    frmGroup.pnlGroup.Dock = DockStyle.Fill
+            '    frmGroup.IsMdiContainer = True
+            '    conform.Show(frmGroup.pnlGroup, DockState.Document)
+            '    'conform.Show(App.Runtime.Windows.dockPanel, DockState.Document)
+            'Else
+            '    conform.Show(App.Runtime.Windows.dockPanel, DockState.Document)
+            'End If
+
             conform.Show(App.Runtime.Windows.dockPanel, DockState.Document)
+
             conform.TabPageContextMenuStrip = conform.cmenTab
 
             Dim newProtocol As Protocol.Base

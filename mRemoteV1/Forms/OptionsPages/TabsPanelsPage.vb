@@ -39,6 +39,7 @@ Namespace Forms.OptionsPages
             chkIdentifyQuickConnectTabs.Checked = Settings.IdentifyQuickConnectTabs
             chkDoubleClickClosesTab.Checked = Settings.DoubleClickOnTabClosesIt
             chkAlwaysShowPanelSelectionDlg.Checked = Settings.AlwaysShowPanelSelectionDlg
+            chkGroupTabs.Checked = Settings.GroupTabs
 
             chkUseOnlyErrorsAndInfosPanel.Checked = Settings.ShowNoMessageBoxes
             chkMCInformation.Checked = Settings.SwitchToMCOnInformation
@@ -59,11 +60,13 @@ Namespace Forms.OptionsPages
             Settings.IdentifyQuickConnectTabs = chkIdentifyQuickConnectTabs.Checked
             Settings.DoubleClickOnTabClosesIt = chkDoubleClickClosesTab.Checked
             Settings.AlwaysShowPanelSelectionDlg = chkAlwaysShowPanelSelectionDlg.Checked
+            Settings.GroupTabs = chkGroupTabs.Checked
 
             Settings.ShowNoMessageBoxes = chkUseOnlyErrorsAndInfosPanel.Checked
             Settings.SwitchToMCOnInformation = chkMCInformation.Checked
             Settings.SwitchToMCOnWarning = chkMCWarnings.Checked
             Settings.SwitchToMCOnError = chkMCErrors.Checked
+            Settings.Save()
         End Sub
 
         Private Sub chkUseOnlyErrorsAndInfosPanel_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles chkUseOnlyErrorsAndInfosPanel.CheckedChanged
@@ -71,5 +74,6 @@ Namespace Forms.OptionsPages
             chkMCWarnings.Enabled = chkUseOnlyErrorsAndInfosPanel.Checked
             chkMCErrors.Enabled = chkUseOnlyErrorsAndInfosPanel.Checked
         End Sub
+
     End Class
 End Namespace

@@ -509,10 +509,10 @@
     <Setting Name="SQLDatabaseName" Provider="dRemote.Config.Settings.Providers.ChooseProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">dRemote</Value>
     </Setting>
-    <Setting Name="BackupFileKeepCount" Provider="dRemote.Config.Settings.Providers.ChooseProvider"  Type="System.Int32" Scope="User">
+    <Setting Name="BackupFileKeepCount" Provider="dRemote.Config.Settings.Providers.ChooseProvider" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">10</Value>
     </Setting>
-    <Setting Name="BackupFileNameFormat" Provider="dRemote.Config.Settings.Providers.ChooseProvider"  Type="System.String" Scope="User">
+    <Setting Name="BackupFileNameFormat" Provider="dRemote.Config.Settings.Providers.ChooseProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">{0}.{1:yyyyMMdd-HHmmssffff}.backup</Value>
     </Setting>
     <Setting Name="InhDefaultUseCredSsp" Provider="dRemote.Config.Settings.Providers.ChooseProvider" Type="System.Boolean" Scope="User">
@@ -521,16 +521,16 @@
     <Setting Name="ConDefaultUseCredSsp" Provider="dRemote.Config.Settings.Providers.ChooseProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="AlwaysShowPanelTabs" Provider="dRemote.Config.Settings.Providers.ChooseProvider"  Type="System.Boolean" Scope="User">
+    <Setting Name="AlwaysShowPanelTabs" Provider="dRemote.Config.Settings.Providers.ChooseProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="EachNewPanelTab" Provider="dRemote.Config.Settings.Providers.ChooseProvider"  Type="System.Boolean" Scope="User">
+    <Setting Name="EachNewPanelTab" Provider="dRemote.Config.Settings.Providers.ChooseProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="Beta" Provider="dRemote.Config.Settings.Providers.ChooseProvider"  Type="System.Boolean" Scope="User">
+    <Setting Name="Beta" Provider="dRemote.Config.Settings.Providers.ChooseProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="IdentifyQuickConnectTabs" Provider="dRemote.Config.Settings.Providers.ChooseProvider"  Type="System.Boolean" Scope="User">
+    <Setting Name="IdentifyQuickConnectTabs" Provider="dRemote.Config.Settings.Providers.ChooseProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="UpdateChannel" Provider="dRemote.Config.Settings.Providers.ChooseProvider" Type="System.String" Scope="Application">
@@ -569,19 +569,22 @@
     <Setting Name="InhDefaultAutomaticResize" Provider="dRemote.Config.Settings.Providers.ChooseProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="QuickConnectProtocol" Provider="dRemote.Config.Settings.Providers.ChooseProvider"  Type="System.String" Scope="User">
+    <Setting Name="QuickConnectProtocol" Provider="dRemote.Config.Settings.Providers.ChooseProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">RDP</Value>
     </Setting>
-    <Setting Name="KeysPreviousTab" Provider="dRemote.Config.Settings.Providers.ChooseProvider"  Type="System.String" Scope="User">
+    <Setting Name="KeysPreviousTab" Provider="dRemote.Config.Settings.Providers.ChooseProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">9/9, 33/8</Value>
     </Setting>
-    <Setting Name="KeysNextTab" Provider="dRemote.Config.Settings.Providers.ChooseProvider"  Type="System.String" Scope="User">
+    <Setting Name="KeysNextTab" Provider="dRemote.Config.Settings.Providers.ChooseProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">9/8, 34/8</Value>
     </Setting>
-    <Setting Name="Inherit" Provider="dRemote.Config.Settings.Providers.ChooseProvider"  Type="System.String" Scope="User">
+    <Setting Name="Inherit" Provider="dRemote.Config.Settings.Providers.ChooseProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="CollapsePuttyTree" Provider="dRemote.Config.Settings.Providers.ChooseProvider" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="GroupTabs" Provider="dRemote.Config.Settings.Providers.ChooseProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>

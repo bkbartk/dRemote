@@ -196,7 +196,6 @@ Namespace Forms
         Friend WithEvents cmenTabReconnect As ToolStripMenuItem
         Friend WithEvents cmenTabDisconnect As ToolStripMenuItem
 
-
     End Class
 
 

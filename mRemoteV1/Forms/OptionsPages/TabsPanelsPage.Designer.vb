@@ -38,6 +38,7 @@
             Me.chkMCWarnings = New System.Windows.Forms.CheckBox()
             Me.chkShowProtocolOnTabs = New System.Windows.Forms.CheckBox()
             Me.chkEachNewPanelTab = New System.Windows.Forms.CheckBox()
+            Me.chkGroupTabs = New System.Windows.Forms.CheckBox()
             Me.SuspendLayout()
             '
             'chkAlwaysShowPanelTabs
@@ -63,7 +64,7 @@
             'chkUseOnlyErrorsAndInfosPanel
             '
             Me.chkUseOnlyErrorsAndInfosPanel.AutoSize = True
-            Me.chkUseOnlyErrorsAndInfosPanel.Location = New System.Drawing.Point(3, 203)
+            Me.chkUseOnlyErrorsAndInfosPanel.Location = New System.Drawing.Point(3, 223)
             Me.chkUseOnlyErrorsAndInfosPanel.Name = "chkUseOnlyErrorsAndInfosPanel"
             Me.chkUseOnlyErrorsAndInfosPanel.Size = New System.Drawing.Size(278, 17)
             Me.chkUseOnlyErrorsAndInfosPanel.TabIndex = 19
@@ -83,7 +84,7 @@
             'lblSwitchToErrorsAndInfos
             '
             Me.lblSwitchToErrorsAndInfos.AutoSize = True
-            Me.lblSwitchToErrorsAndInfos.Location = New System.Drawing.Point(3, 228)
+            Me.lblSwitchToErrorsAndInfos.Location = New System.Drawing.Point(3, 248)
             Me.lblSwitchToErrorsAndInfos.Name = "lblSwitchToErrorsAndInfos"
             Me.lblSwitchToErrorsAndInfos.Size = New System.Drawing.Size(159, 13)
             Me.lblSwitchToErrorsAndInfos.TabIndex = 20
@@ -94,16 +95,16 @@
             Me.chkAlwaysShowPanelSelectionDlg.AutoSize = True
             Me.chkAlwaysShowPanelSelectionDlg.Location = New System.Drawing.Point(3, 156)
             Me.chkAlwaysShowPanelSelectionDlg.Name = "chkAlwaysShowPanelSelectionDlg"
-            Me.chkAlwaysShowPanelSelectionDlg.Size = New System.Drawing.Size(317, 17)
+            Me.chkAlwaysShowPanelSelectionDlg.Size = New System.Drawing.Size(323, 17)
             Me.chkAlwaysShowPanelSelectionDlg.TabIndex = 18
-            Me.chkAlwaysShowPanelSelectionDlg.Text = "Always show panel selection dialog when opening connectins"
+            Me.chkAlwaysShowPanelSelectionDlg.Text = "Always show panel selection dialog when opening connections"
             Me.chkAlwaysShowPanelSelectionDlg.UseVisualStyleBackColor = True
             '
             'chkMCInformation
             '
             Me.chkMCInformation.AutoSize = True
             Me.chkMCInformation.Enabled = False
-            Me.chkMCInformation.Location = New System.Drawing.Point(19, 248)
+            Me.chkMCInformation.Location = New System.Drawing.Point(19, 268)
             Me.chkMCInformation.Name = "chkMCInformation"
             Me.chkMCInformation.Size = New System.Drawing.Size(83, 17)
             Me.chkMCInformation.TabIndex = 21
@@ -124,7 +125,7 @@
             '
             Me.chkMCErrors.AutoSize = True
             Me.chkMCErrors.Enabled = False
-            Me.chkMCErrors.Location = New System.Drawing.Point(19, 294)
+            Me.chkMCErrors.Location = New System.Drawing.Point(19, 314)
             Me.chkMCErrors.Name = "chkMCErrors"
             Me.chkMCErrors.Size = New System.Drawing.Size(53, 17)
             Me.chkMCErrors.TabIndex = 23
@@ -136,16 +137,16 @@
             Me.chkDoubleClickClosesTab.AutoSize = True
             Me.chkDoubleClickClosesTab.Location = New System.Drawing.Point(3, 133)
             Me.chkDoubleClickClosesTab.Name = "chkDoubleClickClosesTab"
-            Me.chkDoubleClickClosesTab.Size = New System.Drawing.Size(159, 17)
+            Me.chkDoubleClickClosesTab.Size = New System.Drawing.Size(231, 17)
             Me.chkDoubleClickClosesTab.TabIndex = 17
-            Me.chkDoubleClickClosesTab.Text = "Double click on tab closes it"
+            Me.chkDoubleClickClosesTab.Text = "Double click on tab closes it (classic layout)"
             Me.chkDoubleClickClosesTab.UseVisualStyleBackColor = True
             '
             'chkMCWarnings
             '
             Me.chkMCWarnings.AutoSize = True
             Me.chkMCWarnings.Enabled = False
-            Me.chkMCWarnings.Location = New System.Drawing.Point(19, 271)
+            Me.chkMCWarnings.Location = New System.Drawing.Point(19, 291)
             Me.chkMCWarnings.Name = "chkMCWarnings"
             Me.chkMCWarnings.Size = New System.Drawing.Size(71, 17)
             Me.chkMCWarnings.TabIndex = 22
@@ -167,15 +168,26 @@
             Me.chkEachNewPanelTab.AutoSize = True
             Me.chkEachNewPanelTab.Location = New System.Drawing.Point(3, 20)
             Me.chkEachNewPanelTab.Name = "chkEachNewPanelTab"
-            Me.chkEachNewPanelTab.Size = New System.Drawing.Size(217, 17)
+            Me.chkEachNewPanelTab.Size = New System.Drawing.Size(289, 17)
             Me.chkEachNewPanelTab.TabIndex = 24
-            Me.chkEachNewPanelTab.Text = "Open Each connection in new panel tab"
+            Me.chkEachNewPanelTab.Text = "Open Each connection in new panel tab (classic layout)"
             Me.chkEachNewPanelTab.UseVisualStyleBackColor = True
+            '
+            'chkGroupTabs
+            '
+            Me.chkGroupTabs.AutoSize = True
+            Me.chkGroupTabs.Location = New System.Drawing.Point(3, 178)
+            Me.chkGroupTabs.Name = "chkGroupTabs"
+            Me.chkGroupTabs.Size = New System.Drawing.Size(148, 17)
+            Me.chkGroupTabs.TabIndex = 25
+            Me.chkGroupTabs.Text = "Group Tabs (New Layout)"
+            Me.chkGroupTabs.UseVisualStyleBackColor = True
             '
             'TabsPanelsPage
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
             Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+            Me.Controls.Add(Me.chkGroupTabs)
             Me.Controls.Add(Me.chkEachNewPanelTab)
             Me.Controls.Add(Me.chkAlwaysShowPanelTabs)
             Me.Controls.Add(Me.chkIdentifyQuickConnectTabs)
@@ -209,5 +221,6 @@
         Friend WithEvents chkMCWarnings As System.Windows.Forms.CheckBox
         Friend WithEvents chkShowProtocolOnTabs As System.Windows.Forms.CheckBox
         Friend WithEvents chkEachNewPanelTab As CheckBox
+        Friend WithEvents chkGroupTabs As CheckBox
     End Class
 End Namespace

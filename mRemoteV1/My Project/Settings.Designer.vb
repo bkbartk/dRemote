@@ -2559,6 +2559,19 @@ Namespace My
                 Me("CollapsePuttyTree") = Value
             End Set
         End Property
+
+        <Global.System.Configuration.UserScopedSettingAttribute(),
+         Global.System.Configuration.SettingsProviderAttribute(GetType(dRemote.Config.Settings.Providers.ChooseProvider)),
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>
+        Public Property GroupTabs() As Boolean
+            Get
+                Return CType(Me("GroupTabs"), Boolean)
+            End Get
+            Set
+                Me("GroupTabs") = Value
+            End Set
+        End Property
     End Class
 End Namespace
 
