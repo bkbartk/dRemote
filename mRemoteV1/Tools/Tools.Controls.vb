@@ -185,8 +185,11 @@ Namespace Tools
         Public Shared Function ConnectionsSaveAsDialog() As SaveFileDialog
             Dim saveFileDialog As New SaveFileDialog()
             saveFileDialog.CheckPathExists = True
-            saveFileDialog.InitialDirectory = App.Info.Connections.DefaultConnectionsPath
-            saveFileDialog.FileName = App.Info.Connections.DefaultConnectionsFile
+            'saveFileDialog.InitialDirectory = App.Info.Connections.DefaultConnectionsPath
+            'saveFileDialog.FileName = App.Info.Connections.DefaultConnectionsFile
+            Dim fullstartupname As String = GetStartupConnectionFileName()
+            saveFileDialog.InitialDirectory = fullstartupname.Substring(0, fullstartupname.LastIndexOf("\"))
+            saveFileDialog.FileName = fullstartupname.Substring(fullstartupname.LastIndexOf("\") + 1)
             saveFileDialog.OverwritePrompt = True
 
             saveFileDialog.Filter = My.Language.strFiltermRemoteXML & "|*.xml|" & My.Language.strFilterAll & "|*.*"
@@ -197,8 +200,11 @@ Namespace Tools
         Public Shared Function ConnectionsExportDialog() As SaveFileDialog
             Dim saveFileDialog As New SaveFileDialog()
             saveFileDialog.CheckPathExists = True
-            saveFileDialog.InitialDirectory = App.Info.Connections.DefaultConnectionsPath
-            saveFileDialog.FileName = App.Info.Connections.DefaultConnectionsFile
+            'saveFileDialog.InitialDirectory = App.Info.Connections.DefaultConnectionsPath
+            'saveFileDialog.FileName = App.Info.Connections.DefaultConnectionsFile
+            Dim fullstartupname As String = GetStartupConnectionFileName()
+            saveFileDialog.InitialDirectory = fullstartupname.Substring(0, fullstartupname.LastIndexOf("\"))
+            saveFileDialog.FileName = fullstartupname.Substring(fullstartupname.LastIndexOf("\") + 1)
             saveFileDialog.OverwritePrompt = True
 
             saveFileDialog.Filter = My.Language.strFiltermRemoteXML & "|*.xml|" & My.Language.strFiltermRemoteCSV & "|*.csv|" & My.Language.strFiltervRD2008CSV & "|*.csv|" & My.Language.strFilterAll & "|*.*"
@@ -209,7 +215,9 @@ Namespace Tools
         Public Shared Function ConnectionsLoadDialog() As OpenFileDialog
             Dim lDlg As New OpenFileDialog()
             lDlg.CheckFileExists = True
-            lDlg.InitialDirectory = App.Info.Connections.DefaultConnectionsPath
+            Dim fullstartupname As String = GetStartupConnectionFileName()
+            lDlg.InitialDirectory = fullstartupname.Substring(0, fullstartupname.LastIndexOf("\"))
+            'lDlg.InitialDirectory = App.Info.Connections.DefaultConnectionsPath
             lDlg.Filter = My.Language.strFiltermRemoteXML & "|*.xml|" & My.Language.strFilterAll & "|*.*"
 
             Return lDlg

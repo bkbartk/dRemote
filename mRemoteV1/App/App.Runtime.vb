@@ -1257,12 +1257,15 @@ Namespace App
                     previousTimerState = TimerSqlWatcher.Enabled
                     TimerSqlWatcher.Enabled = False
                 End If
+                Dim fullstartupname As String = GetStartupConnectionFileName()
 
                 Using saveFileDialog As New SaveFileDialog()
                     With saveFileDialog
                         .CheckPathExists = True
-                        .InitialDirectory = Info.Connections.DefaultConnectionsPath
-                        .FileName = Info.Connections.DefaultConnectionsFile
+                        '.InitialDirectory = Info.Connections.DefaultConnectionsPath
+                        '.FileName = Info.Connections.DefaultConnectionsFile
+                        .InitialDirectory = fullstartupname.Substring(0, fullstartupname.LastIndexOf("\"))
+                        .FileName = fullstartupname.Substring(fullstartupname.LastIndexOf("\") + 1)
                         .OverwritePrompt = True
 
                         Dim fileTypes As New List(Of String)
