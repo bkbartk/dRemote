@@ -18,10 +18,6 @@ Namespace Connection
             Private Const IDM_RECONF As Int32 = &H50 ' PuTTY Settings Menu ID
 #End Region
 
-#Region "Private Properties"
-            Dim _isPuttyNg As Boolean
-#End Region
-
 #Region "Public Properties"
             Private _PuttyProtocol As Putty_Protocol
             Public Property PuttyProtocol() As Putty_Protocol
@@ -97,7 +93,6 @@ Namespace Connection
 
             Public Overrides Function Connect() As Boolean
                 Try
-                    _isPuttyNg = (PuttyTypeDetector.GetPuttyType() = PuttyTypeDetector.PuttyType.PuttyNg)
 
                     PuttyProcess = New Process
                     With PuttyProcess.StartInfo
@@ -150,10 +145,6 @@ Namespace Connection
                             arguments.Add(InterfaceControl.Info.Hostname)
                         End If
 
-                        If _isPuttyNg Then
-                            arguments.Add("-hwndparent", InterfaceControl.Handle.ToString())
-                        End If
-
                         .Arguments = arguments.ToString
                     End With
 
@@ -165,19 +156,16 @@ Namespace Connection
 
                     Dim startTicks As Integer = Environment.TickCount
                     While PuttyHandle.ToInt32 = 0 And Environment.TickCount < startTicks + (My.Settings.MaxPuttyWaitTime * 1000)
-                        If _isPuttyNg Then
-                            PuttyHandle = FindWindowEx(InterfaceControl.Handle, 0, vbNullString, vbNullString)
-                        Else
-                            PuttyProcess.Refresh()
-                            PuttyHandle = PuttyProcess.MainWindowHandle
-                        End If
+
+                        PuttyProcess.Refresh()
+                        PuttyHandle = PuttyProcess.MainWindowHandle
                         If PuttyHandle.ToInt32 = 0 Then Thread.Sleep(0)
                     End While
 
                     If InterfaceControl.IsDisposed Then
                     End If
 
-                    If Not _isPuttyNg And Not InterfaceControl.IsDisposed Then
+                    If Not InterfaceControl.IsDisposed Then
                         SetParent(PuttyHandle, InterfaceControl.Handle)
                     End If
 

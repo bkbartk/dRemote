@@ -7,7 +7,6 @@ Namespace Tools
         End Function
 
         Public Shared Function GetPuttyType(ByVal filename As String) As PuttyType
-            If IsPuttyNg(filename) Then Return PuttyType.PuttyNg
             If IsKitty(filename) Then Return PuttyType.Kitty
             If IsXming(filename) Then Return PuttyType.Xming
 
@@ -27,15 +26,6 @@ Namespace Tools
             Return result
         End Function
 
-        Private Shared Function IsPuttyNg(filename As String) As Boolean
-            Dim result As Boolean
-            Try
-                result = FileVersionInfo.GetVersionInfo(filename).InternalName.Contains("PuTTYNG")
-            Catch
-                result = False
-            End Try
-            Return result
-        End Function
 
         Private Shared Function IsKitty(filename As String) As Boolean
             Dim result As Boolean
@@ -62,7 +52,6 @@ Namespace Tools
         Public Enum PuttyType
             Unknown = 0
             Putty
-            PuttyNg
             Kitty
             Xming
         End Enum
