@@ -159,7 +159,7 @@ Public Class frmMain
         KeyboardShortcuts.RequestKeyNotifications(Handle)
         brows = New WebBrowser
         brows.Url = New Uri(App.Info.General.UrlStart)
-
+        brows.ScriptErrorsSuppressed = True
         brows.ScrollBarsEnabled = False
         brows.Dock = Dock.Fill
         'SetBrowsResolution()

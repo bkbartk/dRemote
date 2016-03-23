@@ -124,7 +124,7 @@ Public Class frmMainV2
 
         brows.ScrollBarsEnabled = False
         brows.Dock = Dock.Fill
-        'SetBrowsResolution()
+        brows.ScriptErrorsSuppressed = True
         DockPanel1.Controls.Add(brows)
         AddHandler brows.Navigating, AddressOf brows_Navigating
     End Sub
