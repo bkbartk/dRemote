@@ -48,7 +48,7 @@ Partial Class frmMainV2
         Me.mainMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolsToolStripMenuItem, Me.cMenLayout, Me.mMenToolsUpdate, Me.mMenToolsOptions, Me.cmenTabSep1, Me.btnAmout})
         Me.mainMenu.Name = "cmenTab"
         Me.mainMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-        Me.mainMenu.Size = New System.Drawing.Size(172, 142)
+        Me.mainMenu.Size = New System.Drawing.Size(172, 120)
         Me.mainMenu.Text = "File"
         '
         'ToolsToolStripMenuItem

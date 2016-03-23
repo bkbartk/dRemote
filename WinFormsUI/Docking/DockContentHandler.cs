@@ -743,6 +743,7 @@ namespace WeifenLuo.WinFormsUI.Docking
             SetVisible();
         }
 
+
         private void SetPane(DockPane pane)
         {
 

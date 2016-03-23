@@ -83,6 +83,7 @@ Namespace Connection
 #Region "Private Events & Handlers"
             Private Sub ProcessExited(ByVal sender As Object, ByVal e As System.EventArgs)
                 MyBase.Event_Closed(Me)
+                MyBase.Close()
             End Sub
 #End Region
 

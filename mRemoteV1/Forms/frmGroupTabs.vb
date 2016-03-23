@@ -33,5 +33,8 @@ Namespace Forms
         Friend WithEvents VS2013BlueTheme1 As VS2013BlueTheme
         Friend WithEvents pnlGroup As DockPanel
 
+        Private Sub frmGroupTabs_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        End Sub
     End Class
 End Namespace

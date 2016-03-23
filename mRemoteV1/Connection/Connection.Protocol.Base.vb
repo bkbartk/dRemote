@@ -179,6 +179,10 @@ Namespace Connection
                             If My.Settings.Beta And Me._interfaceControl.Parent.[GetType]().ToString() = "dRemote.Forms.frmConnections" Then
 
                                 Dim parent As Form = CType(Me._interfaceControl.Parent, Form)
+                                If Not IsNothing(parent) AndAlso parent.InvokeRequired Then
+                                    parent.Invoke(New Action(AddressOf CloseBG))
+                                    Return
+                                End If
                                 If Me._interfaceControl.Parent.Tag IsNot Nothing Then
                                     Me.SetTagToNothing()
                                 End If

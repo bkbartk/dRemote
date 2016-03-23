@@ -1362,14 +1362,18 @@ Namespace App
             Dim conform As New Forms.frmConnections()
 
             'If My.Settings.GroupTabs Then
-            '    Dim frmGroup As New Forms.frmGroupTabs()
+            '    'Dim frmGroup As New Forms.frmGroupTabs()
 
-            '    frmGroup.Show(App.Runtime.Windows.dockPanel, DockState.Document)
-            '    frmGroup.pnlGroup = New WeifenLuo.WinFormsUI.Docking.DockPanel()
-            '    frmGroup.pnlGroup.Dock = DockStyle.Fill
-            '    frmGroup.IsMdiContainer = True
-            '    conform.Show(frmGroup.pnlGroup, DockState.Document)
+            '    'frmGroup.Show(App.Runtime.Windows.dockPanel, DockState.Document)
+            '    'frmGroup.pnlGroup = New WeifenLuo.WinFormsUI.Docking.DockPanel()
+            '    'frmGroup.pnlGroup.Dock = DockStyle.Fill
+            '    'frmGroup.IsMdiContainer = True
+            '    'conform.Show(frmGroup.pnlGroup, DockState.Document)
             '    'conform.Show(App.Runtime.Windows.dockPanel, DockState.Document)
+            '    Dim subpnl As New WeifenLuo.WinFormsUI.Docking.DockPanel()
+
+            '    subpnl.Dock = DockStyle.Fill
+            '    subpnl.Show()
             'Else
             '    conform.Show(App.Runtime.Windows.dockPanel, DockState.Document)
             'End If

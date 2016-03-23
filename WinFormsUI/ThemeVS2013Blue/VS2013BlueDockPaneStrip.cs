@@ -1238,7 +1238,7 @@ namespace WeifenLuo.WinFormsUI.Docking
                 base.OnMouseMove(e);
         }
 
-        protected override void OnMouseClick(MouseEventArgs e)
+        protected override void OnMouseClick( MouseEventArgs e)
         {
             base.OnMouseClick(e);
             if (e.Button != MouseButtons.Left || Appearance != DockPane.AppearanceStyle.Document)
