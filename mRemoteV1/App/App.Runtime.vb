@@ -1347,12 +1347,12 @@ Namespace App
         '    End If
         '    Return sender
         'End Function
-        Public Shared Sub OpenConnectionV2(ByVal tvConnections As TreeView, ByVal sender As Object)
+        Public Shared Sub OpenConnectionV2(ByVal tvConnections As TreeView, ByVal sender As Object, Optional Force As dRemote.Connection.Info.Force = Nothing)
             Dim newConnectionInfo As dRemote.Connection.Info = tvConnections.SelectedNode.Tag
-            OpenConnectionV2(newConnectionInfo, sender)
+            OpenConnectionV2(newConnectionInfo, sender, Force)
         End Sub
 
-        Public Shared Sub OpenConnectionV2(ByVal newConnectionInfo As dRemote.Connection.Info, ByVal sender As Object)
+        Public Shared Sub OpenConnectionV2(ByVal newConnectionInfo As dRemote.Connection.Info, ByVal sender As Object, Optional Force As dRemote.Connection.Info.Force = Nothing)
             'Dim pane As WeifenLuo.WinFormsUI.Docking.DockPane = GetClosestPane(sender)
             'If IsNothing(pane) Then
             '    pane = GetClosestPane(pane)
@@ -1415,6 +1415,7 @@ Namespace App
                 Case Else
                     Exit Sub
             End Select
+            newProtocol.Force = Force
 
             AddHandler newProtocol.Closed, AddressOf Prot_Event_Closed
 

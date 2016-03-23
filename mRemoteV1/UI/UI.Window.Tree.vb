@@ -212,8 +212,6 @@ Namespace UI
                    dRemote.Tree.Node.GetNodeType(dRemote.Tree.Node.SelectedNode) = dRemote.Tree.Node.Type.PuttySession Then
                     If My.Settings.Beta Then
                         OpenConnectionV2(tvConnections, sender)
-
-
                     Else
                         OpenConnection(tvConnections)
                     End If
@@ -521,27 +519,52 @@ Namespace UI
             End Sub
 
             Private Sub cMenTreeConnect_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles cMenTreeConnect.Click
-                OpenConnection(dRemote.Connection.Info.Force.DoNotJump, tvConnections)
+                If My.Settings.Beta Then
+                    OpenConnectionV2(tvConnections, sender)
+                Else
+                    OpenConnection(dRemote.Connection.Info.Force.DoNotJump, tvConnections)
+                End If
             End Sub
 
             Private Sub cMenTreeConnectWithOptionsConnectToConsoleSession_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles cMenTreeConnectWithOptionsConnectToConsoleSession.Click
-                OpenConnection(dRemote.Connection.Info.Force.UseConsoleSession Or dRemote.Connection.Info.Force.DoNotJump, tvConnections)
+                If My.Settings.Beta Then
+                    OpenConnectionV2(tvConnections, sender, dRemote.Connection.Info.Force.UseConsoleSession Or dRemote.Connection.Info.Force.DoNotJump)
+                Else
+                    OpenConnection(dRemote.Connection.Info.Force.UseConsoleSession Or dRemote.Connection.Info.Force.DoNotJump, tvConnections)
+                End If
             End Sub
 
             Private Sub cMenTreeConnectWithOptionsNoCredentials_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles cMenTreeConnectWithOptionsNoCredentials.Click
-                OpenConnection(dRemote.Connection.Info.Force.NoCredentials, tvConnections)
+                If My.Settings.Beta Then
+                    OpenConnectionV2(tvConnections, sender, dRemote.Connection.Info.Force.NoCredentials)
+                Else
+                    OpenConnection(dRemote.Connection.Info.Force.NoCredentials, tvConnections)
+                End If
+
             End Sub
 
             Private Sub cMenTreeConnectWithOptionsDontConnectToConsoleSession_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles cMenTreeConnectWithOptionsDontConnectToConsoleSession.Click
-                OpenConnection(dRemote.Connection.Info.Force.DontUseConsoleSession Or dRemote.Connection.Info.Force.DoNotJump, tvConnections)
+                If My.Settings.Beta Then
+                    OpenConnectionV2(tvConnections, sender, dRemote.Connection.Info.Force.DontUseConsoleSession Or dRemote.Connection.Info.Force.DoNotJump)
+                Else
+                    OpenConnection(dRemote.Connection.Info.Force.DontUseConsoleSession Or dRemote.Connection.Info.Force.DoNotJump, tvConnections)
+                End If
             End Sub
 
             Private Sub cMenTreeConnectWithOptionsConnectInFullscreen_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles cMenTreeConnectWithOptionsConnectInFullscreen.Click
-                OpenConnection(dRemote.Connection.Info.Force.Fullscreen Or dRemote.Connection.Info.Force.DoNotJump, tvConnections)
+                If My.Settings.Beta Then
+                    OpenConnectionV2(tvConnections, sender, dRemote.Connection.Info.Force.Fullscreen Or dRemote.Connection.Info.Force.DoNotJump)
+                Else
+                    OpenConnection(dRemote.Connection.Info.Force.Fullscreen Or dRemote.Connection.Info.Force.DoNotJump, tvConnections)
+                End If
             End Sub
 
             Private Sub cMenTreeConnectWithOptionsChoosePanelBeforeConnecting_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles cMenTreeConnectWithOptionsChoosePanelBeforeConnecting.Click
-                OpenConnection(dRemote.Connection.Info.Force.OverridePanel Or dRemote.Connection.Info.Force.DoNotJump, tvConnections)
+                If My.Settings.Beta Then
+                    OpenConnectionV2(tvConnections, sender, dRemote.Connection.Info.Force.OverridePanel Or dRemote.Connection.Info.Force.DoNotJump)
+                Else
+                    OpenConnection(dRemote.Connection.Info.Force.OverridePanel Or dRemote.Connection.Info.Force.DoNotJump, tvConnections)
+                End If
             End Sub
 
             Private Sub cMenTreeDisconnect_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles cMenTreeDisconnect.Click
