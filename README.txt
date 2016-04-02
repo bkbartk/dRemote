@@ -1,6 +1,6 @@
-mRemoteNG is the next generation of mRemote, a full-featured, multi-tab remote connections manager.
+dRemote is an easy and free tool to handle mutiple remote connections of different types. 
 
-It allows you to store all your remote connections in a simple yet powerful interface.
+This tool comes in handy when you have to connect to differnt remote connections all the want to have to change all the settings manually.
 
 Currently these protocols are supported:
 
@@ -12,3 +12,5 @@ Currently these protocols are supported:
  * HTTP/S (Hypertext Transfer Protocol)
  * Rlogin (Rlogin)
  * RAW
+ 
+ see also: http://www.dremote.nl/

@@ -425,6 +425,12 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_F785739D8B47F69645B7118E908B37F9"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_478AC4CBC50247FAB044ED806302504A"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -534,12 +540,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_2E558601B7AFBAD6DCADCD4AF1649A2D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F785739D8B47F69645B7118E908B37F9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -761,7 +761,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:WeifenLuo.WinFormsUI.Docking, Version=2.9.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:WeifenLuo.WinFormsUI.Docking, Version=2.9.0.1, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_100215979C6DAB60F77CBEC4B37D8FEF"
@@ -1939,7 +1939,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:WeifenLuo.WinFormsUI.Docking.ThemeVS2013Blue, Version=2.9.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:WeifenLuo.WinFormsUI.Docking.ThemeVS2013Blue, Version=2.9.0.1, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_F0E46F3C9B06B32D765471EED86EA6AC"
@@ -2135,15 +2135,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:dRemote"
-        "ProductCode" = "8:{A8B94E52-DF2E-4D5C-9EE9-D78905508384}"
-        "PackageCode" = "8:{E7256A04-7920-43EB-AB86-271F11AB3E72}"
+        "ProductCode" = "8:{F44A42D4-850B-4256-BADD-334E4F214611}"
+        "PackageCode" = "8:{7EDEEAE3-9439-4316-A24E-D28488698381}"
         "UpgradeCode" = "8:{D4A20E0A-A55A-4204-A1D9-F23840067024}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:0.2.213"
+        "ProductVersion" = "8:0.2.216"
         "Manufacturer" = "8:dRemote"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://www.dremote.nl"
