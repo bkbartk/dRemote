@@ -679,7 +679,8 @@ Namespace UI
                     End If
 
                     Me.ShowHideGridItems()
-                    App.Runtime.SaveConnectionsBG()
+                    'App.Runtime.SaveConnectionsBG()
+                    App.Runtime.SaveConnections()
                 Catch ex As Exception
                     MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg, My.Language.strConfigPropertyGridValueFailed & vbNewLine & ex.Message, True)
                 End Try

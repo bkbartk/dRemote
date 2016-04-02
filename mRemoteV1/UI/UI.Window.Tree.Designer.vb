@@ -129,7 +129,7 @@
                 Me.cMenTree.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cMenTreeConnect, Me.cMenTreeConnectWithOptions, Me.cMenTreeDisconnect, Me.cMenTreeSep1, Me.cMenTreeToolsExternalApps, Me.cMenTreeToolsTransferFile, Me.cMenTreeSep2, Me.cMenTreeDuplicate, Me.cMenTreeRename, Me.cMenTreeDelete, Me.cMenTreeSep3, Me.cMenTreeImport, Me.cMenTreeExportFile, Me.cMenTreeSep4, Me.cMenTreeAddConnection, Me.cMenTreeAddFolder, Me.ToolStripSeparator1, Me.cMenTreeToolsSort, Me.cMenTreeMoveUp, Me.cMenTreeMoveDown})
                 Me.cMenTree.Name = "cMenTree"
                 Me.cMenTree.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-                Me.cMenTree.Size = New System.Drawing.Size(226, 424)
+                Me.cMenTree.Size = New System.Drawing.Size(191, 424)
                 '
                 'cMenTreeConnect
                 '
@@ -137,28 +137,28 @@
                 Me.cMenTreeConnect.Name = "cMenTreeConnect"
                 Me.cMenTreeConnect.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
             Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
-                Me.cMenTreeConnect.Size = New System.Drawing.Size(225, 26)
+                Me.cMenTreeConnect.Size = New System.Drawing.Size(190, 26)
                 Me.cMenTreeConnect.Text = "Connect"
                 '
                 'cMenTreeConnectWithOptions
                 '
                 Me.cMenTreeConnectWithOptions.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cMenTreeConnectWithOptionsConnectToConsoleSession, Me.cMenTreeConnectWithOptionsDontConnectToConsoleSession, Me.cMenTreeConnectWithOptionsConnectInFullscreen, Me.cMenTreeConnectWithOptionsNoCredentials, Me.cMenTreeConnectWithOptionsChoosePanelBeforeConnecting})
                 Me.cMenTreeConnectWithOptions.Name = "cMenTreeConnectWithOptions"
-                Me.cMenTreeConnectWithOptions.Size = New System.Drawing.Size(225, 26)
+                Me.cMenTreeConnectWithOptions.Size = New System.Drawing.Size(190, 26)
                 Me.cMenTreeConnectWithOptions.Text = "Connect (with options)"
                 '
                 'cMenTreeConnectWithOptionsConnectToConsoleSession
                 '
                 Me.cMenTreeConnectWithOptionsConnectToConsoleSession.Image = Global.dRemote.My.Resources.Resources.monitor_go
                 Me.cMenTreeConnectWithOptionsConnectToConsoleSession.Name = "cMenTreeConnectWithOptionsConnectToConsoleSession"
-                Me.cMenTreeConnectWithOptionsConnectToConsoleSession.Size = New System.Drawing.Size(290, 26)
+                Me.cMenTreeConnectWithOptionsConnectToConsoleSession.Size = New System.Drawing.Size(235, 26)
                 Me.cMenTreeConnectWithOptionsConnectToConsoleSession.Text = "Connect to console session"
                 '
                 'cMenTreeConnectWithOptionsDontConnectToConsoleSession
                 '
                 Me.cMenTreeConnectWithOptionsDontConnectToConsoleSession.Image = Global.dRemote.My.Resources.Resources.monitor_delete
                 Me.cMenTreeConnectWithOptionsDontConnectToConsoleSession.Name = "cMenTreeConnectWithOptionsDontConnectToConsoleSession"
-                Me.cMenTreeConnectWithOptionsDontConnectToConsoleSession.Size = New System.Drawing.Size(290, 26)
+                Me.cMenTreeConnectWithOptionsDontConnectToConsoleSession.Size = New System.Drawing.Size(235, 26)
                 Me.cMenTreeConnectWithOptionsDontConnectToConsoleSession.Text = "Don't connect to console session"
                 Me.cMenTreeConnectWithOptionsDontConnectToConsoleSession.Visible = False
                 '
@@ -166,60 +166,60 @@
                 '
                 Me.cMenTreeConnectWithOptionsConnectInFullscreen.Image = Global.dRemote.My.Resources.Resources.arrow_out
                 Me.cMenTreeConnectWithOptionsConnectInFullscreen.Name = "cMenTreeConnectWithOptionsConnectInFullscreen"
-                Me.cMenTreeConnectWithOptionsConnectInFullscreen.Size = New System.Drawing.Size(290, 26)
+                Me.cMenTreeConnectWithOptionsConnectInFullscreen.Size = New System.Drawing.Size(235, 26)
                 Me.cMenTreeConnectWithOptionsConnectInFullscreen.Text = "Connect in fullscreen"
                 '
                 'cMenTreeConnectWithOptionsNoCredentials
                 '
                 Me.cMenTreeConnectWithOptionsNoCredentials.Image = Global.dRemote.My.Resources.Resources.key_delete
                 Me.cMenTreeConnectWithOptionsNoCredentials.Name = "cMenTreeConnectWithOptionsNoCredentials"
-                Me.cMenTreeConnectWithOptionsNoCredentials.Size = New System.Drawing.Size(290, 26)
+                Me.cMenTreeConnectWithOptionsNoCredentials.Size = New System.Drawing.Size(235, 26)
                 Me.cMenTreeConnectWithOptionsNoCredentials.Text = "Connect without credentials"
                 '
                 'cMenTreeConnectWithOptionsChoosePanelBeforeConnecting
                 '
                 Me.cMenTreeConnectWithOptionsChoosePanelBeforeConnecting.Image = Global.dRemote.My.Resources.Resources.Panels
                 Me.cMenTreeConnectWithOptionsChoosePanelBeforeConnecting.Name = "cMenTreeConnectWithOptionsChoosePanelBeforeConnecting"
-                Me.cMenTreeConnectWithOptionsChoosePanelBeforeConnecting.Size = New System.Drawing.Size(290, 26)
+                Me.cMenTreeConnectWithOptionsChoosePanelBeforeConnecting.Size = New System.Drawing.Size(235, 26)
                 Me.cMenTreeConnectWithOptionsChoosePanelBeforeConnecting.Text = "Choose panel before connecting"
                 '
                 'cMenTreeDisconnect
                 '
                 Me.cMenTreeDisconnect.Image = Global.dRemote.My.Resources.Resources.Pause
                 Me.cMenTreeDisconnect.Name = "cMenTreeDisconnect"
-                Me.cMenTreeDisconnect.Size = New System.Drawing.Size(225, 26)
+                Me.cMenTreeDisconnect.Size = New System.Drawing.Size(190, 26)
                 Me.cMenTreeDisconnect.Text = "Disconnect"
                 '
                 'cMenTreeSep1
                 '
                 Me.cMenTreeSep1.Name = "cMenTreeSep1"
-                Me.cMenTreeSep1.Size = New System.Drawing.Size(222, 6)
+                Me.cMenTreeSep1.Size = New System.Drawing.Size(187, 6)
                 '
                 'cMenTreeToolsExternalApps
                 '
                 Me.cMenTreeToolsExternalApps.Image = Global.dRemote.My.Resources.Resources.ExtApp
                 Me.cMenTreeToolsExternalApps.Name = "cMenTreeToolsExternalApps"
-                Me.cMenTreeToolsExternalApps.Size = New System.Drawing.Size(225, 26)
+                Me.cMenTreeToolsExternalApps.Size = New System.Drawing.Size(190, 26)
                 Me.cMenTreeToolsExternalApps.Text = "External Applications"
                 '
                 'cMenTreeToolsTransferFile
                 '
                 Me.cMenTreeToolsTransferFile.Image = Global.dRemote.My.Resources.Resources.SSHTransfer
                 Me.cMenTreeToolsTransferFile.Name = "cMenTreeToolsTransferFile"
-                Me.cMenTreeToolsTransferFile.Size = New System.Drawing.Size(225, 26)
+                Me.cMenTreeToolsTransferFile.Size = New System.Drawing.Size(190, 26)
                 Me.cMenTreeToolsTransferFile.Text = "Transfer File (SSH)"
                 '
                 'cMenTreeSep2
                 '
                 Me.cMenTreeSep2.Name = "cMenTreeSep2"
-                Me.cMenTreeSep2.Size = New System.Drawing.Size(222, 6)
+                Me.cMenTreeSep2.Size = New System.Drawing.Size(187, 6)
                 '
                 'cMenTreeDuplicate
                 '
                 Me.cMenTreeDuplicate.Image = Global.dRemote.My.Resources.Resources.page_copy
                 Me.cMenTreeDuplicate.Name = "cMenTreeDuplicate"
                 Me.cMenTreeDuplicate.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.D), System.Windows.Forms.Keys)
-                Me.cMenTreeDuplicate.Size = New System.Drawing.Size(225, 26)
+                Me.cMenTreeDuplicate.Size = New System.Drawing.Size(190, 26)
                 Me.cMenTreeDuplicate.Text = "Duplicate"
                 '
                 'cMenTreeRename
@@ -227,7 +227,7 @@
                 Me.cMenTreeRename.Image = Global.dRemote.My.Resources.Resources.Rename
                 Me.cMenTreeRename.Name = "cMenTreeRename"
                 Me.cMenTreeRename.ShortcutKeys = System.Windows.Forms.Keys.F2
-                Me.cMenTreeRename.Size = New System.Drawing.Size(225, 26)
+                Me.cMenTreeRename.Size = New System.Drawing.Size(190, 26)
                 Me.cMenTreeRename.Text = "Rename"
                 '
                 'cMenTreeDelete
@@ -235,88 +235,88 @@
                 Me.cMenTreeDelete.Image = Global.dRemote.My.Resources.Resources.Delete
                 Me.cMenTreeDelete.Name = "cMenTreeDelete"
                 Me.cMenTreeDelete.ShortcutKeys = System.Windows.Forms.Keys.Delete
-                Me.cMenTreeDelete.Size = New System.Drawing.Size(225, 26)
+                Me.cMenTreeDelete.Size = New System.Drawing.Size(190, 26)
                 Me.cMenTreeDelete.Text = "Delete"
                 '
                 'cMenTreeSep3
                 '
                 Me.cMenTreeSep3.Name = "cMenTreeSep3"
-                Me.cMenTreeSep3.Size = New System.Drawing.Size(222, 6)
+                Me.cMenTreeSep3.Size = New System.Drawing.Size(187, 6)
                 '
                 'cMenTreeImport
                 '
                 Me.cMenTreeImport.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cMenTreeImportFile, Me.cMenTreeImportActiveDirectory, Me.cMenTreeImportPortScan})
                 Me.cMenTreeImport.Name = "cMenTreeImport"
-                Me.cMenTreeImport.Size = New System.Drawing.Size(225, 26)
+                Me.cMenTreeImport.Size = New System.Drawing.Size(190, 26)
                 Me.cMenTreeImport.Text = "&Import"
                 '
                 'cMenTreeImportFile
                 '
                 Me.cMenTreeImportFile.Name = "cMenTreeImportFile"
-                Me.cMenTreeImportFile.Size = New System.Drawing.Size(268, 26)
+                Me.cMenTreeImportFile.Size = New System.Drawing.Size(213, 22)
                 Me.cMenTreeImportFile.Text = "Import from &File..."
                 '
                 'cMenTreeImportActiveDirectory
                 '
                 Me.cMenTreeImportActiveDirectory.Name = "cMenTreeImportActiveDirectory"
-                Me.cMenTreeImportActiveDirectory.Size = New System.Drawing.Size(268, 26)
+                Me.cMenTreeImportActiveDirectory.Size = New System.Drawing.Size(213, 22)
                 Me.cMenTreeImportActiveDirectory.Text = "Import from &Active Directory..."
                 '
                 'cMenTreeImportPortScan
                 '
                 Me.cMenTreeImportPortScan.Name = "cMenTreeImportPortScan"
-                Me.cMenTreeImportPortScan.Size = New System.Drawing.Size(268, 26)
+                Me.cMenTreeImportPortScan.Size = New System.Drawing.Size(213, 22)
                 Me.cMenTreeImportPortScan.Text = "Import from &Port Scan..."
                 '
                 'cMenTreeExportFile
                 '
                 Me.cMenTreeExportFile.Name = "cMenTreeExportFile"
-                Me.cMenTreeExportFile.Size = New System.Drawing.Size(225, 26)
+                Me.cMenTreeExportFile.Size = New System.Drawing.Size(190, 26)
                 Me.cMenTreeExportFile.Text = "&Export to File..."
                 '
                 'cMenTreeSep4
                 '
                 Me.cMenTreeSep4.Name = "cMenTreeSep4"
-                Me.cMenTreeSep4.Size = New System.Drawing.Size(222, 6)
+                Me.cMenTreeSep4.Size = New System.Drawing.Size(187, 6)
                 '
                 'cMenTreeAddConnection
                 '
                 Me.cMenTreeAddConnection.Image = Global.dRemote.My.Resources.Resources.Connection_Add
                 Me.cMenTreeAddConnection.Name = "cMenTreeAddConnection"
-                Me.cMenTreeAddConnection.Size = New System.Drawing.Size(225, 26)
+                Me.cMenTreeAddConnection.Size = New System.Drawing.Size(190, 26)
                 Me.cMenTreeAddConnection.Text = "New Connection"
                 '
                 'cMenTreeAddFolder
                 '
                 Me.cMenTreeAddFolder.Image = Global.dRemote.My.Resources.Resources.Folder_Add
                 Me.cMenTreeAddFolder.Name = "cMenTreeAddFolder"
-                Me.cMenTreeAddFolder.Size = New System.Drawing.Size(225, 26)
+                Me.cMenTreeAddFolder.Size = New System.Drawing.Size(190, 26)
                 Me.cMenTreeAddFolder.Text = "New Folder"
                 '
                 'ToolStripSeparator1
                 '
                 Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-                Me.ToolStripSeparator1.Size = New System.Drawing.Size(222, 6)
+                Me.ToolStripSeparator1.Size = New System.Drawing.Size(187, 6)
                 '
                 'cMenTreeToolsSort
                 '
                 Me.cMenTreeToolsSort.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cMenTreeToolsSortAscending, Me.cMenTreeToolsSortDescending})
                 Me.cMenTreeToolsSort.Name = "cMenTreeToolsSort"
-                Me.cMenTreeToolsSort.Size = New System.Drawing.Size(225, 26)
+                Me.cMenTreeToolsSort.Size = New System.Drawing.Size(190, 26)
                 Me.cMenTreeToolsSort.Text = "Sort"
                 '
                 'cMenTreeToolsSortAscending
                 '
                 Me.cMenTreeToolsSortAscending.Image = Global.dRemote.My.Resources.Resources.Sort_AZ
                 Me.cMenTreeToolsSortAscending.Name = "cMenTreeToolsSortAscending"
-                Me.cMenTreeToolsSortAscending.Size = New System.Drawing.Size(194, 26)
+                Me.cMenTreeToolsSortAscending.Size = New System.Drawing.Size(161, 26)
                 Me.cMenTreeToolsSortAscending.Text = "Ascending (A-Z)"
                 '
                 'cMenTreeToolsSortDescending
                 '
                 Me.cMenTreeToolsSortDescending.Image = Global.dRemote.My.Resources.Resources.Sort_ZA
                 Me.cMenTreeToolsSortDescending.Name = "cMenTreeToolsSortDescending"
-                Me.cMenTreeToolsSortDescending.Size = New System.Drawing.Size(194, 26)
+                Me.cMenTreeToolsSortDescending.Size = New System.Drawing.Size(161, 26)
                 Me.cMenTreeToolsSortDescending.Text = "Descending (Z-A)"
                 '
                 'cMenTreeMoveUp
@@ -324,7 +324,7 @@
                 Me.cMenTreeMoveUp.Image = Global.dRemote.My.Resources.Resources.Arrow_Up
                 Me.cMenTreeMoveUp.Name = "cMenTreeMoveUp"
                 Me.cMenTreeMoveUp.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Up), System.Windows.Forms.Keys)
-                Me.cMenTreeMoveUp.Size = New System.Drawing.Size(225, 26)
+                Me.cMenTreeMoveUp.Size = New System.Drawing.Size(190, 26)
                 Me.cMenTreeMoveUp.Text = "Move up"
                 '
                 'cMenTreeMoveDown
@@ -332,7 +332,7 @@
                 Me.cMenTreeMoveDown.Image = Global.dRemote.My.Resources.Resources.Arrow_Down
                 Me.cMenTreeMoveDown.Name = "cMenTreeMoveDown"
                 Me.cMenTreeMoveDown.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Down), System.Windows.Forms.Keys)
-                Me.cMenTreeMoveDown.Size = New System.Drawing.Size(225, 26)
+                Me.cMenTreeMoveDown.Size = New System.Drawing.Size(190, 26)
                 Me.cMenTreeMoveDown.Text = "Move down"
                 '
                 'imgListTree
@@ -373,7 +373,7 @@
                 Me.txtSearch.ForeColor = System.Drawing.SystemColors.GrayText
                 Me.txtSearch.Location = New System.Drawing.Point(19, 413)
                 Me.txtSearch.Name = "txtSearch"
-                Me.txtSearch.Size = New System.Drawing.Size(212, 16)
+                Me.txtSearch.Size = New System.Drawing.Size(212, 13)
                 Me.txtSearch.TabIndex = 30
                 Me.txtSearch.TabStop = False
                 Me.txtSearch.Text = "Search"
@@ -381,7 +381,7 @@
                 'msMain
                 '
                 Me.msMain.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-                Me.msMain.ImageScalingSize = New System.Drawing.Size(20, 20)
+                Me.msMain.ImageScalingSize = New System.Drawing.Size(15, 15)
                 Me.msMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem2, Me.cmenimport, Me.mMenView, Me.mMenSortAscending})
                 Me.msMain.Location = New System.Drawing.Point(0, 0)
                 Me.msMain.Name = "msMain"
@@ -405,7 +405,7 @@
                 '
                 Me.mMenFileNew.Image = Global.dRemote.My.Resources.Resources.Connections_New
                 Me.mMenFileNew.Name = "mMenFileNew"
-                Me.mMenFileNew.Size = New System.Drawing.Size(329, 26)
+                Me.mMenFileNew.Size = New System.Drawing.Size(265, 26)
                 Me.mMenFileNew.Text = "New Connection File"
                 '
                 'mMenFileLoad
@@ -413,7 +413,7 @@
                 Me.mMenFileLoad.Image = Global.dRemote.My.Resources.Resources.Connections_Load
                 Me.mMenFileLoad.Name = "mMenFileLoad"
                 Me.mMenFileLoad.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
-                Me.mMenFileLoad.Size = New System.Drawing.Size(329, 26)
+                Me.mMenFileLoad.Size = New System.Drawing.Size(265, 26)
                 Me.mMenFileLoad.Text = "Open Connection File..."
                 '
                 'mMenFileSave
@@ -421,7 +421,7 @@
                 Me.mMenFileSave.Image = Global.dRemote.My.Resources.Resources.Connections_Save
                 Me.mMenFileSave.Name = "mMenFileSave"
                 Me.mMenFileSave.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-                Me.mMenFileSave.Size = New System.Drawing.Size(329, 26)
+                Me.mMenFileSave.Size = New System.Drawing.Size(265, 26)
                 Me.mMenFileSave.Text = "Save Connection File"
                 '
                 'mMenFileSaveAs
@@ -430,7 +430,7 @@
                 Me.mMenFileSaveAs.Name = "mMenFileSaveAs"
                 Me.mMenFileSaveAs.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
             Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-                Me.mMenFileSaveAs.Size = New System.Drawing.Size(329, 26)
+                Me.mMenFileSaveAs.Size = New System.Drawing.Size(265, 26)
                 Me.mMenFileSaveAs.Text = "Save Connection File As..."
                 '
                 'cmenimport
@@ -448,41 +448,41 @@
                 Me.ToolStripMenuItem26.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mMenFileImportFromFile, Me.mMenFileImportFromActiveDirectory, Me.mMenFileImportFromPortScan})
                 Me.ToolStripMenuItem26.Image = Global.dRemote.My.Resources.Resources.Connection_Duplicate
                 Me.ToolStripMenuItem26.Name = "ToolStripMenuItem26"
-                Me.ToolStripMenuItem26.Size = New System.Drawing.Size(176, 26)
+                Me.ToolStripMenuItem26.Size = New System.Drawing.Size(144, 22)
                 Me.ToolStripMenuItem26.Text = "&Import"
                 '
                 'mMenFileImportFromFile
                 '
                 Me.mMenFileImportFromFile.Image = Global.dRemote.My.Resources.Resources.Connection_Duplicate
                 Me.mMenFileImportFromFile.Name = "mMenFileImportFromFile"
-                Me.mMenFileImportFromFile.Size = New System.Drawing.Size(268, 26)
+                Me.mMenFileImportFromFile.Size = New System.Drawing.Size(217, 26)
                 Me.mMenFileImportFromFile.Text = "Import from &File..."
                 '
                 'mMenFileImportFromActiveDirectory
                 '
                 Me.mMenFileImportFromActiveDirectory.Image = Global.dRemote.My.Resources.Resources.ActiveDirectory
                 Me.mMenFileImportFromActiveDirectory.Name = "mMenFileImportFromActiveDirectory"
-                Me.mMenFileImportFromActiveDirectory.Size = New System.Drawing.Size(268, 26)
+                Me.mMenFileImportFromActiveDirectory.Size = New System.Drawing.Size(217, 26)
                 Me.mMenFileImportFromActiveDirectory.Text = "Import from &Active Directory..."
                 '
                 'mMenFileImportFromPortScan
                 '
                 Me.mMenFileImportFromPortScan.Image = Global.dRemote.My.Resources.Resources.PortScan
                 Me.mMenFileImportFromPortScan.Name = "mMenFileImportFromPortScan"
-                Me.mMenFileImportFromPortScan.Size = New System.Drawing.Size(268, 26)
+                Me.mMenFileImportFromPortScan.Size = New System.Drawing.Size(217, 26)
                 Me.mMenFileImportFromPortScan.Text = "Import from &Port Scan..."
                 '
                 'mMenFileExport
                 '
                 Me.mMenFileExport.Image = Global.dRemote.My.Resources.Resources.Connections_Save
                 Me.mMenFileExport.Name = "mMenFileExport"
-                Me.mMenFileExport.Size = New System.Drawing.Size(176, 26)
+                Me.mMenFileExport.Size = New System.Drawing.Size(144, 22)
                 Me.mMenFileExport.Text = "&Export to File..."
                 '
                 'ToolStripSeparator9
                 '
                 Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
-                Me.ToolStripSeparator9.Size = New System.Drawing.Size(173, 6)
+                Me.ToolStripSeparator9.Size = New System.Drawing.Size(141, 6)
                 '
                 'mMenView
                 '
@@ -497,14 +497,14 @@
                 '
                 Me.mMenViewExpandAllFolders.Image = Global.dRemote.My.Resources.Resources.Expand
                 Me.mMenViewExpandAllFolders.Name = "mMenViewExpandAllFolders"
-                Me.mMenViewExpandAllFolders.Size = New System.Drawing.Size(201, 26)
+                Me.mMenViewExpandAllFolders.Size = New System.Drawing.Size(165, 26)
                 Me.mMenViewExpandAllFolders.Text = "Expand all folders"
                 '
                 'mMenViewCollapseAllFolders
                 '
                 Me.mMenViewCollapseAllFolders.Image = Global.dRemote.My.Resources.Resources.Collapse
                 Me.mMenViewCollapseAllFolders.Name = "mMenViewCollapseAllFolders"
-                Me.mMenViewCollapseAllFolders.Size = New System.Drawing.Size(201, 26)
+                Me.mMenViewCollapseAllFolders.Size = New System.Drawing.Size(165, 26)
                 Me.mMenViewCollapseAllFolders.Text = "Collapse all folders"
                 '
                 'mMenSortAscending
